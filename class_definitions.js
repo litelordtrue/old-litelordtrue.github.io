@@ -23,7 +23,7 @@ class group_class {
           else if (this.startdate > current_max){
             console.log(this.abbr + ", far down");
           }
-          this.x = (i+1) * (w/(processed_data.this.length+1));
+          this.x = (i+1) * (w/(processed_data.nodes.length+1));
     }
 }
 

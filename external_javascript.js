@@ -96,11 +96,11 @@ function handleDomainChange(min, max){ // this works but sort of messes up thing
 
 // functions for nodes
 function handleNodeMouseOver () {
-  d3.select(this).attr("opacity", .9).attr("fill", "mediumslateblue");
+  d3.select(this).style("opacity", .9).style("fill", "mediumslateblue");
 };
 
 function handleNodeMouseOut () {
-  d3.select(this).attr("opacity", .7).attr("fill", "ghostwhite");
+  d3.select(this).style("opacity", .7).style("fill", "ghostwhite");
 }; 
 
 function handleNodeClick(){ // this needs to do more than console.log, it needs to be a popup
@@ -145,7 +145,7 @@ function updateChart(){
   d3.select('#main_g').remove(); // delete the entire g
   var main_g = svg.append('g').attr("id", "main_g"); // recreate it
 
-  var tAxis = d3.axisLeft(tScale).ticks(Math.ceil(h/500)*12); //so there is ~12 ticks in the svg at any point
+  var tAxis = d3.axisLeft(tScale).ticks(Math.ceil(h/svg_h)*12); //so there is ~12 ticks in the svg at any point
 
   main_g.append("g")
   .attr("class", "axis")
@@ -186,9 +186,7 @@ function updateChart(){
   .attr("width", rectWidth)
   .attr("height", rectHeight)
   .attr("rx", rectWidth/20)
-  .attr("opacity", .7)
   .attr("id", function(d){ return d.id})
-  .attr("stroke", "black")
   .on("mouseover", handleNodeMouseOver)
   .on("mouseout", handleNodeMouseOut)
   .on("click", handleNodeClick);
@@ -196,16 +194,17 @@ function updateChart(){
   var nodeText = nodes
   .data(processed_data.nodes)
   .append("text")
-  .text(function(d){return d.abbr});
-
-  
+  .text(function(d){return d.abbr})
+  .attr("y", -rectHeight/4)
+  .attr("dominant-baseline", "middle")
+  .attr("text-anchor", "middle");
 
   var nodeVLines = nodes
   .data(processed_data.nodes)
   .append("line")
   .attr("x1", 0)
-  .attr("x2", 0)
   .attr("y1", rectHeight/2)
+  .attr("x2", 0)
   .attr("y2", function(d){return h - d.y}) // since the origin is the actual node position!
   .attr("class", "timeline")
   .attr("id", function(d) {return d.id + "_timeline"});

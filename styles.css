@@ -19,13 +19,16 @@ body {
     display: none;
 }
 
-.node{
-    background-color: white;
+.node rect{
+    fill: white;
+    stroke: black;
+    opacity: .7;
 }
 
-.node rect{
-    fill: blue;
+.node text{
+    font-size: 16px;
 }
+
 
 .attack{
     fill: orange;
