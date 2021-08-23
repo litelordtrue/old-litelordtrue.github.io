@@ -1,0 +1,1063 @@
+{
+    "Map": {
+        "id": "27",
+        "url": "philippines",
+        "name": "Philippines",
+        "description": "This map displays the relationships among Islamic separatist groups and Communist groups, the two main types of militant organizations in the Philippines. The map extends from the 1960s to the present, and it illustrates the durability of the country's major militant groups as well as the tendency for splinter groups to emerge.",
+        "startyear": "1965",
+        "endyear": "2015",
+        "published": "1",
+        "group_id": "3"
+    },
+    "Zoom": [{ "id": "749", "level": "0", "name": "Default", "map_id": "27" }],
+    "links": [
+        {
+            "Link": {
+                "id": "603",
+                "type": "spl",
+                "group1": "379",
+                "group2": "309",
+                "date": "1977-00-00",
+                "description": "The Moro Islamic Liberation Front (MILF) began as the New MNLF, a splinter group of the Moro National Liberation Front (MNLF) that broke away in December 1977. Hashim Salamat, an MNLF co-founder, established the group after failing to take control of the MNLF from fellow co-founder Nur Misuari. The New MNLF renamed itself as the MILF in 1984."
+            }
+        },
+        {
+            "Link": {
+                "id": "1477",
+                "type": "spl",
+                "group1": "149",
+                "group2": "599",
+                "date": "1992-00-00",
+                "description": "The Alex Boncayao Brigade (ABB) was first established as the Manila urban guerrilla force of the Communist Party of the Philippines\u2013New People's Army (CPP-NPA) in the mid-1980s. Sometime in the early 1990s, the ABB officially split from the CPP-NPA because of ideological and tactical disagreements. The exact year of the ABB's split is unclear."
+            }
+        },
+        {
+            "Link": {
+                "id": "871",
+                "type": "spl",
+                "group1": "379",
+                "group2": "152",
+                "date": "1991-00-00",
+                "description": "The Abu Sayyaf Group (ASG) was founded in 1991 by Abdurajak Abubakar Janjalani, a Moro National Liberation Front (MNLF) member who believed in a more radical way of pursuing an independent Islamic state than did the MNLF leadership. Janjalani recruited other disappointed MNLF members into what would become the ASG."
+            }
+        },
+        {
+            "Link": {
+                "id": "1489",
+                "type": "spl",
+                "group1": "309",
+                "group2": "601",
+                "date": "2010-12-00",
+                "description": "The Bangsamoro Islamic Freedom Fighters (BIFF) emerged in December 2010 as a splinter group of the Moro Islamic Liberation Front (MILF). The BIFF was founded by Ameril Umbra Kato, a MILF commander who broke away from the MILF because of ideological and tactical disagreements with the group's leadership."
+            }
+        },
+        {
+            "Link": {
+                "id": "1491",
+                "type": "spl",
+                "group1": "601",
+                "group2": "603",
+                "date": "2013-11-00",
+                "description": "The Justice for Islamic Movement (JIM) was established as a splinter group of the Bangsamoro Islamic Freedom Fighters (BIFF) in December 2014. Mohammad Ali Tambako founded the JIM when he left or was ousted from the BIFF in 2013, after conducting an attack against a Christian community."
+            }
+        },
+        {
+            "Link": {
+                "id": "1493",
+                "type": "all",
+                "group1": "379",
+                "group2": "601",
+                "date": "2014-02-00",
+                "description": "The Moro National Liberation Front (MNLF) announced an alliance with the Bangsamoro Islamic Freedom Fighters (BIFF) in February 2014. Both groups oppose peace negotiations between the Philippine government and the Moro Islamic Liberation Front (MILF)."
+            }
+        },
+        {
+            "Link": {
+                "id": "1497",
+                "type": "all",
+                "group1": "601",
+                "group2": "603",
+                "date": "2015-03-00",
+                "description": "The Bangsamoro Islamic Freedom Fighters (BIFF) and the Justice Islamic Movement (JIM) may have formed an alliance in March 2015. Whether or not a formal alliance exists, the two groups have cooperated and fought alongside each other in the past."
+            }
+        },
+        {
+            "Link": {
+                "id": "1501",
+                "type": "all",
+                "group1": "599",
+                "group2": "605",
+                "date": "1997-00-00",
+                "description": "The Revolutionary Proletarian Army (RPA) and the Alex Boncayao Brigade (ABB) created a formal alliance in 1997 and are sometimes referred to together as the RPA-ABB. The two groups formed a political wing called Rebolusyonaryong Partido ng Manggagawa ng Pilipinas (RPM-P), for which they serve as the armed wing."
+            }
+        },
+        {
+            "Link": {
+                "id": "1523",
+                "type": "spl",
+                "group1": "149",
+                "group2": "605",
+                "date": "1992-00-00",
+                "description": "Sometime in the early 1990s, the Revolutionary Proletarian Army (RPA) formed as a splinter group of the Communist Party of the Philippines-New People's Army (CPP-NPA) because of ideological and tactical disagreements within the CPP-NPA. The exact year of the RPA's split is unclear."
+            }
+        },
+        {
+            "Link": {
+                "id": "1525",
+                "type": "riv",
+                "group1": "379",
+                "group2": "152",
+                "date": "2013-02-09",
+                "description": "After especially violent clashes between the Moro National Liberation Front (MNLF) and the Abu Sayyaf Group (ASG), MNLF leader Nur Misuari announced that his group would no longer tolerate ASG activities in the Philippines' Sulu province and planned to eliminate the ASG from the area."
+            }
+        },
+        {
+            "Link": {
+                "id": "1521",
+                "type": "riv",
+                "group1": "149",
+                "group2": "599",
+                "date": "1993-00-00",
+                "description": "The relationship between the Alex Boncayao Brigade (ABB) and the Communist Party of the Philippines-New People's Army (CPP-NPA) has been hostile, with clashes between the two groups since the former broke away from the latter in the early 1990s."
+            }
+        },
+        {
+            "Link": {
+                "id": "1529",
+                "type": "all",
+                "group1": "379",
+                "group2": "309",
+                "date": "2014-10-14",
+                "description": "The Moro National Liberation Front (MNLF) and the Moro Islamic Liberation Front (MILF) signed an agreement establishing the Bangsamoro Coordination Forum (BCF), an attempt to coordinate MNLF-MILF efforts in promoting the welfare of Filipino Muslims. The agreement was signed under the auspices of the Organization of Islamic Cooperation (OIC)."
+            }
+        },
+        {
+            "Link": {
+                "id": "1531",
+                "type": "riv",
+                "group1": "379",
+                "group2": "309",
+                "date": "2013-05-16",
+                "description": "Moro National Liberation Front (MNLF) members and Moro Islamic Liberation Front (MILF) members clashed in the province of Cotabato. Fighting between the MNLF and the MILF erupted sporadically throughout 2013."
+            }
+        },
+        {
+            "Link": {
+                "id": "1533",
+                "type": "all",
+                "group1": "379",
+                "group2": "152",
+                "date": "2015-08-00",
+                "description": "Members of the Moro National Liberation Front (MNLF) allegedly joined the Abu Sayyaf Group (ASG) in a clash with Philippine forces in Indanan, Sulu."
+            }
+        },
+        {
+            "Link": {
+                "id": "1535",
+                "type": "all",
+                "group1": "309",
+                "group2": "601",
+                "date": "2015-01-25",
+                "description": "Moro Islamic Liberation Front (MILF) members and Bangsamoro Islamic Freedom Fighters (BIFF) members were involved in an attack on Philippine forces that killed forty-four government troops. The troops were conducting a military operation in an area of Maguindanao dominated by the MILF and the BIFF."
+            }
+        },
+        {
+            "Link": {
+                "id": "1537",
+                "type": "riv",
+                "group1": "152",
+                "group2": "309",
+                "date": "2015-02-08",
+                "description": "The Abu Sayyaf Group (ASG) attacked members of the Moro Islamic Liberation Front (MILF) on the island of Basilan. Government forces rescued the MILF members from the siege."
+            }
+        },
+        {
+            "Link": {
+                "id": "1539",
+                "type": "all",
+                "group1": "152",
+                "group2": "309",
+                "date": "2005-01-00",
+                "description": "A group that included one hundred Moro Islamic Liberation Front (MILF) fighters and some Abu Sayyaf Group (ASG) fighters attacked Philippine forces in the province of Maguindanao. The attack resulted in the deaths of twenty-three government soldiers."
+            }
+        }
+    ],
+    "umbrellas": [],
+    "groups": [
+        {
+            "Group": {
+                "id": "149",
+                "name": "Communist Party of the Philippines\u2013New People's Army",
+                "shortname": "CPP-NPA",
+                "startdate": "1968-12-26",
+                "enddate": "0000-00-00",
+                "description": "The Communist Party of the Philippines\u2013New People\u2019s Army (CPP-NPA) seeks to overthrow the Philippine government in favor of a new state led by the working class and to expel U.S. influence from the Philippines. The Communist Party of the Philippines (CPP) was founded in 1968, and its armed wing, the New People\u2019s Army (NPA), was founded in 1969; because they are so closely intertwined, they are often referred to as the CPP-NPA. The CPP-NPA has historically focused on building support among the rural peasantry, although it has operated throughout the Philippines. While it peaked in size and influence in the 1970s and 1980s, the CPP-NPA still engages in significant levels of violence and is the world\u2019s oldest existing Communist insurgency.",
+                "dummy": "0",
+                "min_zoom": "0",
+                "max_zoom": "0",
+                "active": true
+            },
+            "Attack": [
+                {
+                    "id": "1663",
+                    "description": "CPP-NPA operatives assassinated Colonel James Rowe, who led a U.S. Army division providing military assistance to the Philippine government. ",
+                    "date": "1989-04-21",
+                    "casualties": "1 killed, 1 wounded",
+                    "source": "{{\u201cToday marks 22nd anniversary of McAllen war hero\u2019s assassination.\u201d The Monitor, 21 Apr. 2011. Web. 11 Aug. 2015.}} {{\u201cRebels Admit Slaying of U.S. Colonel.\u201d The Inquirer, 23 Apr. 1989. Web. 11 Aug. 2015.}}",
+                    "group_id": "149"
+                },
+                {
+                    "id": "1661",
+                    "description": "Three members of the CPP-NPA threw four grenades onto the stage of a Liberal Party rally in Manila\u2019s Plaza Miranda. Then-President Ferdinand Marcos was initially blamed for the attack, which had killed much of his opposition.",
+                    "date": "1971-08-21",
+                    "casualties": "9 killed, 95 wounded",
+                    "source": "{{Tiglao, Rigoberto. \u201cDays of Shame: August 21, 1971 and 1983.\u201d The Manila Times, 20 Aug. 2013. Web. 11 Aug. 2015.}} {{Jones, Gregg. \u201cExCommunists Party Behind Manila Bombing.\u201d The Washington Post, 4 Aug. 1989. Web. 11 Aug. 2015}}",
+                    "group_id": "149"
+                },
+                {
+                    "id": "1665",
+                    "description": "Approximately forty CPP-NPA fighters ambushed a police vehicle outside the city of Catarman, using two improvised explosive devices and gunfire, killing all occupants. ",
+                    "date": "2010-08-21",
+                    "casualties": "8 killed, 0 wounded",
+                    "source": "{{Desecada, Miriam. \u201c8 police officers killed by rebels in Northern Samar ambush.\u201d Philstar, 22 Aug. 2010. Web. 11 Aug. 2015.}}",
+                    "group_id": "149"
+                },
+                {
+                    "id": "1667",
+                    "description": "Approximately thirty CPP-NPA fighters kidnapped Henry Dano\u2014mayor of Lingig, Surigao del Sur\u2014and two of his bodyguards. The CPP-NPA released the captives in October after Dano publicly apologized for his alleged human rights violations.",
+                    "date": "2011-08-06",
+                    "casualties": "0 killed, 0 wounded.",
+                    "source": "{{\u201cNPA frees mayor, aides.\u201d Inquirer, 9 Oct. 2011. Web. 11 Aug. 2015.}}",
+                    "group_id": "149"
+                },
+                {
+                    "id": "1679",
+                    "description": "Three CPP-NPA units, totaling approximately two hundred fighters, attacked three mining companies in Surigao del Norte. The targeted companies allegedly had not paid the so-called revolutionary taxes to the CPP-NPA. CPP-NPA fighters took four hostages, who were released shortly, and caused around $1 billion in damage. ",
+                    "date": "2011-10-03",
+                    "casualties": "~3-4 killed, unknown wounded",
+                    "source": "{{\u201cNPA rebels attack 3 mining firms in Surigao del Norte.\u201d GMA News, 3 Oct. 2011. Web. 11 Aug. 2015.}} {{Gallardo, Froilan. \u201cNPA rebels attack 3 mining firms in Surigao Norte.\u201d MindaNews, 3 Oct. 2011. Web. 11 Aug. 2015.}} {{Dizon, David. \u201cExtortion behind",
+                    "group_id": "149"
+                },
+                {
+                    "id": "1681",
+                    "description": "Approximately thirty CPP-NPA fighters fired on a truck carrying policemen and civilians in the town of La Castellana.",
+                    "date": "2013-01-27",
+                    "casualties": "9 killed, 12 wounded",
+                    "source": "{{\u201cNew People\u2019s Army rebels admit perpetrating Negros massacre.\u201d GMA News, 4 Feb. 2013. Web. 11 Aug. 2015.}}",
+                    "group_id": "149"
+                }
+            ],
+            "Leader": [
+                {
+                    "id": "983",
+                    "name": "Jose Maria Sison",
+                    "startdate": "1969-00-00",
+                    "enddate": "0001-00-00",
+                    "description": "Sison, who has written under the names Amado Guerrero and Armando Liwanag, serves as the NDF\u2019s chief political consultant. He founded the CPP and, with Bernab\u00e9 Buscayno, the NPA. He also helped found the NDF. Sison served as the CPP-NPA\u2019s first chairman and continues to play an influential role in the strategic direction of the CPP-NPA and the NDF from his self-exile in the Netherlands, where he has lived since 1986. Beginning in the late 2000s, Sison showed greater inclination for allowing the CPP-NPA to engage in peace negotiations and electoral politics as temporary support-building measures within the context of armed struggle.",
+                    "source": "{{Abinales, P.N. \u201cJose Maria Sison and the Philippine Revolution: A Critique of an Interface.\u201d Kasarinlan: Philippine Journal of Third World Studies 8.1 (1992). Web. 11 Aug. 2015.}} {{Santos, Jr., Soliman M., and Paz Verdades M. Santos. Primed and Purpose",
+                    "group_id": "149"
+                },
+                {
+                    "id": "985",
+                    "name": "Bernab\u00e9 Buscayno",
+                    "startdate": "1969-00-00",
+                    "enddate": "1976-00-00",
+                    "description": "Buscayno, also known as Kumander Dante, founded the NPA with Sison and served as its first commander. He was captured and jailed by government forces in 1976. He was released by then-President Corazon Aquino in 1987, but he entered legal politics instead of returning to the CPP-NPA.",
+                    "source": "{{Datinguinoo, Vinia M. \u201cBernabe \u2018Kumander Dante\u2019 Buscayno.\u201d Philippine Center for Investigative Journalism, 2 Feb. 2006. Web. 11 Aug. 2015.}}",
+                    "group_id": "149"
+                },
+                {
+                    "id": "987",
+                    "name": "Rodolfo Salas",
+                    "startdate": "1976-00-00",
+                    "enddate": "1986-00-00",
+                    "description": "Salas, also known as Kumander Bilog, became NPA commander after Buscayno\u2019s capture in 1976. He additionally became CPP chairman after Sison\u2019s capture in 1977. He was arrested in 1986 and released in 1992, after which he decided not to return to the CPP-NPA.",
+                    "source": "{{Santos, Jr., Soliman M., and Paz Verdades M. Santos. Primed and Purposeful: Armed Groups and Human Security Efforts in the Philippines. Geneva: Small Arms Survey, April 2010. Print.}} {{Cervantes, Ding. \u201cMabalacat mayor padlocks power coop; Kumander Bil",
+                    "group_id": "149"
+                },
+                {
+                    "id": "989",
+                    "name": "Romulo Kintanar",
+                    "startdate": "0000-00-00",
+                    "enddate": "0000-00-00",
+                    "description": "Kintanar, sometimes called Rolly, served as NPA commander for some time in the 1980s. He was active in developing the group\u2019s fighting tactics, including urban assassination as well as conventional attacks through the regularization of units. Sison criticized him for the latter approach. Kintanar was arrested several times, and after his 1992 release, he did not return to the CPP-NPA.",
+                    "source": "{{Branigin, William. \u201cPhilippine Police Catch Top Rebel.\u201d The Washington Post, 6 Aug. 1991. Web. 11 Aug. 2015.}} {{Deane, Daniela. \u201cRomula \u2018Rolly\u2019 Kintanar, the powerful commander of the communist\u2026.\u201d United Press International, 30 Mar. 1988. Web. 11 Aug. ",
+                    "group_id": "149"
+                },
+                {
+                    "id": "991",
+                    "name": "Benito Tiamzon",
+                    "startdate": "0000-00-00",
+                    "enddate": "0000-00-00",
+                    "description": "Benito served as the nominal CPP chairman and NPA commander. His wife is Wilma Tiamzon, another important CPP-NPA figure. Benito has played a leading role within the CPP-NPA since at least the early 1990s, when he and Wilma joined Sison in leading the reaffirmist movement. Beginning in the 1990s, the Tiamzons have overseen the CPP-NPA from within the Philippines. However, the Tiamzons and Sison began to disagree about the movement\u2019s strategy in the 2000s. The Tiamzons continue to oppose engagement in peace negotiations and electoral politics except when such engagement directly contributes to the armed struggle. On March 22, 2014, the Tiamzons were arrested. They remain in custody, although the CPP-NPA assert that their detention is illegal under the JASIG. An NDF spokesman noted that the CPP-NPA has likely already replaced Tiamzon as chairman, but this statement has not been confirmed. ",
+                    "source": "{{\u201cThe Communist Insurgency in the Philippines: Tactics and Talks.\u201d International Crisis Group, 14 Feb. 2011. Web. 11 Aug. 2015.}} {{Gloria, Glenda M. \u201cBenito Tiamzon: Writer, organizer, party man.\u201d Rappler, 23 Mar. 2014. Web. 11 Aug. 2015.}} {{Panares, J",
+                    "group_id": "149"
+                },
+                {
+                    "id": "993",
+                    "name": "Wilma Tiamzon",
+                    "startdate": "0000-00-00",
+                    "enddate": "2014-00-00",
+                    "description": "Wilma served as the CPP-NPA\u2019s secretary general and a member of the CPP-NPA\u2019s central executive committee. Her husband is Benito Tiamzon, another important CPP-NPA figure. Wilma has played a leading role within the CPP-NPA since at least the early 1990s, when she and Benito joined Sison in leading the reaffirmist movement. Beginning in the 1990s, the Tiamzons have overseen the CPP-NPA from within the Philippines. However, the Tiamzons and Sison began to disagree about the movement\u2019s strategy in the 2000s. The Tiamzons continue to oppose engagement in peace negotiations and electoral politics except when such engagement directly contributes to the armed struggle. On March 22, 2014, the Tiamzons were arrested. They remain in custody, although the CPP-NPA assert that their detention is illegal under the JASIG. ",
+                    "source": "{{Romero, Alexis. \u201cThe communists\u2019 power couple.\u201d Philstar, 24 Mar. 2014. Web. 11 Aug. 2015.}} {{Santos, Jr., Soliman M., and Paz Verdades M. Santos. Primed and Purposeful: Armed Groups and Human Security Efforts in the Philippines. Geneva: Small Arms Sur",
+                    "group_id": "149"
+                },
+                {
+                    "id": "995",
+                    "name": "Adelberto Silva",
+                    "startdate": "2014-00-00",
+                    "enddate": "0000-00-00",
+                    "description": "Silva allegedly succeeded Wilma Tiamzon as the CPP-NPA\u2019s secretary general after her 2014 arrest. He also led the CPP-NPA\u2019s National Organization Department and served as an NDF peace consultant. Silva was arrested in 2015, after which his leadership status has remained unclear. ",
+                    "source": "{{Romero, Alexis. \u201cSecond-highest CPP-NPA leader, two others nabbed in Cavite.\u201d Philstar, 2 June 2015. Web. 11 Aug. 2015.}} {{Ong, Czarina Nicole O. \u201cAFP Offers statement on Arrest of Adelberto Silva.\u201d Manila Bulletin, 4 June 2015. Web. 11 Aug. 2015.}}",
+                    "group_id": "149"
+                }
+            ],
+            "Listing": [
+                { "id": "207", "group_id": "149", "orglist_id": "1", "date": "2002-08-09", "enddate": "0001-00-00" },
+                { "id": "209", "group_id": "149", "orglist_id": "2", "date": "2002-10-28", "enddate": "0001-00-00" }
+            ],
+            "NameChange": [],
+            "Size": [
+                {
+                    "id": "491",
+                    "size": "60",
+                    "date": "1969-00-00",
+                    "source": "Encyclopedia of the Developing World",
+                    "citation": "{{Leonard, Thomas M. Encyclopedia of the Developing World, Volume 1: A-E, Index. New York: Taylor & Francis Group, 2006. Print.}}",
+                    "group_id": "149"
+                },
+                {
+                    "id": "493",
+                    "size": "25,200",
+                    "date": "1987-00-00",
+                    "source": "Armed Forces of the Philippines",
+                    "citation": "{{Santos, Jr., Soliman M., and Paz Verdades M. Santos. Primed and Purposeful: Armed Groups and Human Security Efforts in the Philippines. Geneva: Small Arms Survey, April 2010. Print.}}",
+                    "group_id": "149"
+                },
+                {
+                    "id": "495",
+                    "size": "6,000",
+                    "date": "1994-00-00",
+                    "source": "International Crisis Group",
+                    "citation": "{{\u201cThe Communist Insurgency in the Philippines: Tactics and Talks.\u201d International Crisis Group, 14 Feb. 2011. Web. 11 Aug. 2015.}}",
+                    "group_id": "149"
+                },
+                {
+                    "id": "497",
+                    "size": "4,874",
+                    "date": "2009-00-00",
+                    "source": "Armed Forces of the Philippines",
+                    "citation": "{{Chalk, Peter. \u201cThe Philippines\u2019 Continued Success Against Extremists.\u201d CTC Sentinel 2.8 (Aug. 2009). Web. 11 Aug. 2015.}}",
+                    "group_id": "149"
+                }
+            ],
+            "Region": [],
+            "Subregion": [],
+            "Ideology": [
+                { "id": "20", "name": "Maoist", "GroupsIdeology": { "id": "64197", "group_id": "149", "ideology_id": "20" } },
+                { "id": "39", "name": "Marxist-Leninist", "GroupsIdeology": { "id": "64199", "group_id": "149", "ideology_id": "39" } }
+            ]
+        },
+        {
+            "Group": {
+                "id": "599",
+                "name": "Alex Boncayao Brigade",
+                "shortname": "ABB",
+                "startdate": "1992-00-00",
+                "enddate": "0000-00-00",
+                "description": "The Alex Boncayao Brigade (ABB) is a Communist militant organization that emerged in the early 1990s as a splinter group of the Communist Party of the Philippines\u2014New People\u2019s Army (CPP-NPA). It seeks to lead a revolutionary, mass-based movement to oust the Philippine government. The ABB was originally established on April 6, 1986 to serve as the CPP-NPA\u2019s guerilla force in Manila. ABB attacks killed more than two hundred people, including government employees and business owners, between the group\u2019s establishment and its split from the CPP-NPA. In the early 1990s, after a major rift within the CPP-NPA over tactics and ideology, the ABB left its parent organization. In 1997, it allied with the Revolutionary Proletarian Army (RPA), another CPP-NPA splinter group, and formed a political wing called Rebolusyonaryong Partido ng Manggagawa ng Pilipinas (RPM-P). In December 2000, the RPM-P signed a peace agreement with the Philippine government, and it has put forward candidates for elected office. The ABB, in collaboration with the RPA, continues to operate as the RPM-P\u2019s militant wing, although it claims to operate as a self-defense force and to prioritize mass-based politics over armed struggle. The U.S. State Department has included the ABB on its Terrorist Exclusion List since December 2001.",
+                "dummy": "1",
+                "min_zoom": "0",
+                "max_zoom": "0",
+                "active": true
+            },
+            "Attack": [],
+            "Leader": [],
+            "Listing": [],
+            "NameChange": [],
+            "Size": [],
+            "Region": [],
+            "Subregion": [],
+            "Ideology": []
+        },
+        {
+            "Group": {
+                "id": "605",
+                "name": "Revolutionary Proletarian Army",
+                "shortname": "RPA",
+                "startdate": "1992-00-00",
+                "enddate": "0000-00-00",
+                "description": "The Revolutionary Proletarian Army (RPA) is a Communist militant organization that emerged in the 1990s as a splinter group of the Communist Party of the Philippines\u2014New People\u2019s Army (CPP-NPA). The RPA was one of several splinter groups formed after a major rift in the early 1990s within the CPP-NPA, which occurred because of disagreements over tactics and ideology. The RPA\u2019s exact origins, goals, and early activities are unclear. In 1997, it allied with the Alex Boncayao Brigade (ABB), another CPP-NPA splinter group, and formed a political wing called Rebolusyonaryong Partido ng Manggagawa ng Pilipinas (RPM-P). In December 2000, the RPM-P signed a peace agreement with the Philippine government, and it has put forward candidates for elected office. The RPA, in collaboration with the ABB, continues to operate as the RPM-P\u2019s militant wing. The name \u201cRPA-ABB\u201d is often used to refer to both groups as a single entity because of their close alliance. However, while the ABB has been listed on the U.S. State Department\u2019s Terrorist Exclusion List since December 2001, the RPA has not been included on that list.",
+                "dummy": "1",
+                "min_zoom": "0",
+                "max_zoom": "0",
+                "active": true
+            },
+            "Attack": [],
+            "Leader": [],
+            "Listing": [],
+            "NameChange": [],
+            "Size": [],
+            "Region": [],
+            "Subregion": [],
+            "Ideology": []
+        },
+        {
+            "Group": {
+                "id": "379",
+                "name": "Moro National Liberation Front",
+                "shortname": "MNLF",
+                "startdate": "1972-00-00",
+                "enddate": "0000-00-00",
+                "description": "The Moro National Liberation Front (MNLF) is an Islamic separatist organization based in the southern Philippines that seeks autonomy for Filipino Muslims, called Moros. The MNLF was established in 1972, and it led the Moro separatist movement until the 1996 Final Peace Agreement between the MNLF and the Philippine government. Since 1996, the MNLF has been surpassed in strength and influence by its rival group, the Moro Islamic Liberation Front (MILF), which began its own peace talks with the Philippine government. Today, the MNLF consists of many factions, some of which support current negotiations between the Philippine government and the MILF.",
+                "dummy": "0",
+                "min_zoom": "0",
+                "max_zoom": "0",
+                "active": true
+            },
+            "Attack": [
+                {
+                    "id": "1465",
+                    "description": "The MNLF entered Jolo, the capital of Sulu, and reportedly tried to declare Mindanao\u2019s independence for the first time. The group allegedly attacked Jolo and held it for days before the Philippine military retook the city. The Battle of Jolo devastated the city, although reports differ over whether the MNLF or government forces were mostly responsible for the destruction.",
+                    "date": "1974-02-07",
+                    "casualties": "unknown killed, unknown wounded",
+                    "source": "{{\u201cRevisiting the February 7-8, 1974 Burning of Jolo.\u201d Moro National Liberation Front. Web. 27 July 2015.}} {{Philippine News Agency. \u201cWar in Mindanao cost P2.013 trillion.\u201d Manila Bulletin, 2 Apr. 2015. Web. 27 July 2015.}} {{Moya, George P. \u201cMuslim migr",
+                    "group_id": "379"
+                },
+                {
+                    "id": "1463",
+                    "description": "MNLF operatives launched an attack on various targets in Marawi City, including the Philippine Constabulary, a government radio station, and a state university. This attack, conducted in response to then-President Ferdinand Marcos\u2019 declaration of martial law, is generally considered the beginning of the MNLF\u2019s armed uprising against the Philippine state.",
+                    "date": "1972-10-21",
+                    "casualties": "unknown killed, unknown wounded",
+                    "source": "{{Leifer, Michael. Dictionary of the Modern Politics of Southeast Asia. 3rd ed. New York: Routledge, 2001. Print.}} {{Unson, John. \u201c17 years to a peace deal.\u201d Philstar, 28 Mar. 2014. Web. 27 July 2015.}}",
+                    "group_id": "379"
+                },
+                {
+                    "id": "1467",
+                    "description": "An MNLF commander invited a Philippine military general to a market in Patikul under the pretense of a ceasefire meeting. MNLF forces then ambushed the general and his men. ",
+                    "date": "1977-10-10",
+                    "casualties": "34 killed, unknown wounded",
+                    "source": "{{\u201cMost violent encounters between gov\u2019t forces and rebels.\u201d Inquirer, 27 Jan. 2015. Web. 3 Aug. 2015}} ",
+                    "group_id": "379"
+                },
+                {
+                    "id": "1469",
+                    "description": "Misuari\u2019s followers attacked multiple Philippine military camps on the island of Jolo, allegedly to undermine ARMM elections in which Misuari was expected to lose.",
+                    "date": "2001-11-19",
+                    "casualties": "111+ killed, unknown wounded",
+                    "source": "{{\u201cThe Jolo conundrum.\u201d The Economist, 22 Nov. 2001. Web. 3 Aug. 2015.}} {{Santos, Jr., Reynaldo, and Mica Romulo. \u201cLIST: MNLF\u2019s 5 major attacks.\u201d Rappler, 9 Sept. 2013. Web. 27 July 2015.}}",
+                    "group_id": "379"
+                },
+                {
+                    "id": "1471",
+                    "description": "Forces from Nur Misuari\u2019s MNLF faction entered Zamboanga City, attacking government forces and ultimately taking about 300 civilian hostages. Fighting lasted until September 28.",
+                    "date": "2013-09-09",
+                    "casualties": "6+ killed, 24 wounded",
+                    "source": "{{Medina, Andrei. \u201cTimeline: Crisis in Zamboanga City.\u201d GMA News, 10 Sept. 2013. Web. 27 July 2015.}} {{\u201cZamboanga clash kills 6, shuts down city.\u201d Sunstar, 9 Sept. 2013. Web. 27 July 2015.}} {{Fonbuena, Carmela. \u201c6 killed, 24 hurt in Zamboanga clashes.\u201d ",
+                    "group_id": "379"
+                }
+            ],
+            "Leader": [
+                {
+                    "id": "867",
+                    "name": "Nur Misuari",
+                    "startdate": "1972-00-00",
+                    "enddate": "0001-00-00",
+                    "description": "Misuari is the MNLF\u2019s founding chairman and leads one of the organization\u2019s current factions. During his term as ARMM governor, between 1996 and 2001, Misuari was heavily criticized for political and financial mismanagement by government officials and MNLF members, leading to the formation of factions like Muslimin Sema\u2019s Executive Council of 15 (EC-15). After the 2013 Zamboanga City Crisis and warrant for his arrest, Misuari has been in hiding. However, he continues to hold an influential position among some of the factions, three of which chose him in 2014 as their representative for any future talks with the government. He strongly opposes MILF-Philippine government talks.",
+                    "source": "{{Usman, Edd K. \u201cFour MNLF groups divided on BBL.\u201d Manila Bulletin, 20 May 2015. Web. 27 July 2015.}} {{Unson, John. \u201cNur Misuari as leader of the ARMM and MNLF.\u201d Philstar, 11 Sept. 2013. Web. 27 July 2015.}}{{Usman, Edd K. \u201cMisuari convenes 2-day meeting",
+                    "group_id": "379"
+                },
+                {
+                    "id": "869",
+                    "name": "Dimas Pundato",
+                    "startdate": "1982-00-00",
+                    "enddate": "0000-00-00",
+                    "description": "Pundato established an MNLF faction called the Moro National Liberation Front-Reformist Group (MNLF-RG) in 1982, after Misuari refused to enact his reform proposals. While the MNLF under Misuari was demanding independence at the time, Pundato and his MNLF-RG supporters demanded autonomy instead. Supported by Saudi Arabia and Malaysia, Pundato ultimately wanted to create a Shariah-based society in the southern Philippines. Headquartered in Malaysia, the MNLF-RG seems to have been short-lived, although there is little information on the group or its founder.",
+                    "source": "{{Bale, Jeffrey M. \u201cThe Abu Sayyaf Group in its Philippine and International Contexts.\u201d Middlebury Institute of International Studies at Monterey.}} {{Tan, Andrew. \u201cThe Indigenous Roots of Conflict in Southeast Asia: The Case of Mindanao.\u201d After Bali: The",
+                    "group_id": "379"
+                },
+                {
+                    "id": "871",
+                    "name": "Muslimin Sema",
+                    "startdate": "2001-00-00",
+                    "enddate": "0001-00-00",
+                    "description": "Sema leads an anti-Misuari faction called the Executive Council of 15 (EC-15), which was established by fifteen dissatisfied MNLF members in 2001. The EC-15 emerged as an MNLF faction rather than an independent group, and for an unknown period of time, the Philippine government formally recognized the EC-15\u2014sometimes called the Council of 15\u2014as the official leadership of the MNLF. Previously, Sema served as the MNLF\u2019s secretary general and, later, mayor of Cotabato City. In addition to chairing an MNLF faction, Sema is currently serving as Cotabato City\u2019s vice mayor. ",
+                    "source": "{{Santos, Jr., Soliman M., and Paz Verdades M. Santos. Primed and Purposeful: Armed Groups and Human Security Efforts in the Philippines. Geneva: Small Arms Survey, April 2010. Print.}} {{\u201cCotabato City vice mayor says politics behind ambush.\u201d Inquirer, 1",
+                    "group_id": "379"
+                },
+                {
+                    "id": "873",
+                    "name": "Hatimil Hassan",
+                    "startdate": "2001-00-00",
+                    "enddate": "0001-00-00",
+                    "description": "Hassan is a leading figure within the Executive Council of 15 (EC-15), a faction of the MNLF. Although he is sometimes identified as the EC-15\u2019s main leader, he is generally considered only its nominal leader, as real power reportedly resides with Muslimin Sema. Before helping form the EC-15, Hassan had previously served as the MNLF\u2019s vice chairman.",
+                    "source": "{{Santos, Jr., Soliman M., and Paz Verdades M. Santos. Primed and Purposeful: Armed Groups and Human Security Efforts in the Philippines. Geneva: Small Arms Survey, April 2010. Print.}}",
+                    "group_id": "379"
+                },
+                {
+                    "id": "875",
+                    "name": "Abul Khayr Alonto",
+                    "startdate": "2014-00-00",
+                    "enddate": "0001-00-00",
+                    "description": "Alonto is generally recognized as the MNLF\u2019s official chairman after the Misuari faction\u2019s attack in Zamboanga City in 2013. The MNLF Central Committee allegedly ousted Misuari on February 10, 2014, a move supported by the OIC, and elected Alonto as chairman. Alonto had previously served as the MNLF\u2019s first vice chairman before leaving the organization for a time in 1978 because of opposition to Misuari\u2019s policies.",
+                    "source": "{{\u201cMNLF reorganized with Alonto as new chair; Misuari out.\u201d Inquirer, 17 Mar. 2014. Web. 27 July 2015.}} {{Legaspi, Amita O. \u201c\u2018New MNLF leader\u2019 supports Bangsamoro pact between govt, MILF.\u201d GMA News, 24 Mar. 2014. Web. 27 July 2015.}} {{Bale, Jeffrey M. \u201c",
+                    "group_id": "379"
+                },
+                {
+                    "id": "877",
+                    "name": "Habib Mujahab Hashim",
+                    "startdate": "0000-00-00",
+                    "enddate": "0001-00-00",
+                    "description": "Hashim currently leads the MNLF\u2019s Islamic Command Council (MNLF-ICC), which emerged as a faction of the MNLF in the late 1980s. Hashim was the MNLF\u2019s head negotiator with the government between 1986 and 1987, and in the early 2000s, he served in government offices dealing with Moro affairs. Hashim strongly opposes MILF-Philippine government peace talks, insisting instead on the proper implementation of the 1996 agreement. ",
+                    "source": "{{Santos, Jr., Soliman M., and Paz Verdades M. Santos. Primed and Purposeful: Armed Groups and Human Security Efforts in the Philippines. Geneva: Small Arms Survey, April 2010. Print.}} {{Vanzi, Sol Jose. \u201c4 MNLF Misuari Factions Reunite.\u201d Philippine Head",
+                    "group_id": "379"
+                },
+                {
+                    "id": "879",
+                    "name": "Hadja Bainon Karon",
+                    "startdate": "0000-00-00",
+                    "enddate": "0001-00-00",
+                    "description": "Karon is the long-time chair of the MNLF\u2019s Women\u2019s Committee, and she served as the ARMM\u2019s acting vice governor in the late 2000s or early 2010s. Karon has expressed support for the MILF-Philippine government peace negotiations.",
+                    "source": "{{\u201cBainon G. Karon\u2014Cotabato City.\u201d Ramon Aboitiz Foundation Inc. Triennial Awards. Web. 3 Aug. 2015.}} {{\u201cMNLF official appeals for support for peace deal.\u201d Philstar, 14 Oct. 2012. Web. 3 Aug. 2015.}} ",
+                    "group_id": "379"
+                },
+                {
+                    "id": "881",
+                    "name": "Alvarez Isnaji",
+                    "startdate": "0000-00-00",
+                    "enddate": "0000-00-00",
+                    "description": "Around the 1990s or early 2000s, Isnaji established the Isnaji Group, a faction within the MNLF. There is little information regarding this group, which may have been disbanded in 2001. Previously, Isnaji held a high-ranking military position in the MNLF. In 2008, he was arrested for his alleged role in a kidnapping while serving as mayor of Indanan. ",
+                    "source": "{{Vanzi, Sol Jose. \u201c4 MNLF Misuari Factions Reunite.\u201d Philippine Headline News Online, 23 Jan. 2003. Web. 27 July 2015.}} {{Ubac, Michael Lim and Arlyn dela Cruz. \u201cArrested mayor is \u2018fearless,\u2019 key MNLF leader.\u201d Philippine Daily Inquirer, 21 June 2008. We",
+                    "group_id": "379"
+                }
+            ],
+            "Listing": [],
+            "NameChange": [],
+            "Size": [
+                { "id": "193", "size": "30,000", "date": "1975-00-00", "source": "Dictionary of Terrorism", "citation": "Wright-Neville, David P. Dictionary of Terrorism. Cambridge, UK: Polity, 2010. Print.", "group_id": "379" },
+                {
+                    "id": "197",
+                    "size": "14,000",
+                    "date": "1994-00-00",
+                    "source": "Armed Forces of the Philippines",
+                    "citation": "Santos, Jr., Soliman M., and Paz Verdades M. Santos. Primed and Purposeful: Armed Groups and Human Security Efforts in the Philippines. Geneva: Small Arms Survey, April 2010. Print.",
+                    "group_id": "379"
+                },
+                {
+                    "id": "199",
+                    "size": "17,700",
+                    "date": "1996-00-00",
+                    "source": "Armed Forces of the Philippines",
+                    "citation": "Santos, Jr., Soliman M., and Paz Verdades M. Santos. Primed and Purposeful: Armed Groups and Human Security Efforts in the Philippines. Geneva: Small Arms Survey, April 2010. Print.",
+                    "group_id": "379"
+                }
+            ],
+            "Region": [],
+            "Subregion": [],
+            "Ideology": [
+                { "id": "3", "name": "Islamist", "GroupsIdeology": { "id": "65295", "group_id": "379", "ideology_id": "3" } },
+                { "id": "4", "name": "Nationalist", "GroupsIdeology": { "id": "65297", "group_id": "379", "ideology_id": "4" } },
+                { "id": "57", "name": "Separatist", "GroupsIdeology": { "id": "65299", "group_id": "379", "ideology_id": "57" } }
+            ]
+        },
+        {
+            "Group": {
+                "id": "152",
+                "name": "Abu Sayyaf Group",
+                "shortname": "ASG",
+                "startdate": "1991-00-00",
+                "enddate": "0000-00-00",
+                "description": "The Abu Sayyaf Group (ASG) is an Islamic separatist organization in the Philippines founded by Abdurajak Abubakar Janjalani in 1991. Heavily influenced by Al Qaeda in its early stages, the ASG started as a splinter group of the Moro National Liberation Front (MNLF) and seeks an independent Muslim state in the southern Philippines. In the early 2000s, the ASG attracted attention through high-profile bombings, assassinations, kidnappings, and attacks. It is regarded as the most dangerous group in the Philippines.",
+                "dummy": "0",
+                "min_zoom": "0",
+                "max_zoom": "0",
+                "active": true
+            },
+            "Attack": [
+                {
+                    "id": "195",
+                    "description": "The ASG attacked the Christian town of Ipil.",
+                    "date": "1995-04-14",
+                    "casualties": "53 killed, 48 wounded, ~30 hostages",
+                    "source": " \"Abu Sayyaf Kidnappings, Bombings and Other Attacks.\" GMA News Research. GMA News Online, 23 Aug. 2007. Web. 19 May 2012. . La Vina, Enrico Antonio and Lil",
+                    "group_id": "152"
+                },
+                {
+                    "id": "196",
+                    "description": "The ASG conducted its first attack in Malaysia, kidnapping twenty-one people from a tourist resort in Sipadan. These hostages were all released or escaped. ",
+                    "date": "2000-04-23",
+                    "casualties": "0 killed, unknown wounded, 21 hostages",
+                    "source": " \"Abu Sayyaf Kidnappings, Bombings and Other Attacks.\" GMA News Research. GMA News Online, 23 Aug. 2007. Web. 19 May 2012. . Golingai, Philip. \u201cUgly busines",
+                    "group_id": "152"
+                },
+                {
+                    "id": "201",
+                    "description": "ASG gunmen kidnapped tourists, including three Americans, from the Dos Palmas resort in Palawan. Six days later, ASG members brought at least some of these hostages to a hospital in Lamitan, taking more hostages and initiating a siege of the hospital by Philippine troops. After the kidnapping, the U.S. and the Philippines conducted massive military operations against the ASG in an attempt to rescue the hostages. Some hostages escaped or were released while others\u2014including two of the Americans\u2014were killed. ",
+                    "date": "2001-05-27",
+                    "casualties": "0 killed, unknown wounded, 20 hostages",
+                    "source": " \u201cPhilippines hostage crisis deepens.\u201d BBC News. BBC, 2 June 2001. Web. 13 July 2015. . \u201cTimeline: Hostage crisis in the Philippines.\u201d CNN, 25 Aug. 2002. Web. 29 June 2015. \r\n\t\t\t\t\t",
+                    "group_id": "152"
+                },
+                {
+                    "id": "203",
+                    "description": "A member of the Rajah Solaiman Movement (RSM), a group closely tied to the ASG, detonated a bomb on Superferry 14, a passenger ferry carrying 900 passengers out of Manila. The ASG claimed responsibility for planning the attack, which was confirmed by a subsequent government investigation. The Superferry 14 bombing was the Philippines' deadliest terrorist attack and the world's deadliest terrorist attack at sea. ",
+                    "date": "2004-02-27",
+                    "casualties": "116 killed, unknown wounded",
+                    "source": " {{\u201cLives Destroyed: Attacks Against Civilians in the Philippines.\u201d Human Rights Watch, July 2007. Web. 29 June 2015. .} {Thompson. Matthew. \u201cThe other war against terror\u2026at ",
+                    "group_id": "152"
+                },
+                {
+                    "id": "607",
+                    "description": "The ASG conducted a grenade attack in Zamboanga City, killing two U.S. evangelists.",
+                    "date": "1991-04-04",
+                    "casualties": "2 killed, unknown wounded",
+                    "source": " \"Abu Sayyaf Kidnappings, Bombings and Other Attacks.\" GMA News Research. GMA News Online, 23 Aug. 2007. Web. 19 May 2012. .",
+                    "group_id": "152"
+                },
+                {
+                    "id": "747",
+                    "description": "A bomb exploded in a shed outside the main terminal building of the Davao International Airport. An ASG spokesman called a national radio station the following day, claiming responsibility for the attack. ",
+                    "date": "2003-03-04",
+                    "casualties": "21 killed, 148 wounded",
+                    "source": " Spaeth, Anthony. \"First Bali, Now Davao.\" TIME, 10 Mar. 2003. Web. 18 July 2012.",
+                    "group_id": "152"
+                },
+                {
+                    "id": "1345",
+                    "description": "A bomb outside the Philippine House of Representatives killed a congressman and two congressional employees. This operation was attributed to the ASG and was the first bombing attack on the Philippine Congress.",
+                    "date": "2007-11-13",
+                    "casualties": "3 killed, 11 wounded",
+                    "source": " Conde, Carlos H. \u201cLawmaker Killed in Manila Bombing Linked to Insurgents in \u201890s.\u201d The New York Times, 15 Nov. 2007. Web. 29 June 2015. . \u201cAbu Sayyaf Group.\u201d National Counterterrorism Center, n.d",
+                    "group_id": "152"
+                },
+                {
+                    "id": "751",
+                    "description": "ASG operatives simultaneously detonated two bombs in Mindanao\u2019s General Santos City and Davao City, closely followed by a third bomb in Makati City. These attacks became known as the \"Valentine's Day Bombings,\" after the ASG\u2019s Abu Sulaiman claimed that the bombs were a \"gift\" to then-President Gloria Macapagal-Arroyo. ",
+                    "date": "2005-02-14",
+                    "casualties": "8 killed, 147 wounded",
+                    "source": " \"What Went Before: Valentine's Day bombings in 2005.\" Philippine Daily Inquirer, 26 Jan. 2011. Web. 18 July 2012..",
+                    "group_id": "152"
+                },
+                {
+                    "id": "1033",
+                    "description": "The ASG kidnapped Warren Richard Rodwell, a 53-year-old Australian retired soldier. Rodwell was released in March 2013, reportedly for a $120,000 ransom that has not been acknowledged by the Philippines or Australia. ",
+                    "date": "2011-12-05",
+                    "casualties": "0 killed, 0 wounded, 1 hostage",
+                    "source": "{{\u201cPhilippine policeman arrested over kidnapping of Australian Warren Rodwell.\u201d The Sydney Morning Herald, 18 May 2015. Web. 29 June 2015. . Montlake, Simon. \"Philippines Kills Abu Sayyaf Most-wanted Albader Parad.\" The Christian Science Monito",
+                    "group_id": "152"
+                },
+                {
+                    "id": "793",
+                    "name": "Abdurajak Abubakar Janjalani ",
+                    "startdate": "1991-00-00",
+                    "enddate": "1998-12-18",
+                    "description": "Janjalani was the founder and first key leader of the ASG. He was killed in a 1998 police shootout on the island of Basilan. ",
+                    "source": "Rubin, Barry and Judith Colp Rubin. Chronologies of Modern Terrorism. New York: Routledge, 2008. Print.",
+                    "group_id": "152"
+                },
+                {
+                    "id": "795",
+                    "name": "Alhamser Limbong",
+                    "startdate": "0000-00-00",
+                    "enddate": "2002-03-30",
+                    "description": "Limbong, also known as Commander Kosovo, led the ASG\u2019s Manila cell, according to Philippine police. He was likely plotting a bombing involving 180 pounds of TNT at the time of his March 30, 2002 arrest during a raid in Manila. Limbong was killed in 2005 during an attempted jailbreak, along with ASG leader Galib Andang. ",
+                    "source": "Associated Press. \u201cPhilippines arrests \u2018foil bomb plot.\u2019\u201d The Guardian, 30 Mar. 2004. Web. 26 June 2015. . Bonner, Raymond and Carlos H. Conde. \u201cU.S. Warns the Philippines on Terror Groups.\u201d ",
+                    "group_id": "152"
+                },
+                {
+                    "id": "803",
+                    "name": "Abdul Basir Latip ",
+                    "startdate": "0000-00-00",
+                    "enddate": "2009-00-00",
+                    "description": "Latip is an ASG co-founder and served as a key financial officer, moving funds from Al Qaeda to the ASG. He also allegedly established ties between the ASG and Jemaah Islamiyah (JI). In 2009, Latip was detained in Indonesia and deported to the Philippines for arrest. ",
+                    "source": "McGivering, Jill. \u201cKey Abu Sayyaf member \u2018arrested\u2019 in the Philippines.\u201d BBC News. BBC, 16 Dec. 2009. Web. 19 May 2012. . \u201cAbu Sayyaf co-founder arrested.\u201d Agence France-Presse, 16 Dec. 2009. Web. 29 Ju",
+                    "group_id": "152"
+                },
+                {
+                    "id": "797",
+                    "name": "Galib Andang",
+                    "startdate": "1998-00-00",
+                    "enddate": "2003-12-00",
+                    "description": "Andang, also known as Commander Robot, led one ASG faction after Abdurajak Janjalani\u2019s death. Andang was captured in a 2003 clash with the military and was killed in 2005 during an attempted jailbreak, along with ASG leader Alhamser Limbong. ",
+                    "source": "\"Profiles of Dead Abu Sayyaf Leaders.\" BBC News. BBC, 15 Mar. 2005. Web. 24 May 2012.",
+                    "group_id": "152"
+                },
+                {
+                    "id": "799",
+                    "name": "Khadaffy Janjalani",
+                    "startdate": "1998-00-00",
+                    "enddate": "2006-09-04",
+                    "description": "After Abdurajak Janjalani\u2019s death, his younger brother Khadaffy assumed a key leadership role. Khadaffy was killed in a 2006 confrontation with Philippine troops. ",
+                    "source": "Associated Press. \u201cDNA Test Confirms Death of Philippine Separatist Leader.\u201d The New York Times, 21 Jan. 2007. Web. 29 June 2015. . Meo, Nick. \"US Helps Fight against Abu Sayyaf.\" BBC News. BBC, 4",
+                    "group_id": "152"
+                },
+                {
+                    "id": "801",
+                    "name": "Abu Sulaiman ",
+                    "startdate": "0000-00-00",
+                    "enddate": "2007-01-16",
+                    "description": "Abu Sulaiman, born as Jainal Antel Sali, Jr., was a high-ranking ASG leader and spokesman. Together, Abu Sulaiman and Khadaffy Janjalani reportedly unified six or more ASG factions. Abu Sulaiman was considered by the Philippine military to be one of Khadaffy Janjalani\u2019s successors, and he was killed by the army in 2007. ",
+                    "source": "Associated Press. \u201cAbu Sayyaf hit by leadership, funding woes.\u201d Taipei Times, 4 Apr. 2008. Web. 29 June 2015. . \u201cAbu Sulaiman, a leader of the Abu Sayyaf rebel group, has been killed.\u201d ",
+                    "group_id": "152"
+                },
+                {
+                    "id": "807",
+                    "name": "Gumbahali Jumdail ",
+                    "startdate": "0000-00-00",
+                    "enddate": "2012-02-02",
+                    "description": "Jumdail, also known as Doc Abu, was an ASG regional leader. He was killed by the Philippine air force in 2012. ",
+                    "source": "\u201cPhilippine military \u2018kills three wanted militants.\u2019\u201d BBC News. BBC, 2 Feb. 2012. Web. 29 June 2015. . Laude, Jaime. \u201cAbu Sayyaf killers among top AFP awardees.\u201d Philstar, 21 Dec. 2012. Web. 29 June 2015. . \u201cYasser Igasan succeeds Janjalani as Abu chief.\u201d GMA News Online, 27 June 2007. Web. 29 June 2015. .",
+                    "group_id": "152"
+                },
+                {
+                    "id": "813",
+                    "name": "Isnilon Totoni Hapilon",
+                    "startdate": "0000-00-00",
+                    "enddate": "0001-00-00",
+                    "description": "Hapilon, also known as Abu Musab, Sol, Abu Tuan, Esnilon, Salahudin, and The Deputy, is considered one of the ASG\u2019s key current leaders, along with Radulan Sahiron. Before assuming this role, Hapilon had served as an ASG deputy commander. ",
+                    "source": "Mogato, Manuel. \u201cTop Filipino militant wounded in army attack.\u201d Reuters, 16 Apr. 2013. Web. 29 June 2015. . \u201cU.S. charges Abu Sayyaf leaders in kidnappings.\u201d CNN, 24",
+                    "group_id": "152"
+                }
+            ],
+            "Listing": [
+                { "id": "181", "group_id": "152", "orglist_id": "1", "date": "1997-10-08", "enddate": "0000-00-00" },
+                { "id": "183", "group_id": "152", "orglist_id": "4", "date": "2001-10-06", "enddate": "0000-00-00" }
+            ],
+            "Leader": [],
+            "NameChange": [
+                {
+                    "id": "37",
+                    "name": " Abu Sayyaf Group ",
+                    "description": "Abdurajak Janjalani renamed the group after Professor Abdul Rasul Sayyaf, a resistance leader in Afghanistan. The name translates to \u201cfather of the swordsman.\u201d {{Hutchison, Billye G. \u201cAbu Sayyaf.\u201d The Counterproliferation Papers: Future Warfare Series No. 49 (Sept. 2009). USAF Counterproliferation Center. Web. 25 May 2012. .}}",
+                    "date": "1991-00-00",
+                    "group_id": "152"
+                },
+                {
+                    "id": "45",
+                    "name": "Al Harakat Al Islamiyya (AHAI)",
+                    "description": "This name translates to \u201cthe Islamic Movement\u201d and is an alternative name for the ASG, reportedly preferred by the ASG\u2019s earliest members. {{Banlaoi, Rommel C. \u201cRoots and Evolution.\u201d Al-Harakatul Al-Islamiyah: Essays on the Abu Sayyaf Group. Ed. Rommel C. Banlaoi. Quezon City, Philippines: Philippine Institute for Political Violence and Terrorism Research, 2008. 16. Print.}}",
+                    "date": "0000-00-00",
+                    "group_id": "152"
+                },
+                {
+                    "id": "53",
+                    "name": "Mujahedeen Commando Freedom Fighters (MCFF)",
+                    "description": "The MCFF was Abdurajak Janjalani's first group, composed of disillusioned MNLF members. It was established within the MNLF, but it became the ASG in 1991, when Janjalani officially split from the MNLF. {{Hutchison, Billye G. \u201cAbu Sayyaf.\u201d The Counterproliferation Papers: Future Warfare Series No. 49 (Sept. 2009). USAF Counterproliferation Center. Web. 25 May 2012. .}}",
+                    "date": "1989-00-00",
+                    "group_id": "152"
+                }
+            ],
+            "Size": [
+                { "id": "285", "size": "200-500 ", "date": "2008-00-00", "source": "US State Department", "citation": " \"Abu Sayyaf Group.\" Council on Foreign Relations, 27 May 2009. Web. 6 Aug. 2013. .", "group_id": "152" },
+                {
+                    "id": "287",
+                    "size": "445",
+                    "date": "2010-04-00",
+                    "source": "Combating Terrorism Center at West Point",
+                    "citation": " Banlaoi, Rommel C. \"The Sources of the Abu Sayyaf\u2019s Resilience in the Southern Philippines.\" CTC Sentinel 3.5 (May 2010): 1. Web. 24 May 2012.",
+                    "group_id": "152"
+                },
+                { "id": "289", "size": "380", "date": "2013-07-00", "source": "Xinhua News", "citation": " \"Kidnapped Philippine Researcher Released by Abu Sayyaf Gunmen.\" Xinhua, 31 July 2013. Web. 5 August 2013. .", "group_id": "152" },
+                {
+                    "id": "387",
+                    "size": "400",
+                    "date": "2015-05-00",
+                    "source": "Associated Press",
+                    "citation": " \u201c4 Killed as Philippine Troops Clash With Abu Sayyaf.\u201d The New York Times, 15 May 2015. Web. 29 June 2015.",
+                    "group_id": "152"
+                }
+            ],
+            "Region": [
+                { "id": "45", "name": "Malaysia", "GroupsRegion": { "id": "437", "group_id": "152", "region_id": "45" } },
+                { "id": "47", "name": "Philippines", "GroupsRegion": { "id": "439", "group_id": "152", "region_id": "47" } }
+            ],
+            "Subregion": [
+                { "id": "49", "name": "Bangsamoro", "region_id": "47", "GroupsSubregion": { "id": "249", "group_id": "152", "subregion_id": "49" } },
+                { "id": "87", "name": "Sulu", "region_id": "47", "GroupsSubregion": { "id": "251", "group_id": "152", "subregion_id": "87" } }
+            ],
+            "Ideology": [
+                { "id": "35", "name": "Salafi", "GroupsIdeology": { "id": "68209", "group_id": "152", "ideology_id": "35" } },
+                { "id": "57", "name": "Separatist", "GroupsIdeology": { "id": "68211", "group_id": "152", "ideology_id": "57" } },
+                { "id": "1", "name": "Sunni", "GroupsIdeology": { "id": "68213", "group_id": "152", "ideology_id": "1" } }
+            ]
+        },
+        {
+            "Group": {
+                "id": "309",
+                "name": "Moro Islamic Liberation Front",
+                "shortname": "MILF",
+                "startdate": "1977-00-00",
+                "enddate": "0000-00-00",
+                "description": "The Moro Islamic Liberation Front (MILF) is the largest militant organization in the Philippines, and it seeks autonomy for Filipino Muslims. The MILF split from the Moro National Liberation Front (MNLF) in 1977, although it was generally inactive and did not call itself the MILF until 1984. The MILF controls territory in the southern Philippines, governing with Shariah law. It has generally focused on political negotiation, but it has a significant history of terrorism and militancy. In 2014, the MILF concluded peace negotiations with the Philippine government for an autonomous region in the southern Philippines, to be called the Bangsamoro. The MILF is in the process of gradual disarmament.",
+                "dummy": "0",
+                "min_zoom": "0",
+                "max_zoom": "0",
+                "active": true
+            },
+            "Attack": [
+                {
+                    "id": "1375",
+                    "description": "Bombs exploded on one or more buses aboard the M/V Our Lady of Mediatrix ferry that was traveling to Ozamiz City. MILF commanders were among those blamed for the attack.",
+                    "date": "2000-02-25",
+                    "casualties": "39-44 killed, 41-50 injured",
+                    "source": "De La Cruz, Lino. \u201cVictims of Ozamis ship blast still cry for justice.\u201d Philstar, 27 Feb. 2003. Web. 10 July 2015.\r\n\r\n\u201cIncident Summary.\u201d National Consortium for the Study of Terrorism and Responses to Terrorism. National Consortium for the Study of Terro",
+                    "group_id": "309"
+                },
+                {
+                    "id": "1377",
+                    "description": "A bomb exploded outside dxMS, a Catholic radio station in Cotabato City. The attack was blamed on the MILF, especially because one dxMS host had received MILF death threats. The organization denied involvement.",
+                    "date": "2000-02-27",
+                    "casualties": "unknown killed, 7 wounded",
+                    "source": "\u201cPhilippines: Catholic radio station bombed in Mindanao.\u201d Committee to Protect Journalists, 3 Mar. 2000. Web. 10 July 2015.\r\n\r\n\u201cIncident Summary.\u201d National Consortium for the Study of Terrorism and Responses to Terrorism. National Consortium for the Study",
+                    "group_id": "309"
+                },
+                {
+                    "id": "1379",
+                    "description": "A bomb exploded outside dxMS, a Catholic radio station in Cotabato City. The attack was blamed on the MILF, especially because one dxMS host had received MILF death threats. The organization denied involvement.",
+                    "date": "2000-02-27",
+                    "casualties": "unknown killed, 7 wounded",
+                    "source": "\u201cPhilippines: Catholic radio station bombed in Mindanao.\u201d Committee to Protect Journalists, 3 Mar. 2000. Web. 10 July 2015.\r\n\r\n\u201cIncident Summary.\u201d National Consortium for the Study of Terrorism and Responses to Terrorism. National Consortium for the Study",
+                    "group_id": "309"
+                },
+                {
+                    "id": "1381",
+                    "description": "A MILF commander named Abdullah Macapaar, also known as Commander Bravo and generally considered rogue, led an assault on Kauswagan Municipal Hall, reportedly taking 294 hostages and leaving several dead.",
+                    "date": "2000-03-17",
+                    "casualties": "unknown killed, unknown wounded, 294 hostages",
+                    "source": "\u201cThe Philippines: The Collapse of Peace in Mindanao.\u201d International Crisis Group, 23 Oct. 2008. Web. 10 July 2015.\r\n\r\nPhilippines. Armed Forces of the Philippines, Office of Strategic and Special Studies. In Assertion of Sovereignty, Volume One: The 2000 ",
+                    "group_id": "309"
+                },
+                {
+                    "id": "1383",
+                    "description": "A bomb exploded at Davao City International Airport. The MILF was allegedly responsible for the attack. The Philippine government subsequently ordered the arrest of various MILF leaders, although the organization denied involvement.",
+                    "date": "2003-03-03",
+                    "casualties": "22 killed, 148 wounded",
+                    "source": "\u201cAirport bomb: Islamic group blamed.\u201d CNN, 6 Mar. 2003. Web. 10 July 2015.\r\n\r\n\u201cLives Destroyed: Attacks on Civilians in the Philippines.\u201d Human Rights Watch, July 2007. Web. 10 July 2015.",
+                    "group_id": "309"
+                },
+                {
+                    "id": "1385",
+                    "description": "Filipino Marines were attacked in a MILF-controlled zone while trying to rescue an Italian hostage from the Abu Sayyaf Group (ASG). Several Marines were decapitated. The MILF admitted to the attack, and the attacking group also reportedly included ASG members.",
+                    "date": "2007-07-10",
+                    "casualties": "~18-43 killed, 9+ wounded",
+                    "source": "\u201cMILF admits attack against Marines, says 23 troops dead.\u201d GMA News, 11 July 2007. Web. 10 July 2015.\r\n\r\n\u201cRebels behead Philippine troops.\u201d BBC, 11 July 2007. Web. 10 July 2015.",
+                    "group_id": "309"
+                },
+                {
+                    "id": "1387",
+                    "description": "Philippine Special Action Force (SAF) troopers targeted two key bomb makers in an operation in Maguindanao. During the pursuit, the troopers were attacked by rebel forces that included MILF members. The MILF acknowledged the involvement of its members, although it also stated that the SAF operation was not coordinated with them as required by a ceasefire agreement with the government. Consideration of the Bangsamoro Basic Law was temporarily suspended after this attack.",
+                    "date": "2015-01-25",
+                    "casualties": "~67 killed, 12+ wounded",
+                    "source": "Samson-Espiritu, Arlene and Tim Hume. \u201cPhilippines honors 44 slain commandos with day of mourning.\u201d CNN, 30 Jan. 2015. Web. 20 July 2015.\r\n\r\nCasauay, Angela. \u201cMILF conducts own probe into Maguindanao clash.\u201d Rappler, 28 Jan. 2015. Web. 20 July 2015.\r\n\r\nUn",
+                    "group_id": "309"
+                }
+            ],
+            "Leader": [
+                {
+                    "id": "825",
+                    "name": "Al Haj Murad Ebrahim",
+                    "startdate": "2003-00-00",
+                    "enddate": "0001-00-00",
+                    "description": "Ebrahim, also a former MNLF member, joined what would become the MILF in 1981. He eventually led the MILF\u2019s armed wing, called the Bangsamoro Islamic Armed Forces (BIAF), and served as Vice Chair of Military Affairs for the MILF. He became Chairman of the MILF after Salamat\u2019s 2003 death. ",
+                    "source": "Espejo, Edwin. \u201cMurad: From a hardliner to voice of moderation.\u201d Rappler, 3 Apr. 2014. Web. 10 July 2015.\r\n\r\nSantos, Jr., Soliman M. and Paz Verdades M. Santos. Primed and Purposeful: Armed Groups and Human Security Efforts in the Philippines. Geneva: Sma",
+                    "group_id": "309"
+                },
+                {
+                    "id": "823",
+                    "name": "Hashim Salamat",
+                    "startdate": "1984-00-00",
+                    "enddate": "2003-07-13",
+                    "description": "Salamat broke from the MNLF in 1977 to form what would become the MILF. He believed that Misuari\u2019s MNLF was focusing too much on politics and not enough on Islam. Salamat died of natural causes in 2003.",
+                    "source": "Vanzi, Sol Jose. \u201cHashim Salamat: From Librarian to Rebel.\u201d Philippine Headline News Online, 6 Aug. 2003. Web. 10 July 2015.",
+                    "group_id": "309"
+                },
+                {
+                    "id": "827",
+                    "name": "Mohagher Iqbal",
+                    "startdate": "0000-00-00",
+                    "enddate": "0001-00-00",
+                    "description": "Iqbal is the MILF Peace Panel Chairman and chief negotiator in the peace talks with the Philippine government. He is a major MILF spokesman and has also served as the MILF Chair of the Committee on Information.",
+                    "source": "Casauay, Angela. \u201cIqbal releases copy of Philippine passport.\u201d Rappler, 16 Mar. 2015. Web. 23 July 2015.\r\n\r\nSantos, Jr., Soliman M. and Paz Verdades M. Santos. Primed and Purposeful: Armed Groups and Human Security Efforts in the Philippines. Geneva: Smal",
+                    "group_id": "309"
+                },
+                {
+                    "id": "829",
+                    "name": "Abdullah Macapaar",
+                    "startdate": "0000-00-00",
+                    "enddate": "0001-00-00",
+                    "description": "Macapaar, best known as Commander Bravo, is a prominent MILF commander who is generally considered rogue. His forces have carried out deadly attacks, sometimes against MILF official policy. He has claimed that his forces only follow MILF orders when they are in compliance with the Koran.",
+                    "source": "\u201cMILF spokesman explains Commander Bravo\u2019s belligerence.\u201d GMA News, 20 Aug. 2008. Web. 23 July 2015.",
+                    "group_id": "309"
+                }
+            ],
+            "Listing": [],
+            "NameChange": [
+                {
+                    "id": "131",
+                    "name": "New Moro National Liberation Front (New MNLF)",
+                    "description": "The New MNLF was a splinter group of the MNLF, established when Hashim Salamat failed to take power from MNLF leader Nur Misuari. The group was initially composed of MNLF members dissatisfied with Misuari\u2019s tactics. {{Bale, Jeffrey M. \u201cThe Abu Sayyaf Group in its Philippine and International Contexts.\u201d Middlebury Institute of International Studies at Monterey.}}",
+                    "date": "1977-00-00",
+                    "group_id": "309"
+                },
+                {
+                    "id": "133",
+                    "name": "Moro Islamic Liberation Front (MILF)",
+                    "description": "The group renamed itself to reflect its separation from the MNLF and its distinctly Islamic orientation. {{Bale, Jeffrey M. \u201cThe Abu Sayyaf Group in its Philippine and International Contexts.\u201d Middlebury Institute of International Studies at Monterey.}}",
+                    "date": "1984-00-00",
+                    "group_id": "309"
+                }
+            ],
+            "Size": [
+                {
+                    "id": "395",
+                    "size": "11,769",
+                    "date": "2007-00-00",
+                    "source": "Armed Forces of the Philippines",
+                    "citation": "Santos, Jr., Soliman M. and Paz Verdades M. Santos. Primed and Purposeful: Armed Groups and Human Security Efforts in the Philippines. Geneva: Small Arms Survey, April 2010. Print.",
+                    "group_id": "309"
+                },
+                {
+                    "id": "397",
+                    "size": "11,000",
+                    "date": "2011-00-00",
+                    "source": "Reuters",
+                    "citation": "\u201cFactbox: The Philippines\u2019 Moro Islamic Liberation Front.\u201d Reuters, 5 Feb. 2011. Web. 10 July 2015.",
+                    "group_id": "309"
+                },
+                { "id": "399", "size": "10,000", "date": "2015-00-00", "source": "BBC", "citation": "\u201cMILF rebels hand over arms in the Philippines.\u201d BBC, 16 June 2015. Web. 10 July 2015.", "group_id": "309" }
+            ],
+            "Region": [{ "id": "47", "name": "Philippines", "GroupsRegion": { "id": "549", "group_id": "309", "region_id": "47" } }],
+            "Subregion": [{ "id": "49", "name": "Bangsamoro", "region_id": "47", "GroupsSubregion": { "id": "313", "group_id": "309", "subregion_id": "49" } }],
+            "Ideology": [
+                { "id": "3", "name": "Islamist", "GroupsIdeology": { "id": "64193", "group_id": "309", "ideology_id": "3" } },
+                { "id": "57", "name": "Separatist", "GroupsIdeology": { "id": "64195", "group_id": "309", "ideology_id": "57" } }
+            ]
+        },
+        {
+            "Group": {
+                "id": "601",
+                "name": "Bangsamoro Islamic Freedom Fighters",
+                "shortname": "BIFF",
+                "startdate": "2010-12-00",
+                "enddate": "0000-00-00",
+                "description": "The Bangsamoro Islamic Freedom Fighters (BIFF), sometimes called the Bangsamoro Islamic Freedom Movement (BIFM), is an Islamic separatist organization based in the southern Philippines. It seeks an independent Islamic state for the Filipino Muslim minority, known as the Moro people, who live primarily in the Philippines\u2019 Mindanao region. The BIFF was founded in 2010 by Ameril Umbra Kato as a splinter group of the Moro Islamic Liberation Front (MILF). It has attacked government forces and civilian targets, especially to undermine peace talks between the MILF and the Philippine government.",
+                "dummy": "0",
+                "min_zoom": "0",
+                "max_zoom": "0",
+                "active": true
+            },
+            "Attack": [
+                {
+                    "id": "1683",
+                    "description": "BIFF members launched attacks on eleven towns in the province of Maguindanao, focusing on Philippine military targets. Fighting between the BIFF and government forces lasted until the following day. ",
+                    "date": "2012-08-05",
+                    "casualties": "3 killed, 1+ wounded",
+                    "source": "{{\u201c3 killed in rebel attacks in Maguindanao.\u201d Rappler, 6 Aug. 2012. Web. 20 Aug. 2015.}}",
+                    "group_id": "601"
+                },
+                {
+                    "id": "1685",
+                    "description": "The Philippine National Police (PNP) blamed the BIFF for bombing a bus terminal in Maguindanao in an attempt to distract government forces pursuing high-ranking BIFF leaders. The BIFF denied responsibility for the attack. ",
+                    "date": "2014-01-28",
+                    "casualties": "0 killed, 2 wounded",
+                    "source": "{{Manlupig, Karlos. \u201cBlast hurts girl, pregnant woman.\u201d Rappler, 28 Jan. 2014. Web. 20 Aug. 2015.}} {{\u201cUS govt lists NPA, Abu Sayyaf, JI among foreign terrorist organizations in PHL.\u201d GMA News, 20 June 2015. Web. 20 Aug. 2015.}}",
+                    "group_id": "601"
+                },
+                {
+                    "id": "1689",
+                    "description": "Philippine Special Action Force (SAF) troopers targeted two key bomb-makers in an operation in Maguindanao. During the pursuit, the troopers were attacked by rebel forces that included BIFF members. Consideration of the Bangsamoro Basic Law, an important element of the MILF-Philippine government negotiations, was temporarily suspended after this attack. ",
+                    "date": "2015-01-25",
+                    "casualties": "~67 killed, 12+ wounded",
+                    "source": "{{Samson-Espiritu, Arlene and Tim Hume. \u201cPhilippines honors 44 slain commandos with day of mourning.\u201d CNN, 30 Jan. 2015. Web. 20 Aug. 2015.}} {{Casauay, Angela. \u201cMILF conducts own probe into Maguindanao clash.\u201d Rappler, 28 Jan. 2015. Web. 20 Aug. 2015.}} ",
+                    "group_id": "601"
+                },
+                {
+                    "id": "1687",
+                    "description": "The BIFF bombed a bus in the province of Bukidnon. Philippine authorities alleged that the attack was a test for new BIFF recruits and may also have been to attempt to extort the bus company, which had previously received demands for payment to the BIFF. ",
+                    "date": "2014-12-09",
+                    "casualties": "11 killed, 31 wounded",
+                    "source": "{{Tesiorna, Ben O., and Ivy C. Tejano. \u201cBukidnon bombers are \u2018BIFF new recuits on test mission.\u2019\u201d Sun.Star, 10 Dec. 2014. Web. 20 Aug. 2015.}} ",
+                    "group_id": "601"
+                }
+            ],
+            "Leader": [
+                {
+                    "id": "997",
+                    "name": "Ameril Umbra Kato",
+                    "startdate": "2010-00-00",
+                    "enddate": "2011-00-00",
+                    "description": "Kato was the BIFF\u2019s founder and first leader. He established the BIFF in December 2010 after leaving the MILF. In November 2011, Kato suffered a severe stroke; he went into hiding and remained paralyzed until his death in April 2015.",
+                    "source": "{{Fernandez, Amanda. \u201cAmeril Umbra Kato, rogue MILF leader and founder of BIFF.\u201d GMA News, 14 Apr. 2015. Web. 20 Aug. 2015.}} {{\u201cRogue MILF commander forms splinter group.\u201d Inquirer, 19 Aug. 2011. Web. 20 Aug. 2015.}}",
+                    "group_id": "601"
+                },
+                {
+                    "id": "999",
+                    "name": "Mohammad Ali Tambako",
+                    "startdate": "2011-00-00",
+                    "enddate": "0000-00-00",
+                    "description": "Tambako was appointed as the BIFF\u2019s leader after Kato suffered a severe stroke in November 2011. Tambako left or was expelled from the BIFF in 2013 after leading some supporters in an attack on the Christian population of the city of Midsayap, during which his forces decapitated a farmer. He then established another militant group called the Justice for Islamic Movement (JIM). However, Tambako retained some influence over the BIFF and may have rejoined the group a short time afterward; the BIFF and the JIM have reportedly worked together. Government forces arrested Tambako on March 15, 2015. ",
+                    "source": "{{\u201cPhilippines security forces capture Islamic militant leader Mohammad Ali Tambako.\u201d South China Morning Post, 12 May 2015. Web. 20 Aug. 2015.}} {{Cabrera, Ferdinandh. \u201cEx-BIFF vice chair Tambako, 5 others arrested in GenSan; Usman still elusive.\u201d GMA N",
+                    "group_id": "601"
+                },
+                {
+                    "id": "1001",
+                    "name": "Abdul Basit Usman",
+                    "startdate": "0000-00-00",
+                    "enddate": "2015-00-00",
+                    "description": "Usman was a BIFF member and bombmaking expert who led a special operations division within the BIFF. He was a member of the MILF before breaking away from the group with Kato, who founded the BIFF. Usman had links to the Abu Sayyaf Group (ASG) and Jemaah Islamiyah (JI), and he was one of the most wanted individuals in the Philippines. He was killed in May 2015, allegedly by bodyguards who wanted to collect a bounty from the U.S. government. ",
+                    "source": "{{Robillos, Alyosha J. \u201cWho is Basit Usman?\u201d CNN, 5 May 2015.Web. 20 Aug. 2015.}} {{Navarro, Louie U. \u201cAFP: Usman killed by followers\u2014not MILF\u2014for $1M bounty.\u201d CNN, 4 May 2015. Web. 20 Aug. 2015.}} ",
+                    "group_id": "601"
+                },
+                {
+                    "id": "1003",
+                    "name": "Ismael Abubakar",
+                    "startdate": "2015-00-00",
+                    "enddate": "0001-00-00",
+                    "description": "Abubakar, also known as Kumander Bungos, is the BIFF\u2019s appointed leader. He served as the BIFF\u2019s chief of political affairs before being chosen to head the BIFF upon Kato\u2019s death in April 2015. ",
+                    "source": "{{Andong, Lore Mae. \u201cBIFF confirms Kato\u2019s death; replacement named.\u201d ABS-CBN News, 14 Apr. 2015. Web. 20 Aug. 2015.}} {{\u201cKumander Bungos is new BIFF head.\u201d GMA News, 15 Apr. 2015. Web. 20 Aug. 2015.}}",
+                    "group_id": "601"
+                }
+            ],
+            "Listing": [],
+            "NameChange": [],
+            "Size": [
+                {
+                    "id": "499",
+                    "size": "300",
+                    "date": "2010-00-00",
+                    "source": "Combating Terrorism Center",
+                    "citation": "{{Chalk, Peter. \u201cThe Bangsamoro Islamic Freedom Fighters: The Newest Obstacles to Peace in the Southern Philippines?\u201d CTC Sentinel 6.11-6.12 (November 2013): 15-17. Web. 20 Aug. 2015.}}",
+                    "group_id": "601"
+                }
+            ],
+            "Region": [],
+            "Subregion": [],
+            "Ideology": [
+                { "id": "3", "name": "Islamist", "GroupsIdeology": { "id": "64345", "group_id": "601", "ideology_id": "3" } },
+                { "id": "57", "name": "Separatist", "GroupsIdeology": { "id": "64347", "group_id": "601", "ideology_id": "57" } }
+            ]
+        },
+        {
+            "Group": {
+                "id": "603",
+                "name": "Justice for Islamic Movement",
+                "shortname": "JIM",
+                "startdate": "2013-11-00",
+                "enddate": "0000-00-00",
+                "description": "The Justice for Islamic Movement (JIM) was founded in November 2013 as a splinter group of the Bangsamoro Islamic Freedom Fighters (BIFF). The JIM seeks to establish an independent state in the southern Philippines governed by Shariah law and exclusively for Filipino Muslims. The group was founded by Mohammad Ali Tambako, who had previously served as the BIFF\u2019s leader, after he left or was ousted from the BIFF in 2013 for conducting an attack on a Christian community. However, Tambako and the BIFF seemingly reconciled soon after the JIM\u2019s establishment, and in 2015, the JIM and the BIFF formally allied themselves to fight against the Philippine government. ",
+                "dummy": "1",
+                "min_zoom": "0",
+                "max_zoom": "0",
+                "active": true
+            },
+            "Attack": [],
+            "Leader": [],
+            "Listing": [],
+            "NameChange": [],
+            "Size": [],
+            "Region": [],
+            "Subregion": [],
+            "Ideology": []
+        }
+    ]
+}

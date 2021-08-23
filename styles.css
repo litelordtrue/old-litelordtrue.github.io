@@ -1,0 +1,69 @@
+body {
+    background-color: white;
+}
+
+.menu_wrapper{
+    background-color: white;
+}
+
+.content_wrapper{
+    height: 100vh - 10;
+    width: 100vw - 10;
+}
+
+#svg{
+    background-color: lightgrey;
+}
+
+.hide{
+    display: none;
+}
+
+.node{
+    background-color: white;
+}
+
+.attack{
+    fill: orange;
+    stroke: yellow;
+}
+
+.leader{
+    fill: grey;
+    stroke: black;
+}
+
+.spl{
+    stroke: black;
+}
+
+.all{
+    stroke: blue;
+}
+
+.riv{
+    stroke: orange;
+}
+
+.timeline{
+    fill: white;
+    stroke: black;
+    marker-end: none;
+}
+
+#description_div{
+    background-color: white;
+    max-width: 300px;
+}
+
+.node_description{
+    border: 2px solid black;
+}
+
+.attack_description{
+    border: 2px solid orange;
+}
+
+.leader_description{
+    border: 2px solid grey;
+}
