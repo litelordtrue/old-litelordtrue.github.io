@@ -153,8 +153,7 @@ function updateChart(){
   .call(tAxis);
 
   zoom.translateExtent([[0,0], [w,h]]); // making sure you can only translate within bounds
-  var current_min = tScale.domain()[0]; // finding current minimum year
-  var current_max = tScale.domain()[1]; // finding current maximum year
+
 
   var rectWidth = w/(processed_data.nodes.length + 1);
   var rectHeight = 100; // should probably scale these...
@@ -189,7 +188,6 @@ function updateChart(){
   .attr("rx", rectWidth/20)
   .attr("opacity", .7)
   .attr("id", function(d){ return d.id})
-  .attr("fill", "ghostwhite")
   .attr("stroke", "black")
   .on("mouseover", handleNodeMouseOver)
   .on("mouseout", handleNodeMouseOut)

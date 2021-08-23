@@ -106,17 +106,18 @@
             </div>
           </div>
           <!-- Aaron you can start coding here!!! -->
-          <div id="main_timeline" class="main_timeline"></div>
+          <div id="main_timeline" class="main_timeline">hello<p>hello again <br></p></div>
 
           <script type="text/javascript">
 
-            // moving the div over to replicate real webpage, still not great because its absolute positioning :(
-
             var working_div = document.getElementById("main_timeline");
-        
+
+            console.log(working_div.clientHeight);
+
             // setting up a workspace
 
-            var w = 1000;
+            var w = 1000; // write a program that finds
+            var svg_h;
             const default_height = 1500;
             var h = default_height; // this no longer sets the height of the svg, but rather the height of the elements within it!
             var padding = 50;

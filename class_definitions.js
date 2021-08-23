@@ -12,6 +12,8 @@ class group_class {
     }
 
     updatePos(){
+        var current_min = tScale.domain()[0]; // finding current minimum year
+        var current_max = tScale.domain()[1]; // finding current maximum year
         if(this.startdate >= current_min && this.startdate <= current_max) { // inside tScale domain
             this.y = tScale(this.startdate);
           }
@@ -21,7 +23,7 @@ class group_class {
           else if (this.startdate > current_max){
             console.log(this.abbr + ", far down");
           }
-          this.x = (i+1) * (w/(processed_data.thiss.length+1));
+          this.x = (i+1) * (w/(processed_data.this.length+1));
     }
 }
 

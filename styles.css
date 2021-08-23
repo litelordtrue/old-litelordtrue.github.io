@@ -23,6 +23,10 @@ body {
     background-color: white;
 }
 
+.node rect{
+    fill: blue;
+}
+
 .attack{
     fill: orange;
     stroke: yellow;
