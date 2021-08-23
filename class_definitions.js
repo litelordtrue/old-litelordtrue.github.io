@@ -10,6 +10,19 @@ class group_class {
         this.y = y;
         this.description = description;
     }
+
+    updatePos(){
+        if(this.startdate >= current_min && this.startdate <= current_max) { // inside tScale domain
+            this.y = tScale(this.startdate);
+          }
+          else if (this.startdate < current_min) { // if it happened earlier, put it on top. TODO: make it note somewhere that it is further up, so that it can look different
+            this.y = rectHeight/2 + 1; // add one to avoid trailing garbage error, pretty silly
+          }
+          else if (this.startdate > current_max){
+            console.log(this.abbr + ", far down");
+          }
+          this.x = (i+1) * (w/(processed_data.thiss.length+1));
+    }
 }
 
 class event_class {
@@ -22,6 +35,10 @@ class event_class {
         this.x = x;
         this.y = y;
     }
+
+    updatePos(){
+
+    }
 }
 
 class relationship_class {
@@ -33,5 +50,9 @@ class relationship_class {
         this.x1 = x1;
         this.x2 = x2;
         this.y = y;
+    }
+
+    updatePos(){
+
     }
 }

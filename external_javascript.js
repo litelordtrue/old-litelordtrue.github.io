@@ -164,16 +164,7 @@ function updateChart(){
 
   for (i = 0; i < processed_data.nodes.length; i++){
     let node = processed_data.nodes[i];
-      if(node.startdate >= current_min && node.startdate <= current_max) { // inside tScale domain
-        node.y = tScale(node.startdate);
-      }
-      else if (node.startdate < current_min) { // if it happened earlier, put it on top. TODO: make it note somewhere that it is further up, so that it can look different
-        node.y = rectHeight/2 + 1; // add one to avoid trailing garbage error, pretty silly
-      }
-      else if (node.startdate > current_max){
-        console.log(node.abbr + ", far down");
-      }
-      node.x = (i+1) * (w/(processed_data.nodes.length+1));
+    node.updatePos();
   };
 
 
