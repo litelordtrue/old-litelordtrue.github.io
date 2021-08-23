@@ -37,7 +37,10 @@ class event_class {
     }
 
     updatePos(){
-
+        // y position
+        this.y = tScale(this.date);
+        // x position
+        this.x = processed_data.nodes.find(element => element.id === this.parent_id).x;
     }
 }
 
@@ -53,6 +56,8 @@ class relationship_class {
     }
 
     updatePos(){
-
+        this.y = tScale(this.date);
+        this.x1 = processed_data.nodes.find(element => this.group1 === element.id).x;
+        this.x2 = processed_data.nodes.find(element => this.group2 === element.id).x;
     }
 }

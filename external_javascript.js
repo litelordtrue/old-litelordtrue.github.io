@@ -161,7 +161,6 @@ function updateChart(){
 
 
   // fixing y and x for nodes
-
   for (i = 0; i < processed_data.nodes.length; i++){
     let node = processed_data.nodes[i];
     node.updatePos();
@@ -217,10 +216,7 @@ function updateChart(){
   // fixing event position
   for (i = 0; i < processed_data.events.length; i++){
       let event = processed_data.events[i];
-      // y position
-      event.y = tScale(event.date);
-      // x position
-      event.x = processed_data.nodes.find(element => element.id === event.parent_id).x;
+      event.updatePos();
   };
 
 
@@ -241,9 +237,7 @@ function updateChart(){
 
   for (i=0; i<processed_data.relationships.length; i++){
       let relationship = processed_data.relationships[i];
-      relationship.y = tScale(relationship.date);
-      relationship.x1 = processed_data.nodes.find(element => relationship.group1 === element.id).x;
-      relationship.x2 = processed_data.nodes.find(element => relationship.group2 === element.id).x;
+      relationship.updatePos();
   }
 
   // drawing in relationships
