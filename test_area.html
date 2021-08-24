@@ -34,12 +34,21 @@
 
             var main_g = svg.append("g").attr("id", "main_g");
 
-            var circle = main_g.append("circle").attr("cx", 0).attr("cy", 0).attr("r", 20);
+            var current_pos = [0,0];
+
+            const url_obj = new URL(document.URL); // makes a url object
+            const params_obj = new URLSearchParams(url_obj.search);
+            if (params_obj.has('pos')){current_pos = params_obj.get('pos').split(',')};
+
+            var circle = main_g.append("circle").attr("cx", current_pos[0]).attr("cy", current_pos[1]).attr("r", 20);
         
             function handleButtonClick(){
-                /* let new_x = Math.random() * 500;
-                let new_y = Math.random() * 500;
-                circle.attr("cx", new_x).attr("cy", new_y); */
+                let new_x = Math.round(Math.random() * 500);
+                let new_y = Math.round(Math.random() * 500);
+                circle.attr("cx", new_x).attr("cy", new_y);
+                params_obj.set('pos', [new_x, new_y]); // sets the position to our new array
+                url_obj.search = params_obj; // this sets the search in the url object to what we modified in our parameter object
+                history.replaceState(null, '', url_obj.pathname + url_obj.search); // this just changes the url without actually loading it
             }
 
             function handleZoom(e) {
@@ -55,7 +64,8 @@
 
             let zoom = d3.zoom()
             .on('zoom', handleZoom)
-            .scaleExtent([1,1]);
+            .scaleExtent([1,1])
+            .translateExtent([0,0], [500,500]);
 
             d3.select('svg').call(zoom);
 
