@@ -84,14 +84,25 @@ function ResetPan(){
 function handleResolutionChange(ratio){
   h = ratio * default_height;
   tScale.range([padding, h-padding]);
+  params_obj.set('ratio', ratio); // set ratio in search params
+  handleURLManip();
   updateChart();
 }
 
 function handleDomainChange(min, max){ // this works but sort of messes up things. stuff to iron out
   tScale.domain([min, max]);
+  params_obj.set('domain', [min.getFullYear(), max.getFullYear()]); // set domain in search params as years
+  handleURLManip();
   updateChart();
 }
 //
+
+// functions for URL manip
+
+function handleURLManip(){
+  url_obj.search = params_obj; // this sets the search in the url object to what we modified in our parameter object
+  history.replaceState(null, '', url_obj.pathname + url_obj.search); // this just changes the url without actually loading it
+}
 
 
 // functions for nodes
@@ -102,31 +113,27 @@ function handleNodeMouseOver () {
 function handleNodeMouseOut () {
   d3.select(this).style("opacity", .7).style("fill", "ghostwhite");
 }; 
-
-function handleNodeClick(){ // this needs to do more than console.log, it needs to be a popup
-  let node = processed_data.nodes.find(element => element.id === this.id);
-  let description = node.description;
-  let date = node.startdate;
-
-  const date_box = document.getElementById('date_span');
-  const description_span = document.getElementById('description_span');
-  const description_box = document.getElementById('description_div');
-
-  date_box.innerText = DateToNice(date);
-
-  description_span.innerText = description;
-
-  description_box.setAttribute("class", "node_description");
-};
 //
-
 
 // functions for events
-function handleEventClick () { 
-  let event = processed_data.events.find(element => element.id === this.id);
-  let event_type = event.type;
-  let description = event.description;
-  let date = event.date;
+//
+
+// function for clicking for more info
+function handleClick(type, id){
+  var clicked_data, clicked_type, description, date;
+
+  if (type === "event") {
+    clicked_data = processed_data.events.find(element => element.id == id);
+    clicked_type = clicked_data.type;
+    description = clicked_data.description;
+    date = clicked_data.date;
+  }
+  else if (type === "node") {
+    clicked_data = processed_data.nodes.find(element => element.id = id);
+    clicked_type = "node";
+    description = clicked_data.description;
+    date = clicked_data.startdate;
+  };
 
   const date_box = document.getElementById('date_span');
   const description_span = document.getElementById('description_span');
@@ -136,9 +143,12 @@ function handleEventClick () {
 
   description_span.innerText = description;
 
-  description_box.setAttribute("class", event_type + "_description");
+  description_box.setAttribute("class", clicked_type + "_description");
+
+  params_obj.set('click', [type, id]);
+  handleURLManip();
 }
-//
+
 
 // this function draws everything in
 function updateChart(){
@@ -162,12 +172,11 @@ function updateChart(){
   // fixing y and x for nodes
   for (i = 0; i < processed_data.nodes.length; i++){
     let node = processed_data.nodes[i];
-    node.updatePos();
+    node.updatePos(rectHeight);
   };
 
 
   // make node g element to append rectangle and text
-
   var nodes = main_g.selectAll("node")
   .data(processed_data.nodes)
   .enter()
@@ -189,7 +198,9 @@ function updateChart(){
   .attr("id", function(d){ return d.id})
   .on("mouseover", handleNodeMouseOver)
   .on("mouseout", handleNodeMouseOut)
-  .on("click", handleNodeClick);
+  .on("click", function(d, i){
+    handleClick("node", i.id)
+  });
 
   var nodeText = nodes
   .data(processed_data.nodes)
@@ -227,7 +238,9 @@ function updateChart(){
   .attr("cy", function(d) {return d.y})
   .attr("id", function(d) {return d.id})
   .attr("r", 5)
-  .on("click", handleEventClick);
+  .on("click", function(d, i){
+    handleClick("event", i.id)
+  });
 
 
   // fixing y and x position for relationships

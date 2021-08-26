@@ -42,6 +42,22 @@
         </div>   
         
         <script type="text/javascript">
+            const url_obj = new URL(document.URL); // makes a url object
+            const params_obj = new URLSearchParams(url_obj.search);
+
+            var ratio_param = params_obj.get('ratio'); // split into individual variables
+            if (ratio_param){
+                ratio_param = parseFloat(ratio_param);
+                let slider = document.getElementById("zoomRange");
+                let span = document.getElementById("resolutionText");
+                let resolution = resolutionDict.find(element => element.height === ratio_param);
+                slider.value = resolution.value;
+                span.innerText = resolution.text;
+            }
+            else{ratio_param = 1};
+            var domain_param = params_obj.get('domain'); // ''
+            // if (domain_param){domain_param = domain_param.split(',')};
+            var click_param = params_obj.get('click'); // ''
 
             // moving the div over to replicate real webpage, still not great because its absolute positioning :(
             var width_ratio = .7;
@@ -57,7 +73,7 @@
             var w = width_ratio * window.screen.width;
             var svg_h = 500;
             const default_height = 1500;
-            var h = default_height; // this no longer sets the height of the svg, but rather the height of the elements within it!
+            var h = ratio_param * default_height; // this no longer sets the height of the svg, but rather the height of the elements within it!
             var padding = 50;
             var radius = 15;
             var svg = d3.select("#main_timeline").append("svg").attr("id", "svg")
@@ -147,25 +163,37 @@
 
                 // setting up the domain input textbox
                 let domainInput = document.getElementById('domainInput');
-                let initDomainValue = year_min + "," + todays_year;
+                let defDomainValue = year_min + "," + todays_year;
+                var initDomainValue;
+                if (domain_param){initDomainValue = domain_param}
+                else {initDomainValue = defDomainValue};
+
                 domainInput.value = initDomainValue;
                 domainInput.placeholder = initDomainValue;
 
+                initDomainArray = initDomainValue.split(',');
+                for (i=0; i<2; i++){initDomainArray[i] = yearToDate(initDomainArray[i])};
+
                 // initiate time scale
-                tScale = d3.scaleTime().domain([date_min, todays_date]).range([padding, h-padding]);
+                tScale = d3.scaleTime().domain(initDomainArray).range([padding, h-padding]);
 
                 // giving reset domain button its function
 
                 function handleDomainReset(){
                     handleDomainChange(date_min, todays_date);
-                    domainInput.value = initDomainValue;
-                    domainInput.placeholder = initDomainValue;
+                    domainInput.value = defDomainValue;
+                    domainInput.placeholder = defDomainValue;
                 }
 
                 document.getElementById('domainReset').onclick = handleDomainReset;
 
-
                 updateChart();
+
+                // if there was a click in url, we need to have it clicked
+                if (click_param){
+                    click_array = click_param.split(',');
+                    handleClick(click_array[0], click_array[1]);
+                };
 
             })
         </script>

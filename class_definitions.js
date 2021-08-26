@@ -11,14 +11,15 @@ class group_class {
         this.description = description;
     }
 
-    updatePos(){
+    updatePos(rectH){
         var current_min = tScale.domain()[0]; // finding current minimum year
         var current_max = tScale.domain()[1]; // finding current maximum year
+        var rectHeight = rectHeight;
         if(this.startdate >= current_min && this.startdate <= current_max) { // inside tScale domain
             this.y = tScale(this.startdate);
           }
           else if (this.startdate < current_min) { // if it happened earlier, put it on top. TODO: make it note somewhere that it is further up, so that it can look different
-            this.y = rectHeight/2 + 1; // add one to avoid trailing garbage error, pretty silly
+            this.y = rectH/2 + 1; // add one to avoid trailing garbage error, pretty silly
           }
           else if (this.startdate > current_max){
             console.log(this.abbr + ", far down");
