@@ -43,7 +43,8 @@ class event_class {
         // y position
         this.y = tScale(this.date);
         // x position
-        this.x = processed_data.nodes.find(element => element.id === this.parent_id).x;
+        let parent_node = processed_data.nodes.find(element => element.id === this.parent_id);
+        this.x = parent_node.x;
     }
 }
 

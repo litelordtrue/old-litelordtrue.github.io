@@ -123,13 +123,13 @@ function handleClick(type, id){
   var clicked_data, clicked_type, description, date;
 
   if (type === "event") {
-    clicked_data = processed_data.events.find(element => element.id == id);
+    clicked_data = processed_data.events.find(element => element.id === id);
     clicked_type = clicked_data.type;
     description = clicked_data.description;
     date = clicked_data.date;
   }
   else if (type === "node") {
-    clicked_data = processed_data.nodes.find(element => element.id = id);
+    clicked_data = processed_data.nodes.find(element => element.id === id);
     clicked_type = "node";
     description = clicked_data.description;
     date = clicked_data.startdate;
@@ -147,6 +147,9 @@ function handleClick(type, id){
 
   params_obj.set('click', [type, id]);
   handleURLManip();
+
+  console.log(document.getElementById('#' + id));
+  svg.selectAll('.clicked').classed('clicked', false);
 }
 
 
@@ -183,6 +186,7 @@ function updateChart(){
   .append("g")
   .attr("class", "node")
   .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")"}) // transform instead of using x/y
+  .attr("id", function(d){ return d.id})
   .attr("width", rectWidth)
   .attr("height", rectHeight);
 
@@ -195,7 +199,6 @@ function updateChart(){
   .attr("width", rectWidth)
   .attr("height", rectHeight)
   .attr("rx", rectWidth/20)
-  .attr("id", function(d){ return d.id})
   .on("mouseover", handleNodeMouseOver)
   .on("mouseout", handleNodeMouseOut)
   .on("click", function(d, i){
@@ -237,7 +240,7 @@ function updateChart(){
   .attr("cx", function(d) {return d.x})
   .attr("cy", function(d) {return d.y})
   .attr("id", function(d) {return d.id})
-  .attr("r", 5)
+  .attr("r", 6)
   .on("click", function(d, i){
     handleClick("event", i.id)
   });
