@@ -74,3 +74,8 @@ body {
 .leader_description{
     border: 2px solid grey;
 }
+
+.description_header{
+    font-size: 16;
+    font-weight: bold;
+}

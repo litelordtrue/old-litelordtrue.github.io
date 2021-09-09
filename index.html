@@ -20,10 +20,14 @@
 
             <div id = "content_wrapper" class = "content_wrapper">
                 <div id = "menu_wrapper" class = "menu_wrapper">
-                    <input class="activationCheckbox" type="checkbox" id = "nodeCheckbox" onclick="handleCheckbox('node', 'nodeCheckbox')" checked="true"> Toggle All Nodes
-                    <input class="activationCheckbox" type="checkbox" id = "inactiveCheckbox" onclick="handleCheckbox('inactive', 'inactiveCheckbox')" checked="true"> Toggle Inactive Nodes
-                    <input class="activationCheckbox" type="checkbox" id = "attackCheckbox" onclick="handleCheckbox('attack', 'attackCheckbox')" checked="true"> Toggle Attacks
-                    <input class="activationCheckbox" type="checkbox" id = "leaderCheckbox" onclick="handleCheckbox('leader', 'leaderCheckbox')" checked="true"> Toggle Leaders
+                    <input class="activationCheckbox" type="checkbox" id = "nodeCheckbox" onclick="handleCheckbox('node', 'nodeCheckbox')" checked="true"> 
+                    <label for="nodeCheckbox">Toggle All Nodes</label>
+                    <input class="activationCheckbox" type="checkbox" id = "inactiveCheckbox" onclick="handleCheckbox('inactive', 'inactiveCheckbox')" checked="true"> 
+                    <label for="inactiveCheckbox">Toggle Inactive Nodes</label>
+                    <input class="activationCheckbox" type="checkbox" id = "attackCheckbox" onclick="handleCheckbox('attack', 'attackCheckbox')" checked="true">
+                    <label for = "attackCheckbox">Toggle Attacks</label>
+                    <input class="activationCheckbox" type="checkbox" id = "leaderCheckbox" onclick="handleCheckbox('leader', 'leaderCheckbox')" checked="true">
+                    <label for ="leaderCheckbox">Toggle Leaders</label>
 
                     <input type="range" min = "0" max = "3" step = "1" value = "1" id = "zoomRange" oninput="handleSliderInput()"> Timeline Resolution: <span id="resolutionText"> 1 Year </span>
                     <button onclick="handleResetInput()">Reset Pan</button>
@@ -32,6 +36,8 @@
                     <button id="domainReset">Reset Domain</button>
                 </div>
                 <div id = "description_div">
+                    <span class = "description_header" id="name_span"></span>
+                    <br>
                     <span id="date_span"></span>
                     <br><br>
                     <span id="description_span"></span>
@@ -41,7 +47,7 @@
         </div>   
         <script src="MMP_JS.js"></script>
         <script type="text/javascript">
-            handleD3Read();
+            handleD3Read("/olddata.json");
         </script>
     </body>
 </html>

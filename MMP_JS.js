@@ -12,6 +12,11 @@ function handleCheckbox(classname, checkboxname) {
 //
 
 // for outputting dates nicely
+function yearToDate(year){
+  return parseTime(year + "-01-01");
+}
+
+
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 function DateToNice(date){
@@ -114,26 +119,30 @@ function handleNodeMouseOut () {
 
 // function for clicking for more info
 function handleClick(type, id){
-  var clicked_data, clicked_type, description, date;
+  var clicked_data, clicked_type, name, description, date;
 
   if (type === "event") {
     clicked_data = processed_data.events.find(element => element.id === id);
     clicked_type = clicked_data.type;
+    name = clicked_data.name;
     description = clicked_data.description;
     date = clicked_data.date;
   }
   else if (type === "node") {
     clicked_data = processed_data.nodes.find(element => element.id === id);
     clicked_type = "node";
+    name = clicked_data.name;
     description = clicked_data.description;
     date = clicked_data.startdate;
   };
 
-  const date_box = document.getElementById('date_span');
+  const name_span = document.getElementById('name_span');
+  const date_span = document.getElementById('date_span');
   const description_span = document.getElementById('description_span');
   const description_box = document.getElementById('description_div');
 
-  date_box.innerText = DateToNice(date);
+  name_span.innerText = name;
+  date_span.innerText = DateToNice(date);
 
   description_span.innerText = description;
 
@@ -323,8 +332,8 @@ var processed_data = {
     relationships: []
 };
 
-function handleD3Read(){
-  d3.json("olddata.json")
+function handleD3Read(datasource){
+  d3.json(datasource)
   .then(function(data){
       // big data read 
       // reading groups and events
@@ -345,7 +354,7 @@ function handleD3Read(){
               if (attack.date.endsWith("00-00")){attack.date = attack.date.substr(0,5) + "01-01"};
 
               processed_data.events.push(new event_class(
-                  attack.id, "attack", attack.description, parseTime(attack.date), attack.group_id,
+                  attack.id, "attack", "Major Attack", attack.description, parseTime(attack.date), attack.group_id,
                   0, 0
               ))
           }}
@@ -356,7 +365,7 @@ function handleD3Read(){
               if (leader.startdate === undefined){leader.startdate = leader.date;} // bad data, fixing it
               if (leader.startdate.endsWith("00-00")){leader.startdate = leader.startdate.substr(0,5) + "01-01"};
               processed_data.events.push(new event_class(
-                  leader.id, "leader", leader.description, parseTime(leader.startdate), leader.group_id,
+                  leader.id, "leader", "Leadership Change: " + leader.name, leader.description, parseTime(leader.startdate), leader.group_id,
                   0, 0
               ))
           }}
@@ -379,10 +388,6 @@ function handleD3Read(){
       })
 
       let year_min = date_min.getFullYear();
-
-      function yearToDate(year){
-          return parseTime(year + "-01-01");
-      }
 
       // setting up the domain input textbox
       let domainInput = document.getElementById('domainInput');
