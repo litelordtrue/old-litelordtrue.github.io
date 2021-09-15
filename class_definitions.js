@@ -24,7 +24,7 @@ class group_class {
           else if (this.startdate > current_max){
             console.log(this.abbr + ", far down");
           }
-          this.x = (i+1) * (w/(processed_data.nodes.length+1));
+          this.x = (i+1) * (w/(processed_data.mmpgroups.length+1));
     }
 }
 
@@ -44,14 +44,15 @@ class event_class {
         // y position
         this.y = tScale(this.date);
         // x position
-        let parent_node = processed_data.nodes.find(element => element.id === this.parent_id);
-        this.x = parent_node.x;
+        let parent_mmpgroup = processed_data.mmpgroups.find(element => element.id === this.parent_id);
+        this.x = parent_mmpgroup.x;
     }
 }
 
 class relationship_class {
-    constructor(relationship_type, date, group1, group2, x1, x2, y) {
+    constructor(relationship_type, id, date, group1, group2, x1, x2, y) {
         this.relationship_type = relationship_type;
+        this.id = id;
         this.date = date;
         this.group1 = group1;
         this.group2 = group2;
@@ -62,7 +63,13 @@ class relationship_class {
 
     updatePos(){
         this.y = tScale(this.date);
-        this.x1 = processed_data.nodes.find(element => this.group1 === element.id).x;
-        this.x2 = processed_data.nodes.find(element => this.group2 === element.id).x;
+        this.x1 = processed_data.mmpgroups.find(element => this.group1 === element.id).x;
+        this.x2 = processed_data.mmpgroups.find(element => this.group2 === element.id).x;
+    }
+}
+
+class family_class {
+    constructor(group) {
+        this.group = group;
     }
 }

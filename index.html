@@ -20,10 +20,10 @@
 
             <div id = "content_wrapper" class = "content_wrapper">
                 <div id = "menu_wrapper" class = "menu_wrapper">
-                    <input class="activationCheckbox" type="checkbox" id = "nodeCheckbox" onclick="handleCheckbox('node', 'nodeCheckbox')" checked="true"> 
-                    <label for="nodeCheckbox">Toggle All Nodes</label>
+                    <input class="activationCheckbox" type="checkbox" id = "mmpgroupCheckbox" onclick="handleCheckbox('mmpgroup', 'mmpgroupCheckbox')" checked="true"> 
+                    <label for="mmpgroupCheckbox">Toggle All Groups</label>
                     <input class="activationCheckbox" type="checkbox" id = "inactiveCheckbox" onclick="handleCheckbox('inactive', 'inactiveCheckbox')" checked="true"> 
-                    <label for="inactiveCheckbox">Toggle Inactive Nodes</label>
+                    <label for="inactiveCheckbox">Toggle Inactive Groups</label>
                     <input class="activationCheckbox" type="checkbox" id = "attackCheckbox" onclick="handleCheckbox('attack', 'attackCheckbox')" checked="true">
                     <label for = "attackCheckbox">Toggle Attacks</label>
                     <input class="activationCheckbox" type="checkbox" id = "leaderCheckbox" onclick="handleCheckbox('leader', 'leaderCheckbox')" checked="true">
@@ -47,7 +47,7 @@
         </div>   
         <script src="MMP_JS.js"></script>
         <script type="text/javascript">
-            handleD3Read("/olddata.json");
+            handlePageInit("/olddata.json");
         </script>
     </body>
 </html>

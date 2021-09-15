@@ -104,12 +104,12 @@ function handleURLManip(){
 }
 
 
-// functions for nodes
-function handleNodeMouseOver () {
+// functions for mmpgroups
+function handlemmpgroupMouseOver () {
   d3.select(this).style("opacity", .9).style("fill", "mediumslateblue");
 };
 
-function handleNodeMouseOut () {
+function handlemmpgroupMouseOut () {
   d3.select(this).style("opacity", .7).style("fill", "ghostwhite");
 }; 
 //
@@ -128,9 +128,9 @@ function handleClick(type, id){
     description = clicked_data.description;
     date = clicked_data.date;
   }
-  else if (type === "node") {
-    clicked_data = processed_data.nodes.find(element => element.id === id);
-    clicked_type = "node";
+  else if (type === "mmpgroup") {
+    clicked_data = processed_data.mmpgroups.find(element => element.id === id);
+    clicked_type = "mmpgroup";
     name = clicked_data.name;
     description = clicked_data.description;
     date = clicked_data.startdate;
@@ -151,7 +151,7 @@ function handleClick(type, id){
   params_obj.set('click', [type, id]);
   handleURLManip();
 
-  console.log(document.getElementById('#' + id));
+  // console.log(document.getElementById('#' + id));
   svg.selectAll('.clicked').classed('clicked', false);
 }
 
@@ -171,61 +171,65 @@ function updateChart(){
   zoom.translateExtent([[0,0], [w,h]]); // making sure you can only translate within bounds
 
 
-  var rectWidth = w/(processed_data.nodes.length + 1);
+  var rectWidth = w/(processed_data.mmpgroups.length + 1);
   var rectHeight = 100; // should probably scale these...
 
 
-  // fixing y and x for nodes
-  for (i = 0; i < processed_data.nodes.length; i++){
-    let node = processed_data.nodes[i];
-    node.updatePos(rectHeight);
+  // fixing y and x for mmpgroups
+  for (i = 0; i < processed_data.mmpgroups.length; i++){
+    let mmpgroup = processed_data.mmpgroups[i];
+    mmpgroup.updatePos(rectHeight);
   };
 
 
-  // make node g element to append rectangle and text
-  var nodes = main_g.selectAll("node")
-  .data(processed_data.nodes)
+  // make mmpgroup g element to append rectangle and text
+  var mmpgroups = main_g.selectAll("mmpgroup")
+  .data(processed_data.mmpgroups)
   .enter()
   .append("g")
-  .attr("class", "node")
+  .attr("class", function(d){
+    if (!d.active){return "mmpgroup inactive"}
+    else if (d.active){return "mmpgroup active"}
+    else {return "mmpgroup"};
+  })
   .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")"}) // transform instead of using x/y
   .attr("id", function(d){ return d.id})
   .attr("width", rectWidth)
   .attr("height", rectHeight);
 
-  // make node rectangles
-  var nodeRect = nodes
-  .data(processed_data.nodes)
+  // make mmpgroup rectangles
+  var mmpgroupRect = mmpgroups
+  .data(processed_data.mmpgroups)
   .append("rect")
   .attr("x", -rectWidth/2)
   .attr("y", -rectHeight/2)
   .attr("width", rectWidth)
   .attr("height", rectHeight)
   .attr("rx", rectWidth/20)
-  .on("mouseover", handleNodeMouseOver)
-  .on("mouseout", handleNodeMouseOut)
+  .on("mouseover", handlemmpgroupMouseOver)
+  .on("mouseout", handlemmpgroupMouseOut)
   .on("click", function(d, i){
-    handleClick("node", i.id)
+    handleClick("mmpgroup", i.id)
   });
 
-  var nodeText = nodes
-  .data(processed_data.nodes)
+  var mmpgroupText = mmpgroups
+  .data(processed_data.mmpgroups)
   .append("text")
   .text(function(d){return d.abbr})
   .attr("y", -rectHeight/4)
   .attr("dominant-baseline", "middle")
   .attr("text-anchor", "middle");
 
-  var nodeVLines = nodes
-  .data(processed_data.nodes)
+  var mmpgroupVLines = mmpgroups
+  .data(processed_data.mmpgroups)
   .append("line")
   .attr("x1", 0)
   .attr("y1", rectHeight/2)
   .attr("x2", 0)
-  .attr("y2", function(d){return h - d.y}) // since the origin is the actual node position!
+  .attr("y2", function(d){return h - d.y}) // since the origin is the actual mmpgroup position!
   .attr("class", "timeline")
   .attr("id", function(d) {return d.id + "_timeline"});
-  // nodes set up!
+  // mmpgroups set up!
 
   // fixing event position
   for (i = 0; i < processed_data.events.length; i++){
@@ -327,100 +331,103 @@ var parseTime = d3.timeParse("%Y-%m-%d");
 
 // creating the (currently) empty dataset
 var processed_data = {
-    nodes: [],
+    mmpgroups: [],
     events: [],
-    relationships: []
+    relationships: [],
+    family: []
 };
 
-function handleD3Read(datasource){
+function handleD3JSONRead(input_data){
+  // reading groups and events
+  let data = input_data;
+  for (i=0; i< data.groups.length; i++){
+    let group = data.groups[i].Group;
+    processed_data.mmpgroups.push(new group_class(
+        group.id, group.name, group.shortname,
+        parseTime(group.startdate), parseTime(group.enddate),
+        group.active,
+        0, 0,
+        group.description
+    ))
+
+    let attack_list = data.groups[i].Attack;
+    if (attack_list.length != 0) {for (j=0; j < attack_list.length; j++){
+        let attack = attack_list[j];
+        if (attack.date === undefined){attack.date = attack.startdate;} // bad data, fixing it
+        if (attack.date.endsWith("00-00")){attack.date = attack.date.substr(0,5) + "01-01"};
+
+        processed_data.events.push(new event_class(
+            attack.id, "attack", "Major Attack", attack.description, parseTime(attack.date), attack.group_id,
+            0, 0
+        ))
+    }}
+
+    let leader_list = data.groups[i].Leader;
+    if (leader_list.length != 0) {for (j=0; j < leader_list.length; j++){
+        let leader = leader_list[j];
+        if (leader.startdate === undefined){leader.startdate = leader.date;} // bad data, fixing it
+        if (leader.startdate.endsWith("00-00")){leader.startdate = leader.startdate.substr(0,5) + "01-01"};
+        processed_data.events.push(new event_class(
+            leader.id, "leader", "Leadership Change: " + leader.name, leader.description, parseTime(leader.startdate), leader.group_id,
+            0, 0
+        ))
+    }}
+  }
+
+  // reading relationships
+  for (i=0; i<data.links.length; i++){
+      let relationship = data.links[i].Link;
+      processed_data.relationships.push(new relationship_class(
+          relationship.type, relationship.id, parseTime(relationship.date),
+          relationship.group1, relationship.group2, 
+          0, 0, 0
+      ))
+  }
+}
+
+function handlePageInit(datasource){
   d3.json(datasource)
   .then(function(data){
-      // big data read 
-      // reading groups and events
-      for (i=0; i< data.groups.length; i++){
-          let group = data.groups[i].Group;
-          processed_data.nodes.push(new group_class(
-              group.id, group.name, group.shortname,
-              parseTime(group.startdate), parseTime(group.enddate),
-              group.active,
-              0, 0,
-              group.description
-          ))
+    handleD3JSONRead(data);
+    // finding the minimum year
+    var date_min = d3.min(processed_data.mmpgroups, function(d){
+        return d.startdate;
+    })
 
-          let attack_list = data.groups[i].Attack;
-          if (attack_list.length != 0) {for (j=0; j < attack_list.length; j++){
-              let attack = attack_list[j];
-              if (attack.date === undefined){attack.date = attack.startdate;} // bad data, fixing it
-              if (attack.date.endsWith("00-00")){attack.date = attack.date.substr(0,5) + "01-01"};
+    let year_min = date_min.getFullYear();
 
-              processed_data.events.push(new event_class(
-                  attack.id, "attack", "Major Attack", attack.description, parseTime(attack.date), attack.group_id,
-                  0, 0
-              ))
-          }}
+    // setting up the domain input textbox
+    let domainInput = document.getElementById('domainInput');
+    let defDomainValue = year_min + "," + todays_year;
+    var initDomainValue;
+    if (domain_param){initDomainValue = domain_param}
+    else {initDomainValue = defDomainValue};
 
-          let leader_list = data.groups[i].Leader;
-          if (leader_list.length != 0) {for (j=0; j < leader_list.length; j++){
-              let leader = leader_list[j];
-              if (leader.startdate === undefined){leader.startdate = leader.date;} // bad data, fixing it
-              if (leader.startdate.endsWith("00-00")){leader.startdate = leader.startdate.substr(0,5) + "01-01"};
-              processed_data.events.push(new event_class(
-                  leader.id, "leader", "Leadership Change: " + leader.name, leader.description, parseTime(leader.startdate), leader.group_id,
-                  0, 0
-              ))
-          }}
-      }
+    domainInput.value = initDomainValue;
+    domainInput.placeholder = initDomainValue;
 
-      // reading relationships
-      for (i=0; i<data.links.length; i++){
-          let relationship = data.links[i].Link;
-          processed_data.relationships.push(new relationship_class(
-              relationship.type, parseTime(relationship.date),
-              relationship.group1, relationship.group2, 
-              0, 0, 0
-          ))
-      }
-      // end big data read
+    initDomainArray = initDomainValue.split(',');
+    for (i=0; i<2; i++){initDomainArray[i] = yearToDate(initDomainArray[i])};
 
-      // finding the minimum year
-      var date_min = d3.min(processed_data.nodes, function(d){
-          return d.startdate;
-      })
+    // initiate time scale
+    tScale = d3.scaleTime().domain(initDomainArray).range([padding, h-padding]);
 
-      let year_min = date_min.getFullYear();
+    // giving reset domain button its function
 
-      // setting up the domain input textbox
-      let domainInput = document.getElementById('domainInput');
-      let defDomainValue = year_min + "," + todays_year;
-      var initDomainValue;
-      if (domain_param){initDomainValue = domain_param}
-      else {initDomainValue = defDomainValue};
+    function handleDomainReset(){
+        handleDomainChange(date_min, todays_date);
+        domainInput.value = defDomainValue;
+        domainInput.placeholder = defDomainValue;
+    }
 
-      domainInput.value = initDomainValue;
-      domainInput.placeholder = initDomainValue;
+    document.getElementById('domainReset').onclick = handleDomainReset;
 
-      initDomainArray = initDomainValue.split(',');
-      for (i=0; i<2; i++){initDomainArray[i] = yearToDate(initDomainArray[i])};
+    updateChart();
 
-      // initiate time scale
-      tScale = d3.scaleTime().domain(initDomainArray).range([padding, h-padding]);
-
-      // giving reset domain button its function
-
-      function handleDomainReset(){
-          handleDomainChange(date_min, todays_date);
-          domainInput.value = defDomainValue;
-          domainInput.placeholder = defDomainValue;
-      }
-
-      document.getElementById('domainReset').onclick = handleDomainReset;
-
-      updateChart();
-
-      // if there was a click in url, we need to have it clicked
-      if (click_param){
-          click_array = click_param.split(',');
-          handleClick(click_array[0], click_array[1]);
-      };
+    // if there was a click in url, we need to have it clicked
+    if (click_param){
+        click_array = click_param.split(',');
+        handleClick(click_array[0], click_array[1]);
+    };
   })
 }
