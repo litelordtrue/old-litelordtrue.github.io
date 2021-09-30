@@ -1,5 +1,5 @@
 class group_class {
-    constructor(id, name, abbr, startdate, enddate, active, x, y, description) {
+    constructor(id, name, abbr, startdate, enddate, active, x, y, description, links) {
         this.id = id;
         this.name = name;
         this.abbr = abbr;
@@ -9,6 +9,7 @@ class group_class {
         this.x = x;
         this.y = y;
         this.description = description;
+        this.links = links;
     }
 
     updatePos(rectH){
@@ -50,10 +51,11 @@ class event_class {
 }
 
 class relationship_class {
-    constructor(relationship_type, id, date, group1, group2, x1, x2, y) {
+    constructor(relationship_type, id, date, description, group1, group2, x1, x2, y) {
         this.relationship_type = relationship_type;
         this.id = id;
         this.date = date;
+        this.description = description;
         this.group1 = group1;
         this.group2 = group2;
         this.x1 = x1;
@@ -65,11 +67,5 @@ class relationship_class {
         this.y = tScale(this.date);
         this.x1 = processed_data.mmpgroups.find(element => this.group1 === element.id).x;
         this.x2 = processed_data.mmpgroups.find(element => this.group2 === element.id).x;
-    }
-}
-
-class family_class {
-    constructor(group) {
-        this.group = group;
     }
 }

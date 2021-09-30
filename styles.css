@@ -43,6 +43,7 @@ body {
     stroke: black;
 }
 
+
 .all{
     stroke: blue;
 }
@@ -72,6 +73,10 @@ body {
 
 .leader_description{
     border: 2px solid grey;
+}
+
+.relationship_description{
+    border: 2px solid blue;
 }
 
 .description_header{

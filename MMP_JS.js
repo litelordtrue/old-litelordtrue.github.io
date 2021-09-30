@@ -105,16 +105,25 @@ function handleURLManip(){
 
 
 // functions for mmpgroups
-function handlemmpgroupMouseOver () {
-  d3.select(this).style("opacity", .9).style("fill", "mediumslateblue");
+function handleMMPGroupMouseOver (group_data) {
+  let group_g = document.getElementById(group_data.id);
+  let group_rect = group_g.children[0]; // this is sort of cheaty, but it works
+  d3.select(group_rect).style("opacity", .9).style("fill", "mediumslateblue");
+
+  // this generates an array of the line elements that connect to this group. 
+  let link_obj_list = [];
+  for (link_num = 0; link_num < group_data.links.length; link_num++){
+    link_obj_list.push(document.getElementById(group_data.links[link_num]));
+  }
+  // console.log(link_obj_list);
+  
 };
 
-function handlemmpgroupMouseOut () {
-  d3.select(this).style("opacity", .7).style("fill", "ghostwhite");
+function handleMMPGroupMouseOut (group_data) {
+  let group_g = document.getElementById(group_data.id);
+  let group_rect = group_g.children[0]; // this is sort of cheaty, but it works
+  d3.select(group_rect).style("opacity", .7).style("fill", "ghostwhite");
 }; 
-//
-
-// functions for events
 //
 
 // function for clicking for more info
@@ -134,7 +143,17 @@ function handleClick(type, id){
     name = clicked_data.name;
     description = clicked_data.description;
     date = clicked_data.startdate;
-  };
+  }
+  else if (type === "relationship") {
+    relationship_dict = {spl: "Split", all: "Allies", riv: "Rivals"};
+    clicked_data = processed_data.relationships.find(element => element.id === id);
+    clicked_type = "relationship";
+    group1_data = processed_data.mmpgroups.find(element => element.id === clicked_data.group1);
+    group2_data = processed_data.mmpgroups.find(element => element.id === clicked_data.group2);
+    name = "" + group1_data.abbr + " and " + group2_data.abbr + " " + relationship_dict[clicked_data.relationship_type];
+    description = clicked_data.description;
+    date = clicked_data.date;
+  }
 
   const name_span = document.getElementById('name_span');
   const date_span = document.getElementById('date_span');
@@ -206,11 +225,9 @@ function updateChart(){
   .attr("width", rectWidth)
   .attr("height", rectHeight)
   .attr("rx", rectWidth/20)
-  .on("mouseover", handlemmpgroupMouseOver)
-  .on("mouseout", handlemmpgroupMouseOut)
-  .on("click", function(d, i){
-    handleClick("mmpgroup", i.id)
-  });
+  .on("mouseover", function(d,i){handleMMPGroupMouseOver(i)}) // passing all group data into these functions. should be more efficient?
+  .on("mouseout", function(d,i){handleMMPGroupMouseOut(i)})
+  .on("click", function(d,i){handleClick("mmpgroup", i.id)});
 
   var mmpgroupText = mmpgroups
   .data(processed_data.mmpgroups)
@@ -261,15 +278,33 @@ function updateChart(){
   }
 
   // drawing in relationships
-
   var relationships = main_g.selectAll("relationship")
   .data(processed_data.relationships).enter()
-  .append("line")
+  .append("g")
   .attr("class", function(d){return d.relationship_type})
-  .attr("y1", function(d){return d.y})
-  .attr("y2", function(d){return d.y})
-  .attr("x1", function(d){return d.x1})
-  .attr("x2", function(d){return d.x2});
+  .attr("transform", function(d) {return "translate(" + d.x1 + "," + d.y + ")"})
+  .attr("width", function(d){return d.x2 - d.x1;})
+  .attr("id", function(d){return d.id;});
+
+  // relationship lines
+  relationships.data(processed_data.relationships)
+  .append("line")
+  .attr("x1", 0)
+  .attr("x2", function(d) {return d.x2 - d.x1;})
+  .attr("y1", 0)
+  .attr("y2", 0);
+  
+  // relationship circles
+
+  relationships.data(processed_data.relationships)
+  .append("circle")
+  .attr("cx", function(d){return .5*(d.x2-d.x1);})
+  .attr("cy", 0)
+  .attr("r", 5)
+  .on("click", function(d, i){
+    handleClick("relationship", i.id)
+  });
+
 }
 //
 
@@ -334,7 +369,6 @@ var processed_data = {
     mmpgroups: [],
     events: [],
     relationships: [],
-    family: []
 };
 
 function handleD3JSONRead(input_data){
@@ -347,7 +381,7 @@ function handleD3JSONRead(input_data){
         parseTime(group.startdate), parseTime(group.enddate),
         group.active,
         0, 0,
-        group.description
+        group.description, []
     ))
 
     let attack_list = data.groups[i].Attack;
@@ -378,17 +412,25 @@ function handleD3JSONRead(input_data){
   for (i=0; i<data.links.length; i++){
       let relationship = data.links[i].Link;
       processed_data.relationships.push(new relationship_class(
-          relationship.type, relationship.id, parseTime(relationship.date),
+          relationship.type, relationship.id, parseTime(relationship.date), relationship.description,
           relationship.group1, relationship.group2, 
           0, 0, 0
-      ))
+      ));
+
+      // adding these link ids to a list attached to the group dataset, so each group knows which links to preserve
+      let group1 = processed_data.mmpgroups.find(element => element.id === relationship.group1);
+      let group2 = processed_data.mmpgroups.find(element => element.id === relationship.group2);
+      group1.links.push(relationship.id);
+      group2.links.push(relationship.id);
   }
 }
+
 
 function handlePageInit(datasource){
   d3.json(datasource)
   .then(function(data){
     handleD3JSONRead(data);
+
     // finding the minimum year
     var date_min = d3.min(processed_data.mmpgroups, function(d){
         return d.startdate;
