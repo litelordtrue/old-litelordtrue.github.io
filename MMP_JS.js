@@ -130,6 +130,7 @@ function handleMMPGroupMouseOut (group_data) {
 function handleClick(type, id){
   var clicked_data, clicked_type, name, description, date;
 
+  // handle event click
   if (type === "event") {
     clicked_data = processed_data.events.find(element => element.id === id);
     clicked_type = clicked_data.type;
@@ -137,13 +138,16 @@ function handleClick(type, id){
     description = clicked_data.description;
     date = clicked_data.date;
   }
+  // handle group click
   else if (type === "mmpgroup") {
     clicked_data = processed_data.mmpgroups.find(element => element.id === id);
     clicked_type = "mmpgroup";
     name = clicked_data.name;
     description = clicked_data.description;
     date = clicked_data.startdate;
+    
   }
+  // handle relationship click
   else if (type === "relationship") {
     relationship_dict = {spl: "Split", all: "Allies", riv: "Rivals"};
     clicked_data = processed_data.relationships.find(element => element.id === id);
@@ -155,6 +159,7 @@ function handleClick(type, id){
     date = clicked_data.date;
   }
 
+  // grab divs to put information in
   const name_span = document.getElementById('name_span');
   const date_span = document.getElementById('date_span');
   const description_span = document.getElementById('description_span');
@@ -256,7 +261,12 @@ function updateChart(){
 
 
   // drawing events
-  var events = main_g.selectAll("attack")
+  /* for (i = 0; i < processed_data.mmpgroups.length; i++){ // why not do this when constructing the dataset? it makes to store array of events within the objects
+    mmpgroup = processed_data.mmpgroups[i];
+    event_list = processed_data.events.filter(element => element.parent_id === mmpgroup.id);
+  }; */
+
+  var events = main_g.selectAll("event") // want these 
   .data(processed_data.events)
   .enter()
   .append("circle")
@@ -268,6 +278,7 @@ function updateChart(){
   .on("click", function(d, i){
     handleClick("event", i.id)
   });
+
 
 
   // fixing y and x position for relationships
@@ -293,9 +304,22 @@ function updateChart(){
   .attr("x2", function(d) {return d.x2 - d.x1;})
   .attr("y1", 0)
   .attr("y2", 0);
-  
-  // relationship circles
 
+  // relationship endpoint circles
+  // first circle
+  relationships.data(processed_data.relationships)
+  .append("circle")
+  .attr("cx", 0)
+  .attr("cy", 0)
+  .attr("r", 2.5)
+  // second circle
+  relationships.data(processed_data.relationships)
+  .append("circle")
+  .attr("cx", function(d){return d.x2 - d.x1})
+  .attr("cy", 0)
+  .attr("r", 2.5);
+
+  // relationship clickable circles
   relationships.data(processed_data.relationships)
   .append("circle")
   .attr("cx", function(d){return .5*(d.x2-d.x1);})
@@ -417,7 +441,7 @@ function handleD3JSONRead(input_data){
           0, 0, 0
       ));
 
-      // adding these link ids to a list attached to the group dataset, so each group knows which links to preserve
+      // creating a list of connected groups for tracing
       let group1 = processed_data.mmpgroups.find(element => element.id === relationship.group1);
       let group2 = processed_data.mmpgroups.find(element => element.id === relationship.group2);
       group1.links.push(relationship.id);
