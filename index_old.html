@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+    </style>
+    <head>
+        <meta charset="utf-8">
+        <title>Mapping Militants Demo</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="/class_definitions.js"></script>
+    </head>
+    <body>
+        <div class = "page_wrapper">
+            <!-- <div class = "side_wrapper">
+                <button onclick="closeNav('side_content')"></button>
+                <div class = "side_content">
+                    <p> hello </p>
+                </div>
+            </div> -->
+
+            <div id = "content_wrapper" class = "content_wrapper">
+                <div id = "menu_wrapper" class = "menu_wrapper">
+                    <input class="activationCheckbox" type="checkbox" id = "mmpgroupCheckbox" onclick="handleCheckbox('mmpgroup', 'mmpgroupCheckbox')" checked="true"> 
+                    <label for="mmpgroupCheckbox">Toggle All Groups</label>
+                    <input class="activationCheckbox" type="checkbox" id = "inactiveCheckbox" onclick="handleCheckbox('inactive', 'inactiveCheckbox')" checked="true"> 
+                    <label for="inactiveCheckbox">Toggle Inactive Groups</label>
+                    <input class="activationCheckbox" type="checkbox" id = "attackCheckbox" onclick="handleCheckbox('attack', 'attackCheckbox')" checked="true">
+                    <label for = "attackCheckbox">Toggle Attacks</label>
+                    <input class="activationCheckbox" type="checkbox" id = "leaderCheckbox" onclick="handleCheckbox('leader', 'leaderCheckbox')" checked="true">
+                    <label for ="leaderCheckbox">Toggle Leaders</label>
+
+                    <input type="range" min = "0" max = "3" step = "1" value = "1" id = "zoomRange" oninput="handleSliderInput()"> Timeline Resolution: <span id="resolutionText"> 1 Year </span>
+                    <button onclick="handleResetInput()">Reset Pan</button>
+
+                    <input id="domainInput"> <button onclick="handleDomainInput()">Change Domain</button>
+                    <button id="domainReset">Reset Domain</button>
+                </div>
+                <div id = "description_div">
+                    <span class = "description_header" id="name_span"></span>
+                    <br>
+                    <span id="date_span"></span>
+                    <br><br>
+                    <span id="description_span"></span>
+                </div>
+                <div id = "main_timeline" class = "main_timeline"></div>
+            </div>
+        </div>   
+        <script src="MMP_JS.js"></script>
+        <script type="text/javascript">
+            handlePageInit("/olddata.json");
+        </script>
+    </body>
+</html>

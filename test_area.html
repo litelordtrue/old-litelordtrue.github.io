@@ -7,11 +7,13 @@
         <title>Testing Stuff</title>
         <link rel="stylesheet" href="styles.css">
         <script src="/class_definitions.js"></script>
-        <script src="/external_javascript.js"></script>
+        <script src="/MMP_JS.js"></script>
         <script src="https://d3js.org/d3.v7.min.js"></script>
     </head>
     <body>
-        <div id = "dev_area"></div>
+        <div id = "dev_area">
+            <div id = "range_slider"></div>
+        </div>
         <script type = "text/javascript"> 
             /* var example_data = {
                 nodes: [
@@ -34,7 +36,13 @@
 
             var main_g = svg.append("g").attr("id", "main_g");
 
-            var current_pos = [0,0];
+            var slider = 
+
+            var gRange = d3.select('div#range_slider').append('svg')
+                .attr('width', 500).attr('height', 100)
+                .append('g').attr('transform', 'translate(30,30)');
+
+            /* var current_pos = [0,0];
 
             const url_obj = new URL(document.URL); // makes a url object
             const params_obj = new URLSearchParams(url_obj.search);
@@ -67,7 +75,7 @@
             .scaleExtent([1,1])
             .translateExtent([0,0], [500,500]);
 
-            d3.select('svg').call(zoom);
+            d3.select('svg').call(zoom); */
 
 
         </script>

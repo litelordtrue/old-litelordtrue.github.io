@@ -1,53 +1,299 @@
 <!DOCTYPE html>
-<html lang="en">
-    <style>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="https://dev-mapping-militants.pantheonsite.io/core/misc/favicon.ico"
+        type="image/vnd.microsoft.icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="canonical" href="https://dev-mapping-militants.pantheonsite.io/map/philippines" />
+    <meta name="Generator" content="Backdrop CMS 1 (https://backdropcms.org)" />
+    <title>Philippines | Mapping Militants</title>
+    <style media="all">
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/misc/normalize.css?r5gqah");
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/modules/system/css/system.css?r5gqah");
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/modules/system/css/system.theme.css?r5gqah");
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/modules/system/css/messages.theme.css?r5gqah");
     </style>
-    <head>
-        <meta charset="utf-8">
-        <title>Mapping Militants Demo</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="https://d3js.org/d3.v7.min.js"></script>
-        <script src="/class_definitions.js"></script>
-    </head>
-    <body>
-        <div class = "page_wrapper">
-            <!-- <div class = "side_wrapper">
-                <button onclick="closeNav('side_content')"></button>
-                <div class = "side_content">
-                    <p> hello </p>
-                </div>
-            </div> -->
+    <style media="all">
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/modules/layout/css/grid-flexbox.css?r5gqah");
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/modules/contextual/css/contextual.css?r5gqah");
+    </style>
+    <style media="all">
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/modules/date/css/date.css?r5gqah");
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/modules/field/css/field.css?r5gqah");
+        @import url("https://dev-mapping-militants.pantheonsite.io/modules/mapblock/css/mapblock.css?r5gqah");
+        @import url("https://dev-mapping-militants.pantheonsite.io/modules/paragraphs/css/paragraphs.css?r5gqah");
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/modules/user/css/user.css?r5gqah");
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/modules/views/css/views.css?r5gqah");
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/modules/admin_bar/css/admin_bar.css?r5gqah");
+    </style>
+    <style media="print">
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/modules/admin_bar/css/admin_bar-print.css?r5gqah");
+    </style>
+    <style media="all">
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/modules/system/css/menu-dropdown.theme.css?r5gqah");
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/modules/system/css/menu-toggle.theme.css?r5gqah");
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" media="all" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+        media="all" />
+    <style media="all">
+        @import url("https://dev-mapping-militants.pantheonsite.io/themes/bootstrap5_lite/css/overrides.css?r5gqah");
+        @import url("https://dev-mapping-militants.pantheonsite.io/themes/bootstrap5_lite/css/style.css?r5gqah");
+    </style>
+    <style media="screen">
+        @import url("https://dev-mapping-militants.pantheonsite.io/core/misc/smartmenus/css/sm-core-css.css?r5gqah");
+    </style>
+    <script>window.Backdrop = { settings: { "basePath": "\/", "pathPrefix": "", "drupalCompatibility": true, "ajaxPageState": { "theme": "bootstrap5_lite", "theme_token": "21J2DwhPXY1MHnMRkvT7hWrHhiMhrwkQ9KSdoz6IjT4", "css": { "core\/misc\/normalize.css": 1, "core\/modules\/system\/css\/system.css": 1, "core\/modules\/system\/css\/system.theme.css": 1, "core\/modules\/system\/css\/messages.theme.css": 1, "core\/modules\/layout\/css\/grid-flexbox.css": 1, "core\/modules\/contextual\/css\/contextual.css": 1, "core\/modules\/date\/css\/date.css": 1, "core\/modules\/field\/css\/field.css": 1, "modules\/mapblock\/css\/mapblock.css": 1, "modules\/paragraphs\/css\/paragraphs.css": 1, "core\/modules\/search\/search.theme.css": 1, "core\/modules\/user\/css\/user.css": 1, "core\/modules\/views\/css\/views.css": 1, "core\/modules\/admin_bar\/css\/admin_bar.css": 1, "core\/modules\/admin_bar\/css\/admin_bar-print.css": 1, "layouts\/mmp\/mmp.css": 1, "core\/modules\/system\/css\/menu-dropdown.theme.css": 1, "core\/modules\/system\/css\/menu-toggle.theme.css": 1, "https:\/\/cdn.jsdelivr.net\/npm\/bootstrap@5.0.1\/dist\/css\/bootstrap.min.css": 1, "https:\/\/stackpath.bootstrapcdn.com\/font-awesome\/4.4.0\/css\/font-awesome.min.css": 1, "themes\/bootstrap5_lite\/css\/overrides.css": 1, "themes\/bootstrap5_lite\/css\/style.css": 1, "core\/misc\/smartmenus\/css\/sm-core-css.css": 1 }, "js": { "core\/misc\/html5.js": 1, "core\/misc\/jquery.js": 1, "core\/misc\/jquery-extend-3.4.0.js": 1, "core\/misc\/jquery-html-prefilter-3.5.0.js": 1, "core\/misc\/jquery.once.js": 1, "core\/misc\/backdrop.js": 1, "core\/modules\/layout\/js\/grid-fallback.js": 1, "core\/modules\/contextual\/js\/contextual.js": 1, "core\/misc\/smartmenus\/jquery.smartmenus.js": 1, "core\/misc\/smartmenus\/addons\/keyboard\/jquery.smartmenus.keyboard.js": 1, "https:\/\/cdn.jsdelivr.net\/npm\/bootstrap@5.0.1\/dist\/js\/bootstrap.min.js": 1, "modules\/mapblock\/js\/mapblock.js": 1, "core\/modules\/admin_bar\/js\/admin_bar.js": 1, "core\/modules\/system\/js\/menus.js": 1, "themes\/bootstrap5_lite\/js\/navbar-static-top.js": 1 } }, "data": { "nodes": [{ "nid": "362", "name": "Communist Party of the Philippines - New People\u0027s Army", "active": "Active", "start_date": "1968-01-01", "end_date": "2015-07-01" }, { "nid": "456", "name": "Moro National Liberation Front", "active": null, "start_date": "1972-01-01", "end_date": "1972-01-01" }, { "nid": "455", "name": "Moro Islamic Liberation Front", "active": null, "start_date": "1977-01-01", "end_date": "1977-01-01" }, { "nid": "300", "name": "Abu Sayyaf Group", "active": null, "start_date": "1991-01-01", "end_date": "1991-01-01" }, { "nid": "509", "name": "Revolutionary Proletarian Army", "active": null, "start_date": "1992-01-01", "end_date": "1992-01-01" }, { "nid": "322", "name": "Alex Boncayao Brigade", "active": "Active", "start_date": "1992-01-01", "end_date": false }, { "nid": "348", "name": "Bangsamoro Islamic Freedom Fighters", "active": null, "start_date": "2010-01-01", "end_date": "2010-01-01" }, { "nid": "425", "name": "Justice for Islamic Movement", "active": "Active", "start_date": "2013-01-01", "end_date": "2013-01-01" }] }, "admin_bar": { "destination": "destination=node\/23", "hash": "1668a249364feb0a3b6ac40dbfa2447d", "basePath": "\/admin_bar", "replacements": { ".admin-bar-users a": "1" }, "margin_top": 1 } } };</script>
 
-            <div id = "content_wrapper" class = "content_wrapper">
-                <div id = "menu_wrapper" class = "menu_wrapper">
-                    <input class="activationCheckbox" type="checkbox" id = "mmpgroupCheckbox" onclick="handleCheckbox('mmpgroup', 'mmpgroupCheckbox')" checked="true"> 
-                    <label for="mmpgroupCheckbox">Toggle All Groups</label>
-                    <input class="activationCheckbox" type="checkbox" id = "inactiveCheckbox" onclick="handleCheckbox('inactive', 'inactiveCheckbox')" checked="true"> 
-                    <label for="inactiveCheckbox">Toggle Inactive Groups</label>
-                    <input class="activationCheckbox" type="checkbox" id = "attackCheckbox" onclick="handleCheckbox('attack', 'attackCheckbox')" checked="true">
-                    <label for = "attackCheckbox">Toggle Attacks</label>
-                    <input class="activationCheckbox" type="checkbox" id = "leaderCheckbox" onclick="handleCheckbox('leader', 'leaderCheckbox')" checked="true">
-                    <label for ="leaderCheckbox">Toggle Leaders</label>
+    <!--[if lte IE 8]>
+<script src="https://dev-mapping-militants.pantheonsite.io/core/misc/html5.js?v=3.7.2"></script>
+<![endif]-->
+    <script src="https://dev-mapping-militants.pantheonsite.io/core/misc/jquery.js?v=1.12.4"></script>
+    <script src="https://dev-mapping-militants.pantheonsite.io/core/misc/jquery-extend-3.4.0.js?v=1.12.4"></script>
+    <script
+        src="https://dev-mapping-militants.pantheonsite.io/core/misc/jquery-html-prefilter-3.5.0.js?v=1.12.4"></script>
+    <script src="https://dev-mapping-militants.pantheonsite.io/core/misc/jquery.once.js?v=1.2"></script>
+    <script src="https://dev-mapping-militants.pantheonsite.io/core/misc/backdrop.js?v=1.20.3"></script>
+    <script
+        src="https://dev-mapping-militants.pantheonsite.io/core/modules/layout/js/grid-fallback.js?v=1.20.3"></script>
+    <script
+        src="https://dev-mapping-militants.pantheonsite.io/core/modules/contextual/js/contextual.js?v=1.20.3"></script>
+    <script
+        src="https://dev-mapping-militants.pantheonsite.io/core/misc/smartmenus/jquery.smartmenus.js?v=1.0.0"></script>
+    <script
+        src="https://dev-mapping-militants.pantheonsite.io/core/misc/smartmenus/addons/keyboard/jquery.smartmenus.keyboard.js?v=1.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://dev-mapping-militants.pantheonsite.io/modules/mapblock/js/mapblock.js?r5gqah"></script>
+    <script src="https://dev-mapping-militants.pantheonsite.io/core/modules/admin_bar/js/admin_bar.js?r5gqah"></script>
+    <script src="https://dev-mapping-militants.pantheonsite.io/core/modules/system/js/menus.js?v=1.20.3"></script>
+    <script
+        src="https://dev-mapping-militants.pantheonsite.io/themes/bootstrap5_lite/js/navbar-static-top.js?r5gqah"></script>
+</head>
 
-                    <input type="range" min = "0" max = "3" step = "1" value = "1" id = "zoomRange" oninput="handleSliderInput()"> Timeline Resolution: <span id="resolutionText"> 1 Year </span>
-                    <button onclick="handleResetInput()">Reset Pan</button>
+<body class="page logged-in node-type-map navbar-admin-bar navbar-is-static-top">
+    <div class="layout--mmp layout">
+        <div id="skip-link">
+            <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+        </div>
 
-                    <input id="domainInput"> <button onclick="handleDomainInput()">Change Domain</button>
-                    <button id="domainReset">Reset Domain</button>
+        <header class="l-header" role="banner" aria-label="Site header">
+            <div class="l-header-inner container container-fluid">
+                <div class="block block-system-header contextual-links-region">
+
+                    <div class="contextual-links-wrapper">
+                        <ul class="contextual-links">
+                            <li class="layout-configure-redirect- odd first last"><a
+                                    href="/admin/structure/layouts/manage/maps/configure-redirect/9a4ea88a-d8b9-4f37-b709-9e54f3c73196?destination=node/23#configure-block:9a4ea88a-d8b9-4f37-b709-9e54f3c73196">Configure
+                                    block</a></li>
+                        </ul>
+                    </div>
+                    <div class="block-content">
+                        <header id="navbar" role="banner"
+                            class="navbar navbar-expand-lg navbar-static-top static-top navbar-light bg-light">
+                            <div class="container">
+                                <div class="navbar-header">
+                                    <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                                    <button type="button" class="navbar-toggler" data-toggle="collapse"
+                                        data-target=".navbar-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="name navbar-brand" href="/" title="Home">
+                                        Mapping Militants </a>
+                                </div>
+
+                                <div class="navbar-collapse collapse d-flex justify-content-between">
+                                    <ul class="menu nav navbar-nav navbar-left">
+                                        <li class="menu-2 odd first"><a href="/user" class="nav-link">My account</a>
+                                        </li>
+                                        <li class="menu-14 even last"><a href="/user/logout" class="nav-link">Log
+                                                out</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </header>
+                        <header role="banner" id="page-header">
+                        </header> <!-- /#page-header -->
+                    </div>
                 </div>
-                <div id = "description_div">
-                    <span class = "description_header" id="name_span"></span>
-                    <br>
-                    <span id="date_span"></span>
-                    <br><br>
-                    <span id="description_span"></span>
+                <div class="block block-system-main-menu contextual-links-region block-menu" role="navigation">
+
+                    <div class="block-content">
+                        <input id="menu-toggle-state" class="menu-toggle-state element-invisible" type="checkbox"
+                            aria-controls="menu-toggle-state" /><label class="menu-toggle-button"
+                            for="menu-toggle-state"><span class="menu-toggle-button-icon"></span><span
+                                class="menu-toggle-button-text">Menu</span><span
+                                class="menu-toggle-assistive-text element-invisible">Toggle menu
+                                visibility</span></label>
+                        <ul class="menu-dropdown menu" data-menu-style="dropdown" data-clickdown=""
+                            data-menu-toggle-id="menu-toggle-state">
+                            <li class="first leaf menu-mlid-315"><a href="/">Home</a></li>
+                            <li class="leaf menu-mlid-403"><a href="/documentation">Documentation</a></li>
+                            <li class="leaf menu-mlid-402"><a
+                                    href="https://dev-mapping-militants.pantheonsite.io/map/philippines" title="">Test
+                                    Map</a></li>
+                            <li class="leaf menu-mlid-331"><a href="/welcome">Welcome</a></li>
+                            <li class="leaf menu-mlid-314"><a href="/about">About</a></li>
+                            <li class="leaf menu-mlid-368"><a href="/maps">Maps</a></li>
+                            <li class="last leaf menu-mlid-366"><a href="/profiles">Profiles</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div id = "main_timeline" class = "main_timeline"></div>
             </div>
-        </div>   
-        <script src="MMP_JS.js"></script>
-        <script type="text/javascript">
-            handlePageInit("/olddata.json");
-        </script>
-    </body>
+        </header>
+
+        <div class="l-map">
+            <div
+                class="block block-mapblock-default bg-light container-fluid contextual-links-region block-mapblock block-mapblock-map">
+
+                <div class="block-content">
+                    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+                    <div class="mapblock-inner">
+                        <div class="block-body">
+                            <div class="row">
+                                <nav class="col-md-2   d-md-block bg-light sidebar" id="sidebar">
+                                    <p> logo </p>
+                                    <div id="menu_wrapper" class="menu_wrapper">
+
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input activationCheckbox" type="checkbox"
+                                                id="mmpgroupCheckbox"
+                                                onclick="handleCheckbox('mmpgroup', 'mmpgroupCheckbox')" checked="true">
+                                            <label class="form-check-label" for="nodeCheckbox"> Toggle All
+                                                Groups</label>
+                                        </div>
+
+                                        <div class="form-check form-switch">
+                                            <input class="activationCheckbox form-check-input" type="checkbox"
+                                                id="inactiveCheckbox"
+                                                onclick="handleCheckbox('inactive', 'inactiveCheckbox')" checked="true">
+                                            <label for="inactiveCheckbox" class="form-check-label">Toggle Inactive
+                                                Groups</label>
+                                        </div>
+
+                                        <div class="form-check form-switch">
+                                            <input class="activationCheckbox form-check-input" type="checkbox"
+                                                id="attackCheckbox" onclick="handleCheckbox('attack', 'attackCheckbox')"
+                                                checked="true">
+                                            <label for="attackCheckbox" class="form-check-label">Toggle Attacks</label>
+                                        </div>
+
+                                        <div class="form-check form-switch">
+                                            <input class="activationCheckbox form-check-input" type="checkbox"
+                                                id="leaderCheckbox" onclick="handleCheckbox('leader', 'leaderCheckbox')"
+                                                checked="true">
+                                            <label for="leaderCheckbox" class="form-check-label"> Leaders</label>
+                                        </div>
+
+                                        <p> needs styling </p>
+
+                                        <input type="range" min="0" max="3" step="1" value="1" id="zoomRange"
+                                            oninput="handleSliderInput()"> Timeline Resolution: <span
+                                            id="resolutionText"> 1 Year </span>
+                                        <button onclick="handleResetInput()">Reset Pan</button>
+
+                                        <input id="domainInput"> <button onclick="handleDomainInput()">Change
+                                            Domain</button>
+                                        <button id="domainReset">Reset Domain</button>
+                                    </div>
+
+                                    <div class="sidebar-sticky">
+                                        begin sticky sidebar
+                                    </div>
+                                </nav>
+
+                                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                                    <div
+                                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                                        <div class="btn-toolbar mb-2 mb-md-0">
+                                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#sidebar" aria-expanded="false"
+                                                aria-controls="collapseExample">
+                                                Hide sidebar
+                                            </button>
+                                            <div class="btn-group mr-2">
+                                                <button class="btn btn-sm btn-outline-secondary">Map</button>
+                                                <button class="btn btn-sm btn-outline-secondary">Data</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="description_div" class="description">
+                                        <div class="description_header" id="name_span"></div>
+                                        <div id="date_span"></div>
+                                        <div id="description_span"></div>
+                                    </div>
+
+                                    <!-- Aaron you can start coding here!!! -->
+                                    <div id="main_timeline" class="main_timeline"></div>
+
+                                </main>
+
+                            </div> <!-- end class row -->
+                            <p>.</p>
+                        </div> <!-- end class block-body -->
+                    </div>
+
+
+                    <script src="/modules/mapblock/js/class_definitions.js"></script>
+                    <script src="/modules/mapblock/js/MMP_JS.js"></script>
+
+                    <script type="text/javascript">
+                        handlePageInit("/modules/mapblock/js/philippines.json");
+                    </script>
+
+
+                    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
+
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
+                </div>
+            </div>
+        </div>
+
+        <div class="l-wrapper">
+
+            <div class="l-wrapper-inner container container-fluid">
+
+
+                <div class="l-page-title">
+                    <a id="main-content"></a>
+                    <h1 class="page-title">Philippines</h1>
+                </div>
+ 
+ 
+                <div class="l-middle row">
+
+
+
+
+                    <main class="l-content col-md-12" role="main" aria-label="Main content">
+                        <p> main text here </p>
+                    </main>
+
+                </div><!-- /.l-middle -->
+
+
+            </div><!-- /.l-wrapper-inner -->
+        </div><!-- /.l-wrapper -->
+
+        <footer class="l-footer">
+            <div class="l-footer-inner container container-fluid">
+                <div class="block block-system-powered-by contextual-links-region" role="complementary">
+ 
+                    <div class="block-content">
+                        <span>Powered by <a href="https://backdropcms.org">Backdrop CMS</a></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div><!-- /.layout--harris-flexible -->
+    <script>(function ($) { $(".container.container-fluid").removeClass("container-fluid"); })(jQuery);</script>
+</body>
+
 </html>
