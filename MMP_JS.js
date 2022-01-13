@@ -354,9 +354,6 @@ var click_param = params_obj.get('click'); // ''
 var width_ratio = .7;
 
 var working_div = document.getElementById("main_timeline");
-working_div.style.position = "absolute";
-working_div.style.left = ((1-width_ratio)*window.screen.width)+'px';
-working_div.style.top = 50+'px';
 
 // setting up a workspace
 var w = width_ratio * window.screen.width;
