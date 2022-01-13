@@ -1,3 +1,88 @@
+
+body {
+  background-color: white;
+}
+
+.menu_wrapper{
+  background-color: white;
+}
+
+
+
+#svg{
+  background-color: lightgrey;
+}
+
+.hide{
+  display: none;
+}
+
+.mmpgroup rect{
+  fill: white;
+  stroke: black;
+  opacity: .7;
+}
+
+.mmpgroup text{
+  font-size: 16px;
+}
+
+.attack{
+  fill: orange;
+  stroke: yellow;
+}
+
+.leader{
+  fill: grey;
+  stroke: black;
+}
+
+.spl{
+  stroke: black;
+}
+
+
+.all{
+  stroke: blue;
+}
+
+.riv{
+  stroke: orange;
+}
+
+.timeline{
+  fill: white;
+  stroke: black;
+  marker-end: none;
+}
+
+#description_div{
+  background-color: white;
+  border-radius: 6px;
+  padding: 1em;
+}
+
+.description_header {
+  font-weight: bold;
+}
+.mmpgroup_description{
+  border: 2px solid black;
+}
+
+.attack_description{
+  border: 2px solid orange;
+}
+
+.leader_description{
+  border: 2px solid grey;
+}
+
+.relationship_description{
+  border: 2px solid blue;
+}
+
+
+/*  --- save old css for now --
 body {
     background-color: white;
 }
@@ -83,3 +168,4 @@ body {
     font-size: 16;
     font-weight: bold;
 }
+-- end of old css */
