@@ -2,62 +2,117 @@
    "mmp_groups":[
       {
          "mmp_group":{
-            "Name":"Communist Party of the Philippines - New People's Army",
+            "map_id":"23",
+            "group_name":"Alex Boncayao Brigade",
+            "Active":"Active",
+            "startdate":"1992-01-01",
+            "description":"The Alex Boncayao Brigade (ABB) is a Communist militant organization that emerged in the early 1990s as a splinter group of the Communist Party of the Philippines\u0097New People\u0092s Army (CPP-NPA). It seeks to lead a revolutionary, mass-based movement to oust the Philippine government. The ABB was originally established on April 6, 1986 to serve as the CPP-NPA\u0092s guerilla force in Manila. ABB attacks killed more than two hundred people, including government employees and business owners, between the group\u0092s establishment and its split from the CPP-NPA. In the early 1990s, after a major rift within the CPP-NPA over tactics and ideology, the ABB left its parent organization. In 1997, it allied with the Revolutionary Proletarian Army (RPA), another CPP-NPA splinter group, and formed a political wing called Rebolusyonaryong Partido ng Manggagawa ng Pilipinas (RPM-P). In December 2000, the RPM-P signed a peace agreement with the Philippine government, and it has put forward candidates for elected office. The ABB, in collaboration with the RPA, continues to operate as the RPM-P\u0092s militant wing, although it claims to operate as a self-defense force and to prioritize mass-based politics over armed struggle. The U.S. State Department has included the ABB on its Terrorist Exclusion List since December 2001.\n",
+            "group_id":"322"
+         }
+      },
+      {
+         "mmp_group":{
+            "map_id":"23",
+            "group_name":"Bangsamoro Islamic Freedom Fighters",
+            "Active":"Active",
+            "startdate":"2010-01-01",
+            "description":"The Bangsamoro Islamic Freedom Fighters (BIFF), sometimes called the Bangsamoro Islamic Freedom Movement (BIFM), is an Islamic separatist organization based in the southern Philippines. It seeks an independent Islamic state for the Filipino Muslim minority, known as the Moro people, who live primarily in the Philippines\u0092 Mindanao region. The BIFF was founded in 2010 by Ameril Umbra Kato as a splinter group of the Moro Islamic Liberation Front (MILF). It has attacked government forces and civilian targets, especially to undermine peace talks between the MILF and the Philippine government.\n",
+            "group_id":"348"
+         }
+      },
+      {
+         "mmp_group":{
+            "map_id":"23",
+            "group_name":"Communist Part of the Philippines - New People's Army",
             "Active":"Active",
             "startdate":"1968-01-01",
-            "description":"Source of data\u00a0\nhttps://cisac.fsi.stanford.edu/mappingmilitants/profiles/communist-party-philippines-new-peoples-army\n",
-            "Attacks":"\n        \n    A CPP-NPA unit launched two attacks on the same day in the province of Agusan del Sur. The fighters destroyed a truck using an improvised explosive device and later attacked two men, one a civilian, and one a member of the Armed Forces of the Philippines (AFP) auxiliary forces. (1 killed, 1 wounded).[2]\nSaturday, August 15, 2015 - 12:00am  \n\n, \n        \n    Approximately thirty CPP-NPA fighters fired on a truck carrying policemen and civilians in the town of La Castellana (9 killed, 12 wounded).[8]\nSunday, January 27, 2013 - 12:00am  \n\n, \n        \n    Three members of the Communist Party of the Philippines-New People\u2019s Army (CPP-NPA) threw four grenades onto the stage of a Liberal Party rally in Manila\u2019s Plaza Miranda. Then-President Ferdinand Marcos was initially blamed for the attack, which had killed much of his opposition. (9 killed, 95 wounded).\nSaturday, August 21, 1971 - 12:00am  \n\n",
-            "Leaders":"\n        \n    Thursday, January 1, 1976Monday, December 1, 1969\u00a0\n1969 - 1976\nBuscayno, also known as Kumander Dante, founded the NPA with Sison and served as its first commander. He was captured and jailed by government forces in 1976. He was released by then-President Corazon Aquino in 1987, but he entered legal politics instead of returning to the CPP-NPA.\nBernab\u00e9 Buscayno  \n\n\n        \n    Monday, December 1, 1986Wednesday, December 1, 1976Salas, also known as Kumander Bilog, became NPA commander after Buscayno\u2019s capture in 1976. He additionally became CPP chairman after Sison\u2019s capture in 1977. He was arrested in 1986 and released in 1992, after which he decided not to return to the CPP-NPA.\nRodolfo Salas  \n\n"
+            "description":"The Communist Party of the Philippines\u0096New People\u0092s Army (CPP-NPA) seeks to overthrow the Philippine government in favor of a new state led by the working class and to expel U.S. influence from the Philippines. The Communist Party of the Philippines (CPP) was founded in 1968, and its armed wing, the New People\u0092s Army (NPA), was founded in 1969; because they are so closely intertwined, they are often referred to as the CPP-NPA. The CPP-NPA has historically focused on building support among the rural peasantry, although it has operated throughout the Philippines. While it peaked in size and influence in the 1970s and 1980s, the CPP-NPA still engages in significant levels of violence and is the world\u0092s oldest existing Communist insurgency.\n",
+            "group_id":"362",
+            "attack_date":"2015-08-15",
+            "attack_description":"A CPP-NPA unit launched two attacks on the same day in the province of Agusan del Sur. The fighters destroyed a truck using an improvised explosive device and later attacked two men, one a civilian, and one a member of the Armed Forces of the Philippines (AFP) auxiliary forces. (1 killed, 1 wounded).[2]\n",
+            "attack_id":"12"
          }
       },
       {
          "mmp_group":{
-            "Name":"Moro National Liberation Front",
-            "startdate":"1972-01-01",
-            "enddate":"1972-01-01"
-         }
-      },
-      {
-         "mmp_group":{
-            "Name":"Moro Islamic Liberation Front",
-            "startdate":"1977-01-01",
-            "enddate":"1977-01-01"
-         }
-      },
-      {
-         "mmp_group":{
-            "Name":"Abu Sayyaf Group",
-            "startdate":"1991-01-01",
-            "enddate":"1991-01-01"
-         }
-      },
-      {
-         "mmp_group":{
-            "Name":"Alex Boncayao Brigade",
+            "map_id":"23",
+            "group_name":"Communist Part of the Philippines - New People's Army",
             "Active":"Active",
-            "startdate":"1992-01-01"
+            "startdate":"1968-01-01",
+            "description":"The Communist Party of the Philippines\u0096New People\u0092s Army (CPP-NPA) seeks to overthrow the Philippine government in favor of a new state led by the working class and to expel U.S. influence from the Philippines. The Communist Party of the Philippines (CPP) was founded in 1968, and its armed wing, the New People\u0092s Army (NPA), was founded in 1969; because they are so closely intertwined, they are often referred to as the CPP-NPA. The CPP-NPA has historically focused on building support among the rural peasantry, although it has operated throughout the Philippines. While it peaked in size and influence in the 1970s and 1980s, the CPP-NPA still engages in significant levels of violence and is the world\u0092s oldest existing Communist insurgency.\n",
+            "group_id":"362",
+            "attack_date":"2013-01-27",
+            "attack_description":"Approximately thirty CPP-NPA fighters fired on a truck carrying policemen and civilians in the town of La Castellana (9 killed, 12 wounded).[8]\n",
+            "attack_id":"13"
          }
       },
       {
          "mmp_group":{
-            "Name":"Revolutionary Proletarian Army",
-            "startdate":"1992-01-01",
-            "enddate":"1992-01-01"
+            "map_id":"23",
+            "group_name":"Communist Part of the Philippines - New People's Army",
+            "Active":"Active",
+            "startdate":"1968-01-01",
+            "description":"The Communist Party of the Philippines\u0096New People\u0092s Army (CPP-NPA) seeks to overthrow the Philippine government in favor of a new state led by the working class and to expel U.S. influence from the Philippines. The Communist Party of the Philippines (CPP) was founded in 1968, and its armed wing, the New People\u0092s Army (NPA), was founded in 1969; because they are so closely intertwined, they are often referred to as the CPP-NPA. The CPP-NPA has historically focused on building support among the rural peasantry, although it has operated throughout the Philippines. While it peaked in size and influence in the 1970s and 1980s, the CPP-NPA still engages in significant levels of violence and is the world\u0092s oldest existing Communist insurgency.\n",
+            "group_id":"362",
+            "attack_date":"1971-08-21",
+            "attack_description":"Three members of the Communist Party of the Philippines-New People\u2019s Army (CPP-NPA) threw four grenades onto the stage of a Liberal Party rally in Manila\u2019s Plaza Miranda. Then-President Ferdinand Marcos was initially blamed for the attack, which had killed much of his opposition. (9 killed, 95 wounded).\n",
+            "attack_id":"11"
          }
       },
       {
          "mmp_group":{
-            "Name":"Bangsamoro Islamic Freedom Fighters",
-            "startdate":"2010-01-01",
-            "enddate":"2010-01-01"
-         }
-      },
-      {
-         "mmp_group":{
-            "Name":"Justice for Islamic Movement",
+            "map_id":"23",
+            "group_name":"Justice fo Islamic Movement",
             "Active":"Active",
             "startdate":"2013-01-01",
-            "enddate":"2013-01-01"
+            "description":"The Justice for Islamic Movement (JIM) was founded in November 2013 as a splinter group of the Bangsamoro Islamic Freedom Fighters (BIFF). The JIM seeks to establish an independent state in the southern Philippines governed by Shariah law and exclusively for Filipino Muslims. The group was founded by Mohammad Ali Tambako, who had previously served as the BIFF\u0092s leader, after he left or was ousted from the BIFF in 2013 for conducting an attack on a Christian community. However, Tambako and the BIFF seemingly reconciled soon after the JIM\u0092s establishment, and in 2015, the JIM and the BIFF formally allied themselves to fight against the Philippine government. \n",
+            "group_id":"425"
+         }
+      },
+      {
+         "mmp_group":{
+            "map_id":"23",
+            "group_name":"Moro Islamic Liberation Front",
+            "Active":"Active",
+            "startdate":"1977-01-01",
+            "description":"The Moro Islamic Liberation Front (MILF) is the largest militant organization in the Philippines, and it seeks autonomy for Filipino Muslims. The MILF split from the Moro National Liberation Front (MNLF) in 1977, although it was generally inactive and did not call itself the MILF until 1984. The MILF controls territory in the southern Philippines, governing with Shariah law. It has generally focused on political negotiation, but it has a significant history of terrorism and militancy. In 2014, the MILF concluded peace negotiations with the Philippine government for an autonomous region in the southern Philippines, to be called the Bangsamoro. The MILF is in the process of gradual disarmament.\n",
+            "group_id":"455"
+         }
+      },
+      {
+         "mmp_group":{
+            "map_id":"23",
+            "group_name":"Moro National Liberation Front",
+            "Active":"Active",
+            "startdate":"1972-01-01",
+            "description":"The Moro National Liberation Front (MNLF) is an Islamic separatist organization based in the southern Philippines that seeks autonomy for Filipino Muslims, called Moros. The MNLF was established in 1972, and it led the Moro separatist movement until the 1996 Final Peace Agreement between the MNLF and the Philippine government. Since 1996, the MNLF has been surpassed in strength and influence by its rival group, the Moro Islamic Liberation Front (MILF), which began its own peace talks with the Philippine government. Today, the MNLF consists of many factions, some of which support current negotiations between the Philippine government and the MILF.\n",
+            "group_id":"456",
+            "attack_date":"2000-02-25",
+            "attack_description":"Bombs exploded on\u00a0one or more buses aboard the\u00a0M/V Our Lady of Mediatrix\u00a0ferry that was traveling to\u00a0Ozamiz\u00a0City.\u00a0MILF commanders were among those blamed for the attack (39-44 killed, 41-50 injured).[1]\n",
+            "attack_id":"14"
+         }
+      },
+      {
+         "mmp_group":{
+            "map_id":"23",
+            "group_name":"Moro National Liberation Front",
+            "Active":"Active",
+            "startdate":"1972-01-01",
+            "description":"The Moro National Liberation Front (MNLF) is an Islamic separatist organization based in the southern Philippines that seeks autonomy for Filipino Muslims, called Moros. The MNLF was established in 1972, and it led the Moro separatist movement until the 1996 Final Peace Agreement between the MNLF and the Philippine government. Since 1996, the MNLF has been surpassed in strength and influence by its rival group, the Moro Islamic Liberation Front (MILF), which began its own peace talks with the Philippine government. Today, the MNLF consists of many factions, some of which support current negotiations between the Philippine government and the MILF.\n",
+            "group_id":"456",
+            "attack_date":"2017-04-17",
+            "attack_description":"The MILF claimed responsibility for two attacks coordinated in Tacurong, Sultan Kudarat, Philippines. One explosive device detonated near a gas station and a second device targeted police personnel responding to an earlier blast.\u00a0 There were no casualties, but 5 civilians and 9 police officers were wounded (0 killed, 14 injured).[7]\n",
+            "attack_id":"15"
+         }
+      },
+      {
+         "mmp_group":{
+            "map_id":"23",
+            "group_name":"Revolutionary Proletarian Army",
+            "Active":"Active",
+            "startdate":"1992-01-01",
+            "description":"The Revolutionary Proletarian Army (RPA) is a Communist militant organization that emerged in the 1990s as a splinter group of the Communist Party of the Philippines\u0097New People\u0092s Army (CPP-NPA). The RPA was one of several splinter groups formed after a major rift in the early 1990s within the CPP-NPA, which occurred because of disagreements over tactics and ideology. The RPA\u0092s exact origins, goals, and early activities are unclear. In 1997, it allied with the Alex Boncayao Brigade (ABB), another CPP-NPA splinter group, and formed a political wing called Rebolusyonaryong Partido ng Manggagawa ng Pilipinas (RPM-P). In December 2000, the RPM-P signed a peace agreement with the Philippine government, and it has put forward candidates for elected office. The RPA, in collaboration with the ABB, continues to operate as the RPM-P\u0092s militant wing. The name \u0093RPA-ABB\u0094 is often used to refer to both groups as a single entity because of their close alliance. However, while the ABB has been listed on the U.S. State Department\u0092s Terrorist Exclusion List since December 2001, the RPA has not been included on that list.\n",
+            "group_id":"509"
          }
       }
    ]
