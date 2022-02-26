@@ -357,8 +357,8 @@ var working_div = document.getElementById("main_timeline");
 
 // setting up a workspace
 var w = width_ratio * window.screen.width;
-var svg_h = 500;
-const default_height = 1500;
+var svg_h = 1500;
+const default_height = svg_h;
 var h = ratio_param * default_height; // this no longer sets the height of the svg, but rather the height of the elements within it!
 var padding = 50;
 var radius = 15;
