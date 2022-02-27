@@ -230,6 +230,8 @@ function updateChart(){
   .attr("width", rectWidth)
   .attr("height", rectHeight)
   .attr("rx", rectWidth/20)
+  .attr("data-bs-toggle", "modal") // FIX. this is not actually assigning attribute to element
+  .attr("data-bs-target", "#exampleModal") // same here
   .on("mouseover", function(d,i){handleMMPGroupMouseOver(i)}) // passing all group data into these functions. should be more efficient?
   .on("mouseout", function(d,i){handleMMPGroupMouseOut(i)})
   .on("click", function(d,i){handleClick("mmpgroup", i.id)});
