@@ -161,25 +161,22 @@ function handleClick(type, id){
 
   // grab divs to put information in
   const modal = document.getElementById('exampleModal');
-  const name_span = document.getElementById('name_span');
+  const name_span = document.getElementById('exampleModalLabel');
   const date_span = document.getElementById('date_span');
   const description_span = document.getElementById('description_span');
-  const description_box = document.getElementById('description_div');
 
   name_span.innerText = name;
   date_span.innerText = DateToNice(date);
 
   description_span.innerText = description;
 
-  modal.show();
-
-  description_box.setAttribute("class", clicked_type + "_description");
+  /* description_box.setAttribute("class", clicked_type + "_description");
 
   params_obj.set('click', [type, id]);
   handleURLManip();
 
   // console.log(document.getElementById('#' + id));
-  svg.selectAll('.clicked').classed('clicked', false);
+  svg.selectAll('.clicked').classed('clicked', false); */
 }
 
 
@@ -233,8 +230,8 @@ function updateChart(){
   .attr("width", rectWidth)
   .attr("height", rectHeight)
   .attr("rx", rectWidth/20)
-  .attr("data-bs-toggle", "modal") // FIX. this is not actually assigning attribute to element
-  .attr("data-bs-target", "#exampleModal") // same here
+  .attr("data-bs-toggle", "modal") 
+  .attr("data-bs-target", "#exampleModal")
   .on("mouseover", function(d,i){handleMMPGroupMouseOver(i)}) // passing all group data into these functions. should be more efficient?
   .on("mouseout", function(d,i){handleMMPGroupMouseOut(i)})
   .on("click", function(d,i){handleClick("mmpgroup", i.id)});
@@ -280,6 +277,8 @@ function updateChart(){
   .attr("cy", function(d) {return d.y})
   .attr("id", function(d) {return d.id})
   .attr("r", 6)
+  .attr("data-bs-toggle", "modal") 
+  .attr("data-bs-target", "#exampleModal")
   .on("click", function(d, i){
     handleClick("event", i.id)
   });
