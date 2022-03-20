@@ -160,6 +160,7 @@ function handleClick(type, id){
   }
 
   // grab divs to put information in
+  const modal = document.getElementById('exampleModal');
   const name_span = document.getElementById('name_span');
   const date_span = document.getElementById('date_span');
   const description_span = document.getElementById('description_span');
@@ -169,6 +170,8 @@ function handleClick(type, id){
   date_span.innerText = DateToNice(date);
 
   description_span.innerText = description;
+
+  modal.show();
 
   description_box.setAttribute("class", clicked_type + "_description");
 

@@ -23,7 +23,9 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Launch demo modal
         </button>
-        
+    
+        <div id="main_timeline"></div>
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -44,5 +46,20 @@
             </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+            var svg = d3.select("#main_timeline").append("svg").attr("id", "svg")
+            .attr("height", 500).attr("width", 1000)
+            .attr("style", "outline: thin solid red");
+
+            var main_g = svg.append("g");
+            var main_a = main_g.append("a").attr('href', '#')
+            .attr('type', 'plants-family')
+            .attr('data-toggle', 'modal')
+            .attr('data-target', '#exampleModal').style('cursor', 'pointer');
+
+            main_a.append("rect").attr("x", 500).attr("y", 200).attr("width", 100).attr("height", 100)
+            .attr("fill", "blue");
+        </script>
     </body>
 </html>
