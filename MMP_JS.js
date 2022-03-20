@@ -160,8 +160,8 @@ function handleClick(type, id){
   }
 
   // grab divs to put information in
-  const modal = document.getElementById('exampleModal');
-  const name_span = document.getElementById('exampleModalLabel');
+  const modal = document.getElementById('infoModal');
+  const name_span = document.getElementById('infoModalLabel');
   const date_span = document.getElementById('date_span');
   const description_span = document.getElementById('description_span');
 
@@ -231,7 +231,7 @@ function updateChart(){
   .attr("height", rectHeight)
   .attr("rx", rectWidth/20)
   .attr("data-bs-toggle", "modal") 
-  .attr("data-bs-target", "#exampleModal")
+  .attr("data-bs-target", "#infoModal")
   .on("mouseover", function(d,i){handleMMPGroupMouseOver(i)}) // passing all group data into these functions. should be more efficient?
   .on("mouseout", function(d,i){handleMMPGroupMouseOut(i)})
   .on("click", function(d,i){handleClick("mmpgroup", i.id)});
@@ -278,7 +278,7 @@ function updateChart(){
   .attr("id", function(d) {return d.id})
   .attr("r", 6)
   .attr("data-bs-toggle", "modal") 
-  .attr("data-bs-target", "#exampleModal")
+  .attr("data-bs-target", "#infoModal")
   .on("click", function(d, i){
     handleClick("event", i.id)
   });
@@ -329,6 +329,8 @@ function updateChart(){
   .attr("cx", function(d){return .5*(d.x2-d.x1);})
   .attr("cy", 0)
   .attr("r", 5)
+  .attr("data-bs-toggle", "modal") 
+  .attr("data-bs-target", "#infoModal")
   .on("click", function(d, i){
     handleClick("relationship", i.id)
   });
@@ -353,7 +355,7 @@ if (ratio_param){
 else{ratio_param = 1};
 var domain_param = params_obj.get('domain'); // ''
 // if (domain_param){domain_param = domain_param.split(',')};
-var click_param = params_obj.get('click'); // ''
+// var click_param = params_obj.get('click'); // ''
 // moving the div over to replicate real webpage, still not great because its absolute positioning :
 var width_ratio = .7;
 
@@ -491,10 +493,10 @@ function handlePageInit(datasource){
 
     updateChart();
 
-    // if there was a click in url, we need to have it clicked
+    /* if there was a click in url, we need to have it clicked
     if (click_param){
         click_array = click_param.split(',');
         handleClick(click_array[0], click_array[1]);
-    };
+    }; */
   })
 }
