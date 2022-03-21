@@ -104,7 +104,7 @@ function handleURLManip(){
 }
 
 
-// functions for mmpgroups
+// functions for mmp_groups
 function handleMMPGroupMouseOver (group_data) {
   let group_g = document.getElementById(group_data.id);
   let group_rect = group_g.children[0]; // this is sort of cheaty, but it works
@@ -140,7 +140,7 @@ function handleClick(type, id){
   }
   // handle group click
   else if (type === "mmpgroup") {
-    clicked_data = processed_data.mmpgroups.find(element => element.id === id);
+    clicked_data = processed_data.mmp_groups.find(element => element.id === id);
     clicked_type = "mmpgroup";
     name = clicked_data.name;
     description = clicked_data.description;
@@ -152,31 +152,31 @@ function handleClick(type, id){
     relationship_dict = {spl: "Split", all: "Allies", riv: "Rivals"};
     clicked_data = processed_data.relationships.find(element => element.id === id);
     clicked_type = "relationship";
-    group1_data = processed_data.mmpgroups.find(element => element.id === clicked_data.group1);
-    group2_data = processed_data.mmpgroups.find(element => element.id === clicked_data.group2);
+    group1_data = processed_data.mmp_groups.find(element => element.id === clicked_data.group1);
+    group2_data = processed_data.mmp_groups.find(element => element.id === clicked_data.group2);
     name = "" + group1_data.abbr + " and " + group2_data.abbr + " " + relationship_dict[clicked_data.relationship_type];
     description = clicked_data.description;
     date = clicked_data.date;
   }
 
   // grab divs to put information in
-  const name_span = document.getElementById('name_span');
+  const modal = document.getElementById('infoModal');
+  const name_span = document.getElementById('infoModalLabel');
   const date_span = document.getElementById('date_span');
   const description_span = document.getElementById('description_span');
-  const description_box = document.getElementById('description_div');
 
   name_span.innerText = name;
   date_span.innerText = DateToNice(date);
 
   description_span.innerText = description;
 
-  description_box.setAttribute("class", clicked_type + "_description");
+  /* description_box.setAttribute("class", clicked_type + "_description");
 
   params_obj.set('click', [type, id]);
   handleURLManip();
 
   // console.log(document.getElementById('#' + id));
-  svg.selectAll('.clicked').classed('clicked', false);
+  svg.selectAll('.clicked').classed('clicked', false); */
 }
 
 
@@ -195,20 +195,20 @@ function updateChart(){
   zoom.translateExtent([[0,0], [w,h]]); // making sure you can only translate within bounds
 
 
-  var rectWidth = w/(processed_data.mmpgroups.length + 1);
+  var rectWidth = w/(processed_data.mmp_groups.length + 1);
   var rectHeight = 100; // should probably scale these...
 
 
-  // fixing y and x for mmpgroups
-  for (i = 0; i < processed_data.mmpgroups.length; i++){
-    let mmpgroup = processed_data.mmpgroups[i];
+  // fixing y and x for mmp_groups
+  for (i = 0; i < processed_data.mmp_groups.length; i++){
+    let mmpgroup = processed_data.mmp_groups[i];
     mmpgroup.updatePos(rectHeight);
   };
 
 
   // make mmpgroup g element to append rectangle and text
-  var mmpgroups = main_g.selectAll("mmpgroup")
-  .data(processed_data.mmpgroups)
+  var mmp_groups = main_g.selectAll("mmpgroup")
+  .data(processed_data.mmp_groups)
   .enter()
   .append("g")
   .attr("class", function(d){
@@ -222,28 +222,30 @@ function updateChart(){
   .attr("height", rectHeight);
 
   // make mmpgroup rectangles
-  var mmpgroupRect = mmpgroups
-  .data(processed_data.mmpgroups)
+  var mmpgroupRect = mmp_groups
+  .data(processed_data.mmp_groups)
   .append("rect")
   .attr("x", -rectWidth/2)
   .attr("y", -rectHeight/2)
   .attr("width", rectWidth)
   .attr("height", rectHeight)
   .attr("rx", rectWidth/20)
+  .attr("data-bs-toggle", "modal") 
+  .attr("data-bs-target", "#infoModal")
   .on("mouseover", function(d,i){handleMMPGroupMouseOver(i)}) // passing all group data into these functions. should be more efficient?
   .on("mouseout", function(d,i){handleMMPGroupMouseOut(i)})
   .on("click", function(d,i){handleClick("mmpgroup", i.id)});
 
-  var mmpgroupText = mmpgroups
-  .data(processed_data.mmpgroups)
+  var mmpgroupText = mmp_groups
+  .data(processed_data.mmp_groups)
   .append("text")
   .text(function(d){return d.abbr})
   .attr("y", -rectHeight/4)
   .attr("dominant-baseline", "middle")
   .attr("text-anchor", "middle");
 
-  var mmpgroupVLines = mmpgroups
-  .data(processed_data.mmpgroups)
+  var mmpgroupVLines = mmp_groups
+  .data(processed_data.mmp_groups)
   .append("line")
   .attr("x1", 0)
   .attr("y1", rectHeight/2)
@@ -251,7 +253,7 @@ function updateChart(){
   .attr("y2", function(d){return h - d.y}) // since the origin is the actual mmpgroup position!
   .attr("class", "timeline")
   .attr("id", function(d) {return d.id + "_timeline"});
-  // mmpgroups set up!
+  // mmp_groups set up!
 
   // fixing event position
   for (i = 0; i < processed_data.events.length; i++){
@@ -261,8 +263,8 @@ function updateChart(){
 
 
   // drawing events
-  /* for (i = 0; i < processed_data.mmpgroups.length; i++){ // why not do this when constructing the dataset? it makes to store array of events within the objects
-    mmpgroup = processed_data.mmpgroups[i];
+  /* for (i = 0; i < processed_data.mmp_groups.length; i++){ // why not do this when constructing the dataset? it makes to store array of events within the objects
+    mmpgroup = processed_data.mmp_groups[i];
     event_list = processed_data.events.filter(element => element.parent_id === mmpgroup.id);
   }; */
 
@@ -275,6 +277,8 @@ function updateChart(){
   .attr("cy", function(d) {return d.y})
   .attr("id", function(d) {return d.id})
   .attr("r", 6)
+  .attr("data-bs-toggle", "modal") 
+  .attr("data-bs-target", "#infoModal")
   .on("click", function(d, i){
     handleClick("event", i.id)
   });
@@ -325,6 +329,8 @@ function updateChart(){
   .attr("cx", function(d){return .5*(d.x2-d.x1);})
   .attr("cy", 0)
   .attr("r", 5)
+  .attr("data-bs-toggle", "modal") 
+  .attr("data-bs-target", "#infoModal")
   .on("click", function(d, i){
     handleClick("relationship", i.id)
   });
@@ -349,7 +355,7 @@ if (ratio_param){
 else{ratio_param = 1};
 var domain_param = params_obj.get('domain'); // ''
 // if (domain_param){domain_param = domain_param.split(',')};
-var click_param = params_obj.get('click'); // ''
+// var click_param = params_obj.get('click'); // ''
 // moving the div over to replicate real webpage, still not great because its absolute positioning :
 var width_ratio = .7;
 
@@ -357,8 +363,8 @@ var working_div = document.getElementById("main_timeline");
 
 // setting up a workspace
 var w = width_ratio * window.screen.width;
-var svg_h = 500;
-const default_height = 1500;
+var svg_h = 1500;
+const default_height = svg_h;
 var h = ratio_param * default_height; // this no longer sets the height of the svg, but rather the height of the elements within it!
 var padding = 50;
 var radius = 15;
@@ -387,49 +393,23 @@ var parseTime = d3.timeParse("%Y-%m-%d");
 
 // creating the (currently) empty dataset
 var processed_data = {
-    mmpgroups: [],
+    mmp_groups: [],
     events: [],
     relationships: [],
 };
 
 function handleD3JSONRead(input_data){
-  // reading groups and events
-  let data = input_data;
-  for (i=0; i< data.groups.length; i++){
-    let group = data.groups[i].Group;
-    processed_data.mmpgroups.push(new group_class(
-        group.id, group.name, group.shortname,
-        parseTime(group.startdate), parseTime(group.enddate),
-        group.active,
-        0, 0,
-        group.description, []
+  // reading groups and attacks
+  for (i=0; i<input_data.mmp_groups.length; i++){
+    let group = input_data.mmp_groups[i].mmp_group;
+    processed_data.mmp_groups.push(new mmp_group(
+      group.group_id, group.group_name, "abbr", parseTime(group.startdate), parseTime(group.enddate), group.active, 
+      0, 0, 
+      group.description, []
     ))
-
-    let attack_list = data.groups[i].Attack;
-    if (attack_list.length != 0) {for (j=0; j < attack_list.length; j++){
-        let attack = attack_list[j];
-        if (attack.date === undefined){attack.date = attack.startdate;} // bad data, fixing it
-        if (attack.date.endsWith("00-00")){attack.date = attack.date.substr(0,5) + "01-01"};
-
-        processed_data.events.push(new event_class(
-            attack.id, "attack", "Major Attack", attack.description, parseTime(attack.date), attack.group_id,
-            0, 0
-        ))
-    }}
-
-    let leader_list = data.groups[i].Leader;
-    if (leader_list.length != 0) {for (j=0; j < leader_list.length; j++){
-        let leader = leader_list[j];
-        if (leader.startdate === undefined){leader.startdate = leader.date;} // bad data, fixing it
-        if (leader.startdate.endsWith("00-00")){leader.startdate = leader.startdate.substr(0,5) + "01-01"};
-        processed_data.events.push(new event_class(
-            leader.id, "leader", "Leadership Change: " + leader.name, leader.description, parseTime(leader.startdate), leader.group_id,
-            0, 0
-        ))
-    }}
   }
 
-  // reading relationships
+  /* reading relationships
   for (i=0; i<data.links.length; i++){
       let relationship = data.links[i].Link;
       processed_data.relationships.push(new relationship_class(
@@ -439,11 +419,11 @@ function handleD3JSONRead(input_data){
       ));
 
       // creating a list of connected groups for tracing
-      let group1 = processed_data.mmpgroups.find(element => element.id === relationship.group1);
-      let group2 = processed_data.mmpgroups.find(element => element.id === relationship.group2);
+      let group1 = processed_data.mmp_groups.find(element => element.id === relationship.group1);
+      let group2 = processed_data.mmp_groups.find(element => element.id === relationship.group2);
       group1.links.push(relationship.id);
       group2.links.push(relationship.id);
-  }
+  } */
 }
 
 
@@ -453,7 +433,7 @@ function handlePageInit(datasource){
     handleD3JSONRead(data);
 
     // finding the minimum year
-    var date_min = d3.min(processed_data.mmpgroups, function(d){
+    var date_min = d3.min(processed_data.mmp_groups, function(d){
         return d.startdate;
     })
 
@@ -487,10 +467,10 @@ function handlePageInit(datasource){
 
     updateChart();
 
-    // if there was a click in url, we need to have it clicked
+    /* if there was a click in url, we need to have it clicked
     if (click_param){
         click_array = click_param.split(',');
         handleClick(click_array[0], click_array[1]);
-    };
+    }; */
   })
 }
