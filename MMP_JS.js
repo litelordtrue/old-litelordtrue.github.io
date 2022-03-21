@@ -1,4 +1,10 @@
-// functions to operate checkboxes
+// d3js library for mapping militant groups from json data  (sample url https://dev-mapping-militants.pantheonsite.io/data/map-profiles/23)
+// this dataviz displays data for each group and allows user to filter data via controls in the left sidebar
+// first we define functions, then we draw/update chart in <div id="main_timeline" class="main_timeline"> using function updateChart
+// class objects are defined in class_definitions.js, this file is called in index.html
+
+
+// hide/show groups/events/other objects with class "classname" on the map
 function handleCheckbox(classname, checkboxname) {
   let checkBox = document.getElementById(checkboxname);
   var entityList = d3.selectAll("." + classname);
@@ -11,11 +17,10 @@ function handleCheckbox(classname, checkboxname) {
 }
 //
 
-// for outputting dates nicely
+// outputting dates nicely
 function yearToDate(year){
   return parseTime(year + "-01-01");
 }
-
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -28,7 +33,7 @@ function DateToNice(date){
 //
 
 
-// tools to handle zoom buttons
+// tools to handle timeline resolution 
 resolutionDict = 
   [{
     value: "0",
@@ -96,7 +101,7 @@ function handleDomainChange(min, max){ // this works but sort of messes up thing
 }
 //
 
-// functions for URL manip
+// functions to save parameters from URL (based on user search) in url_obj
 
 function handleURLManip(){
   url_obj.search = params_obj; // this sets the search in the url object to what we modified in our parameter object
@@ -104,7 +109,7 @@ function handleURLManip(){
 }
 
 
-// functions for mmp_groups
+// functions for user interaction for mmp_groups
 function handleMMPGroupMouseOver (group_data) {
   let group_g = document.getElementById(group_data.id);
   let group_rect = group_g.children[0]; // this is sort of cheaty, but it works
