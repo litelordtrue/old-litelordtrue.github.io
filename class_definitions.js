@@ -1,4 +1,4 @@
-class group_class {
+class mmp_group {
     constructor(id, name, abbr, startdate, enddate, active, x, y, description, links) {
         this.id = id;
         this.name = name;
@@ -25,7 +25,7 @@ class group_class {
           else if (this.startdate > current_max){
             console.log(this.abbr + ", far down");
           }
-          this.x = (i+1) * (w/(processed_data.mmpgroups.length+1));
+          this.x = (i+1) * (w/(processed_data.mmp_groups.length+1));
     }
 }
 
@@ -45,7 +45,7 @@ class event_class {
         // y position
         this.y = tScale(this.date);
         // x position
-        let parent_mmpgroup = processed_data.mmpgroups.find(element => element.id === this.parent_id);
+        let parent_mmpgroup = processed_data.mmp_groups.find(element => element.id === this.parent_id);
         this.x = parent_mmpgroup.x;
     }
 }
@@ -65,7 +65,7 @@ class relationship_class {
 
     updatePos(){
         this.y = tScale(this.date);
-        this.x1 = processed_data.mmpgroups.find(element => this.group1 === element.id).x;
-        this.x2 = processed_data.mmpgroups.find(element => this.group2 === element.id).x;
+        this.x1 = processed_data.mmp_groups.find(element => this.group1 === element.id).x;
+        this.x2 = processed_data.mmp_groups.find(element => this.group2 === element.id).x;
     }
 }
