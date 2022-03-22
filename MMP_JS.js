@@ -109,11 +109,8 @@ function handleURLManip(){
 }
 
 
-<<<<<<< HEAD
 // functions for mmp_groups
-=======
 // functions for user interaction for mmp_groups
->>>>>>> b09b2516405f5fd9b9a4a4135372d90563ac13b6
 function handleMMPGroupMouseOver (group_data) {
   let group_g = document.getElementById(group_data.id);
   let group_rect = group_g.children[0]; // this is sort of cheaty, but it works
@@ -181,10 +178,8 @@ function handleClick(type, id){
   modal_description.innerText = description;
 
   /* description_box.setAttribute("class", clicked_type + "_description");
-
   params_obj.set('click', [type, id]);
   handleURLManip();
-
   // console.log(document.getElementById('#' + id));
   svg.selectAll('.clicked').classed('clicked', false); */
 }
@@ -418,15 +413,10 @@ function handleD3JSONRead(input_data){
   // reading groups and attacks
   for (i=0; i<input_data.mmp_groups.length; i++){
     let group = input_data.mmp_groups[i].mmp_group;
-<<<<<<< HEAD
     let short_name;
     if(!group.shortname){short_name = group.group_name.substring(0,5);}else{short_name = group.short_name}; // fixing bad data; only one actually has a short_name right now
     processed_data.mmp_groups.push(new mmp_group(
       group.group_id, group.group_name, short_name, parseTime(group.startdate), parseTime(group.enddate), group.active, 
-=======
-    processed_data.mmp_groups.push(new mmp_group(
-      group.group_id, group.group_name, "abbr", parseTime(group.startdate), parseTime(group.enddate), group.active, 
->>>>>>> b09b2516405f5fd9b9a4a4135372d90563ac13b6
       0, 0, 
       group.description, []
     ))
@@ -440,7 +430,6 @@ function handleD3JSONRead(input_data){
           relationship.group1, relationship.group2, 
           0, 0, 0
       ));
-
       // creating a list of connected groups for tracing
       let group1 = processed_data.mmp_groups.find(element => element.id === relationship.group1);
       let group2 = processed_data.mmp_groups.find(element => element.id === relationship.group2);
