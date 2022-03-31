@@ -113,8 +113,7 @@ function handleURLManip(){
 // functions for user interaction for mmp_groups
 function handleMMPGroupMouseOver (group_data) {
   let group_g = document.getElementById(group_data.id);
-  let group_rect = group_g.children[0]; // this is sort of cheaty, but it works
-  d3.select(group_rect).style("opacity", .9).style("fill", "mediumslateblue");
+  d3.select(group_g).classed("mousedover", true);
 
   // this generates an array of the line elements that connect to this group. 
   let link_obj_list = [];
@@ -122,13 +121,11 @@ function handleMMPGroupMouseOver (group_data) {
     link_obj_list.push(document.getElementById(group_data.links[link_num]));
   }
   // console.log(link_obj_list);
-  
 };
 
 function handleMMPGroupMouseOut (group_data) {
   let group_g = document.getElementById(group_data.id);
-  let group_rect = group_g.children[0]; // this is sort of cheaty, but it works
-  d3.select(group_rect).style("opacity", .7).style("fill", "ghostwhite");
+  d3.select(group_g).classed("mousedover", false);
 }; 
 //
 
@@ -223,8 +220,10 @@ function updateChart(){
   .enter()
   .append("g")
   .attr("class", function(d){
-    if (!d.active){return "mmpgroup inactive"}
-    else if (d.active){return "mmpgroup active"}
+    let active = (d.active === "Active");
+    if (!active){return "mmpgroup inactive"}
+    else if (active){return "mmpgroup active"}
+    
     else {return "mmpgroup"};
   })
   .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")"}) // transform instead of using x/y
@@ -410,13 +409,16 @@ var processed_data = {
 };
 
 function handleD3JSONRead(input_data){
-  // reading groups and attacks
+  // reading groups (and attacks eventually)
   for (i=0; i<input_data.mmp_groups.length; i++){
     let group = input_data.mmp_groups[i].mmp_group;
     let short_name;
-    if(!group.shortname){short_name = group.group_name.substring(0,5);}else{short_name = group.short_name}; // fixing bad data; only one actually has a short_name right now
+    if(!group.short_name){
+      short_name = group.group_name.substring(0,5);
+    }
+    else{short_name = group.short_name}; // fixing bad data; only one actually has a short_name right now
     processed_data.mmp_groups.push(new mmp_group(
-      group.group_id, group.group_name, short_name, parseTime(group.startdate), parseTime(group.enddate), group.active, 
+      group.group_id, group.group_name, short_name, parseTime(group.startdate), parseTime(group.enddate), group.Active, 
       0, 0, 
       group.description, []
     ))
@@ -440,6 +442,7 @@ function handleD3JSONRead(input_data){
 
 
 function handlePageInit(datasource){
+
   d3.json(datasource)
   .then(function(data){
     handleD3JSONRead(data);

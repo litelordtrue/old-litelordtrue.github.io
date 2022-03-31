@@ -17,10 +17,15 @@ body {
   display: none;
 }
 
-.mmpgroup rect{
+.mmpgroup rect {
   fill: white;
   stroke: black;
   opacity: .7;
+}
+
+.mmpgroup .mousedover rect{
+  fill: mediumslateblue;
+  opacity: .9;
 }
 
 .mmpgroup text{
