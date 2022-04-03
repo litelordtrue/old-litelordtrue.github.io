@@ -113,7 +113,7 @@ function handleURLManip(){
 // functions for user interaction for mmp_groups
 function handleMMPGroupMouseOver (group_data) {
   let group_g = document.getElementById(group_data.id);
-  d3.select(group_g).classed("mousedover", true);
+  //d3.select(group_g).classed("mousedover", true);
 
   // this generates an array of the line elements that connect to this group. 
   let link_obj_list = [];
@@ -125,7 +125,7 @@ function handleMMPGroupMouseOver (group_data) {
 
 function handleMMPGroupMouseOut (group_data) {
   let group_g = document.getElementById(group_data.id);
-  d3.select(group_g).classed("mousedover", false);
+  //d3.select(group_g).classed("mousedover", false);
 }; 
 //
 
