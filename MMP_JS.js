@@ -221,10 +221,8 @@ function updateChart(){
   .append("g")
   .attr("class", function(d){
     let active = (d.active === "Active");
-    if (!active){return "mmpgroup inactive"}
-    else if (active){return "mmpgroup active"}
-    
-    else {return "mmpgroup"};
+    if (active){return "mmpgroup active"}
+    else {return "mmpgroup inactive"}
   })
   .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")"}) // transform instead of using x/y
   .attr("id", function(d){ return d.id})
