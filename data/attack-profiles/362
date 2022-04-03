@@ -1,0 +1,28 @@
+{
+   "attacks":[
+      {
+         "attack":{
+            "item_id":"12",
+            "field_date":"2015-08-15 07:00:00",
+            "field_description":"A CPP-NPA unit launched two attacks on the same day in the province of Agusan del Sur. The fighters destroyed a truck using an improvised explosive device and later attacked two men, one a civilian, and one a member of the Armed Forces of the Philippines (AFP) auxiliary forces. (1 killed, 1 wounded).[2]\r",
+            "nid":"362"
+         }
+      },
+      {
+         "attack":{
+            "item_id":"13",
+            "field_date":"2013-01-27 08:00:00",
+            "field_description":"Approximately thirty CPP-NPA fighters fired on a truck carrying policemen and civilians in the town of La Castellana (9 killed, 12 wounded).[8]\r",
+            "nid":"362"
+         }
+      },
+      {
+         "attack":{
+            "item_id":"11",
+            "field_date":"1971-08-21 07:00:00",
+            "field_description":"Three members of the Communist Party of the Philippines-New People\u2019s Army (CPP-NPA) threw four grenades onto the stage of a Liberal Party rally in Manila\u2019s Plaza Miranda. Then-President Ferdinand Marcos was initially blamed for the attack, which had killed much of his opposition. (9 killed, 95 wounded).\r",
+            "nid":"362"
+         }
+      }
+   ]
+}
