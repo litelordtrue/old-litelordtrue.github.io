@@ -48,7 +48,7 @@
         </div>
 
         <script type="text/javascript">
-            var svg = d3.select("#main_timeline").append("svg").attr("id", "svg")
+            /* var svg = d3.select("#main_timeline").append("svg").attr("id", "svg")
             .attr("height", 500).attr("width", 1000)
             .attr("style", "outline: thin solid red");
 
@@ -60,6 +60,20 @@
 
             main_a.append("rect").attr("x", 500).attr("y", 200).attr("width", 100).attr("height", 100)
             .attr("fill", "blue");
+
+            var exported_data = []; */
+
+            var node_ids = [];
+            var event_promises = [];
+            var event_ids = [];
+            const maps_json = d3.json("/data/map-profiles/23");
+            maps_json.then(function(data){
+                data.mmp_groups.forEach(element => node_ids.push(element.mmp_group.group_id));
+            }).then(function(){
+                node_ids.forEach(element => (d3.json("/data/attack-profiles/" + element)).then(function(data){
+                    console.log(data);
+                }));
+            })
         </script>
     </body>
 </html>

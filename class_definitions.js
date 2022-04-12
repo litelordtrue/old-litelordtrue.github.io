@@ -1,5 +1,5 @@
 class mmp_group {
-    constructor(id, name, abbr, startdate, enddate, active, x, y, description, links) {
+    constructor(id, name, abbr, startdate, enddate, active, x, y, description, events, links) {
         this.id = id;
         this.name = name;
         this.abbr = abbr;
@@ -9,6 +9,7 @@ class mmp_group {
         this.x = x;
         this.y = y;
         this.description = description;
+        this.events = events;
         this.links = links;
     }
 
@@ -27,12 +28,21 @@ class mmp_group {
           }
           this.x = (i+1) * (w/(processed_data.mmp_groups.length+1));
     }
+
+    importAttacks(){
+        let this_obj = this;
+        d3.json("/data/attack-profiles/" + this.id).then(function(data){
+            data.attacks.forEach(element => this_obj.events.push(new mmp_event(
+                element.attack.item_id, "Major Attack", element.attack.field_description, element.attack.field_date, this_obj.id, 0, -this_obj.y
+            )))
+        });
+    }
 }
 
-class event_class {
-    constructor(id, type, name, description, date, parent_id, x, y) {
+class mmp_event {
+    constructor(id, name, description, date, parent_id, x, y) {
         this.id = id;
-        this.type = type;
+        //this.type = type;
         this.name = name;
         this.description = description;
         this.date = date;
@@ -43,10 +53,7 @@ class event_class {
 
     updatePos(){
         // y position
-        this.y = tScale(this.date);
-        // x position
-        let parent_mmpgroup = processed_data.mmp_groups.find(element => element.id === this.parent_id);
-        this.x = parent_mmpgroup.x;
+        this.y = tScale(this.date) + this.y;
     }
 }
 

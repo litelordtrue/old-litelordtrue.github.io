@@ -23,7 +23,7 @@ body {
   opacity: .7;
 }
 
-.mmpgroup:hover rect{
+.mmpgroup rect:hover{
   fill: mediumslateblue;
   opacity: .9;
 }

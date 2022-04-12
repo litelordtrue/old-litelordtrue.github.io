@@ -133,7 +133,7 @@ function handleMMPGroupMouseOut (group_data) {
 function handleClick(type, id){
   var clicked_data, clicked_type, name, description, date;
 
-  // handle event click
+  // handle event click TODO EVENT CLICK NOT WORKING PROPERLY
   if (type === "event") {
     clicked_data = processed_data.events.find(element => element.id === id);
     clicked_type = clicked_data.type;
@@ -263,20 +263,17 @@ function updateChart(){
   .attr("id", function(d) {return d.id + "_timeline"});
   // mmp_groups set up!
 
-  // fixing event position
+
+  /* fixing event position
   for (i = 0; i < processed_data.events.length; i++){
       let event = processed_data.events[i];
       event.updatePos();
-  };
+  }; */
 
 
   // drawing events
-  /* for (i = 0; i < processed_data.mmp_groups.length; i++){ // why not do this when constructing the dataset? it makes to store array of events within the objects
-    mmpgroup = processed_data.mmp_groups[i];
-    event_list = processed_data.events.filter(element => element.parent_id === mmpgroup.id);
-  }; */
 
-  var events = main_g.selectAll("event") // want these 
+  /* var events = main_g.selectAll("event") // want these 
   .data(processed_data.events)
   .enter()
   .append("circle")
@@ -288,14 +285,14 @@ function updateChart(){
   .attr("data-bs-toggle", "modal") 
   .attr("data-bs-target", "#infoModal")
   .on("click", function(d, i){
-    handleClick("event", i.id)
-  });
+    handleClick("event", i.id) 
+  }); */
 
 
 
   // fixing y and x position for relationships
 
-  for (i=0; i<processed_data.relationships.length; i++){
+  for (i=0; i<processed_data.relationships.length; i++){ // TO DO CHANGE TO FOREACH
       let relationship = processed_data.relationships[i];
       relationship.updatePos();
   }
@@ -402,14 +399,13 @@ var parseTime = d3.timeParse("%Y-%m-%d");
 // creating the (currently) empty dataset
 var processed_data = {
     mmp_groups: [],
-    events: [],
     relationships: [],
 };
 
-function handleD3JSONRead(input_data){
+function handleMapJSONRead(input_data){
   // reading groups (and attacks eventually)
   for (i=0; i<input_data.mmp_groups.length; i++){
-    let group = input_data.mmp_groups[i].mmp_group;
+    var group = input_data.mmp_groups[i].mmp_group;
     let short_name;
     if(!group.short_name){
       short_name = group.group_name.substring(0,5);
@@ -418,8 +414,10 @@ function handleD3JSONRead(input_data){
     processed_data.mmp_groups.push(new mmp_group(
       group.group_id, group.group_name, short_name, parseTime(group.startdate), parseTime(group.enddate), group.Active, 
       0, 0, 
-      group.description, []
+      group.description, [], []
     ))
+    
+
   }
 
   /* reading relationships
@@ -438,12 +436,26 @@ function handleD3JSONRead(input_data){
   } */
 }
 
+function handleAttackJSONRead(group){ // make this a method of mmp_group
+  d3.json("/data/attack-profiles/" + group.id).then(function(d){
+    for (k=0;k<d.attacks.length; k++){
+      let attack = d.attacks[k].attack;
+      group.events.push(new mmp_event(
+        attack.item_id, "Major Attack", attack.field_description, parseTime(attack.field_date.substr(0,10)), attack.nid, 0, 0
+      ))
+    }
+  })
+};
 
 function handlePageInit(datasource){
 
   d3.json(datasource)
   .then(function(data){
-    handleD3JSONRead(data);
+    handleMapJSONRead(data);
+  }).then(function(){
+    processed_data.mmp_groups.forEach(element => element.importAttacks());
+  })
+  .then(function(){
 
     // finding the minimum year
     var date_min = d3.min(processed_data.mmp_groups, function(d){
@@ -463,7 +475,7 @@ function handlePageInit(datasource){
     domainInput.placeholder = initDomainValue;
 
     initDomainArray = initDomainValue.split(',');
-    for (i=0; i<2; i++){initDomainArray[i] = yearToDate(initDomainArray[i])};
+    for (i=0; i<2; i++){initDomainArray[i] = yearToDate(initDomainArray[i])}; // TO DO REPLACE WITH FOREACH
 
     // initiate time scale
     tScale = d3.scaleTime().domain(initDomainArray).range([padding, h-padding]);
@@ -479,7 +491,7 @@ function handlePageInit(datasource){
     document.getElementById('domainReset').onclick = handleDomainReset;
 
     updateChart();
-
+    
     /* if there was a click in url, we need to have it clicked
     if (click_param){
         click_array = click_param.split(',');
