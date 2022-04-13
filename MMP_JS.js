@@ -436,17 +436,6 @@ function handleMapJSONRead(input_data){
   } */
 }
 
-function handleAttackJSONRead(group){ // make this a method of mmp_group
-  d3.json("/data/attack-profiles/" + group.id).then(function(d){
-    for (k=0;k<d.attacks.length; k++){
-      let attack = d.attacks[k].attack;
-      group.events.push(new mmp_event(
-        attack.item_id, "Major Attack", attack.field_description, parseTime(attack.field_date.substr(0,10)), attack.nid, 0, 0
-      ))
-    }
-  })
-};
-
 function handlePageInit(datasource){
 
   d3.json(datasource)
