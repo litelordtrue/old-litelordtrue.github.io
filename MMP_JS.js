@@ -189,6 +189,7 @@ function setFullProfileTarget(group_id){
 }
 
 // this function draws everything in
+
 function updateChart(){
   d3.select('#main_g').remove(); // delete the entire g
   var main_g = svg.append('g').attr("id", "main_g"); // recreate it
@@ -225,7 +226,7 @@ function updateChart(){
     else {return "mmpgroup inactive"}
   })
   .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")"}) // transform instead of using x/y
-  .attr("id", function(d){ return d.id})
+  .attr("id", function(d){ return "g" + d.id})
   .attr("width", rectWidth)
   .attr("height", rectHeight);
 
@@ -260,20 +261,12 @@ function updateChart(){
   .attr("x2", 0)
   .attr("y2", function(d){return h - d.y}) // since the origin is the actual mmpgroup position!
   .attr("class", "timeline")
-  .attr("id", function(d) {return d.id + "_timeline"});
+  .attr("id", function(d) {return "VLine" + d.id});
   // mmp_groups set up!
 
+  processed_data.events.forEach(element => element.updatePos());
 
-  /* fixing event position
-  for (i = 0; i < processed_data.events.length; i++){
-      let event = processed_data.events[i];
-      event.updatePos();
-  }; */
-
-
-  // drawing events
-
-  /* var events = main_g.selectAll("event") // want these 
+  var events = main_g.selectAll("event") // want these 
   .data(processed_data.events)
   .enter()
   .append("circle")
@@ -282,11 +275,29 @@ function updateChart(){
   .attr("cy", function(d) {return d.y})
   .attr("id", function(d) {return d.id})
   .attr("r", 6)
-  .attr("data-bs-toggle", "modal") 
-  .attr("data-bs-target", "#infoModal")
   .on("click", function(d, i){
-    handleClick("event", i.id) 
-  }); */
+    handleClick("event", i.id)
+  });
+
+  console.log(events);
+
+  /* for(i=0;i<processed_data.mmp_groups.length; i++){
+    let group = processed_data.mmp_groups[i];
+    console.log(group.events);
+    console.log(d3.select("g" + group.id));
+    
+    d3.select("g" + group.id).data(group.events)
+    .append("circle")
+    .attr("class", "attack")
+    .attr("cx", function(d) {return d.x})
+    .attr("cy", function(d) {return d.y})
+    .attr("id", function(d) {return d.id})
+    .attr("r", 6)
+    .attr("data-bs-toggle", "modal") 
+    .attr("data-bs-target", "#infoModal")
+    .on("click", function(d, i){
+      handleClick("event", i.id) 
+    })} */
 
 
 
@@ -399,7 +410,8 @@ var parseTime = d3.timeParse("%Y-%m-%d");
 // creating the (currently) empty dataset
 var processed_data = {
     mmp_groups: [],
-    relationships: [],
+    events: [],
+    relationships: []
 };
 
 function handleMapJSONRead(input_data){
@@ -478,6 +490,9 @@ function handlePageInit(datasource){
     }
 
     document.getElementById('domainReset').onclick = handleDomainReset;
+
+    console.log("handlePageInit");
+    console.log(processed_data.mmp_groups[3].events);
 
     updateChart();
     

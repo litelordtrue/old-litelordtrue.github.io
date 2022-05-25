@@ -48,20 +48,18 @@
         </div>
 
         <script type="text/javascript">
-            /* var svg = d3.select("#main_timeline").append("svg").attr("id", "svg")
+            var svg = d3.select("#main_timeline").append("svg").attr("id", "svg")
             .attr("height", 500).attr("width", 1000)
             .attr("style", "outline: thin solid red");
 
-            var main_g = svg.append("g");
-            var main_a = main_g.append("a").attr('href', '#')
+            var main_g = svg.append("g").attr("id", "main_g");
+            /* var main_a = main_g.append("a").attr('href', '#')
             .attr('type', 'plants-family')
             .attr('data-toggle', 'modal')
-            .attr('data-target', '#exampleModal').style('cursor', 'pointer');
+            .attr('data-target', '#exampleModal').style('cursor', 'pointer'); */
 
-            main_a.append("rect").attr("x", 500).attr("y", 200).attr("width", 100).attr("height", 100)
-            .attr("fill", "blue");
 
-            var exported_data = []; */
+            var exported_data = [];
 
             var node_ids = [];
             var event_promises = [];
@@ -71,9 +69,13 @@
                 data.mmp_groups.forEach(element => node_ids.push(element.mmp_group.group_id));
             }).then(function(){
                 node_ids.forEach(element => (d3.json("/data/attack-profiles/" + element)).then(function(data){
-                    console.log(data);
+                    data.attacks.forEach(attack => event_ids.push(attack));
                 }));
+            }).then(function(){
+                var nodes = main_g.data(node_ids).enter().append("rect")
             })
+
+
         </script>
     </body>
 </html>

@@ -32,9 +32,9 @@ class mmp_group {
     importAttacks(){
         let this_obj = this;
         d3.json("/data/attack-profiles/" + this.id).then(function(data){
-            data.attacks.forEach(element => this_obj.events.push(new mmp_event(
+            data.attacks.forEach(element => processed_data.events.push(new mmp_event( // should push to this.events in future
                 element.attack.item_id, "Major Attack", element.attack.field_description, 
-                parseTime(element.attack.field_date.substr(0,10)), this_obj.id, 0, -this_obj.y
+                parseTime(element.attack.field_date.substr(0,10)), this_obj.id, this_obj.x, 0
             )))
         });
     }
