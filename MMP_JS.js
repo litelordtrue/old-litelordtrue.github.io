@@ -428,24 +428,19 @@ function handleMapJSONRead(input_data){
       0, 0, 
       group.description, [], []
     ))
-    
-
   }
+}
 
-  /* reading relationships
-  for (i=0; i<data.links.length; i++){
-      let relationship = data.links[i].Link;
-      processed_data.relationships.push(new relationship_class(
-          relationship.type, relationship.id, parseTime(relationship.date), relationship.description,
-          relationship.group1, relationship.group2, 
-          0, 0, 0
-      ));
-      // creating a list of connected groups for tracing
-      let group1 = processed_data.mmp_groups.find(element => element.id === relationship.group1);
-      let group2 = processed_data.mmp_groups.find(element => element.id === relationship.group2);
-      group1.links.push(relationship.id);
-      group2.links.push(relationship.id);
-  } */
+function handleRelationshipJSONRead(passed_id){
+  d3.json("/data/relationships/" + passed_id).then(function(data){
+    for(k=0;k<data.relationships.length;k++){
+      let relationship = data.relationships[k].relationship;
+      let relationship_groups = relationship.groups.split(",");
+      processed_data.relationships.push(new mmp_relationship(relationship.type, relationship.relationship_id, 
+        relationship.startdate, relationship.description, relationship_groups[0], relationship_groups[1],
+        0, 0, 0));
+    }
+  })
 }
 
 function handlePageInit(map_id){
@@ -457,18 +452,8 @@ function handlePageInit(map_id){
   .then(function(){
     processed_data.mmp_groups.forEach(element => element.importAttacks()); // on each group, pull all attack-profiles/[ fill in GROUP_ID here ]
   })
-  .then(function(){
-    // read the map id and pull up the relavent relationships info. 
-    d3.json("/data/relationships/" + map_id).then(function(data){
-      for(k=0;k<data.relationships.length;k++){
-        let relationship = data.relationships[k].relationship;
-        let relationship_groups = relationship.groups.split(",");
-        processed_data.relationships.push(new mmp_relationship(relationship.type, relationship.relationship_id, 
-          relationship.startdate, relationship.description, relationship_groups[0], relationship_groups[1],
-          0, 0, 0));
-      }
-    })
-  })
+  .then(
+    handleRelationshipJSONRead(map_id)) // calls function above to process all relationship data
   .then(function(){
 
     // finding the minimum year
