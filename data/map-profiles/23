@@ -37,32 +37,6 @@
       {
          "mmp_group":{
             "map_id":"23",
-            "group_name":"Communist Part of the Philippines - New People's Army",
-            "Active":"Active",
-            "startdate":"1968-01-01",
-            "description":"The Communist Party of the Philippines\u0096New People\u0092s Army (CPP-NPA) seeks to overthrow the Philippine government in favor of a new state led by the working class and to expel U.S. influence from the Philippines. The Communist Party of the Philippines (CPP) was founded in 1968, and its armed wing, the New People\u0092s Army (NPA), was founded in 1969; because they are so closely intertwined, they are often referred to as the CPP-NPA. The CPP-NPA has historically focused on building support among the rural peasantry, although it has operated throughout the Philippines. While it peaked in size and influence in the 1970s and 1980s, the CPP-NPA still engages in significant levels of violence and is the world\u0092s oldest existing Communist insurgency.\n",
-            "group_id":"362",
-            "attack_date":"2013-01-27",
-            "attack_description":"Approximately thirty CPP-NPA fighters fired on a truck carrying policemen and civilians in the town of La Castellana (9 killed, 12 wounded).[8]\n",
-            "attack_id":"13"
-         }
-      },
-      {
-         "mmp_group":{
-            "map_id":"23",
-            "group_name":"Communist Part of the Philippines - New People's Army",
-            "Active":"Active",
-            "startdate":"1968-01-01",
-            "description":"The Communist Party of the Philippines\u0096New People\u0092s Army (CPP-NPA) seeks to overthrow the Philippine government in favor of a new state led by the working class and to expel U.S. influence from the Philippines. The Communist Party of the Philippines (CPP) was founded in 1968, and its armed wing, the New People\u0092s Army (NPA), was founded in 1969; because they are so closely intertwined, they are often referred to as the CPP-NPA. The CPP-NPA has historically focused on building support among the rural peasantry, although it has operated throughout the Philippines. While it peaked in size and influence in the 1970s and 1980s, the CPP-NPA still engages in significant levels of violence and is the world\u0092s oldest existing Communist insurgency.\n",
-            "group_id":"362",
-            "attack_date":"1971-08-21",
-            "attack_description":"Three members of the Communist Party of the Philippines-New People\u2019s Army (CPP-NPA) threw four grenades onto the stage of a Liberal Party rally in Manila\u2019s Plaza Miranda. Then-President Ferdinand Marcos was initially blamed for the attack, which had killed much of his opposition. (9 killed, 95 wounded).\n",
-            "attack_id":"11"
-         }
-      },
-      {
-         "mmp_group":{
-            "map_id":"23",
             "group_name":"Justice fo Islamic Movement",
             "Active":"Active",
             "startdate":"2013-01-01",
@@ -91,19 +65,6 @@
             "attack_date":"2000-02-25",
             "attack_description":"Bombs exploded on\u00a0one or more buses aboard the\u00a0M/V Our Lady of Mediatrix\u00a0ferry that was traveling to\u00a0Ozamiz\u00a0City.\u00a0MILF commanders were among those blamed for the attack (39-44 killed, 41-50 injured).[1]\n",
             "attack_id":"14"
-         }
-      },
-      {
-         "mmp_group":{
-            "map_id":"23",
-            "group_name":"Moro National Liberation Front",
-            "Active":"Active",
-            "startdate":"1972-01-01",
-            "description":"The Moro National Liberation Front (MNLF) is an Islamic separatist organization based in the southern Philippines that seeks autonomy for Filipino Muslims, called Moros. The MNLF was established in 1972, and it led the Moro separatist movement until the 1996 Final Peace Agreement between the MNLF and the Philippine government. Since 1996, the MNLF has been surpassed in strength and influence by its rival group, the Moro Islamic Liberation Front (MILF), which began its own peace talks with the Philippine government. Today, the MNLF consists of many factions, some of which support current negotiations between the Philippine government and the MILF.\n",
-            "group_id":"456",
-            "attack_date":"2017-04-17",
-            "attack_description":"The MILF claimed responsibility for two attacks coordinated in Tacurong, Sultan Kudarat, Philippines. One explosive device detonated near a gas station and a second device targeted police personnel responding to an earlier blast.\u00a0 There were no casualties, but 5 civilians and 9 police officers were wounded (0 killed, 14 injured).[7]\n",
-            "attack_id":"15"
          }
       },
       {

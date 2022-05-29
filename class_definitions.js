@@ -58,7 +58,7 @@ class mmp_event {
     }
 }
 
-class relationship_class {
+class mmp_relationship {
     constructor(relationship_type, id, date, description, group1, group2, x1, x2, y) {
         this.relationship_type = relationship_type;
         this.id = id;

@@ -448,13 +448,26 @@ function handleMapJSONRead(input_data){
   } */
 }
 
-function handlePageInit(datasource){
-
-  d3.json(datasource)
-  .then(function(data){
+function handlePageInit(map_id){
+  let map_source = "/data/map-profiles/" + map_id;
+  d3.json(map_source)
+  .then(function(data){ // imports groups data from map-profiles/[ fill in MAP_ID here ]
     handleMapJSONRead(data);
-  }).then(function(){
-    processed_data.mmp_groups.forEach(element => element.importAttacks());
+  }) // should theoretially not need to call this anon function
+  .then(function(){
+    processed_data.mmp_groups.forEach(element => element.importAttacks()); // on each group, pull all attack-profiles/[ fill in GROUP_ID here ]
+  })
+  .then(function(){
+    // read the map id and pull up the relavent relationships info. 
+    d3.json("/data/relationships/" + map_id).then(function(data){
+      for(k=0;k<data.relationships.length;k++){
+        let relationship = data.relationships[k].relationship;
+        let relationship_groups = relationship.groups.split(",");
+        processed_data.relationships.push(new mmp_relationship(relationship.type, relationship.relationship_id, 
+          relationship.startdate, relationship.description, relationship_groups[0], relationship_groups[1],
+          0, 0, 0));
+      }
+    })
   })
   .then(function(){
 
