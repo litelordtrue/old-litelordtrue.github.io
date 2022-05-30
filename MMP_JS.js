@@ -432,15 +432,19 @@ function handleMapJSONRead(input_data){
 }
 
 function handleRelationshipJSONRead(passed_id){
-  d3.json("/data/relationships/" + passed_id).then(function(data){
+  // create mmp_relationship objects inside processed_data.relationships
+  d3.json("/data/relationships/" + passed_id).then(function(data){ 
     for(k=0;k<data.relationships.length;k++){
       let relationship = data.relationships[k].relationship;
       let relationship_groups = relationship.groups.split(",");
+
       processed_data.relationships.push(new mmp_relationship(relationship.type, relationship.relationship_id, 
         relationship.startdate, relationship.description, relationship_groups[0], relationship_groups[1],
         0, 0, 0));
     }
   })
+
+  // create list of 
 }
 
 function handlePageInit(map_id){
