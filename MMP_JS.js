@@ -407,45 +407,6 @@ var todays_date = new Date();
 var todays_year = todays_date.getFullYear();
 var parseTime = d3.timeParse("%Y-%m-%d");
 
-// creating the (currently) empty dataset
-var processed_data = {
-    mmp_groups: [],
-    events: [],
-    relationships: []
-};
-
-function handleMapJSONRead(input_data){
-  // reading groups (and attacks eventually)
-  for (i=0; i<input_data.mmp_groups.length; i++){
-    var group = input_data.mmp_groups[i].mmp_group;
-    let short_name;
-    if(!group.short_name){
-      short_name = group.group_name.substring(0,5);
-    }
-    else{short_name = group.short_name}; // fixing bad data; only one actually has a short_name right now
-    processed_data.mmp_groups.push(new mmp_group(
-      group.group_id, group.group_name, short_name, parseTime(group.startdate), parseTime(group.enddate), group.Active, 
-      0, 0, 
-      group.description, [], []
-    ))
-  }
-}
-
-function handleRelationshipJSONRead(passed_id){
-  // create mmp_relationship objects inside processed_data.relationships
-  d3.json("/data/relationships/" + passed_id).then(function(data){ 
-    for(k=0;k<data.relationships.length;k++){
-      let relationship = data.relationships[k].relationship;
-      let relationship_groups = relationship.groups.split(",");
-
-      processed_data.relationships.push(new mmp_relationship(relationship.type, relationship.relationship_id, 
-        relationship.startdate, relationship.description, relationship_groups[0], relationship_groups[1],
-        0, 0, 0));
-    }
-  })
-
-  // create list of 
-}
 
 function handlePageInit(map_id){
   let map_source = "/data/map-profiles/" + map_id;
@@ -459,7 +420,6 @@ function handlePageInit(map_id){
   .then(
     handleRelationshipJSONRead(map_id)) // calls function above to process all relationship data
   .then(function(){
-
     // finding the minimum year
     var date_min = d3.min(processed_data.mmp_groups, function(d){
         return d.startdate;

@@ -1,0 +1,45 @@
+// this file is designated specifically for writing code related to reading the raw json data and porting into the "local" processed_data object
+
+// creating the (currently) empty dataset
+var processed_data = {
+    mmp_groups: {},
+    events: [],
+    relationships: []
+};
+
+function handleMapJSONRead(input_data){
+    // reading groups (and attacks eventually)
+    for (i=0; i<input_data.mmp_groups.length; i++){
+      var group = input_data.mmp_groups[i].mmp_group;
+      let short_name;
+      if(!group.short_name){
+        short_name = group.group_name.substring(0,5);
+      }
+      else{short_name = group.short_name}; // fixing bad data; only one actually has a short_name right now
+  
+      processed_data.mmp_groups[group.group_id] = new mmp_group(
+        group.group_id, group.group_name, short_name, parseTime(group.startdate), parseTime(group.enddate), 
+        group.Active, group.description)
+    }
+  }
+
+function handleRelationshipJSONRead(passed_id){
+  // create mmp_relationship objects inside processed_data.relationships
+  d3.json("/data/relationships/" + passed_id).then(function(data){ 
+
+    for(k=0;k<data.relationships.length;k++){
+      let r = data.relationships[k].relationship;
+      let r_groups = r.groups.split(", ");
+
+      processed_data.relationships.push(new mmp_relationship(r.type, r.relationship_id, 
+        r.startdate, r.description, r_groups[0], r_groups[1]));
+      
+      /*try{
+        processed_data.mmp_groups[r_groups[0]].links.relationships.push(r.relationship_id);
+      }
+      catch(e){console.log(r_groups[0], e);}*/
+    }
+
+    processed_data.relationships.forEach(element => element.updateAdjoiningGroups())
+  })
+}

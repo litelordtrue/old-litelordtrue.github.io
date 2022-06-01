@@ -1,16 +1,16 @@
 class mmp_group {
-    constructor(id, name, abbr, startdate, enddate, active, x, y, description, events, links) {
+    constructor(id, name, abbr, startdate, enddate, active, description) {
         this.id = id;
         this.name = name;
         this.abbr = abbr;
         this.startdate = startdate;
         this.enddate = enddate;
         this.active = active;
-        this.x = x;
-        this.y = y;
+        this.x = 0;
+        this.y = 0;
         this.description = description;
-        this.events = events;
-        this.links = links;
+        this.events = [];
+        this.links = {relationships: [], groups: new Set()};
     }
 
     updatePos(rectH){
@@ -59,21 +59,39 @@ class mmp_event {
 }
 
 class mmp_relationship {
-    constructor(relationship_type, id, date, description, group1, group2, x1, x2, y) {
+    constructor(relationship_type, id, date, description, group1, group2) {
         this.relationship_type = relationship_type;
         this.id = id;
         this.date = date;
         this.description = description;
         this.group1 = group1;
         this.group2 = group2;
-        this.x1 = x1;
-        this.x2 = x2;
-        this.y = y;
+
+        this.x1 = 0;
+        this.x2 = 0;
+        this.y = 0;
     }
 
-    updatePos(){
+    // updateAdjoiningGroups updates the links object under mmpgroups to create arrays representing which groups are connected and by which relationships
+    updateAdjoiningGroups(){
+        // since current data(June 1st 2022) has an issue with group_ids not actually in this map
+        try{
+            //
+            // while a little bit clunky, repeating the code for group2 avoids conflicting "this" calls
+            processed_data.mmp_groups[this.group1].links.relationships.push(this.id);
+            processed_data.mmp_groups[this.group2].links.relationships.push(this.id);
+
+            // while relationship ids wont repeat, group ids will. Need to make sure this array doesn't contain duplicates
+            // in order to do that, processed_data...links.groups is a Set :) set theory finally will be useful!
+            processed_data.mmp_groups[this.group2].links.groups.add(this.group1);
+            processed_data.mmp_groups[this.group1].links.groups.add(this.group2);
+        }
+        catch(e){}
+    }
+
+    updatePos(){ // this method is really inefficient, will be fixed by processed_data.mmpgroups switching from array to object
         this.y = tScale(this.date);
-        this.x1 = processed_data.mmp_groups.find(element => this.group1 === element.id).x;
-        this.x2 = processed_data.mmp_groups.find(element => this.group2 === element.id).x;
+        this.x1 = processed_data.mmp_groups[this.group1].x;
+        this.x2 = processed_data.mmp_groups[this.group2].x;
     }
 }
