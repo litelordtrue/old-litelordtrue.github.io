@@ -3,7 +3,6 @@
 // creating the (currently) empty dataset
 var processed_data = {
     mmp_groups: {},
-    events: [],
     relationships: []
 };
 

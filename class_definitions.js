@@ -26,17 +26,17 @@ class mmp_group {
           else if (this.startdate > current_max){
             console.log(this.abbr + ", far down");
           }
-          this.x = (i+1) * (w/(processed_data.mmp_groups.length+1));
+          this.x = (i+1) * (w/(Object.keys(processed_data.mmp_groups).length+1));
     }
 
     importAttacks(){
         let this_obj = this;
         d3.json("/data/attack-profiles/" + this.id).then(function(data){
-            data.attacks.forEach(element => processed_data.events.push(new mmp_event( // should push to this.events in future
+            data.attacks.forEach(element => this_obj.events.push(new mmp_event( 
                 element.attack.item_id, "Major Attack", element.attack.field_description, 
                 parseTime(element.attack.field_date.substr(0,10)), this_obj.id, this_obj.x, 0
             )))
-        });
+        }, function(){console.log(this_obj.id + " failed to find attack files")});
     }
 }
 

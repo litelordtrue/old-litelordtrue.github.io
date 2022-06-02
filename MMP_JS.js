@@ -36,22 +36,18 @@ function DateToNice(date){
 // tools to handle timeline resolution 
 resolutionDict = 
   [{
-    value: "0",
     text: "5 Years",
     height: .2
   },
   {
-    value: "1",
     text: "1 Year",
     height: 1
   },
   {
-    value: "2",
     text: "6 Months",
     height: 2
   },
   {
-    value: "3",
     text: "1 Quarter",
     height: 4
   }]
@@ -143,7 +139,7 @@ function handleClick(type, id){
   }
   // handle group click
   else if (type === "mmpgroup") {
-    clicked_data = processed_data.mmp_groups.find(element => element.id === id);
+    clicked_data = processed_data.mmp_groups[id];
     clicked_type = "mmpgroup";
     name = clicked_data.name;
     description = clicked_data.description;
@@ -156,8 +152,8 @@ function handleClick(type, id){
     relationship_dict = {spl: "Split", all: "Allies", riv: "Rivals"};
     clicked_data = processed_data.relationships.find(element => element.id === id);
     clicked_type = "relationship";
-    group1_data = processed_data.mmp_groups.find(element => element.id === clicked_data.group1);
-    group2_data = processed_data.mmp_groups.find(element => element.id === clicked_data.group2);
+    group1_data = processed_data.mmp_groups[clicked_data.group1];
+    group2_data = processed_data.mmp_groups[clicked_data.group2];
     name = "" + group1_data.abbr + " and " + group2_data.abbr + " " + relationship_dict[clicked_data.relationship_type];
     description = clicked_data.description;
     date = clicked_data.date;
@@ -203,21 +199,22 @@ function updateChart(){
 
   zoom.translateExtent([[0,0], [w,h]]); // making sure you can only translate within bounds
 
+  var groups_array = Object.values(processed_data.mmp_groups);
 
-  var rectWidth = w/(processed_data.mmp_groups.length + 1);
+
+  var rectWidth = w/(groups_array.length + 1);
   var rectHeight = 100; // should probably scale these...
 
-
   // fixing y and x for mmp_groups
-  for (i = 0; i < processed_data.mmp_groups.length; i++){
-    let mmpgroup = processed_data.mmp_groups[i];
+  for (i = 0; i < groups_array.length; i++){
+    let mmpgroup = groups_array[i];
     mmpgroup.updatePos(rectHeight);
   };
 
 
   // make mmpgroup g element to append rectangle and text
   var mmp_groups = main_g.selectAll("mmpgroup")
-  .data(processed_data.mmp_groups)
+  .data(groups_array)
   .enter()
   .append("g")
   .attr("class", function(d){
@@ -232,7 +229,7 @@ function updateChart(){
 
   // make mmpgroup rectangles
   var mmpgroupRect = mmp_groups
-  .data(processed_data.mmp_groups)
+  .data(groups_array)
   .append("rect")
   .attr("x", -rectWidth/2)
   .attr("y", -rectHeight/2)
@@ -246,7 +243,7 @@ function updateChart(){
   .on("click", function(d,i){handleClick("mmpgroup", i.id)});
 
   var mmpgroupText = mmp_groups
-  .data(processed_data.mmp_groups)
+  .data(groups_array)
   .append("text")
   .text(function(d){return d.abbr})
   .attr("y", -rectHeight/4)
@@ -254,7 +251,7 @@ function updateChart(){
   .attr("text-anchor", "middle");
 
   var mmpgroupVLines = mmp_groups
-  .data(processed_data.mmp_groups)
+  .data(groups_array)
   .append("line")
   .attr("x1", 0)
   .attr("y1", rectHeight/2)
@@ -264,7 +261,7 @@ function updateChart(){
   .attr("id", function(d) {return "VLine" + d.id});
   // mmp_groups set up!
 
-  processed_data.events.forEach(element => element.updatePos());
+  processed_data.events.forEach(element => element.updatePos()); // TO DO, NEED TO RUN THROUGH THE EVENTS OF EACH GROUP. nested for loop is unavoidable as far as i can tell
 
   var events = main_g.selectAll("event") // want these 
   .data(processed_data.events)
@@ -279,10 +276,10 @@ function updateChart(){
     handleClick("event", i.id)
   });
 
-  console.log(events);
+  //sconsole.log(events);
 
-  /* for(i=0;i<processed_data.mmp_groups.length; i++){
-    let group = processed_data.mmp_groups[i];
+  /* for(i=0;i<groups_array.length; i++){
+    let group = groups_array[i];
     console.log(group.events);
     console.log(d3.select("g" + group.id));
     
@@ -409,19 +406,21 @@ var parseTime = d3.timeParse("%Y-%m-%d");
 
 
 function handlePageInit(map_id){
+
   let map_source = "/data/map-profiles/" + map_id;
   d3.json(map_source)
   .then(function(data){ // imports groups data from map-profiles/[ fill in MAP_ID here ]
     handleMapJSONRead(data);
   }) // should theoretially not need to call this anon function
   .then(function(){
-    processed_data.mmp_groups.forEach(element => element.importAttacks()); // on each group, pull all attack-profiles/[ fill in GROUP_ID here ]
+    Object.values(processed_data.mmp_groups).forEach(element => element.importAttacks()); // on each group, pull all attack-profiles/[ fill in GROUP_ID here ]
   })
   .then(
     handleRelationshipJSONRead(map_id)) // calls function above to process all relationship data
   .then(function(){
+
     // finding the minimum year
-    var date_min = d3.min(processed_data.mmp_groups, function(d){
+    var date_min = d3.min(Object.values(processed_data.mmp_groups), function(d){
         return d.startdate;
     })
 
@@ -453,8 +452,8 @@ function handlePageInit(map_id){
 
     document.getElementById('domainReset').onclick = handleDomainReset;
 
-    console.log("handlePageInit");
-    console.log(processed_data.mmp_groups[3].events);
+    /*console.log("handlePageInit");
+    console.log(processed_data.mmp_groups[3].events);*/
 
     updateChart();
     
