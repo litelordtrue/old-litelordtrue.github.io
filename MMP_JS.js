@@ -5,8 +5,8 @@
 
 
 // hide/show groups/events/other objects with class "classname" on the map
-function handleCheckbox(classname, checkboxname) {
-  let checkBox = document.getElementById(checkboxname);
+function handleCheckbox(classname) {
+  let checkBox = document.getElementById(classname + "Checkbox");
   var entityList = d3.selectAll("." + classname);
 
   if (checkBox.checked == false){
@@ -354,7 +354,7 @@ if (ratio_param){
     ratio_param = parseFloat(ratio_param);
     let slider = document.getElementById("zoomRange");
     let span = document.getElementById("resolutionText");
-    let resolution = resolutionDict.find(element => element.height === ratio_param);
+    let resolution = resolutionDict.find(element => element.height === ratio_param); // TO DO. FIX. this may be the most inefficient piece of code EVER written. Fix resolutionDict to actually be a dictionary, and USE IT ACCORDINGLY FFS
     slider.value = resolution.value;
     span.innerText = resolution.text;
 }
