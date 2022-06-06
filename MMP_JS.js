@@ -22,6 +22,7 @@ function yearToDate(year){
   return parseTime(year + "-01-01");
 }
 
+// surely there is a list of months somewhere and I don't need to create it.
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 function DateToNice(date){
@@ -261,7 +262,11 @@ function updateChart(){
   .attr("id", function(d) {return "VLine" + d.id});
   // mmp_groups set up!
 
-  // processed_data.events.forEach(element => element.updatePos()); TO DO, NEED TO RUN THROUGH THE EVENTS OF EACH GROUP. nested for loop is unavoidable as far as i can tell
+  //running through the events of each group. nested for loop is unavoidable as far as i can tell, but it still scales linearly to the number of events
+  for (i in processed_data.mmp_groups){
+    let group = processed_data.mmp_groups[i];
+    group.events.forEach(element => element.updatePos());
+  }
 
   /* var events = main_g.selectAll("event") // want these 
   .data(processed_data.events)

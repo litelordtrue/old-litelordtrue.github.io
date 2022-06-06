@@ -26,13 +26,14 @@ class mmp_group {
           else if (this.startdate > current_max){
             console.log(this.abbr + ", far down");
           }
-          this.x = (i+1) * (w/(Object.keys(processed_data.mmp_groups).length+1));
+        this.x = (i+1) * (w/(Object.keys(processed_data.mmp_groups).length+1));
+        this.events.forEach(element => element.x = this.x);
     }
 
     importAttacks(passed_data){
         passed_data.attacks.forEach(element => this.events.push(new mmp_event( 
             element.attack.item_id, "Major Attack", element.attack.field_description, 
-            parseTime(element.attack.field_date.substr(0,10)), this.id, this.x, 0
+            parseTime(element.attack.field_date.substr(0,10)), this.id, 0, 0
         )));
     }
 }
