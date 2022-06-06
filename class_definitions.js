@@ -86,9 +86,12 @@ class mmp_relationship {
         catch(e){}
     }
 
-    updatePos(){ // this method is really inefficient, will be fixed by processed_data.mmpgroups switching from array to object
+    updatePos(){
         this.y = tScale(this.date);
-        this.x1 = processed_data.mmp_groups[this.group1].x;
-        this.x2 = processed_data.mmp_groups[this.group2].x;
+        try{
+            this.x1 = processed_data.mmp_groups[this.group1].x;
+            this.x2 = processed_data.mmp_groups[this.group2].x;
+        }
+        catch{}
     }
 }

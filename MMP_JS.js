@@ -302,7 +302,7 @@ function updateChart(){
   var relationships = main_g.selectAll("relationship")
   .data(processed_data.relationships).enter()
   .append("g")
-  .attr("class", function(d){return d.relationship_type})
+  .attr("class", function(d){return "relationship " + d.relationship_type})
   .attr("transform", function(d) {return "translate(" + d.x1 + "," + d.y + ")"})
   .attr("width", function(d){return d.x2 - d.x1;})
   .attr("id", function(d){return d.id;});

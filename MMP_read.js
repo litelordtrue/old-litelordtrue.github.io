@@ -22,6 +22,7 @@ function handleMapJSONRead(input_data){
     }
   }
 
+
 function handleRelationshipJSONRead(input_data){
 
     for(k=0;k<input_data.relationships.length;k++){
@@ -29,7 +30,7 @@ function handleRelationshipJSONRead(input_data){
       let r_groups = r.groups.split(", ");
 
       processed_data.relationships.push(new mmp_relationship(r.type, r.relationship_id, 
-        r.startdate, r.description, r_groups[0], r_groups[1]));
+        parseTime(r.startdate), r.description, r_groups[0], r_groups[1]));
     }
 
     processed_data.relationships.forEach(element => element.updateAdjoiningGroups());
