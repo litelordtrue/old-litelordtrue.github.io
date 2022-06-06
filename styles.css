@@ -10,7 +10,8 @@ body {
 
 
 #svg{
-  background-color: lightgrey;
+  background-color:lightgrey;
+  outline: 2px solid rgb(121,10,15);
 }
 
 .hide{
@@ -19,7 +20,7 @@ body {
 
 .mmpgroup rect {
   fill: white;
-  stroke: black;
+  stroke: rgb(61,62,65);
   opacity: .7;
 }
 

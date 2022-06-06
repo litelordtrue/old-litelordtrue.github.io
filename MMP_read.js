@@ -22,23 +22,15 @@ function handleMapJSONRead(input_data){
     }
   }
 
-function handleRelationshipJSONRead(passed_id){
-  // create mmp_relationship objects inside processed_data.relationships
-  d3.json("/data/relationships/" + passed_id).then(function(data){ 
+function handleRelationshipJSONRead(input_data){
 
-    for(k=0;k<data.relationships.length;k++){
-      let r = data.relationships[k].relationship;
+    for(k=0;k<input_data.relationships.length;k++){
+      let r = input_data.relationships[k].relationship;
       let r_groups = r.groups.split(", ");
 
       processed_data.relationships.push(new mmp_relationship(r.type, r.relationship_id, 
         r.startdate, r.description, r_groups[0], r_groups[1]));
-      
-      /*try{
-        processed_data.mmp_groups[r_groups[0]].links.relationships.push(r.relationship_id);
-      }
-      catch(e){console.log(r_groups[0], e);}*/
     }
 
-    processed_data.relationships.forEach(element => element.updateAdjoiningGroups())
-  })
-}
+    processed_data.relationships.forEach(element => element.updateAdjoiningGroups());
+  }

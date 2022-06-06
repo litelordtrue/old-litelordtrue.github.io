@@ -261,9 +261,9 @@ function updateChart(){
   .attr("id", function(d) {return "VLine" + d.id});
   // mmp_groups set up!
 
-  processed_data.events.forEach(element => element.updatePos()); // TO DO, NEED TO RUN THROUGH THE EVENTS OF EACH GROUP. nested for loop is unavoidable as far as i can tell
+  // processed_data.events.forEach(element => element.updatePos()); TO DO, NEED TO RUN THROUGH THE EVENTS OF EACH GROUP. nested for loop is unavoidable as far as i can tell
 
-  var events = main_g.selectAll("event") // want these 
+  /* var events = main_g.selectAll("event") // want these 
   .data(processed_data.events)
   .enter()
   .append("circle")
@@ -274,9 +274,7 @@ function updateChart(){
   .attr("r", 6)
   .on("click", function(d, i){
     handleClick("event", i.id)
-  });
-
-  //sconsole.log(events);
+  }); */
 
   /* for(i=0;i<groups_array.length; i++){
     let group = groups_array[i];
@@ -296,14 +294,9 @@ function updateChart(){
       handleClick("event", i.id) 
     })} */
 
-
-
   // fixing y and x position for relationships
 
-  for (i=0; i<processed_data.relationships.length; i++){ // TO DO CHANGE TO FOREACH
-      let relationship = processed_data.relationships[i];
-      relationship.updatePos();
-  }
+  processed_data.relationships.forEach(element => element.updatePos());
 
   // drawing in relationships
   var relationships = main_g.selectAll("relationship")
@@ -383,8 +376,7 @@ var padding = 50;
 var radius = 15;
 
 var svg = d3.select("#main_timeline").append("svg").attr("id", "svg")
-.attr("height", svg_h).attr("width", w)
-.attr("style", "outline: thin solid red");
+.attr("height", svg_h).attr("width", w);
 
 var main_g = svg.append('g').attr("id", "main_g");
 
@@ -407,18 +399,36 @@ var parseTime = d3.timeParse("%Y-%m-%d");
 
 function handlePageInit(map_id){
 
+  // read map data
   let map_source = "/data/map-profiles/" + map_id;
-  d3.json(map_source)
+  var map_promise = d3.json(map_source)
   .then(function(data){ // imports groups data from map-profiles/[ fill in MAP_ID here ]
     handleMapJSONRead(data);
-  }) // should theoretially not need to call this anon function
-  .then(function(){
-    Object.values(processed_data.mmp_groups).forEach(element => element.importAttacks()); // on each group, pull all attack-profiles/[ fill in GROUP_ID here ]
-  })
-  .then(
-    handleRelationshipJSONRead(map_id)) // calls function above to process all relationship data
-  .then(function(){
+  });
+  //
 
+  // read relationships data. currently, if there is no relationships file, the map will not be drawn in. 
+  let relationships_source = "/data/relationships/" + map_id;
+  var relationship_promise = d3.json(relationships_source).then(function(data){
+    handleRelationshipJSONRead(data);
+  })
+  //
+
+  // read events data
+  var events_promise = map_promise.then(function(){ // must happen after maps are read
+    var events_array = []; // create an array to store promises for each group read
+    for (i=0; i<Object.values(processed_data.mmp_groups).length; i++){ 
+      let group = Object.values(processed_data.mmp_groups)[i];
+      events_array.push(d3.json("/data/attack-profiles/" + group.id).then(function(data){ // push the promise returned by d3.json
+        group.importAttacks(data);
+      }))
+    }
+    return(events_array); // send up the array of all promises
+  }).then(function(d){return Promise.allSettled(d)}); // finally, once all of these promises are settled (whether with or without failure), we send up a promise to represent this completion
+
+  var promise_sum = Promise.all([map_promise, relationship_promise, events_promise]); // 
+
+  promise_sum.then(function(){
     // finding the minimum year
     var date_min = d3.min(Object.values(processed_data.mmp_groups), function(d){
         return d.startdate;
