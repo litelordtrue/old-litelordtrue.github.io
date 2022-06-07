@@ -127,12 +127,11 @@ function handleMMPGroupMouseOut (group_data) {
 //
 
 // function for clicking for more info
-function handleClick(type, id){
+function handleClick(type, clicked_data){
   var clicked_data, clicked_type, name, description, date;
 
   // handle event click TODO EVENT CLICK NOT WORKING PROPERLY
   if (type === "event") {
-    clicked_data = processed_data.events.find(element => element.id === id);
     clicked_type = clicked_data.type;
     name = clicked_data.name;
     description = clicked_data.description;
@@ -140,7 +139,6 @@ function handleClick(type, id){
   }
   // handle group click
   else if (type === "mmpgroup") {
-    clicked_data = processed_data.mmp_groups[id];
     clicked_type = "mmpgroup";
     name = clicked_data.name;
     description = clicked_data.description;
@@ -150,12 +148,10 @@ function handleClick(type, id){
   }
   // handle relationship click
   else if (type === "relationship") {
-    relationship_dict = {spl: "Split", all: "Allies", riv: "Rivals"};
-    clicked_data = processed_data.relationships.find(element => element.id === id);
     clicked_type = "relationship";
     group1_data = processed_data.mmp_groups[clicked_data.group1];
     group2_data = processed_data.mmp_groups[clicked_data.group2];
-    name = "" + group1_data.abbr + " and " + group2_data.abbr + " " + relationship_dict[clicked_data.relationship_type];
+    name = "" + group1_data.abbr + " and " + group2_data.abbr + " " + clicked_data.relationship_type;
     description = clicked_data.description;
     date = clicked_data.date;
   }
@@ -241,7 +237,7 @@ function updateChart(){
   .attr("data-bs-target", "#infoModal")
   .on("mouseover", function(d,i){handleMMPGroupMouseOver(i)}) // passing all group data into these functions. should be more efficient?
   .on("mouseout", function(d,i){handleMMPGroupMouseOut(i)})
-  .on("click", function(d,i){handleClick("mmpgroup", i.id)});
+  .on("click", function(d,i){handleClick("mmpgroup", i)});
 
   var mmpgroupText = mmp_groups
   .data(groups_array)
@@ -343,7 +339,7 @@ function updateChart(){
   .attr("data-bs-toggle", "modal") 
   .attr("data-bs-target", "#infoModal")
   .on("click", function(d, i){
-    handleClick("relationship", i.id)
+    handleClick("relationship", i)
   });
 
 }
