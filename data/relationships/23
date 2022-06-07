@@ -7,7 +7,7 @@
             "relationship_id":"2307",
             "startdate":"2015-01-01",
             "description":"Members of the Moro National Liberation Front (MNLF) allegedly joined the Abu Sayyaf Group (ASG) in a clash with Philippine forces in Indanan, Sulu.\n",
-            "groups":"456, 300"
+            "groups":"456, 322"
          }
       },
       {
@@ -37,7 +37,7 @@
             "relationship_id":"2327",
             "startdate":"2015-01-01",
             "description":"The Abu Sayyaf Group (ASG) attacked members of the Moro Islamic Liberation Front (MILF) on the island of Basilan. Government forces rescued the MILF members from the siege.\n",
-            "groups":"300, 455"
+            "groups":"322, 455"
          }
       },
       {
@@ -47,7 +47,7 @@
             "relationship_id":"2379",
             "startdate":"2014-01-01",
             "description":"The Moro National Liberation Front (MNLF) and the Moro Islamic Liberation Front (MILF) signed an agreement establishing the Bangsamoro Coordination Forum (BCF), an attempt to coordinate MNLF-MILF efforts in promoting the welfare of Filipino Muslims. The agreement was signed under the auspices of the Organization of Islamic Cooperation (OIC).\n",
-            "groups":"456, 455"
+            "groups":"455, 456"
          }
       },
       {
@@ -57,7 +57,7 @@
             "relationship_id":"2426",
             "startdate":"2014-01-01",
             "description":"The Moro National Liberation Front (MNLF) announced an alliance with the Bangsamoro Islamic Freedom Fighters (BIFF) in February 2014. Both groups oppose peace negotiations between the Philippine government and the Moro Islamic Liberation Front (MILF).\n",
-            "groups":"456, 348"
+            "groups":"348, 456"
          }
       },
       {
@@ -67,7 +67,7 @@
             "relationship_id":"2462",
             "startdate":"2013-01-01",
             "description":"Moro National Liberation Front (MNLF) members and Moro Islamic Liberation Front (MILF) members clashed in the province of Cotabato. Fighting between the MNLF and the MILF erupted sporadically throughout 2013.\n",
-            "groups":"456, 455"
+            "groups":"455, 456"
          }
       },
       {
@@ -77,7 +77,7 @@
             "relationship_id":"2463",
             "startdate":"2013-01-01",
             "description":"After especially violent clashes between the Moro National Liberation Front (MNLF) and the Abu Sayyaf Group (ASG), MNLF leader Nur Misuari announced that his group would no longer tolerate ASG activities in the Philippines' Sulu province and planned to eliminate the ASG from the area.\n",
-            "groups":"456, 300"
+            "groups":"509, 456"
          }
       },
       {
@@ -97,7 +97,7 @@
             "relationship_id":"2559",
             "startdate":"2010-01-01",
             "description":"The Bangsamoro Islamic Freedom Fighters (BIFF) emerged in December 2010 as a splinter group of the Moro Islamic Liberation Front (MILF). The BIFF was founded by Ameril Umbra Kato, a MILF commander who broke away from the MILF because of ideological and tactical disagreements with the group's leadership.\n",
-            "groups":"455, 348"
+            "groups":"348, 456"
          }
       },
       {
@@ -107,7 +107,7 @@
             "relationship_id":"2666",
             "startdate":"2005-01-01",
             "description":"A group that included one hundred Moro Islamic Liberation Front (MILF) fighters and some Abu Sayyaf Group (ASG) fighters attacked Philippine forces in the province of Maguindanao. The attack resulted in the deaths of twenty-three government soldiers.\n",
-            "groups":"300, 455"
+            "groups":"322, 455"
          }
       },
       {
@@ -127,7 +127,7 @@
             "relationship_id":"2806",
             "startdate":"1993-01-01",
             "description":"The relationship between the Alex Boncayao Brigade (ABB) and the Communist Party of the Philippines-New People's Army (CPP-NPA) has been hostile, with clashes between the two groups since the former broke away from the latter in the early 1990s.\n",
-            "groups":"322"
+            "groups":"322, 456"
          }
       },
       {
@@ -137,7 +137,7 @@
             "relationship_id":"2809",
             "startdate":"1992-01-01",
             "description":"The Alex Boncayao Brigade (ABB) was first established as the Manila urban guerrilla force of the Communist Party of the Philippines\u00ac\u00f1New People's Army (CPP-NPA) in the mid-1980s. Sometime in the early 1990s, the ABB officially split from the CPP-NPA because of ideological and tactical disagreements. The exact year of the ABB's split is unclear.\n",
-            "groups":"322"
+            "groups":"322, 456"
          }
       },
       {
@@ -147,7 +147,7 @@
             "relationship_id":"2810",
             "startdate":"1992-01-01",
             "description":"Sometime in the early 1990s, the Revolutionary Proletarian Army (RPA) formed as a splinter group of the Communist Party of the Philippines-New People's Army (CPP-NPA) because of ideological and tactical disagreements within the CPP-NPA. The exact year of the RPA's split is unclear.\n",
-            "groups":"509"
+            "groups":"362, 509"
          }
       },
       {
@@ -157,7 +157,7 @@
             "relationship_id":"2816",
             "startdate":"1991-01-01",
             "description":"The Abu Sayyaf Group (ASG) was founded in 1991 by Abdurajak Abubakar Janjalani, a Moro National Liberation Front (MNLF) member who believed in a more radical way of pursuing an independent Islamic state than did the MNLF leadership. Janjalani recruited other disappointed MNLF members into what would become the ASG.\n",
-            "groups":"456, 300"
+            "groups":"362, 456"
          }
       },
       {
@@ -167,7 +167,7 @@
             "relationship_id":"2881",
             "startdate":"1977-01-01",
             "description":"The Moro Islamic Liberation Front (MILF) began as the New MNLF, a splinter group of the Moro National Liberation Front (MNLF) that broke away in December 1977. Hashim Salamat, an MNLF co-founder, established the group after failing to take control of the MNLF from fellow co-founder Nur Misuari. The New MNLF renamed itself as the MILF in 1984.\n",
-            "groups":"456, 455"
+            "groups":"456, 509"
          }
       }
    ]

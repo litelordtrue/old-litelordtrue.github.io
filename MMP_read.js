@@ -27,7 +27,7 @@ function handleRelationshipJSONRead(input_data){
 
     for(k=0;k<input_data.relationships.length;k++){
       let r = input_data.relationships[k].relationship;
-      let r_groups = r.groups.split(", ");
+      let r_groups = r.groups.split(", ").sort();
 
       processed_data.relationships.push(new mmp_relationship(r.type, r.relationship_id, 
         parseTime(r.startdate), r.description, r_groups[0], r_groups[1]));
