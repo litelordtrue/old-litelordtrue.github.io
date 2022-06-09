@@ -202,10 +202,11 @@ function updateChart(){
   var rectWidth = w/(groups_array.length + 1);
   var rectHeight = 100; // should probably scale these...
 
-  // fixing y and x for mmp_groups
+  // fixing y and x for mmp_groups and their subsequent events
   for (i = 0; i < groups_array.length; i++){
     let mmpgroup = groups_array[i];
     mmpgroup.updatePos(rectHeight);
+    mmpgroup.events.forEach(element => element.updatePos());
   };
 
 
@@ -226,7 +227,6 @@ function updateChart(){
 
   // make mmpgroup rectangles
   var mmpgroupRect = mmp_groups
-  .data(groups_array)
   .append("rect")
   .attr("x", -rectWidth/2)
   .attr("y", -rectHeight/2)
@@ -240,7 +240,6 @@ function updateChart(){
   .on("click", function(d,i){handleClick("mmpgroup", i)});
 
   var mmpgroupText = mmp_groups
-  .data(groups_array)
   .append("text")
   .text(function(d){return d.abbr})
   .attr("y", -rectHeight/4)
@@ -248,7 +247,6 @@ function updateChart(){
   .attr("text-anchor", "middle");
 
   var mmpgroupVLines = mmp_groups
-  .data(groups_array)
   .append("line")
   .attr("x1", 0)
   .attr("y1", rectHeight/2)
@@ -259,41 +257,21 @@ function updateChart(){
   // mmp_groups set up!
 
   //running through the events of each group. nested for loop is unavoidable as far as i can tell, but it still scales linearly to the number of events
-  for (i in processed_data.mmp_groups){
-    let group = processed_data.mmp_groups[i];
-    group.events.forEach(element => element.updatePos());
-  }
-
-  /* var events = main_g.selectAll("event") // want these 
-  .data(processed_data.events)
-  .enter()
-  .append("circle")
-  .attr("class", function(d) {return d.type})
-  .attr("cx", function(d) {return d.x})
-  .attr("cy", function(d) {return d.y})
-  .attr("id", function(d) {return d.id})
-  .attr("r", 6)
-  .on("click", function(d, i){
-    handleClick("event", i.id)
-  }); */
-
-  /* for(i=0;i<groups_array.length; i++){
-    let group = groups_array[i];
-    console.log(group.events);
-    console.log(d3.select("g" + group.id));
+  for (id in processed_data.mmp_groups){
+    let group = processed_data.mmp_groups[id];
     
-    d3.select("g" + group.id).data(group.events)
-    .append("circle")
-    .attr("class", "attack")
-    .attr("cx", function(d) {return d.x})
-    .attr("cy", function(d) {return d.y})
-    .attr("id", function(d) {return d.id})
-    .attr("r", 6)
-    .attr("data-bs-toggle", "modal") 
-    .attr("data-bs-target", "#infoModal")
-    .on("click", function(d, i){
-      handleClick("event", i.id) 
-    })} */
+    var event_g = main_g.selectAll('foo').data(processed_data.mmp_groups[id].events).enter();
+
+    event_g.append('circle').attr("class", "attack").attr("r", 5)
+      .attr("cx", function(d) {return d.x})
+      .attr("cy", function(d) {return d.y})
+      .attr("id", function(d) {return d.id})
+      .attr("r", 6)
+      .attr("data-bs-toggle", "modal") 
+      .attr("data-bs-target", "#infoModal")
+      .on("click", function(d, i){
+        handleClick("event", i)})
+  } 
 
   // fixing y and x position for relationships
 
@@ -333,7 +311,8 @@ function updateChart(){
   // relationship clickable circles
   relationships.data(processed_data.relationships)
   .append("circle")
-  .attr("cx", function(d){return .5*(d.x2-d.x1);})
+  .attr("class", "clicker")
+  .attr("cx", function(d){return .45*(d.x2-d.x1);})
   .attr("cy", 0)
   .attr("r", 5)
   .attr("data-bs-toggle", "modal") 
@@ -420,9 +399,13 @@ function handlePageInit(map_id){
     var events_array = []; // create an array to store promises for each group read
     for (i=0; i<Object.values(processed_data.mmp_groups).length; i++){ 
       let group = Object.values(processed_data.mmp_groups)[i];
-      events_array.push(d3.json("/data/attack-profiles/" + group.id).then(function(data){ // push the promise returned by d3.json
+
+      let promise = d3.json("/data/attack-profiles/" + group.id)
+      .then(function(data){ // push the promise returned by d3.json
         group.importAttacks(data);
-      }))
+      })
+
+      events_array.push(promise);
     }
     return(events_array); // send up the array of all promises
   }).then(function(d){return Promise.allSettled(d)}); // finally, once all of these promises are settled (whether with or without failure), we send up a promise to represent this completion
