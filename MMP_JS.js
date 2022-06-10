@@ -130,7 +130,7 @@ function handleMMPGroupMouseOut (group_data) {
 function handleClick(type, clicked_data){
   var clicked_data, clicked_type, name, description, date;
 
-  // handle event click TODO EVENT CLICK NOT WORKING PROPERLY
+  // handle event click
   if (type === "event") {
     clicked_type = clicked_data.type;
     name = clicked_data.name;
@@ -225,7 +225,7 @@ function updateChart(){
   .attr("width", rectWidth)
   .attr("height", rectHeight);
 
-  // make mmpgroup rectangles
+  // make mmpgroup rectangles. Think of this more as an outline for the text, and less as THE interactable
   var mmpgroupRect = mmp_groups
   .append("rect")
   .attr("x", -rectWidth/2)
@@ -233,11 +233,6 @@ function updateChart(){
   .attr("width", rectWidth)
   .attr("height", rectHeight)
   .attr("rx", rectWidth/20)
-  .attr("data-bs-toggle", "modal") 
-  .attr("data-bs-target", "#infoModal")
-  .on("mouseover", function(d,i){handleMMPGroupMouseOver(i)}) // passing all group data into these functions. should be more efficient?
-  .on("mouseout", function(d,i){handleMMPGroupMouseOut(i)})
-  .on("click", function(d,i){handleClick("mmpgroup", i)});
 
   var mmpgroupText = mmp_groups
   .append('foreignObject')
@@ -247,6 +242,9 @@ function updateChart(){
   .attr("height", rectHeight)
   .on('mouseover', function(d, i){handleMMPGroupMouseOver(i)})
   .on("mouseout", function(d,i){handleMMPGroupMouseOut(i)})
+  .on("click", function(d,i){handleClick("mmpgroup", i)})
+  .attr("data-bs-toggle", "modal") 
+  .attr("data-bs-target", "#infoModal")
   .append('xhtml:p')
   .html(function(d){return d.name})
   .attr("pointer-events", "none");
