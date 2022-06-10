@@ -24,12 +24,16 @@ body {
   opacity: .7;
 }
 
-.mmpgroup rect:hover{
+.mmpgroup.mousedover rect{
   fill: mediumslateblue;
   opacity: .9;
 }
 
-.mmpgroup text{
+.mmpgroup foreignObject{
+  user-select: none;
+}
+
+.mmpgroup foreignObject p{
   font-size: 16px;
 }
 

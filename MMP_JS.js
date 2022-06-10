@@ -109,8 +109,8 @@ function handleURLManip(){
 // functions for mmp_groups
 // functions for user interaction for mmp_groups
 function handleMMPGroupMouseOver (group_data) {
-  let group_g = document.getElementById(group_data.id);
-  //d3.select(group_g).classed("mousedover", true);
+  let group_g = document.getElementById('g' + group_data.id);
+  d3.select(group_g).classed("mousedover", true);
 
   // this generates an array of the line elements that connect to this group. 
   let link_obj_list = [];
@@ -121,8 +121,8 @@ function handleMMPGroupMouseOver (group_data) {
 };
 
 function handleMMPGroupMouseOut (group_data) {
-  let group_g = document.getElementById(group_data.id);
-  //d3.select(group_g).classed("mousedover", false);
+  let group_g = document.getElementById('g' + group_data.id);
+  d3.select(group_g).classed("mousedover", false);
 }; 
 //
 
@@ -245,8 +245,11 @@ function updateChart(){
   .attr("y", -rectHeight/(2.1))
   .attr("width", rectWidth)
   .attr("height", rectHeight)
+  .on('mouseover', function(d, i){handleMMPGroupMouseOver(i)})
+  .on("mouseout", function(d,i){handleMMPGroupMouseOut(i)})
   .append('xhtml:p')
-  .html(function(d){return d.name});
+  .html(function(d){return d.name})
+  .attr("pointer-events", "none");
 
   var mmpgroupVLines = mmp_groups
   .append("line")
