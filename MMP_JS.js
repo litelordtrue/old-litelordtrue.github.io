@@ -240,11 +240,13 @@ function updateChart(){
   .on("click", function(d,i){handleClick("mmpgroup", i)});
 
   var mmpgroupText = mmp_groups
-  .append("text")
-  .text(function(d){return d.abbr})
-  .attr("y", -rectHeight/4)
-  .attr("dominant-baseline", "middle")
-  .attr("text-anchor", "middle");
+  .append('foreignObject')
+  .attr("x", -rectWidth/2)
+  .attr("y", -rectHeight/(2.1))
+  .attr("width", rectWidth)
+  .attr("height", rectHeight)
+  .append('xhtml:p')
+  .html(function(d){return d.name});
 
   var mmpgroupVLines = mmp_groups
   .append("line")
