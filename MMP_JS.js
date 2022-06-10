@@ -117,7 +117,7 @@ function handleMMPGroupMouseOver (group_data) {
   for (link_num = 0; link_num < group_data.links.length; link_num++){
     link_obj_list.push(document.getElementById(group_data.links[link_num]));
   }
-  // console.log(link_obj_list);
+  console.log(link_obj_list);
 };
 
 function handleMMPGroupMouseOut (group_data) {
