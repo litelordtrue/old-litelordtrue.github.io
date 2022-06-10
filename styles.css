@@ -48,6 +48,10 @@ body {
   stroke: black;
 }
 
+.relationship.mousedover.Split{
+  stroke: red;
+}
+
 .relationship.Split{
   stroke: black;
 }

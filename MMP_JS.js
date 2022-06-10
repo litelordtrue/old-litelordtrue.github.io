@@ -114,15 +114,21 @@ function handleMMPGroupMouseOver (group_data) {
 
   // this generates an array of the line elements that connect to this group. 
   let link_obj_list = [];
-  for (link_num = 0; link_num < group_data.links.length; link_num++){
-    link_obj_list.push(document.getElementById(group_data.links[link_num]));
-  }
-  console.log(link_obj_list);
+
+  group_data.links.relationships.forEach(element => link_obj_list.push(d3.select("#rel" + element)));
+
+  link_obj_list.forEach(element => element.classed("mousedover", true));
 };
 
 function handleMMPGroupMouseOut (group_data) {
   let group_g = document.getElementById('g' + group_data.id);
   d3.select(group_g).classed("mousedover", false);
+
+  let link_obj_list = [];
+
+  group_data.links.relationships.forEach(element => link_obj_list.push(d3.select("#rel" + element)));
+
+  link_obj_list.forEach(element => element.classed("mousedover", false));
 }; 
 //
 
@@ -287,7 +293,7 @@ function updateChart(){
   .attr("class", function(d){return "relationship " + d.relationship_type})
   .attr("transform", function(d) {return "translate(" + d.x1 + "," + d.y + ")"})
   .attr("width", function(d){return d.x2 - d.x1;})
-  .attr("id", function(d){return d.id;});
+  .attr("id", function(d){return "rel" + d.id;});
 
   // relationship lines
   relationships.data(processed_data.relationships)
