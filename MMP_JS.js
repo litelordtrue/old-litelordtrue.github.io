@@ -110,25 +110,25 @@ function handleURLManip(){
 // functions for user interaction for mmp_groups
 function handleMMPGroupMouseOver (group_data) {
   let group_g = document.getElementById('g' + group_data.id);
-  d3.select(group_g).classed("mousedover", true);
+  d3.select(group_g).classed("mmpSelected", true);
 
   // this generates an array of the line elements that connect to this group. 
   let link_obj_list = [];
 
   group_data.links.relationships.forEach(element => link_obj_list.push(d3.select("#rel" + element)));
 
-  link_obj_list.forEach(element => element.classed("mousedover", true));
+  link_obj_list.forEach(element => element.classed("mmpSelected", true));
 };
 
 function handleMMPGroupMouseOut (group_data) {
   let group_g = document.getElementById('g' + group_data.id);
-  d3.select(group_g).classed("mousedover", false);
+  d3.select(group_g).classed("mmpSelected", false);
 
   let link_obj_list = [];
 
   group_data.links.relationships.forEach(element => link_obj_list.push(d3.select("#rel" + element)));
 
-  link_obj_list.forEach(element => element.classed("mousedover", false));
+  link_obj_list.forEach(element => element.classed("mmpSelected", false));
 }; 
 //
 
