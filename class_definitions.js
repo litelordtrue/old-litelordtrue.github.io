@@ -52,7 +52,7 @@ class mmp_event {
 
     updatePos(){
         // y position
-        this.y = tScale(this.date) + this.y;
+        this.y = tScale(this.date); // + this.y
     }
 }
 
