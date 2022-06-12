@@ -61,7 +61,7 @@ body {
 }
 
 .relationship.mmpSelected{
-  stroke: red;
+  stroke-width: 5px;
 }
 
 .timeline{
@@ -74,23 +74,4 @@ body {
   background-color: white;
   border-radius: 6px;
   padding: 1em;
-}
-
-.description_header {
-  font-weight: bold;
-}
-.mmpgroup_description{
-  border: 2px solid black;
-}
-
-.attack_description{
-  border: 2px solid orange;
-}
-
-.leader_description{
-  border: 2px solid grey;
-}
-
-.relationship_description{
-  border: 2px solid blue;
 }

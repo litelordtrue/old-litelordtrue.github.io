@@ -116,6 +116,7 @@ function handleMMPGroupMouseOver (group_data) {
   let link_obj_list = [];
 
   group_data.links.relationships.forEach(element => link_obj_list.push(d3.select("#rel" + element)));
+  group_data.links.groups.forEach(element => link_obj_list.push(d3.select("#g" + element)));
 
   link_obj_list.forEach(element => element.classed("mmpSelected", true));
 };
@@ -127,6 +128,7 @@ function handleMMPGroupMouseOut (group_data) {
   let link_obj_list = [];
 
   group_data.links.relationships.forEach(element => link_obj_list.push(d3.select("#rel" + element)));
+  group_data.links.groups.forEach(element => link_obj_list.push(d3.select("#g" + element)));
 
   link_obj_list.forEach(element => element.classed("mmpSelected", false));
 }; 
@@ -134,7 +136,8 @@ function handleMMPGroupMouseOut (group_data) {
 
 // function for clicking for more info
 function handleClick(type, clicked_data){
-  var clicked_data, clicked_type, name, description, date;
+  var clicked_type, name, description, date;
+  var displayButton, group_id;
 
   // handle event click
   if (type === "event") {
@@ -142,6 +145,9 @@ function handleClick(type, clicked_data){
     name = clicked_data.name;
     description = clicked_data.description;
     date = clicked_data.date;
+
+    group_id = clicked_data.parent_id;
+    displayButton = true;
   }
   // handle group click
   else if (type === "mmpgroup") {
@@ -150,7 +156,8 @@ function handleClick(type, clicked_data){
     description = clicked_data.description;
     date = clicked_data.startdate;
 
-    setFullProfileTarget(clicked_data.id); // calls function defined immediatly below this function, sets the <a> element to correct link
+    group_id = clicked_data.id; // calls function defined immediatly below this function, sets the <a> element to correct link
+    displayButton = true;
   }
   // handle relationship click
   else if (type === "relationship") {
@@ -160,6 +167,10 @@ function handleClick(type, clicked_data){
     name = "" + group1_data.abbr + " and " + group2_data.abbr + " " + clicked_data.relationship_type;
     description = clicked_data.description;
     date = clicked_data.date;
+
+    group_id = -1;
+    displayButton = false;
+    FullProfileAnchor.classList.add('hide');
   }
 
   // grab divs to put information in
@@ -173,18 +184,16 @@ function handleClick(type, clicked_data){
 
   modal_description.innerText = description;
 
-  /* description_box.setAttribute("class", clicked_type + "_description");
-  params_obj.set('click', [type, id]);
-  handleURLManip();
-  // console.log(document.getElementById('#' + id));
-  svg.selectAll('.clicked').classed('clicked', false); */
+  setFullProfileTarget(group_id, displayButton);
 }
 
 // this function is used above to make sure the See Full Profile button inside of the modal links to the correct webpage, specific to that id
-function setFullProfileTarget(group_id){
+function setFullProfileTarget(id, show){
   const FullProfileAnchor = document.getElementById('FullProfileAnchor');
-  console.log(group_id);
-  FullProfileAnchor.href = "/node/" + group_id.toString();
+  FullProfileAnchor.href = "/node/" + id.toString();
+
+  if (show){FullProfileAnchor.classList.remove('hide')}
+  else if (!show){FullProfileAnchor.classList.add('hide')};
 }
 
 // this function draws everything in
