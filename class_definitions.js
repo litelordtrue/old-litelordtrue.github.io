@@ -21,7 +21,7 @@ class mmp_group {
             this.y = tScale(this.startdate);
           }
           else if (this.startdate < current_min) { // if it happened earlier, put it on top. TODO: make it note somewhere that it is further up, so that it can look different
-            this.y = rectH/2 + 1; // add one to avoid trailing garbage error, pretty silly
+            this.y = Math.floor(rectH/2);
           }
           else if (this.startdate > current_max){
             console.log(this.abbr + ", far down");

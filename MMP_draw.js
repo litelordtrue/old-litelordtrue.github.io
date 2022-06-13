@@ -5,9 +5,8 @@ function ResetPan(){
     zoom.transform(svg, d3.zoomIdentity);
   }
 
-  // this function draws everything in
-
-function updateChart(){
+// this function draws everything in
+function drawChart(){
     d3.select('#main_g').remove(); // delete the entire g
     var main_g = svg.append('g').attr("id", "main_g"); // recreate it
   
@@ -254,7 +253,7 @@ function handlePageInit(map_id){
     /*console.log("handlePageInit");
     console.log(processed_data.mmp_groups[3].events);*/
 
-    updateChart();
+    drawChart();
     
     /* if there was a click in url, we need to have it clicked
     if (click_param){
@@ -262,4 +261,33 @@ function handlePageInit(map_id){
         handleClick(click_array[0], click_array[1]);
     }; */
   })
+}
+
+// function updateChart will now initiate many d3.transition()  on  different elements
+
+function updateChart(){
+    groups_array = Object.values(processed_data.mmp_groups);
+    var rectWidth = w/(groups_array.length + 1);
+    var rectHeight = 100; // should probably scale these...
+
+    // update all positions
+    for (i = 0; i < groups_array.length; i++){
+        let mmpgroup = groups_array[i];
+        mmpgroup.updatePos(rectHeight);
+        mmpgroup.events.forEach(element => element.updatePos());
+    };
+
+    processed_data.relationships.forEach(element => element.updatePos());
+    //
+
+    // move mmp groups to the correct origin
+    d3.selectAll(".mmpgroup").transition().duration(500).attr("transform", function(d){return "translate(" + d.x + "," + d.y +")"});
+    // extend and retract the downward facing lines from group
+    d3.selectAll(".timeline").transition().duration(500).attr("y2", function(d){return h - d.y});
+    // move attacks to the correct (cx,cy)
+    d3.selectAll(".attack").transition().duration(500).attr("cx", function(d){return d.x}).attr("cy", function(d){return d.y});
+    // move relationships up and down
+    d3.selectAll(".relationship").transition().duration(500).attr("transform",function(d){return "translate(" + d.x1 + "," + d.y + ")"});
+    d3.select('.axis').transition().duration(500).call(tScale);
+
 }

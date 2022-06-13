@@ -191,8 +191,6 @@ function setFullProfileTarget(id, show){
   else if (!show){FullProfileAnchor.classList.add('hide')};
 }
 
-// function that initializes webpage
-
 const url_obj = new URL(document.URL); // makes a url object
 const params_obj = new URLSearchParams(url_obj.search);
 
@@ -202,7 +200,7 @@ if (ratio_param){
     let slider = document.getElementById("zoomRange");
     let span = document.getElementById("resolutionText");
     let resolution = resolutionDict.find(element => element.height === ratio_param); // TO DO. FIX. this may be the most inefficient piece of code EVER written. Fix resolutionDict to actually be a dictionary, and USE IT ACCORDINGLY FFS
-    slider.value = resolution.value;
+    slider.value = resolution.index;
     span.innerText = resolution.text;
 }
 else{ratio_param = 1};
