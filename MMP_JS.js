@@ -38,19 +38,24 @@ function DateToNice(date){
 resolutionDict = 
   [{
     text: "5 Years",
-    height: .2
+    height: .2,
+    slider: 0
   },
   {
     text: "1 Year",
-    height: 1
+    height: 1,
+    slider: 1
+    
   },
   {
     text: "6 Months",
-    height: 2
+    height: 2,
+    slider: 2
   },
   {
     text: "1 Quarter",
-    height: 4
+    height: 4,
+    slider: 3
   }]
 
 function handleSliderInput(){
@@ -200,7 +205,7 @@ if (ratio_param){
     let slider = document.getElementById("zoomRange");
     let span = document.getElementById("resolutionText");
     let resolution = resolutionDict.find(element => element.height === ratio_param); // TO DO. FIX. this may be the most inefficient piece of code EVER written. Fix resolutionDict to actually be a dictionary, and USE IT ACCORDINGLY FFS
-    slider.value = resolution.index;
+    slider.value = resolution.slider;
     span.innerText = resolution.text;
 }
 else{ratio_param = 1};
