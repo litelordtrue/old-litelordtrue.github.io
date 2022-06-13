@@ -288,6 +288,8 @@ function updateChart(){
     d3.selectAll(".attack").transition().duration(500).attr("cx", function(d){return d.x}).attr("cy", function(d){return d.y});
     // move relationships up and down
     d3.selectAll(".relationship").transition().duration(500).attr("transform",function(d){return "translate(" + d.x1 + "," + d.y + ")"});
-    d3.select('.axis').transition().duration(500).call(tScale);
 
+    // in order to properly transition an axis g object, the d3 axisLeft() must be recreated, since it pulls the construction from this directly. 
+    var tAxis = d3.axisLeft().scale(tScale);
+    d3.select(".axis").transition().duration(500).call(tAxis);
 }

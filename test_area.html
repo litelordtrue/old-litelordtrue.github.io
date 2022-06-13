@@ -47,6 +47,11 @@
             .attr("y", function(d){return d.y})
             .attr("stroke",  "red");
 
+            var scale = d3.scaleLinear();
+            var axis = d3.axisRight(scale);
+
+            main_g.append('g').attr("id", "axis").attr("transform", "translate(500,20)").call(axis);
+
             function updateData(){
                 for (id in test_data){
                     test_data[id].x = 50;
