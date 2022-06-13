@@ -32,20 +32,29 @@
 
             var main_g = svg.append("g").attr("id", "main_g");
 
-            square_size = 200;
+            square_size = 50;
 
-            /* var test_data = [0,1,2,3];
-            var rect = main_g.selectAll('foo').data(test_data).enter().append('rect')
+            var test_data = {
+                1: {x: 0, y: 0},
+                2: {x: square_size, y:square_size},
+                3: {x: 2*square_size, y:2*square_size},
+                4: {x: 3*square_size, y:3*square_size}
+
+            }
+            var rect = main_g.selectAll('foo').data(Object.values(test_data)).enter().append('rect')
             .attr("height", square_size).attr("width", square_size)
-            .attr("x", function(d){return square_size*Math.floor(d/2)})
-            .attr("y", function(d){return square_size*((d % 2))})
-            .attr("stroke",  "red");*/
+            .attr("x", function(d){return d.x})
+            .attr("y", function(d){return d.y})
+            .attr("stroke",  "red");
 
-            var rect = main_g.append('rect').attr("height", square_size).attr("width", square_size)
-            .attr("x", square_size).attr("y", square_size);
+            function updateData(){
+                for (id in test_data){
+                    test_data[id].x = 50;
+                }
+            }
 
             function handleAnimation(){
-                d3.select('rect').transition().duration(1000).attr("x", Math.floor(Math.random() * 500));
+                d3.selectAll('rect').transition().duration(1000).attr("x", function(d){return d.x}).attr("y", function(d){return d.y});
             }
 
             function handleAnimatedSlider(){
