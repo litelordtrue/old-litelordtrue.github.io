@@ -1,6 +1,6 @@
 // d3js library for mapping militant groups from json data  (sample url https://dev-mapping-militants.pantheonsite.io/data/map-profiles/23)
 // this dataviz displays data for each group and allows user to filter data via controls in the left sidebar
-// first we define functions, then we draw/update chart in <div id="main_timeline" class="main_timeline"> using function updateChart
+// first we define functions, then we draw/update chart in <div id="main_timeline" class="main_timeline"> using function updateChart, now found in MMP_draw
 // class objects are defined in class_definitions.js, this file is called in index.html
 
 
