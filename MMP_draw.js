@@ -89,9 +89,15 @@ function drawChart(){
     // drawing mmp_events
 
     // adding a path that looks like an explosion to defs so it can be called below
+    var explosion_path = "M 5 -6 L 6 -10 L 2 -8 L 0 -14 L -2 -8 L -5 -10 L -4 -6 L -14 -14 L -8 -1 L -14 0 L -8 1 L -13 11 L -5 4 L -5 8 L -2 4 L 0 9 L 2 4 L 6 8 L 5 5 L 15 11 L 7 2 L 11 0 L 7 -2 L 15 -11 Z"
     defs.append("path")
-    .attr("d", "M 5 -6 L 6 -10 L 2 -8 L 0 -14 L -2 -8 L -5 -10 L -4 -6 L -14 -14 L -8 -1 L -14 0 L -8 1 L -13 11 L -5 4 L -5 8 L -2 4 L 0 9 L 2 4 L 6 8 L 5 5 L 15 11 L 7 2 L 11 0 L 7 -2 L 15 -11 Z")
+    .attr("d", explosion_path)
     .attr("id", "explosion");
+
+    var dictator_path = "M -4 -12 L -4 -10 C -6 -10 -8 -10 -12 -8 L -16 0 L -8 13 L -8 10 L -12 0 L -10 -4 L -10 12 C -10 16 -8 16 -8 16 L 8 16 C 8 16 10 16 10 12 L 10 -4 L 12 0 L 8 10 L 8 13 L 16 0 L 12 -8 C 8 -10 6 -10 4 -10 V -12 C 6 -16 6 -16 6 -20 C 6 -24 4 -26 0 -26 C -4 -26 -6 -24 -6 -20 C -6 -16 -6 -16 -4 -12"
+    defs.append("path")
+    .attr("d", dictator_path)
+    .attr("id", "dictator");
 
     //running through the events of each group. nested for loop is unavoidable as far as i can tell, but it still scales linearly to the number of events
     for (id in processed_data.mmp_groups){
