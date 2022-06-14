@@ -85,18 +85,25 @@ function drawChart(){
     .attr("id", function(d) {return "VLine" + d.id})
     .attr("marker-start", "url(#arrow)");
     // mmp_groups set up!
-  
+
+    // drawing mmp_events
+
+    // adding a path that looks like an explosion to defs so it can be called below
+    defs.append("path")
+    .attr("d", "M 5 -6 L 6 -10 L 2 -8 L 0 -14 L -2 -8 L -5 -10 L -4 -6 L -14 -14 L -8 -1 L -14 0 L -8 1 L -13 11 L -5 4 L -5 8 L -2 4 L 0 9 L 2 4 L 6 8 L 5 5 L 15 11 L 7 2 L 11 0 L 7 -2 L 15 -11 Z")
+    .attr("id", "explosion");
+
     //running through the events of each group. nested for loop is unavoidable as far as i can tell, but it still scales linearly to the number of events
     for (id in processed_data.mmp_groups){
       let group = processed_data.mmp_groups[id];
       
       var event_g = main_g.selectAll('foo').data(processed_data.mmp_groups[id].events).enter();
-  
-      event_g.append('circle').attr("class", "attack").attr("r", 5)
-        .attr("cx", function(d) {return d.x})
-        .attr("cy", function(d) {return d.y})
+
+      event_g.append('svg:use').attr("xlink:href", "#explosion")
+        .attr("class", "attack")
+        .attr("x", function(d) {return d.x})
+        .attr("y", function(d) {return d.y})
         .attr("id", function(d) {return d.id})
-        .attr("r", 6)
         .attr("data-bs-toggle", "modal") 
         .attr("data-bs-target", "#infoModal")
         .on("click", function(d, i){
@@ -104,7 +111,6 @@ function drawChart(){
     } 
   
     // fixing y and x position for relationships
-  
     processed_data.relationships.forEach(element => element.updatePos());
   
     // drawing in relationships
@@ -152,9 +158,9 @@ function drawChart(){
     });
 
   }
-  //
+//
 
-  var working_div = document.getElementById("main_timeline");
+var working_div = document.getElementById("main_timeline");
 
 // setting up a workspace
 var w = width_ratio * window.screen.width;
@@ -288,7 +294,7 @@ function updateChart(){
     // extend and retract the downward facing lines from group
     d3.selectAll(".timeline").transition().duration(500).attr("points", function(d){return "0," + (h-d.y-marker_size) + " 0," + rectHeight/2});
     // move attacks to the correct (cx,cy)
-    d3.selectAll(".attack").transition().duration(500).attr("cx", function(d){return d.x}).attr("cy", function(d){return d.y});
+    d3.selectAll(".attack").transition().duration(500).attr("x", function(d){return d.x}).attr("y", function(d){return d.y});
     // move relationships up and down
     d3.selectAll(".relationship").transition().duration(500).attr("transform",function(d){return "translate(" + d.x1 + "," + d.y + ")"});
 
