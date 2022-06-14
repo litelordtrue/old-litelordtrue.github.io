@@ -7,9 +7,8 @@ function ResetPan(){
 
 // this function draws everything in
 function drawChart(){
-    d3.select('#main_g').remove(); // delete the entire g
-    var main_g = svg.append('g').attr("id", "main_g"); // recreate it
-  
+    var defs = svg.append('defs'); // defs is an svg element used to store designs to be used later. For now, I will place <marker> elements in here
+    var main_g = svg.append('g').attr("id", "main_g"); // most drawings will be placed on this g element
     var tAxis = d3.axisLeft(tScale).ticks(Math.ceil(h/svg_h)*12); //so there is ~12 ticks in the svg at any point
   
     main_g.append("g")
@@ -59,7 +58,7 @@ function drawChart(){
     var mmpgroupText = mmp_groups
     .append('foreignObject')
     .attr("x", -rectWidth/2)
-    .attr("y", -rectHeight/(2.1))
+    .attr("y", -rectHeight/(2))
     .attr("width", rectWidth)
     .attr("height", rectHeight)
     .on('mouseover', function(d, i){handleMMPGroupMouseOver(i)})
@@ -70,15 +69,21 @@ function drawChart(){
     .append('xhtml:p')
     .html(function(d){return d.name})
     .attr("pointer-events", "none");
+
+    // create arrowhead marker in defs for Vlines
+    marker_size = 15;
+
+    defs.append("marker").attr("id", "arrow").attr("viewBox", "0 0 10 10")
+    .attr("refX", 5).attr("refY", 5).attr("markerWidth", marker_size).attr("markerHeight", marker_size).attr("orient", "auto-start-reverse")
+    .append("path").attr("d", "M 0 0 L 10 5 L 0 10 z");
+
   
     var mmpgroupVLines = mmp_groups
-    .append("line")
-    .attr("x1", 0)
-    .attr("y1", rectHeight/2)
-    .attr("x2", 0)
-    .attr("y2", function(d){return h - d.y}) // since the origin is the actual mmpgroup position!
+    .append("polyline")
+    .attr("points", function(d){return "0," + (h-d.y-marker_size) + " 0," + rectHeight/2})//TODO use .format() like in python to make this neat
     .attr("class", "timeline")
-    .attr("id", function(d) {return "VLine" + d.id});
+    .attr("id", function(d) {return "VLine" + d.id})
+    .attr("marker-start", "url(#arrow)");
     // mmp_groups set up!
   
     //running through the events of each group. nested for loop is unavoidable as far as i can tell, but it still scales linearly to the number of events
@@ -145,7 +150,7 @@ function drawChart(){
     .on("click", function(d, i){
       handleClick("relationship", i)
     });
-  
+
   }
   //
 
@@ -161,8 +166,6 @@ var radius = 15;
 
 var svg = d3.select("#main_timeline").append("svg").attr("id", "svg")
 .attr("height", svg_h).attr("width", w);
-
-var main_g = svg.append('g').attr("id", "main_g");
 
 function handleZoom(e) {
     d3.select('#main_g').attr("transform", e.transform);
@@ -283,7 +286,7 @@ function updateChart(){
     // move mmp groups to the correct origin
     d3.selectAll(".mmpgroup").transition().duration(500).attr("transform", function(d){return "translate(" + d.x + "," + d.y +")"});
     // extend and retract the downward facing lines from group
-    d3.selectAll(".timeline").transition().duration(500).attr("y2", function(d){return h - d.y});
+    d3.selectAll(".timeline").transition().duration(500).attr("points", function(d){return "0," + (h-d.y-marker_size) + " 0," + rectHeight/2});
     // move attacks to the correct (cx,cy)
     d3.selectAll(".attack").transition().duration(500).attr("cx", function(d){return d.x}).attr("cy", function(d){return d.y});
     // move relationships up and down
@@ -292,4 +295,7 @@ function updateChart(){
     // in order to properly transition an axis g object, the d3 axisLeft() must be recreated, since it pulls the construction from this directly. 
     var tAxis = d3.axisLeft().scale(tScale).ticks(Math.ceil(h/svg_h)*12);
     d3.select(".axis").transition().duration(500).call(tAxis);
+
+    zoom.translateExtent([[0,0], [w,h]]); // keeps panning within bounds
+    d3.select('svg').call(zoom);
 }
