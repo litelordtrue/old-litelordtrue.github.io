@@ -48,16 +48,22 @@ body {
   stroke: black;
 }
 
+.relationship{
+  stroke-width: 3px;
+}
+
 .relationship.Split{
   stroke: black;
 }
 
 .relationship.Ally{
   stroke: blue;
+  stroke-dasharray: 15,5;
 }
 
 .relationship.Rival{
-  stroke: orange;
+  stroke: rgb(248, 120, 1);
+  stroke-dasharray: 5,5;
 }
 
 .relationship.mmpSelected{

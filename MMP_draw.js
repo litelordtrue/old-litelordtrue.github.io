@@ -102,7 +102,7 @@ function drawChart(){
     //running through the events of each group. nested for loop is unavoidable as far as i can tell, but it still scales linearly to the number of events
     for (id in processed_data.mmp_groups){
       let group = processed_data.mmp_groups[id];
-      
+      // create one empty element to fill. selectAll('foo') is a complete  cheatcode 
       var event_g = main_g.selectAll('foo').data(processed_data.mmp_groups[id].events).enter();
 
       event_g.append('svg:use').attr("xlink:href", "#explosion")
