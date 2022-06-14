@@ -89,12 +89,12 @@ function drawChart(){
     // drawing mmp_events
 
     // adding a path that looks like an explosion to defs so it can be called below
-    var explosion_path = "M 5 -6 L 6 -10 L 2 -8 L 0 -14 L -2 -8 L -5 -10 L -4 -6 L -14 -14 L -8 -1 L -14 0 L -8 1 L -13 11 L -5 4 L -5 8 L -2 4 L 0 9 L 2 4 L 6 8 L 5 5 L 15 11 L 7 2 L 11 0 L 7 -2 L 15 -11 Z"
+    const explosion_path = "M 5 -6 L 6 -10 L 2 -8 L 0 -14 L -2 -8 L -5 -10 L -4 -6 L -14 -14 L -8 -1 L -14 0 L -8 1 L -13 11 L -5 4 L -5 8 L -2 4 L 0 9 L 2 4 L 6 8 L 5 5 L 15 11 L 7 2 L 11 0 L 7 -2 L 15 -11 Z"
     defs.append("path")
     .attr("d", explosion_path)
     .attr("id", "explosion");
 
-    var dictator_path = "M -4 -12 L -4 -10 C -6 -10 -8 -10 -12 -8 L -16 0 L -8 13 L -8 10 L -12 0 L -10 -4 L -10 12 C -10 16 -8 16 -8 16 L 8 16 C 8 16 10 16 10 12 L 10 -4 L 12 0 L 8 10 L 8 13 L 16 0 L 12 -8 C 8 -10 6 -10 4 -10 V -12 C 6 -16 6 -16 6 -20 C 6 -24 4 -26 0 -26 C -4 -26 -6 -24 -6 -20 C -6 -16 -6 -16 -4 -12"
+    const dictator_path = "M -4 -12 L -4 -10 C -6 -10 -8 -10 -12 -8 L -16 0 L -8 13 L -8 10 L -12 0 L -10 -4 L -10 12 C -10 16 -8 16 -8 16 L 8 16 C 8 16 10 16 10 12 L 10 -4 L 12 0 L 8 10 L 8 13 L 16 0 L 12 -8 C 8 -10 6 -10 4 -10 V -12 C 6 -16 6 -16 6 -20 C 6 -24 4 -26 0 -26 C -4 -26 -6 -24 -6 -20 C -6 -16 -6 -16 -4 -12"
     defs.append("path")
     .attr("d", dictator_path)
     .attr("id", "dictator");
@@ -118,7 +118,13 @@ function drawChart(){
   
     // fixing y and x position for relationships
     processed_data.relationships.forEach(element => element.updatePos());
-  
+
+    // adding marker to create split lines in split relationships
+    /*const split_mid = "M 90 -195 L -90 195";
+    defs.append("marker").attr("id", "split_mid")
+    .attr("refX", 0).attr("refY", 0).attr("markerWidth", 200).attr("markerHeight", 200)
+    .append("path").attr("d", split_mid).attr("stroke", "black");*/
+
     // drawing in relationships
     var relationships = main_g.selectAll("relationship")
     .data(processed_data.relationships).enter()
@@ -130,11 +136,20 @@ function drawChart(){
   
     // relationship lines
     relationships.data(processed_data.relationships)
-    .append("line")
-    .attr("x1", 0)
-    .attr("x2", function(d) {return d.x2 - d.x1;})
-    .attr("y1", 0)
-    .attr("y2", 0);
+    .append("path")
+    .attr("d", function(d){
+        let dist= d.x2 - d.x1;
+        if (d.relationship_type === "Split"){
+            let split_mid = "m 0 0 " + 
+            "h  " + (dist/2) + 
+            "m 6 -10 l -11 18 m 20 -18 l -11 18 m 5 -8 " +
+            "h " + (dist/2 - 9); // this 9 comes from the specific path I built, which has a distance of 9 between the first and second part of the line
+            return split_mid;
+        }
+        else {
+            return "M 0 0 H " + dist;
+        }
+    });
   
     // relationship endpoint circles
     // first circle

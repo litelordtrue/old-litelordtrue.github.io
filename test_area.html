@@ -60,7 +60,9 @@
             .attr("y", function(d){return d.y})
             .attr("stroke",  "red");*/
 
-            main_g.append("defs").append("marker")
+            var defs = main_g.append("defs");
+            
+            defs.append("marker")
             .attr("id", "triangle")
             .attr("refX", 13)
             .attr("refY", 5)
@@ -72,11 +74,16 @@
             .attr("d", "M 0 0 12 6 0 12 3 6")
             .style("fill", "#555");
 
+            const split_mid = "M 90 -195 L -90 195";
+            defs.append("marker").attr("id", "splitmid")
+            .attr("refX", 0).attr("refY", 0).attr("markerWidth", 50).attr("markerHeight", 50).attr("orient", "auto")
+            .append("path").attr("d", split_mid).attr("fill", "black");
+
 
             var line = main_g.append('polyline')
-            .attr("points", "500,50 500,125")
+            .attr("points", "500,50 500,75 500,100 500,125")
             .attr("stroke", "red").attr("fill", "none")
-            .attr("marker-start", "url(#arrow)").attr("marker-end", "url(#triangle)");
+            .attr("marker-mid", "url(#splitmid)");
 
             function updateData(){
                 for (id in test_data){
