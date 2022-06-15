@@ -191,7 +191,7 @@ var h = ratio_param * default_height; // this no longer sets the height of the s
 var padding = 50;
 var radius = 15;
 
-var svg = d3.select("#main_timeline").append("svg").attr("id", "svg")
+var svg = d3.select("#svg")
 .attr("height", svg_h).attr("width", w);
 
 function handleZoom(e) {
