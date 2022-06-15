@@ -83,7 +83,10 @@ function drawChart(){
     .attr("points", function(d){return "0," + (h-d.y-marker_size) + " 0," + rectHeight/2})//TODO use .format() like in python to make this neat
     .attr("class", "timeline")
     .attr("id", function(d) {return "VLine" + d.id})
-    .attr("marker-start", "url(#arrow)");
+    .attr("marker-start", function(d){
+        if(d.active === "Active"){return "url(#arrow)"}
+        else{return null}
+    });
     // mmp_groups set up!
 
     // drawing mmp_events
