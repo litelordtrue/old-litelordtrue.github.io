@@ -7,7 +7,7 @@ function ResetPan(){
 
 // this function draws everything in
 function drawChart(){
-    var defs = svg.append('defs'); // defs is an svg element used to store designs to be used later. For now, I will place <marker> elements in here
+    var defs = svg.select('defs'); // defs is an svg element used to store designs to be used later. For now, I will place <marker> elements in here
     var main_g = svg.append('g').attr("id", "main_g"); // most drawings will be placed on this g element
     var tAxis = d3.axisLeft(tScale).ticks(Math.ceil(h/svg_h)*12); //so there is ~12 ticks in the svg at any point
   
