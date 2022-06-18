@@ -49,7 +49,7 @@ body {
 }
 
 .relationship{
-  stroke-width: 3px;
+  stroke-width: 2px;
 }
 
 .relationship.Split{
@@ -73,7 +73,6 @@ body {
 .timeline{
   fill: white;
   stroke: black;
-  marker-end: none;
 }
 
 #description_div{

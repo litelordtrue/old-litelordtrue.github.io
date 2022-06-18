@@ -136,6 +136,11 @@ function drawChart(){
     .attr("transform", function(d) {return "translate(" + d.x1 + "," + d.y + ")"})
     .attr("width", function(d){return d.x2 - d.x1;})
     .attr("id", function(d){return "rel" + d.id;});
+    /*.attr("data-bs-toggle", "modal") 
+    .attr("data-bs-target", "#infoModal")
+    .on("click", function(d, i){
+        handleClick("relationship", i)
+    });*/
   
     // relationship lines
     relationships.data(processed_data.relationships)

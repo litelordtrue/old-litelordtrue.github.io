@@ -35,15 +35,33 @@
                         <path d="M 14 -13 C 15 -6 17 0 23 7 L 30 3 L 21 -17 Z" stroke="black" fill="white"></path>
                     </g>
                 </defs>
-
-                <use href="#handshake" transform="translate(100,50) scale(1.5,1.5)"></use>
             </svg>
         </div>
 
         <button id="jumpButton" onclick="handleAnimation()">jump randomly!</button>
         <input type="range" min="0" max="3" step="1" value="1" id="zoomRange" oninput="handleAnimatedSlider()">
+        <form class="multi-range-field my-5 pb-5">
+            <input id="multi3" class="multi-range" type="range" />
+        </form>
 
         <script type="text/javascript">
+
+
+            $( function() {
+                $( "#slider-range" ).slider({
+                range: true,
+                min: 0,
+                max: 500,
+                values: [ 75, 300 ],
+                slide: function( event, ui ) {
+                    $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                }
+                });
+                $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+                " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+            } );
+
+
             var svg = d3.select("#svg")
             .attr("height", 500).attr("width", 1000)
             .attr("style", "outline: thin solid red");
@@ -53,17 +71,17 @@
             square_size = 50;
 
             var test_data = {
-                1: {x: 0, y: 0},
-                2: {x: square_size, y:square_size},
+                1: {x: 3*square_size, y: 2*square_size},
+                2: {x: 4*square_size, y:square_size},
                 3: {x: 2*square_size, y:2*square_size},
                 4: {x: 3*square_size, y:3*square_size}
 
             }
-            /*var rect = main_g.selectAll('foo').data(Object.values(test_data)).enter().append('rect')
+            var rect = main_g.selectAll('foo').data(Object.values(test_data)).enter().append('rect')
             .attr("height", square_size).attr("width", square_size)
             .attr("x", function(d){return d.x})
             .attr("y", function(d){return d.y})
-            .attr("stroke",  "red");*/
+            .attr("stroke",  "red");
 
             var defs = main_g.append("defs");
             
@@ -97,7 +115,7 @@
             }
 
             function handleAnimation(){
-                d3.selectAll('rect').transition().duration(1000).attr("x", function(d){return d.x}).attr("y", function(d){return d.y});
+                d3.selectAll('rect').transition().duration(1000).attr("x", function(d){return 2000}).attr("y", function(d){return d.y});
             }
 
             function handleAnimatedSlider(){
