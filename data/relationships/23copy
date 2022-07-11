@@ -1,0 +1,192 @@
+{
+    "relationships":[
+       {
+          "relationship":{
+             "relationship_id":"2307",
+             "map_id":"23",
+             "full_name":"Ally: Moro National Liberation Front, Abu Sayyaf Group",
+             "startdate":"2015-01-01",
+             "description":"Members of the Moro National Liberation Front (MNLF) allegedly joined the Abu Sayyaf Group (ASG) in a clash with Philippine forces in Indanan, Sulu.\n",
+             "groups":"456, 300",
+             "type":"Ally"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2325",
+             "map_id":"23",
+             "full_name":"Ally: Moro Islamic Liberation Front, Bangsamoro Islamic Freedom Fighters",
+             "startdate":"2015-01-01",
+             "description":"Moro Islamic Liberation Front (MILF) members and Bangsamoro Islamic Freedom Fighters (BIFF) members were involved in an attack on Philippine forces that killed forty-four government troops. The troops were conducting a military operation in an area of Maguindanao dominated by the MILF and the BIFF.\n",
+             "groups":"455, 348",
+             "type":"Ally"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2326",
+             "map_id":"23",
+             "full_name":"Ally: Bangsamoro Islamic Freedom Fighters",
+             "startdate":"2015-01-01",
+             "description":"The Bangsamoro Islamic Freedom Fighters (BIFF) and the Justice Islamic Movement (JIM) may have formed an alliance in March 2015. Whether or not a formal alliance exists, the two groups have cooperated and fought alongside each other in the past.\n",
+             "groups":"348, 425",
+             "type":"Ally"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2327",
+             "map_id":"23",
+             "full_name":"Rival: Abu Sayyaf Group, Moro Islamic Liberation Front",
+             "startdate":"2015-01-01",
+             "description":"The Abu Sayyaf Group (ASG) attacked members of the Moro Islamic Liberation Front (MILF) on the island of Basilan. Government forces rescued the MILF members from the siege.\n",
+             "groups":"300, 455",
+             "type":"Rival"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2379",
+             "map_id":"23",
+             "full_name":"Ally: Moro National Liberation Front, Moro Islamic Liberation Front",
+             "startdate":"2014-01-01",
+             "description":"The Moro National Liberation Front (MNLF) and the Moro Islamic Liberation Front (MILF) signed an agreement establishing the Bangsamoro Coordination Forum (BCF), an attempt to coordinate MNLF-MILF efforts in promoting the welfare of Filipino Muslims. The agreement was signed under the auspices of the Organization of Islamic Cooperation (OIC).\n",
+             "groups":"456, 455",
+             "type":"Ally"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2426",
+             "map_id":"23",
+             "full_name":"Ally: Moro National Liberation Front, Bangsamoro Islamic Freedom Fighters",
+             "startdate":"2014-01-01",
+             "description":"The Moro National Liberation Front (MNLF) announced an alliance with the Bangsamoro Islamic Freedom Fighters (BIFF) in February 2014. Both groups oppose peace negotiations between the Philippine government and the Moro Islamic Liberation Front (MILF).\n",
+             "groups":"456, 348",
+             "type":"Ally"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2462",
+             "map_id":"23",
+             "full_name":"Rival: Moro National Liberation Front, Moro Islamic Liberation Front",
+             "startdate":"2013-01-01",
+             "description":"Moro National Liberation Front (MNLF) members and Moro Islamic Liberation Front (MILF) members clashed in the province of Cotabato. Fighting between the MNLF and the MILF erupted sporadically throughout 2013.\n",
+             "groups":"456, 455",
+             "type":"Rival"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2463",
+             "map_id":"23",
+             "full_name":"Rival: Moro National Liberation Front, Abu Sayyaf Group",
+             "startdate":"2013-01-01",
+             "description":"After especially violent clashes between the Moro National Liberation Front (MNLF) and the Abu Sayyaf Group (ASG), MNLF leader Nur Misuari announced that his group would no longer tolerate ASG activities in the Philippines' Sulu province and planned to eliminate the ASG from the area.\n",
+             "groups":"456, 300",
+             "type":"Rival"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2496",
+             "map_id":"23",
+             "full_name":"Split: Bangsamoro Islamic Freedom Fighters",
+             "startdate":"2013-01-01",
+             "description":"The Justice for Islamic Movement (JIM) was established as a splinter group of the Bangsamoro Islamic Freedom Fighters (BIFF) in December 2014. Mohammad Ali Tambako founded the JIM when he left or was ousted from the BIFF in 2013, after conducting an attack against a Christian community.\n",
+             "groups":"348, 425",
+             "type":"Split"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2559",
+             "map_id":"23",
+             "full_name":"Split: Moro Islamic Liberation Front, Bangsamoro Islamic Freedom Fighters",
+             "startdate":"2010-01-01",
+             "description":"The Bangsamoro Islamic Freedom Fighters (BIFF) emerged in December 2010 as a splinter group of the Moro Islamic Liberation Front (MILF). The BIFF was founded by Ameril Umbra Kato, a MILF commander who broke away from the MILF because of ideological and tactical disagreements with the group's leadership.\n",
+             "groups":"455, 348",
+             "type":"Split"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2666",
+             "map_id":"23",
+             "full_name":"Ally: Abu Sayyaf Group, Moro Islamic Liberation Front",
+             "startdate":"2005-01-01",
+             "description":"A group that included one hundred Moro Islamic Liberation Front (MILF) fighters and some Abu Sayyaf Group (ASG) fighters attacked Philippine forces in the province of Maguindanao. The attack resulted in the deaths of twenty-three government soldiers.\n",
+             "groups":"300, 455",
+             "type":"Ally"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2777",
+             "map_id":"23",
+             "full_name":"Ally: Alex Boncayao Brigade, Revolutionary Proletarian Army",
+             "startdate":"1997-01-01",
+             "description":"The Revolutionary Proletarian Army (RPA) and the Alex Boncayao Brigade (ABB) created a formal alliance in 1997 and are sometimes referred to together as the RPA-ABB. The two groups formed a political wing called Rebolusyonaryong Partido ng Manggagawa ng Pilipinas (RPM-P), for which they serve as the armed wing.\n",
+             "groups":"322, 509",
+             "type":"Ally"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2806",
+             "map_id":"23",
+             "full_name":"Rival: Communist Party of the Philippines\u0096New People&#039;s Army, Alex Boncayao Brigade",
+             "startdate":"1993-01-01",
+             "description":"The relationship between the Alex Boncayao Brigade (ABB) and the Communist Party of the Philippines-New People's Army (CPP-NPA) has been hostile, with clashes between the two groups since the former broke away from the latter in the early 1990s.\n",
+             "groups":"322",
+             "type":"Rival"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2809",
+             "map_id":"23",
+             "full_name":"Split: Alex Boncayao Brigade",
+             "startdate":"1992-01-01",
+             "description":"The Alex Boncayao Brigade (ABB) was first established as the Manila urban guerrilla force of the Communist Party of the Philippines\u00ac\u00f1New People's Army (CPP-NPA) in the mid-1980s. Sometime in the early 1990s, the ABB officially split from the CPP-NPA because of ideological and tactical disagreements. The exact year of the ABB's split is unclear.\n",
+             "groups":"322",
+             "type":"Split"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2810",
+             "map_id":"23",
+             "full_name":"Split: Revolutionary Proletarian Army",
+             "startdate":"1992-01-01",
+             "description":"Sometime in the early 1990s, the Revolutionary Proletarian Army (RPA) formed as a splinter group of the Communist Party of the Philippines-New People's Army (CPP-NPA) because of ideological and tactical disagreements within the CPP-NPA. The exact year of the RPA's split is unclear.\n",
+             "groups":"509",
+             "type":"Split"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2816",
+             "map_id":"23",
+             "full_name":"Split: Moro National Liberation Front, Abu Sayyaf Group",
+             "startdate":"1991-01-01",
+             "description":"The Abu Sayyaf Group (ASG) was founded in 1991 by Abdurajak Abubakar Janjalani, a Moro National Liberation Front (MNLF) member who believed in a more radical way of pursuing an independent Islamic state than did the MNLF leadership. Janjalani recruited other disappointed MNLF members into what would become the ASG.\n",
+             "groups":"456, 300",
+             "type":"Split"
+          }
+       },
+       {
+          "relationship":{
+             "relationship_id":"2881",
+             "map_id":"23",
+             "full_name":"Split: Moro National Liberation Front, Moro Islamic Liberation Front",
+             "startdate":"1977-01-01",
+             "description":"The Moro Islamic Liberation Front (MILF) began as the New MNLF, a splinter group of the Moro National Liberation Front (MNLF) that broke away in December 1977. Hashim Salamat, an MNLF co-founder, established the group after failing to take control of the MNLF from fellow co-founder Nur Misuari. The New MNLF renamed itself as the MILF in 1984.\n",
+             "groups":"456, 455",
+             "type":"Split"
+          }
+       }
+    ]
+ }
+ 
