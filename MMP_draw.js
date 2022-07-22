@@ -173,13 +173,34 @@ function drawChart(){
     .attr("cy", 0)
     .attr("r", 2.5);
   
-    // relationship clickable circles
+    // relationship clickables
     relationships.data(processed_data.relationships)
-    .append("circle")
+    .append("rect")
     .attr("class", "clicker")
-    .attr("cx", function(d){return .45*(d.x2-d.x1);})
-    .attr("cy", 0)
-    .attr("r", 5)
+    .attr("x", function(d){
+      let linewidth = Math.abs(d.x2 - d.x1);
+      let clickerwidth = .1 * linewidth;
+  
+      return .5*linewidth - clickerwidth;
+    })
+    .attr("width", function(d){
+      let linewidth = Math.abs(d.x2 - d.x1);
+      let clickerwidth = .1 * linewidth;
+
+      return clickerwidth;
+    })
+    .attr("y", function(d){
+      let linewidth = Math.abs(d.x2 - d.x1);
+      let clickerwidth = .1 * linewidth;
+      
+      return -.5*clickerwidth;
+    })
+    .attr("height", function(d){
+      let linewidth = Math.abs(d.x2 - d.x1);
+      let clickerwidth = .1 * linewidth;
+      
+      return clickerwidth;
+    })
     .attr("data-bs-toggle", "modal") 
     .attr("data-bs-target", "#infoModal")
     .on("click", function(d, i){

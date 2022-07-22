@@ -54,22 +54,27 @@ body {
 
 .relationship.Split{
   stroke: black;
+  fill: grey;
 }
 
 .relationship.Ally{
   stroke: blue;
+  fill: cyan;
   stroke-dasharray: 15,5;
 }
 
 .relationship.Rival{
   stroke: rgb(248, 120, 1);
+  fill: yellow;
   stroke-dasharray: 5,5;
 }
 
 .relationship.mmpSelected{
   stroke-width: 5px;
 }
-
+.relationship rect{
+  fill-opacity: .5;
+}
 .timeline{
   fill: white;
   stroke: black;
