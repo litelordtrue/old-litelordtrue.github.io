@@ -70,11 +70,16 @@ body {
 }
 
 .relationship.mmpSelected{
-  stroke-width: 5px;
+  stroke-width: 4px;
 }
 .relationship rect{
   fill-opacity: .5;
 }
+
+.relationship rect:hover{
+  fill-opacity: 1;
+}
+
 .timeline{
   fill: white;
   stroke: black;
