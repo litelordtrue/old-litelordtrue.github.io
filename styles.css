@@ -43,6 +43,10 @@ body {
   stroke: yellow;
 }
 
+.attack:hover{
+  fill:rgb(233, 68, 13)
+}
+
 .leader{
   fill: grey;
   stroke: black;

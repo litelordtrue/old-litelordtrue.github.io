@@ -159,6 +159,7 @@ function drawChart(){
         }
     });
   
+  
     // relationship endpoint circles
     // first circle
     relationships.data(processed_data.relationships)
@@ -172,7 +173,7 @@ function drawChart(){
     .attr("cx", function(d){return d.x2 - d.x1})
     .attr("cy", 0)
     .attr("r", 2.5);
-  
+
     // relationship clickables
     relationships.data(processed_data.relationships)
     .append("rect")
