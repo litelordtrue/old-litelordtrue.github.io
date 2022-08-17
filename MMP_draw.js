@@ -181,25 +181,25 @@ function drawChart(){
     // TODO: surely linewidth and clickerwidth do not need to be individually calculated for all of these.... should these be stored in the relationship object instead?
     .attr("x", function(d){
       let linewidth = Math.abs(d.x2 - d.x1);
-      let clickerwidth =  2*Math.sqrt(linewidth);
+      let clickerwidth =  Math.sqrt(linewidth);
   
       return .5*linewidth - clickerwidth;
     })
     .attr("width", function(d){
       let linewidth = Math.abs(d.x2 - d.x1);
-      let clickerwidth =  2*Math.sqrt(linewidth);
+      let clickerwidth =  Math.sqrt(linewidth);
 
       return clickerwidth;
     })
     .attr("y", function(d){
       let linewidth = Math.abs(d.x2 - d.x1);
-      let clickerwidth = 2*Math.sqrt(linewidth);
+      let clickerwidth = Math.sqrt(linewidth);
       
       return -.5*clickerwidth;
     })
     .attr("height", function(d){
       let linewidth = Math.abs(d.x2 - d.x1);
-      let clickerwidth =  2*Math.sqrt(linewidth);
+      let clickerwidth =  Math.sqrt(linewidth);
       
       return clickerwidth;
     })
