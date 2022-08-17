@@ -178,27 +178,28 @@ function drawChart(){
     relationships.data(processed_data.relationships)
     .append("rect")
     .attr("class", "clicker")
+    // TODO: surely linewidth and clickerwidth do not need to be individually calculated for all of these.... should these be stored in the relationship object instead?
     .attr("x", function(d){
       let linewidth = Math.abs(d.x2 - d.x1);
-      let clickerwidth = .1 * linewidth;
+      let clickerwidth =  2*Math.sqrt(linewidth);
   
       return .5*linewidth - clickerwidth;
     })
     .attr("width", function(d){
       let linewidth = Math.abs(d.x2 - d.x1);
-      let clickerwidth = .1 * linewidth;
+      let clickerwidth =  2*Math.sqrt(linewidth);
 
       return clickerwidth;
     })
     .attr("y", function(d){
       let linewidth = Math.abs(d.x2 - d.x1);
-      let clickerwidth = .1 * linewidth;
+      let clickerwidth = 2*Math.sqrt(linewidth);
       
       return -.5*clickerwidth;
     })
     .attr("height", function(d){
       let linewidth = Math.abs(d.x2 - d.x1);
-      let clickerwidth = .1 * linewidth;
+      let clickerwidth =  2*Math.sqrt(linewidth);
       
       return clickerwidth;
     })
@@ -213,9 +214,9 @@ function drawChart(){
 
 var working_div = document.getElementById("main_timeline");
 
-// setting up a workspace
-var w = width_ratio * window.screen.width;
-var svg_h = 1500;
+// setting up a workspace. I predict that many many errors will come of this design.....
+var w = working_div.clientWidth; // pull the available space of the div
+var svg_h = 750;
 const default_height = svg_h;
 var h = ratio_param * default_height; // this no longer sets the height of the svg, but rather the height of the elements within it!
 var padding = 50;

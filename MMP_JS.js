@@ -37,25 +37,30 @@ function DateToNice(date){
 // tools to handle timeline resolution 
 resolutionDict = 
   [{
-    text: "5 Years",
+    text: "1:5 Scale",
     height: .2,
     slider: 0
   },
   {
-    text: "1 Year",
-    height: 1,
+    text: "1:2 Scale",
+    height: .5,
     slider: 1
+  },
+  {
+    text: "1:1 Scale",
+    height: 1,
+    slider: 2
     
   },
   {
-    text: "6 Months",
+    text: "2:1 Scale",
     height: 2,
-    slider: 2
+    slider: 3
   },
   {
-    text: "1 Quarter",
+    text: "4:1 Scale",
     height: 4,
-    slider: 3
+    slider: 4
   }]
 
 function handleSliderInput(){
@@ -213,4 +218,4 @@ var domain_param = params_obj.get('domain'); // ''
 // if (domain_param){domain_param = domain_param.split(',')};
 // var click_param = params_obj.get('click'); // ''
 // moving the div over to replicate real webpage, still not great because its absolute positioning :
-var width_ratio = .7;
+var width_ratio = 1;
