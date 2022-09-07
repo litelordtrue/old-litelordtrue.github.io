@@ -9,6 +9,9 @@ function ResetPan(){
 function drawChart(){
     var defs = svg.select('defs'); // defs is an svg element used to store designs to be used later. For now, I will place <marker> elements in here
     var main_g = svg.append('g').attr("id", "main_g"); // most drawings will be placed on this g element
+    var bottomlayer = main_g.append('g').attr("id", "bottomlayer");
+    var middlelayer = main_g.append('g').attr("id", "middlelayer");
+    var toplayer = main_g.append('g').attr("id", "toplayer");
     var tAxis = d3.axisLeft(tScale).ticks(Math.ceil(h/svg_h)*12); //so there is ~12 ticks in the svg at any point
   
     main_g.append("g")
@@ -18,7 +21,7 @@ function drawChart(){
   
     zoom.translateExtent([[0,0], [w,h]]); // making sure you can only translate within bounds
   
-    var groups_array = Object.values(processed_data.mmp_groups);
+    var groups_array = Object.values(processed_data.mmp_groups).filter(x => x.traced);
   
     var rectWidth = w/(groups_array.length + 1);
     var rectHeight = 100; // should probably scale these...
@@ -32,7 +35,7 @@ function drawChart(){
   
   
     // make mmpgroup g element to append rectangle and text
-    var mmp_groups = main_g.selectAll("mmpgroup")
+    var mmp_groups = bottomlayer.selectAll("mmpgroup")
     .data(groups_array)
     .enter()
     .append("g")
@@ -97,18 +100,19 @@ function drawChart(){
     .attr("d", explosion_path)
     .attr("id", "explosion");
 
-    const dictator_path = "M -4 -12 L -4 -10 C -6 -10 -8 -10 -12 -8 L -16 0 L -8 13 L -8 10 L -12 0 L -10 -4 L -10 12 C -10 16 -8 16 -8 16 L 8 16 C 8 16 10 16 10 12 L 10 -4 L 12 0 L 8 10 L 8 13 L 16 0 L 12 -8 C 8 -10 6 -10 4 -10 V -12 C 6 -16 6 -16 6 -20 C 6 -24 4 -26 0 -26 C -4 -26 -6 -24 -6 -20 C -6 -16 -6 -16 -4 -12"
+    /*const dictator_path = "M -4 -12 L -4 -10 C -6 -10 -8 -10 -12 -8 L -16 0 L -8 13 L -8 10 L -12 0 L -10 -4 L -10 12 C -10 16 -8 16 -8 16 L 8 16 C 8 16 10 16 10 12 L 10 -4 L 12 0 L 8 10 L 8 13 L 16 0 L 12 -8 C 8 -10 6 -10 4 -10 V -12 C 6 -16 6 -16 6 -20 C 6 -24 4 -26 0 -26 C -4 -26 -6 -24 -6 -20 C -6 -16 -6 -16 -4 -12"
     defs.append("path")
     .attr("d", dictator_path)
-    .attr("id", "dictator");
+    .attr("id", "dictator");*/
 
     //running through the events of each group. nested for loop is unavoidable as far as i can tell, but it still scales linearly to the number of events
     for (id in processed_data.mmp_groups){
       let group = processed_data.mmp_groups[id];
       // create one empty element to fill. selectAll('foo') is a complete  cheatcode 
-      var event_g = main_g.selectAll('foo').data(processed_data.mmp_groups[id].events).enter();
+      var event_g = middlelayer.append('g').attr("id", "events" + group.id);
+      var events = event_g.selectAll('foo').data(processed_data.mmp_groups[id].events).enter();
 
-      event_g.append('svg:use').attr("xlink:href", "#explosion")
+      events.append('svg:use').attr("xlink:href", "#explosion")
         .attr("class", "attack")
         .attr("x", function(d) {return d.x})
         .attr("y", function(d) {return d.y})
@@ -129,7 +133,7 @@ function drawChart(){
     .append("path").attr("d", split_mid).attr("stroke", "black");*/
 
     // drawing in relationships
-    var relationships = main_g.selectAll("relationship")
+    var relationships = toplayer.selectAll("relationship")
     .data(processed_data.relationships).enter()
     .append("g")
     .attr("class", function(d){return "relationship " + d.relationship_type})

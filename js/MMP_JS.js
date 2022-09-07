@@ -15,6 +15,33 @@ function handleCheckbox(classname) {
     entityList.classed("hide", false);
   }
 }
+
+function handleInactiveCheckbox() {
+  let checkBox = document.getElementById("inactiveCheckbox");
+  let inactives = Object.values(processed_data.mmp_groups).filter(element => element.active == "Inactive");
+
+  for (i=0; i<inactives.length; i++){
+    let group = inactives[i];
+    let inactiveSelect = [];
+
+    let groupg = d3.select("#g" + group.id);
+    inactiveSelect.push(groupg);
+
+    let eventsg = d3.select("#events" + group.id)
+    inactiveSelect.push(eventsg)
+
+    for (k=0;k<group.links.relationships.length;k++){
+      let relationship = group.links.relationships[k];
+      inactiveSelect.push(d3.select("#rel" + relationship));
+    };
+
+    if (checkBox.checked == false){
+      inactiveSelect.forEach(element => element.classed("hide", true));
+    } else {
+      inactiveSelect.forEach(element => element.classed("hide", false));
+    }
+  }
+}
 //
 
 // outputting dates nicely

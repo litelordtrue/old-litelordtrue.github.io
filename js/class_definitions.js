@@ -6,6 +6,7 @@ class mmp_group {
         this.startdate = startdate;
         this.enddate = enddate;
         this.active = active;
+        this.traced = true;
         this.x = 0;
         this.y = 0;
         this.description = description;
@@ -46,6 +47,7 @@ class mmp_event {
         this.description = description;
         this.date = date;
         this.parent_id = parent_id;
+        this.traced = true;
         this.x = x;
         this.y = y;
     }
@@ -64,6 +66,7 @@ class mmp_relationship {
         this.description = description;
         this.group1 = group1;
         this.group2 = group2;
+        this.traced = true;
 
         this.x1 = 0;
         this.x2 = 0;
