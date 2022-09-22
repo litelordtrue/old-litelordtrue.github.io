@@ -37,6 +37,38 @@ class mmp_group {
             parseTime(element.attack.field_date.substr(0,10)), this.id, 0, 0
         )));
     }
+
+    // this method is used to collect all of the pertinent information for a group to redraw the map with only these groups/events/relationships
+    buildTraceDataset(){
+
+        // create empty dataset
+        var tracedataset = {
+            mmp_groups: {},
+            relationships: []
+        };
+
+        // add itself to the tracedataset
+        tracedataset.mmp_groups[this.id] = this;
+
+        // because links.groups is a Set, this is used to convert it back to an array for easy iteration
+        let linkedgroups = [...this.links.groups];
+
+        // put all relavent groups into tracedataset from their ids
+        for(i=0;i<linkedgroups.length; i++){
+            let linkedgroupid = linkedgroups[i];
+
+            tracedataset.mmp_groups[linkedgroupid] = processed_data.mmp_groups[linkedgroupid];
+        };
+
+        // creating an array because 'this' causes weird issues when calling many nested methods
+        let linkedrelationships = this.links.relationships;
+
+        // add all relavent relationships from their ids
+        tracedataset.relationships = processed_data.relationships.filter(element => linkedrelationships.includes(element.id));
+
+        // return the complete dataset, to be used in redrawing the map
+        return tracedataset;
+    }
 }
 
 class mmp_event {

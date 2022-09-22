@@ -169,7 +169,7 @@ function handleMMPGroupMouseOut (group_data) {
 // function for clicking for more info
 function handleClick(type, clicked_data){
   var clicked_type, name, description, date;
-  var displayButton, group_id;
+  var displaySeeFullProfile, displayTraceGroup, group_id;
 
   // handle event click
   if (type === "event") {
@@ -179,7 +179,8 @@ function handleClick(type, clicked_data){
     date = clicked_data.date;
 
     group_id = clicked_data.parent_id;
-    displayButton = true;
+    displaySeeFullProfile = true;
+    displayTraceGroup = false;
   }
   // handle group click
   else if (type === "mmpgroup") {
@@ -189,7 +190,8 @@ function handleClick(type, clicked_data){
     date = clicked_data.startdate;
 
     group_id = clicked_data.id; // calls function defined immediatly below this function, sets the <a> element to correct link
-    displayButton = true;
+    displaySeeFullProfile = true;
+    displayTraceGroup = true;
   }
   // handle relationship click
   else if (type === "relationship") {
@@ -201,8 +203,8 @@ function handleClick(type, clicked_data){
     date = clicked_data.date;
 
     group_id = -1;
-    displayButton = false;
-    FullProfileAnchor.classList.add('hide');
+    displaySeeFullProfile = false;
+    displayTraceGroup = false;
   }
 
   // grab divs to put information in
@@ -216,7 +218,8 @@ function handleClick(type, clicked_data){
 
   modal_description.innerText = description;
 
-  setFullProfileTarget(group_id, displayButton);
+  setFullProfileTarget(group_id, displaySeeFullProfile);
+  setTraceGroupTarget(group_id, displayTraceGroup);
 }
 
 // this function is used above to make sure the See Full Profile button inside of the modal links to the correct webpage, specific to that id
@@ -227,6 +230,19 @@ function setFullProfileTarget(id, show){
   if (show){FullProfileAnchor.classList.remove('hide')}
   else if (!show){FullProfileAnchor.classList.add('hide')};
 }
+
+function setTraceGroupTarget(id, show){
+  const TraceGroupButton = document.getElementById('TraceGroup');
+
+  TraceGroupButton.onclick = function(){TraceGroup(id)};
+  if (show){TraceGroupButton.classList.remove('hide')}
+  else if (!show){TraceGroupButton.classList.add('hide')};
+}
+
+function TraceGroup(id){
+  console.log(processed_data.mmp_groups[id].buildTraceDataset());
+}
+
 
 const url_obj = new URL(document.URL); // makes a url object
 const params_obj = new URLSearchParams(url_obj.search);

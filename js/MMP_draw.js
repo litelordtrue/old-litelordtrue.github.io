@@ -8,7 +8,7 @@ function ResetPan(){
 // this function draws everything in
 function drawChart(){
     var defs = svg.select('defs'); // defs is an svg element used to store designs to be used later. For now, I will place <marker> elements in here
-    var main_g = svg.append('g').attr("id", "main_g"); // most drawings will be placed on this g element
+    var main_g = svg.append('g').attr("id", "main_g"); 
     var bottomlayer = main_g.append('g').attr("id", "bottomlayer");
     var middlelayer = main_g.append('g').attr("id", "middlelayer");
     var toplayer = main_g.append('g').attr("id", "toplayer");
@@ -21,7 +21,7 @@ function drawChart(){
   
     zoom.translateExtent([[0,0], [w,h]]); // making sure you can only translate within bounds
   
-    var groups_array = Object.values(processed_data.mmp_groups).filter(x => x.traced);
+    var groups_array = Object.values(processed_data.mmp_groups);
   
     var rectWidth = w/(groups_array.length + 1);
     var rectHeight = 100; // should probably scale these...
@@ -314,9 +314,6 @@ function handlePageInit(map_id){
     }
 
     document.getElementById('domainReset').onclick = handleDomainReset;
-
-    /*console.log("handlePageInit");
-    console.log(processed_data.mmp_groups[3].events);*/
 
     drawChart();
     
