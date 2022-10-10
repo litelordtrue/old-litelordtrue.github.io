@@ -18,7 +18,7 @@ function handleCheckbox(classname) {
 
 function handleInactiveCheckbox() {
   let checkBox = document.getElementById("inactiveCheckbox");
-  let inactives = Object.values(processed_data.mmp_groups).filter(element => element.active == "Inactive");
+  let inactives = Object.values(current_data.mmp_groups).filter(element => element.active == "Inactive");
 
   for (i=0; i<inactives.length; i++){
     let group = inactives[i];
@@ -35,6 +35,8 @@ function handleInactiveCheckbox() {
       inactiveSelect.push(d3.select("#rel" + relationship));
     };
 
+    console.log(inactiveSelect);
+    
     if (checkBox.checked == false){
       inactiveSelect.forEach(element => element.classed("hide", true));
     } else {
@@ -196,7 +198,7 @@ function handleClick(type, clicked_data){
   // handle relationship click
   else if (type === "relationship") {
     clicked_type = "relationship";
-    group1_data = processed_data.mmp_groups[clicked_data.group1];
+    group1_data = current_data.mmp_groups[clicked_data.group1];
     group2_data = processed_data.mmp_groups[clicked_data.group2];
     name = "" + group1_data.abbr + " and " + group2_data.abbr + " " + clicked_data.relationship_type;
     description = clicked_data.description;
@@ -240,9 +242,14 @@ function setTraceGroupTarget(id, show){
 }
 
 function TraceGroup(id){
-  console.log(processed_data.mmp_groups[id].buildTraceDataset());
+  d3.select('#main_g').remove();
+  drawChart(processed_data.mmp_groups[id].buildTraceDataset());
 }
 
+function handleCancelTrace(){
+  d3.select('#main_g').remove();
+  drawChart(processed_data);
+}
 
 const url_obj = new URL(document.URL); // makes a url object
 const params_obj = new URLSearchParams(url_obj.search);

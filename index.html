@@ -121,9 +121,13 @@
                                             id="resolutionText"> 1:1 Scale </span>
                                         <button onclick="handleResetInput()">Reset Pan</button>
 
-                                        <input id="domainInput"> <button onclick="handleDomainInput()">Change
-                                            Domain</button>
+                                        <input id="domainInput">
+                                        <button onclick="handleDomainInput()">Change Domain</button>
                                         <button id="domainReset">Reset Domain</button>
+                                        <br>
+                                        <button id="cancelTrace" onclick="handleCancelTrace()">Cancel Trace</button>
+
+                                        <input
                                     </div>
 
                                     <div class="sidebar-sticky">
@@ -153,7 +157,6 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                             <h5 class="modal-title" id="infoModalLabel">Modal title</h5>
-                                            <!-- close button not working properly, commented out for now -->
                                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                               </button>
@@ -193,7 +196,6 @@
                     <script src="/js/MMP_JS.js"></script>
                     <script src="/js/MMP_read.js"></script>
                     <script src= "/js/MMP_draw.js"></script>
-                    <!-- <script src="MMP_JS legacy.js"></script> -->
 
                     <script type="text/javascript">
                         handlePageInit("23copy");

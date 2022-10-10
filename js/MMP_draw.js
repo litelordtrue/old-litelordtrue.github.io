@@ -6,7 +6,7 @@ function ResetPan(){
   }
 
 // this function draws everything in
-function drawChart(){
+function drawChart(current_data){
     var defs = svg.select('defs'); // defs is an svg element used to store designs to be used later. For now, I will place <marker> elements in here
     var main_g = svg.append('g').attr("id", "main_g"); 
     var bottomlayer = main_g.append('g').attr("id", "bottomlayer");
@@ -21,7 +21,7 @@ function drawChart(){
   
     zoom.translateExtent([[0,0], [w,h]]); // making sure you can only translate within bounds
   
-    var groups_array = Object.values(processed_data.mmp_groups);
+    var groups_array = Object.values(current_data.mmp_groups);
   
     var rectWidth = w/(groups_array.length + 1);
     var rectHeight = 100; // should probably scale these...
@@ -29,7 +29,7 @@ function drawChart(){
     // fixing y and x for mmp_groups and their subsequent events
     for (i = 0; i < groups_array.length; i++){
       let mmpgroup = groups_array[i];
-      mmpgroup.updatePos(rectHeight);
+      mmpgroup.updatePos(current_data, rectHeight);
       mmpgroup.events.forEach(element => element.updatePos());
     };
   
@@ -106,11 +106,11 @@ function drawChart(){
     .attr("id", "dictator");*/
 
     //running through the events of each group. nested for loop is unavoidable as far as i can tell, but it still scales linearly to the number of events
-    for (id in processed_data.mmp_groups){
-      let group = processed_data.mmp_groups[id];
+    for (id in current_data.mmp_groups){
+      let group = current_data.mmp_groups[id];
       // create one empty element to fill. selectAll('foo') is a complete  cheatcode 
       var event_g = middlelayer.append('g').attr("id", "events" + group.id);
-      var events = event_g.selectAll('foo').data(processed_data.mmp_groups[id].events).enter();
+      var events = event_g.selectAll('foo').data(current_data.mmp_groups[id].events).enter();
 
       events.append('svg:use').attr("xlink:href", "#explosion")
         .attr("class", "attack")
@@ -124,7 +124,7 @@ function drawChart(){
     } 
   
     // fixing y and x position for relationships
-    processed_data.relationships.forEach(element => element.updatePos());
+    current_data.relationships.forEach(element => element.updatePos());
 
     // adding marker to create split lines in split relationships
     /*const split_mid = "M 90 -195 L -90 195";
@@ -134,7 +134,7 @@ function drawChart(){
 
     // drawing in relationships
     var relationships = toplayer.selectAll("relationship")
-    .data(processed_data.relationships).enter()
+    .data(current_data.relationships).enter()
     .append("g")
     .attr("class", function(d){return "relationship " + d.relationship_type})
     .attr("transform", function(d) {return "translate(" + d.x1 + "," + d.y + ")"})
@@ -147,7 +147,7 @@ function drawChart(){
     });*/
   
     // relationship lines
-    relationships.data(processed_data.relationships)
+    relationships.data(current_data.relationships)
     .append("path")
     .attr("d", function(d){
         let dist= d.x2 - d.x1;
@@ -166,20 +166,20 @@ function drawChart(){
   
     // relationship endpoint circles
     // first circle
-    relationships.data(processed_data.relationships)
+    relationships.data(current_data.relationships)
     .append("circle")
     .attr("cx", 0)
     .attr("cy", 0)
     .attr("r", 2.5)
     // second circle
-    relationships.data(processed_data.relationships)
+    relationships.data(current_data.relationships)
     .append("circle")
     .attr("cx", function(d){return d.x2 - d.x1})
     .attr("cy", 0)
     .attr("r", 2.5);
 
     // relationship clickables
-    relationships.data(processed_data.relationships)
+    relationships.data(current_data.relationships)
     .append("rect")
     .attr("class", "clicker")
     // TODO: surely linewidth and clickerwidth do not need to be individually calculated for all of these.... should these be stored in the relationship object instead?
@@ -247,39 +247,8 @@ var parseTime = d3.timeParse("%Y-%m-%d");
 
 
 function handlePageInit(map_id){
-
-  // read map data
-  let map_source = "/data/map-profiles/" + map_id;
-  var map_promise = d3.json(map_source)
-  .then(function(data){ // imports groups data from map-profiles/[ fill in MAP_ID here ]
-    handleMapJSONRead(data);
-  });
-  //
-
-  // read relationships data. currently, if there is no relationships file, the map will not be drawn in. 
-  let relationships_source = "/data/relationships/" + map_id;
-  var relationship_promise = d3.json(relationships_source).then(function(data){
-    handleRelationshipJSONRead(data);
-  })
-  //
-
-  // read events data
-  var events_promise = map_promise.then(function(){ // must happen after maps are read
-    var events_array = []; // create an array to store promises for each group read
-    for (i=0; i<Object.values(processed_data.mmp_groups).length; i++){ 
-      let group = Object.values(processed_data.mmp_groups)[i];
-
-      let promise = d3.json("/data/attack-profiles/" + group.id)
-      .then(function(data){ // push the promise returned by d3.json
-        group.importAttacks(data);
-      })
-
-      events_array.push(promise);
-    }
-    return(events_array); // send up the array of all promises
-  }).then(function(d){return Promise.allSettled(d)}); // finally, once all of these promises are settled (whether with or without failure), we send up a promise to represent this completion
-
-  var promise_sum = Promise.all([map_promise, relationship_promise, events_promise]); // 
+  
+  var promise_sum = handlePageInitRead(map_id);
 
   promise_sum.then(function(){
     // finding the minimum year
@@ -315,7 +284,7 @@ function handlePageInit(map_id){
 
     document.getElementById('domainReset').onclick = handleDomainReset;
 
-    drawChart();
+    drawChart(processed_data);
     
     /* if there was a click in url, we need to have it clicked
     if (click_param){
@@ -328,7 +297,7 @@ function handlePageInit(map_id){
 // function updateChart will now initiate many d3.transition()  on  different elements
 
 function updateChart(){
-    groups_array = Object.values(processed_data.mmp_groups);
+    groups_array = Object.values(current_data.mmp_groups);
     var rectWidth = w/(groups_array.length + 1);
     var rectHeight = 100; // should probably scale these...
 
@@ -341,7 +310,7 @@ function updateChart(){
 
     //ResetPan();
     
-    processed_data.relationships.forEach(element => element.updatePos());
+    current_data.relationships.forEach(element => element.updatePos());
     //
 
     // move mmp groups to the correct origin
