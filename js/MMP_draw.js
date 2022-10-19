@@ -22,14 +22,15 @@ function drawChart(current_data){
     zoom.translateExtent([[0,0], [w,h]]); // making sure you can only translate within bounds
   
     var groups_array = Object.values(current_data.mmp_groups);
+    let num_of_groups = groups_array.length;
   
-    var rectWidth = w/(groups_array.length + 1);
+    var rectWidth = w/(num_of_groups + 1);
     var rectHeight = 100; // should probably scale these...
   
     // fixing y and x for mmp_groups and their subsequent events
     for (i = 0; i < groups_array.length; i++){
       let mmpgroup = groups_array[i];
-      mmpgroup.updatePos(current_data, rectHeight);
+      mmpgroup.updatePos(num_of_groups, rectHeight, true);
       mmpgroup.events.forEach(element => element.updatePos());
     };
   
@@ -213,6 +214,8 @@ function drawChart(current_data){
       handleClick("relationship", i)
     });
 
+    let zoomRange = document.getElementById('zoomRange');
+    zoomRange.on
   }
 //
 
@@ -297,20 +300,23 @@ function handlePageInit(map_id){
 // function updateChart will now initiate many d3.transition()  on  different elements
 
 function updateChart(){
-    groups_array = Object.values(current_data.mmp_groups);
-    var rectWidth = w/(groups_array.length + 1);
+    groups_array = Object.values(processed_data.mmp_groups).filter(element => element.traced);
+
+    let num_of_groups = groups_array.length;
+
+    var rectWidth = w/(num_of_groups + 1);
     var rectHeight = 100; // should probably scale these...
 
     // update all positions
     for (i = 0; i < groups_array.length; i++){
         let mmpgroup = groups_array[i];
-        mmpgroup.updatePos(rectHeight);
+        mmpgroup.updatePos(num_of_groups, rectHeight, false);
         mmpgroup.events.forEach(element => element.updatePos());
     };
 
     //ResetPan();
     
-    current_data.relationships.forEach(element => element.updatePos());
+    processed_data.relationships.forEach(element => element.updatePos());
     //
 
     // move mmp groups to the correct origin

@@ -233,6 +233,7 @@ function setFullProfileTarget(id, show){
   else if (!show){FullProfileAnchor.classList.add('hide')};
 }
 
+// all functions related to Tracing
 function setTraceGroupTarget(id, show){
   const TraceGroupButton = document.getElementById('TraceGroup');
 
@@ -241,15 +242,31 @@ function setTraceGroupTarget(id, show){
   else if (!show){TraceGroupButton.classList.add('hide')};
 }
 
+function updateTracedBoolean(current_data){
+  for (id in processed_data.mmp_groups){
+    let group = processed_data.mmp_groups[id];
+    group.traced = false;
+  }
+  for (id in current_data.mmp_groups){
+    processed_data.mmp_groups[id].traced = true;
+  }
+}
+
 function TraceGroup(id){
   d3.select('#main_g').remove();
-  drawChart(processed_data.mmp_groups[id].buildTraceDataset());
+  let traced_data = processed_data.mmp_groups[id].buildTraceDataset();
+  drawChart(traced_data);
 }
 
 function handleCancelTrace(){
   d3.select('#main_g').remove();
   drawChart(processed_data);
 }
+
+function updateSliders(current_data){
+  return 0;
+}
+
 
 const url_obj = new URL(document.URL); // makes a url object
 const params_obj = new URLSearchParams(url_obj.search);
