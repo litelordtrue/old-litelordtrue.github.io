@@ -42,8 +42,11 @@ function handlePageInitRead(map_id){
 
     // read map data
     let map_source = "/data/map-profiles/" + map_id;
-    var map_promise = d3.json(map_source)
-    .then(function(data){ // imports groups data from map-profiles/[ fill in MAP_ID here ]
+    //let map_source = "https://live-mapping-militants.pantheonsite.io/data/map-profiles/23";
+    var map_promise = d3.json(map_source);
+
+
+    map_promise.then(function(data){ // imports groups data from map-profiles/[ fill in MAP_ID here ]
       handleMapJSONRead(data);
     });
     //

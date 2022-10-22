@@ -18,7 +18,7 @@ function handleCheckbox(classname) {
 
 function handleInactiveCheckbox() {
   let checkBox = document.getElementById("inactiveCheckbox");
-  let inactives = Object.values(current_data.mmp_groups).filter(element => element.active == "Inactive");
+  let inactives = Object.values(processed_data.mmp_groups).filter(element => element.active != "Active");
 
   for (i=0; i<inactives.length; i++){
     let group = inactives[i];
@@ -34,8 +34,6 @@ function handleInactiveCheckbox() {
       let relationship = group.links.relationships[k];
       inactiveSelect.push(d3.select("#rel" + relationship));
     };
-
-    console.log(inactiveSelect);
     
     if (checkBox.checked == false){
       inactiveSelect.forEach(element => element.classed("hide", true));
