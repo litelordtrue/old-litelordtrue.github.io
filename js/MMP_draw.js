@@ -214,8 +214,18 @@ function drawChart(current_data){
       handleClick("relationship", i)
     });
 
+    // TO DO FIX THIS? what is happening
     let zoomRange = document.getElementById('zoomRange');
     zoomRange.on
+
+    // create an svg element to cancel trace that only appears when trace is active
+    var cancel_trace = main_g.append("g").attr("id", "cancel_trace");
+    cancel_trace.attr("transform", "translate(" + (w-100) + "," + 100 + ")").attr("width", 90).attr("height", 50);
+    cancel_trace.classed("hide", (current_data == processed_data));
+
+    cancel_trace.append('rect').attr('width', 90).attr("height", 50).attr("fill", "white").attr("stroke", "black");
+    cancel_trace.append('foreignObject').attr('width', 90).attr("height", 50).append('xhtml:p').html("Cancel Trace");
+    cancel_trace.on("click", handleCancelTrace);
   }
 //
 

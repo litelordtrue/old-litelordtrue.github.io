@@ -196,7 +196,7 @@ function handleClick(type, clicked_data){
   // handle relationship click
   else if (type === "relationship") {
     clicked_type = "relationship";
-    group1_data = current_data.mmp_groups[clicked_data.group1];
+    group1_data = processed_data.mmp_groups[clicked_data.group1];
     group2_data = processed_data.mmp_groups[clicked_data.group2];
     name = "" + group1_data.abbr + " and " + group2_data.abbr + " " + clicked_data.relationship_type;
     description = clicked_data.description;
