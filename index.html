@@ -87,14 +87,6 @@
 
                                         <div class="form-check form-switch">
                                             <input class="activationCheckbox form-check-input" type="checkbox"
-                                                id="inactiveCheckbox"
-                                                onclick="handleInactiveCheckbox()" checked="true">
-                                            <label for="inactiveCheckbox" class="form-check-label">Toggle Inactive
-                                                Groups</label>
-                                        </div>
-
-                                        <div class="form-check form-switch">
-                                            <input class="activationCheckbox form-check-input" type="checkbox"
                                                 id="attackCheckbox" onclick="handleCheckbox('attack')"
                                                 checked="true">
                                             <label for="attackCheckbox" class="form-check-label">Toggle Attacks</label>
@@ -127,6 +119,43 @@
                                         <br>
                                         <button id="cancelTrace" onclick="handleCancelTrace()">Cancel Trace</button>
 
+                                        <div class="legend">
+                                            <p> Groups Legend </p>
+                                            <ul>
+                                              <li> 
+                                                <input type="checkbox" class="btn-check" id="activeCheckbox" checked autocomplete="off" onclick="handleGroupCheckboxes()"/>
+                                                <label class="btn btn-primary" for="activeCheckbox">Active</label>
+                                              </li>               
+                                              <li>
+                                                <input type="checkbox" class="btn-check" id="inactiveCheckbox" checked autocomplete="off" onclick="handleGroupCheckboxes()"/>
+                                                <label class="btn btn-primary" for="inactiveCheckbox">Inactive</label>
+                                              </li>  
+                                            </ul>
+                                            <p> Relationships Legend </p>
+                                            <ul>
+                                              <li>   
+                                                <input type="checkbox" class="btn-check" id="btn-check" checked autocomplete="off" onclick="handleCheckbox('Affiliation')"/>
+                                                <label class="btn btn-primary" for="btn-check">Affiliation</label>
+                                              </li>               
+                                              <li>
+                                                <input type="checkbox" class="btn-check" id="AllyCheckbox" checked autocomplete="on" onclick="handleCheckbox('Ally')"/>
+                                                <label class="btn btn-primary" for="AllyCheckbox">Ally</label>
+                                              </li> 
+                                              <li>
+                                                <input type="checkbox" class="btn-check" id="MergerCheckbox" checked autocomplete="off" onclick="handleCheckbox('Merger')"/>
+                                                <label class="btn btn-primary" for="MergerCheckbox">Merger</label>
+                                              </li>               
+                                              <li>
+                                                <input type="checkbox" class="btn-check" id="RivalCheckbox" checked autocomplete="off" onclick="handleCheckbox('Rival')"/>
+                                                <label class="btn btn-primary" for="RivalCheckbox">Rival</label>
+                                              </li>                              
+                                              <li>
+                                                <input type="checkbox" class="btn-check" id="SplitCheckbox" checked autocomplete="off" onclick="handleCheckbox('Split')"/>
+                                                <label class="btn btn-primary" for="SplitCheckbox">Split</label>
+                                              </li>             
+                                            </ul>
+                                          </div>
+                    
                                     </div>
 
                                     <div class="sidebar-sticky">
@@ -166,7 +195,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <a id="TraceGroupAnchor">
-                                                    <button type="button" class="btn btn-secondary" id="TraceGroup">Trace Group</button>
+                                                    <button type="button" class="btn btn-secondary close" id="TraceGroup" data-bs-dismiss="modal">Trace Group</button>
                                                 </a>
                                                 <a id="FullProfileAnchor">
                                                     <button type="button" class="btn btn-primary" id="FullProfile">See Full Profile</button>
@@ -176,7 +205,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- Aaron you can start coding here!!! -->
                                     <div id="main_timeline" class="main_timeline">
                                         <svg id="svg">
                                             <defs></defs>

@@ -9,6 +9,13 @@ body {
   outline: 2px solid rgb(121,10,15);
 }
 
+div#main_timeline{
+  height: 800px;
+  width: 1100px;
+  border:2px solid #000;
+  overflow: scroll;
+}
+
 .hide{
   display: none;
 }

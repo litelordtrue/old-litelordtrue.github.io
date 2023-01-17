@@ -13,24 +13,27 @@ function drawChart(current_data){
     var middlelayer = main_g.append('g').attr("id", "middlelayer");
     var toplayer = main_g.append('g').attr("id", "toplayer");
     var tAxis = d3.axisLeft(tScale).ticks(Math.ceil(h/svg_h)*12); //so there is ~12 ticks in the svg at any point
-  
+
     main_g.append("g")
     .attr("class", "axis")
     .attr("transform", "translate(" + padding + ",0)") // something needs to be done about this, some words are getting cut off
     .call(tAxis);
   
-    zoom.translateExtent([[0,0], [w,h]]); // making sure you can only translate within bounds
+    //zoom.translateExtent([[0,0], [w,h]]); // making sure you can only translate within bounds
   
     var groups_array = Object.values(current_data.mmp_groups);
     let num_of_groups = groups_array.length;
   
-    var rectWidth = w/(num_of_groups + 1);
+    var rectWidth = 200;
     var rectHeight = 100; // should probably scale these...
+
+    var w = ((num_of_groups + 1) * rectWidth) + padding;
+    svg.attr("width", w);
   
     // fixing y and x for mmp_groups and their subsequent events
     for (i = 0; i < groups_array.length; i++){
       let mmpgroup = groups_array[i];
-      mmpgroup.updatePos(num_of_groups, rectHeight, true);
+      mmpgroup.updatePos(num_of_groups, rectWidth, true);
       mmpgroup.events.forEach(element => element.updatePos());
     };
   
@@ -224,7 +227,7 @@ function drawChart(current_data){
     cancel_trace.classed("hide", (current_data == processed_data));
 
     cancel_trace.append('rect').attr('width', 90).attr("height", 50).attr("fill", "white").attr("stroke", "black");
-    cancel_trace.append('foreignObject').attr('width', 90).attr("height", 50).append('xhtml:p').html("Cancel Trace");
+    cancel_trace.append('foreignObject').attr('width', 90).attr("height", 50).append('xhtml:p').html("Restore Default Map");
     cancel_trace.on("click", handleCancelTrace);
   }
 //
@@ -232,7 +235,7 @@ function drawChart(current_data){
 var working_div = document.getElementById("main_timeline");
 
 // setting up a workspace. I predict that many many errors will come of this design.....
-var w = .99*working_div.clientWidth; // pull the available space of the div
+//var w = Object.keys(processed_data.mmp_groups).length * rectWidth; // pull the available space of the div
 var svg_h = 750;
 const default_height = svg_h;
 var h = ratio_param * default_height; // this no longer sets the height of the svg, but rather the height of the elements within it!
@@ -240,7 +243,7 @@ var padding = 50;
 var radius = 15;
 
 var svg = d3.select("#svg")
-.attr("height", svg_h).attr("width", w);
+.attr("height", svg_h)//.attr("width", w);
 
 function handleZoom(e) {
     d3.select('#main_g').attr("transform", e.transform);
@@ -249,7 +252,7 @@ function handleZoom(e) {
 let zoom = d3.zoom()
 .on('zoom', handleZoom)
 .scaleExtent([1,1]) // disables zoom
-.translateExtent([[0,0], [w,h]]); // keeps panning within bounds
+//.translateExtent([[0,0], [w,h]]); // keeps panning within bounds
 
 d3.select('svg').call(zoom);
 
@@ -314,13 +317,12 @@ function updateChart(){
 
     let num_of_groups = groups_array.length;
 
-    var rectWidth = w/(num_of_groups + 1);
     var rectHeight = 100; // should probably scale these...
 
     // update all positions
     for (i = 0; i < groups_array.length; i++){
         let mmpgroup = groups_array[i];
-        mmpgroup.updatePos(num_of_groups, rectHeight, false);
+        mmpgroup.updatePos(num_of_groups, rectWidth, false);
         mmpgroup.events.forEach(element => element.updatePos());
     };
 
@@ -342,6 +344,6 @@ function updateChart(){
     var tAxis = d3.axisLeft().scale(tScale).ticks(Math.ceil(h/svg_h)*12);
     d3.select(".axis").transition().duration(500).call(tAxis);
 
-    zoom.translateExtent([[0,0], [w,h]]); // keeps panning within bounds
+    //zoom.translateExtent([[0,0], [w,h]]); // keeps panning within bounds
     d3.select('svg').call(zoom);
 }

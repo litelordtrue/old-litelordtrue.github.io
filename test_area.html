@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <style>
+        div#main_timeline {
+            height: 400px;
+            width: 400px;
+            border:2px solid #000;
+            overflow: scroll;
+        }
+
+        svg#main_g{
+            height: 1100px;
+            width: 1100px;
+        }
     </style>
     <head>
         <meta charset="utf-8">
@@ -19,109 +30,10 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </head>
     <body>
-    
         <div id="main_timeline">
-            <svg id="svg">
-                <defs>
-                    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5"
-                        markerWidth="6" markerHeight="6"
-                        orient="auto-start-reverse">
-                        <path d="M -30 -18 L -38 4 L -30 6 C -26 0 -24 -6 -22 -14 Z" />
-                    </marker>
-                    <g id="handshake">
-                        <path d="M -21 -13 L -10 -12 C -2 -9 11 0 18 11 C 18 13 17 14 14 14 L 1 3 L 13 13 C 14 16 12 18 9 17 L -4 6 L 7 15 C 9 18 6 21 3 20 L -4 14 L 2 19 C 1 21 0 21 -2 21 C -12 18 -21 13 -29 3 Z" stroke="black" fill="blue"></path>
-                        <path d="M -10 -13 C -10 -15 -5 -17 0 -17 C 5 -16 6 -15 8 -13 L 14 -13 L 21 6 L 16 8 L -2 -8 C -3 -8 -5 -8 -6 -7 C -7 -4 -8 -2 -10 -2 C -12 -1 -14 -2 -15 -3 C -15 -5 -14 -6 -12 -8 C -12 -10 -11 -12 -10 -13 m -15 22 C -25 7 -24 6 -22 5 C -21 5 -19 5 -19 7 L -21 11 C -23 12 -24 10 -25 9 M -19 7 C -17 6 -14 7 -14 9 L -17 14 C -19 16 -22 14 -21 11 M -14 9 C -11 7 -8 9 -9 12 L -12 16 C -13 18 -17 18 -17 14 M -9 12 C -7 11 -4 12 -5 15 L -8 19 C -11 21 -13 18 -12 16" stroke="black" fill="red"></path>
-                        <path d="M -30 -18 L -38 4 L -30 7 C -24 2 -22 -3 -21 -13 Z" stroke="black" fill="white"></path>  
-                        <path d="M 14 -13 C 15 -6 17 0 23 7 L 30 3 L 21 -17 Z" stroke="black" fill="white"></path>
-                    </g>
-                </defs>
-            </svg>
+            <svg id="main_g"></svg>
         </div>
-
-        <button id="jumpButton" onclick="handleAnimation()">jump randomly!</button>
-        <input type="range" min="0" max="3" step="1" value="1" id="zoomRange" oninput="handleAnimatedSlider()">
-        <form class="multi-range-field my-5 pb-5">
-            <input id="multi3" class="multi-range" type="range" />
-        </form>
-
         <script type="text/javascript">
-
-
-            $( function() {
-                $( "#slider-range" ).slider({
-                range: true,
-                min: 0,
-                max: 500,
-                values: [ 75, 300 ],
-                slide: function( event, ui ) {
-                    $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-                }
-                });
-                $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-                " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-            } );
-
-
-            var svg = d3.select("#svg")
-            .attr("height", 500).attr("width", 1000)
-            .attr("style", "outline: thin solid red");
-
-            var main_g = svg.append("g").attr("id", "main_g");
-
-            square_size = 50;
-
-            var test_data = {
-                1: {x: 3*square_size, y: 2*square_size},
-                2: {x: 4*square_size, y:square_size},
-                3: {x: 2*square_size, y:2*square_size},
-                4: {x: 3*square_size, y:3*square_size}
-
-            }
-            var rect = main_g.selectAll('foo').data(Object.values(test_data)).enter().append('rect')
-            .attr("height", square_size).attr("width", square_size)
-            .attr("x", function(d){return d.x})
-            .attr("y", function(d){return d.y})
-            .attr("stroke",  "red");
-
-            var defs = main_g.append("defs");
-            
-            defs.append("marker")
-            .attr("id", "triangle")
-            .attr("refX", 13)
-            .attr("refY", 5)
-            .attr("markerWidth", 30)
-            .attr("markerHeight", 30)
-            .attr("markerUnits","userSpaceOnUse")
-            .attr("orient", "auto")
-            .append("path")
-            .attr("d", "M 0 0 12 6 0 12 3 6")
-            .style("fill", "#555");
-
-            const split_mid = "M 90 -195 L -90 195";
-            defs.append("marker").attr("id", "splitmid")
-            .attr("refX", 0).attr("refY", 0).attr("markerWidth", 50).attr("markerHeight", 50).attr("orient", "auto")
-            .append("path").attr("d", split_mid).attr("fill", "black");
-
-
-            var line = main_g.append('polyline')
-            .attr("points", "500,50 500,75 500,100 500,125")
-            .attr("stroke", "red").attr("fill", "none")
-            .attr("marker-end", "url(#triangle)");
-
-            function updateData(){
-                for (id in test_data){
-                    test_data[id].x = 50;
-                }
-            }
-
-            function handleAnimation(){
-                d3.selectAll('rect').transition().duration(1000).attr("x", function(d){return 2000}).attr("y", function(d){return d.y});
-            }
-
-            function handleAnimatedSlider(){
-                let slider = document.getElementById("zoomRange");
-                d3.select('rect').transition().duration(1000).attr("x", square_size*slider.value);
-            }
 
         </script>
     </body>

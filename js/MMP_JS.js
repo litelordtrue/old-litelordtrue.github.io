@@ -16,31 +16,12 @@ function handleCheckbox(classname) {
   }
 }
 
-function handleInactiveCheckbox() {
-  let checkBox = document.getElementById("inactiveCheckbox");
-  let inactives = Object.values(processed_data.mmp_groups).filter(element => element.active != "Active");
-
-  for (i=0; i<inactives.length; i++){
-    let group = inactives[i];
-    let inactiveSelect = [];
-
-    let groupg = d3.select("#g" + group.id);
-    inactiveSelect.push(groupg);
-
-    let eventsg = d3.select("#events" + group.id)
-    inactiveSelect.push(eventsg)
-
-    for (k=0;k<group.links.relationships.length;k++){
-      let relationship = group.links.relationships[k];
-      inactiveSelect.push(d3.select("#rel" + relationship));
-    };
-    
-    if (checkBox.checked == false){
-      inactiveSelect.forEach(element => element.classed("hide", true));
-    } else {
-      inactiveSelect.forEach(element => element.classed("hide", false));
-    }
-  }
+function handleGroupCheckboxes(){
+  let activeCheckbox = document.getElementById('activeCheckbox');
+  let inactiveCheckbox = document.getElementById('inactiveCheckbox');
+  d3.select('#main_g').remove();
+  let new_drawn_dataset = buildDrawnDataset(activeCheckbox.checked, inactiveCheckbox.checked);
+  drawChart(new_drawn_dataset);
 }
 //
 
@@ -284,3 +265,40 @@ var domain_param = params_obj.get('domain'); // ''
 // var click_param = params_obj.get('click'); // ''
 // moving the div over to replicate real webpage, still not great because its absolute positioning :
 var width_ratio = 1;
+
+// the below functions are used to build a dataset from processed_data. 
+// this dataset contains only the approved criterion: groups (active or all), events (on or off), relationships (checklist on ally, split, rival)
+
+// homebrew filter function on objects. turns object into array, filters, then returns the new object.
+Object.filter = (obj, predicate) => Object.fromEntries(Object.entries(obj).filter(predicate));
+
+function filterRelationshipsById(id_array, relationship){
+  if (id_array.includes(relationship.group1) || id_array.includes(relationship.group2)){
+    return true;
+  }
+  else {return false;}
+}
+
+// buildDrawnDataset walks down the hierarchy. First, it selects only the groups allowed. This means it selects (active/inactive)
+function buildDrawnDataset(active, inactive){
+  let drawn_dataset = {
+    mmp_groups: {},
+    relationships: []
+  };
+
+  if (active && inactive){
+    drawn_dataset.mmp_groups = processed_data.mmp_groups;
+  }
+  else if (active && !inactive){
+    drawn_dataset.mmp_groups = Object.filter(processed_data.mmp_groups, ([id, group]) => group.active == "Active");
+  }
+  else if (!active && inactive){
+    drawn_dataset.mmp_groups = Object.filter(processed_data.mmp_groups, ([id, group]) => group.active != "Active");
+  }
+  
+  let ids = Object.keys(drawn_dataset.mmp_groups);
+
+  drawn_dataset.relationships = processed_data.relationships.filter(rel => filterRelationshipsById(ids, rel));
+
+  return drawn_dataset;
+}
