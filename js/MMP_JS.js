@@ -98,6 +98,9 @@ function handleDomainInput(){
 function handleResolutionChange(ratio){
   h = ratio * default_height;
   tScale.range([padding, h-padding]);
+
+  d3.select("#svg").attr("height", h);
+
   params_obj.set('ratio', ratio); // set ratio in search params
   handleURLManip();
   updateChart();

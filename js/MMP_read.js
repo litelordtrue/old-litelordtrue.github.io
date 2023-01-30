@@ -36,7 +36,7 @@ function handleRelationshipJSONRead(input_data){
     processed_data.relationships.forEach(element => element.updateAdjoiningGroups());
   }
 
-  
+
 
 function handlePageInitRead(map_id){
 
