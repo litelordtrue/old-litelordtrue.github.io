@@ -74,7 +74,7 @@ function drawChart(current_data){
     .attr("data-bs-toggle", "modal") 
     .attr("data-bs-target", "#infoModal")
     .append('xhtml:p')
-    .html(function(d){return d.name})
+    .html(function(d){return d.name + "<br>" + d.startdate.getFullYear()})
     .attr("pointer-events", "none");
 
     // create arrowhead marker in defs for Vlines
@@ -94,6 +94,11 @@ function drawChart(current_data){
         if(d.active === "Active"){return "url(#arrow)"}
         else{return null}
     });
+
+    /*var mmpgroupHLines = mmp_groups
+    .append("polyline")
+    .attr("points", function(d){return "0, 0" + " " + -(d.x-50) + ",0"})
+    .attr("class", "timeline");*/
     // mmp_groups set up!
 
     // drawing mmp_events
@@ -155,16 +160,7 @@ function drawChart(current_data){
     .append("path")
     .attr("d", function(d){
         let dist= d.x2 - d.x1;
-        if (d.relationship_type === "Split"){
-            let split_mid = "m 0 0 " + 
-            "h  " + (dist/2) + 
-            "m 6 -10 l -11 18 m 20 -18 l -11 18 m 5 -8 " +
-            "h " + (dist/2 - 9); // this 9 comes from the specific path I built, which has a distance of 9 between the first and second part of the line
-            return split_mid;
-        }
-        else {
-            return "M 0 0 H " + dist;
-        }
+        return "M 0 0 H " + dist;
     });
   
   
@@ -184,33 +180,22 @@ function drawChart(current_data){
 
     // relationship clickables
     relationships.data(current_data.relationships)
-    .append("rect")
+    .append("circle")
     .attr("class", "clicker")
     // TODO: surely linewidth and clickerwidth do not need to be individually calculated for all of these.... should these be stored in the relationship object instead?
-    .attr("x", function(d){
+    .attr("cx", function(d){
       let linewidth = Math.abs(d.x2 - d.x1);
-      let clickerwidth =  Math.sqrt(linewidth);
-  
-      return .5*linewidth - clickerwidth;
+      return .5*linewidth;
     })
-    .attr("width", function(d){
-      let linewidth = Math.abs(d.x2 - d.x1);
-      let clickerwidth =  Math.sqrt(linewidth);
+    .attr("r", function(d){
+      /*let linewidth = Math.abs(d.x2 - d.x1);
+      let clickerwidth =  .5 * Math.sqrt(linewidth);
 
-      return clickerwidth;
+      return clickerwidth;*/
+
+      return 10;
     })
-    .attr("y", function(d){
-      let linewidth = Math.abs(d.x2 - d.x1);
-      let clickerwidth = Math.sqrt(linewidth);
-      
-      return -.5*clickerwidth;
-    })
-    .attr("height", function(d){
-      let linewidth = Math.abs(d.x2 - d.x1);
-      let clickerwidth =  Math.sqrt(linewidth);
-      
-      return clickerwidth;
-    })
+    .attr("cy", 0)
     .attr("data-bs-toggle", "modal") 
     .attr("data-bs-target", "#infoModal")
     .on("click", function(d, i){
@@ -318,6 +303,7 @@ function updateChart(){
     let num_of_groups = groups_array.length;
 
     var rectHeight = 100; // should probably scale these...
+    var rectWidth = 200;
 
     // update all positions
     for (i = 0; i < groups_array.length; i++){

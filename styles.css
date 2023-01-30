@@ -78,11 +78,11 @@ div#main_timeline{
 .relationship.mmpSelected{
   stroke-width: 4px;
 }
-.relationship rect{
+.relationship .clicker{
   fill-opacity: .5;
 }
 
-.relationship rect:hover{
+.relationship .clicker:hover{
   fill-opacity: 1;
 }
 
