@@ -22,6 +22,17 @@ function handleMapJSONRead(input_data){
     }
   }
 
+function handleMapOrderJSONRead(input_data){
+  console.log(input_data);
+  let order_str = input_data.nodes[0].node.profiles_order;
+  order_array = order_str.split(", ").map(x => Number(x)) 
+  order_array = order_array.filter(id => processed_data.mmp_groups[id] != NaN);
+  for (i=0; i < order_array.length; i++){
+    let id = order_array[i];
+    processed_data.mmp_groups[id].position = i;
+  }
+};
+
 
 function handleRelationshipJSONRead(input_data){
 
@@ -40,7 +51,7 @@ function handleRelationshipJSONRead(input_data){
 
 function handlePageInitRead(map_id){
 
-    // read map data
+    // read map-profiles data
     let map_source = "/data/map-profiles/" + map_id;
     //let map_source = "https://live-mapping-militants.pantheonsite.io/data/map-profiles/23";
     var map_promise = d3.json(map_source);
@@ -48,6 +59,15 @@ function handlePageInitRead(map_id){
 
     map_promise.then(function(data){ // imports groups data from map-profiles/[ fill in MAP_ID here ]
       handleMapJSONRead(data);
+    });
+    //
+
+    // read map data, gives us order of groups
+    let map_order_source = "/data/map-profiles-order/" + map_id;
+    var map_order_promise = d3.json(map_order_source);
+
+    map_order_promise.then(function(data){
+      handleMapOrderJSONRead(data)
     });
     //
   
@@ -74,5 +94,5 @@ function handlePageInitRead(map_id){
       return(events_array); // send up the array of all promises
     }).then(function(d){return Promise.allSettled(d)}); // finally, once all of these promises are settled (whether with or without failure), we send up a promise to represent this completion
   
-    return Promise.all([map_promise, relationship_promise, events_promise]);
+    return Promise.all([map_promise, map_order_promise, relationship_promise, events_promise]);
   }
