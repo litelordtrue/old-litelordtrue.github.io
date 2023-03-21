@@ -1,0 +1,67 @@
+{
+  "attacks": [
+    {
+      "attack": {
+        "item_id": "672",
+        "field_date": "2000-02-25 08:00:00",
+        "field_description": "Bombs exploded on one or more buses aboard the M/V Our Lady of Mediatrix ferry that was traveling to Ozamiz City. MILF commanders were among those blamed for the attack.",
+        "nid": "455",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "673",
+        "field_date": "2000-02-27 08:00:00",
+        "field_description": "A bomb exploded outside dxMS, a Catholic radio station in Cotabato City. The attack was blamed on the MILF, especially because one dxMS host had received MILF death threats. The organization denied involvement.",
+        "nid": "455",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "674",
+        "field_date": "2000-02-27 08:00:00",
+        "field_description": "A bomb exploded outside dxMS, a Catholic radio station in Cotabato City. The attack was blamed on the MILF, especially because one dxMS host had received MILF death threats. The organization denied involvement.",
+        "nid": "455",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "675",
+        "field_date": "2000-03-17 08:00:00",
+        "field_description": "A MILF commander named Abdullah Macapaar, also known as Commander Bravo and generally considered rogue, led an assault on Kauswagan Municipal Hall, reportedly taking 294 hostages and leaving several dead.",
+        "nid": "455",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "676",
+        "field_date": "2003-03-03 08:00:00",
+        "field_description": "A bomb exploded at Davao City International Airport. The MILF was allegedly responsible for the attack. The Philippine government subsequently ordered the arrest of various MILF leaders, although the organization denied involvement.",
+        "nid": "455",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "677",
+        "field_date": "2007-07-10 07:00:00",
+        "field_description": "Filipino Marines were attacked in a MILF-controlled zone while trying to rescue an Italian hostage from the Abu Sayyaf Group (ASG). Several Marines were decapitated. The MILF admitted to the attack, and the attacking group also reportedly included ASG members.",
+        "nid": "455",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "678",
+        "field_date": "2015-01-25 08:00:00",
+        "field_description": "Philippine Special Action Force (SAF) troopers targeted two key bomb makers in an operation in Maguindanao. During the pursuit, the troopers were attacked by rebel forces that included MILF members. The MILF acknowledged the involvement of its members, although it also stated that the SAF operation was not coordinated with them as required by a ceasefire agreement with the government. Consideration of the Bangsamoro Basic Law was temporarily suspended after this attack.",
+        "nid": "455",
+        "field_show_on_map": "0"
+      }
+    }
+  ]
+}

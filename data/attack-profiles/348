@@ -1,0 +1,40 @@
+{
+  "attacks": [
+    {
+      "attack": {
+        "item_id": "302",
+        "field_date": "2012-08-05 07:00:00",
+        "field_description": "BIFF members launched attacks on eleven towns in the province of Maguindanao, focusing on Philippine military targets. Fighting between the BIFF and government forces lasted until the following day. ",
+        "nid": "348",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "303",
+        "field_date": "2014-01-28 08:00:00",
+        "field_description": "The Philippine National Police (PNP) blamed the BIFF for bombing a bus terminal in Maguindanao in an attempt to distract government forces pursuing high-ranking BIFF leaders. The BIFF denied responsibility for the attack.",
+        "nid": "348",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "304",
+        "field_date": "2014-12-09 08:00:00",
+        "field_description": "The BIFF bombed a bus in the province of Bukidnon. Philippine authorities alleged that the attack was a test for new BIFF recruits and may also have been to attempt to extort the bus company, which had previously received demands for payment to the BIFF. ",
+        "nid": "348",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "305",
+        "field_date": "2015-01-25 08:00:00",
+        "field_description": "Philippine Special Action Force (SAF) troopers targeted two key bomb-makers in an operation in Maguindanao. During the pursuit, the troopers were attacked by rebel forces that included BIFF members. Consideration of the Bangsamoro Basic Law, an important element of the MILF-Philippine government negotiations, was temporarily suspended after this attack. ",
+        "nid": "348",
+        "field_show_on_map": "0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "attacks": [
+    {
+      "attack": {
+        "item_id": "679",
+        "field_date": "1972-10-21 07:00:00",
+        "field_description": "MNLF operatives launched an attack on various targets in Marawi City, including the Philippine Constabulary, a government radio station, and a state university. This attack, conducted in response to then-President Ferdinand Marcos declaration of martial law, is generally considered the beginning of the MNLFs armed uprising against the Philippine state.",
+        "nid": "456",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "680",
+        "field_date": "1974-02-07 07:00:00",
+        "field_description": "The MNLF entered Jolo, the capital of Sulu, and reportedly tried to declare Mindanaos independence for the first time. The group allegedly attacked Jolo and held it for days before the Philippine military retook the city. The Battle of Jolo devastated the city, although reports differ over whether the MNLF or government forces were mostly responsible for the destruction.",
+        "nid": "456",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "681",
+        "field_date": "1977-10-10 07:00:00",
+        "field_description": "An MNLF commander invited a Philippine military general to a market in Patikul under the pretense of a ceasefire meeting. MNLF forces then ambushed the general and his men.",
+        "nid": "456",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "14",
+        "field_date": "2000-02-26 08:00:00",
+        "field_description": " Bombs exploded on&nbsp;one or more buses aboard the&nbsp;M/V Our Lady of Mediatrix&nbsp;ferry that was traveling to&nbsp;Ozamiz&nbsp;City.&nbsp;MILF commanders were among those blamed for the attack (39-44 killed, 41-50 injured). ",
+        "nid": "456",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "682",
+        "field_date": "2001-11-19 08:00:00",
+        "field_description": "Misuaris followers attacked multiple Philippine military camps on the island of Jolo, allegedly to undermine ARMM elections in which Misuari was expected to lose.",
+        "nid": "456",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "683",
+        "field_date": "2013-09-09 07:00:00",
+        "field_description": "Forces from Nur Misuaris MNLF faction entered Zamboanga City, attacking government forces and ultimately taking about 300 civilian hostages. Fighting lasted until September 28.",
+        "nid": "456",
+        "field_show_on_map": "0"
+      }
+    },
+    {
+      "attack": {
+        "item_id": "15",
+        "field_date": "2017-04-18 07:00:00",
+        "field_description": " The MILF claimed responsibility for two attacks coordinated in Tacurong, Sultan Kudarat, Philippines. One explosive device detonated near a gas station and a second device targeted police personnel responding to an earlier blast. There were no casualties, but 5 civilians and 9 police officers were wounded (0 killed, 14 injured). ",
+        "nid": "456",
+        "field_show_on_map": "0"
+      }
+    }
+  ]
+}

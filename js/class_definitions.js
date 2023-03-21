@@ -1,5 +1,5 @@
 class mmp_group {
-    constructor(id, name, abbr, startdate, enddate, active, description) {
+    constructor(id, name, abbr, startdate, enddate, active, description, position) {
         this.id = id;
         this.name = name;
         this.abbr = abbr;
@@ -10,6 +10,7 @@ class mmp_group {
         this.x = 0;
         this.y = 0;
         this.description = description;
+        this.position = 0;
         this.events = [];
         this.links = {relationships: [], groups: new Set()};
     }
@@ -28,7 +29,8 @@ class mmp_group {
           }
         
         if (updatex){
-            this.x = (i+1) * rectW;
+            this.x = (this.position + 1) * rectW;
+            //this.x = (i + 1) * rectW;
             this.events.forEach(element => element.x = this.x);
         }
     }
