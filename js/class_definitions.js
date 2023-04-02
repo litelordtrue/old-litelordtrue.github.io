@@ -15,7 +15,7 @@ class mmp_group {
         this.links = {relationships: [], groups: new Set()};
     }
 
-    updatePos(num_of_groups, rectW, updatex){
+    updatePos(rectW, updatex, i = undefined){
         var current_min = tScale.domain()[0]; // finding current minimum year
         var current_max = tScale.domain()[1]; // finding current maximum year
         if(this.startdate >= current_min && this.startdate <= current_max) { // inside tScale domain
@@ -29,8 +29,14 @@ class mmp_group {
           }
         
         if (updatex){
-            this.x = (this.position + 1) * rectW;
-            //this.x = (i + 1) * rectW;
+            if (i == undefined){
+                console.log("abc");
+                this.x = (this.position + 1) * rectW;
+            }
+            else{
+                this.x = (i+1) * rectW;
+            }
+
             this.events.forEach(element => element.x = this.x);
         }
     }

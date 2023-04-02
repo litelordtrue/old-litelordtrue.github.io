@@ -22,18 +22,20 @@ function drawChart(current_data){
     //zoom.translateExtent([[0,0], [w,h]]); // making sure you can only translate within bounds
   
     var groups_array = Object.values(current_data.mmp_groups);
-    let num_of_groups = groups_array.length;
+    groups_array.sort((a,b) => (a.position > b.position) ? 1 : -1);
+    console.log(groups_array);
   
     var rectWidth = 200;
     var rectHeight = 100; // should probably scale these...
 
+    let num_of_groups = groups_array.length;
     var w = ((num_of_groups + 1) * rectWidth) + padding;
     svg.attr("width", w);
-  
+
     // fixing y and x for mmp_groups and their subsequent events
     for (i = 0; i < groups_array.length; i++){
       let mmpgroup = groups_array[i];
-      mmpgroup.updatePos(num_of_groups, rectWidth, true);
+      mmpgroup.updatePos(rectWidth, true, i);
       mmpgroup.events.forEach(element => element.updatePos());
     };
   
@@ -308,7 +310,7 @@ function updateChart(){
     // update all positions
     for (i = 0; i < groups_array.length; i++){
         let mmpgroup = groups_array[i];
-        mmpgroup.updatePos(num_of_groups, rectWidth, false);
+        mmpgroup.updatePos(rectWidth, false);
         mmpgroup.events.forEach(element => element.updatePos());
     };
 
