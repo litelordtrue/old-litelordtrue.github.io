@@ -30,7 +30,6 @@ class mmp_group {
         
         if (updatex){
             if (i == undefined){
-                console.log("abc");
                 this.x = (this.position + 1) * rectW;
             }
             else{
