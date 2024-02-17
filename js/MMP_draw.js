@@ -23,7 +23,6 @@ function drawChart(current_data){
   
     var groups_array = Object.values(current_data.mmp_groups);
     groups_array.sort((a,b) => (a.position > b.position) ? 1 : -1);
-    console.log(groups_array);
   
     var rectWidth = 200;
     var rectHeight = 100; // should probably scale these...
@@ -288,6 +287,7 @@ function handlePageInit(map_id){
     document.getElementById('domainReset').onclick = handleDomainReset;
 
     drawChart(processed_data);
+    handleCheckbox('attack');
     
     /* if there was a click in url, we need to have it clicked
     if (click_param){

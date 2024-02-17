@@ -24,7 +24,8 @@ function handleMapJSONRead(input_data){
 
 function handleMapOrderJSONRead(input_data){
   let order_str = input_data.nodes[0].node.profiles_order;
-  order_array = order_str.split(", ").map(x => Number(x)) 
+  order_array = order_str.split(", ").map(x => Number(x));
+  console.log(order_array);
   order_array = order_array.filter(id => processed_data.mmp_groups[id] != NaN);
   for (i=0; i < order_array.length; i++){
     let id = order_array[i];
@@ -63,8 +64,10 @@ function handlePageInitRead(map_id){
 
     // read map data, gives us order of groups
     let map_order_source = "/data/map-profiles-order/" + map_id;
-    var map_order_promise = d3.json(map_order_source);
-
+    var map_order_promise = map_promise.then(function(){
+      return d3.json(map_order_source);
+    });
+    
     map_order_promise.then(function(data){
       handleMapOrderJSONRead(data)
     });
