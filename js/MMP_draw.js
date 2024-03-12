@@ -326,7 +326,7 @@ function updateChart(){
     // update all positions
     for (i = 0; i < groups_array.length; i++){
         let mmpgroup = groups_array[i];
-        mmpgroup.updatePos(rectWidth, false);
+        mmpgroup.updatePos(rectWidth, rectHeight, false);
         mmpgroup.events.forEach(element => element.updatePos());
     };
 
@@ -337,6 +337,7 @@ function updateChart(){
 
     // move mmp groups to the correct origin
     d3.selectAll(".mmpgroup").transition().duration(500).attr("transform", function(d){return "translate(" + d.x + "," + d.y +")"});
+    d3.selectAll(".mmpgroup").classed("outofbounds", function(d){return !(d.inscope)});
     // extend and retract the downward facing lines from group
     d3.selectAll(".timeline").transition().duration(500).attr("points", function(d){return "0," + (h-d.y-marker_size) + " 0," + rectHeight/2});
     // move attacks to the correct (cx,cy)

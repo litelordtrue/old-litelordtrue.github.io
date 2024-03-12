@@ -11,6 +11,7 @@ class mmp_group {
         this.y = 0;
         this.description = description;
         this.position = 0;
+        this.inscope = true;
         this.events = [];
         this.links = {relationships: [], groups: new Set()};
     }
@@ -20,12 +21,15 @@ class mmp_group {
         var current_max = tScale.domain()[1]; // finding current maximum year
         if(this.startdate >= current_min && this.startdate <= current_max) { // inside tScale domain
             this.y = tScale(this.startdate);
+            this.inscope = true;
           }
           else if (this.startdate < current_min) { // if it happened earlier, put it on top. TODO: make it note somewhere that it is further up, so that it can look different
-            this.y = Math.floor(rectH);
+            this.y = Math.floor(rectH/2);
+            this.inscope = false;
           }
           else if (this.startdate > current_max){
-            console.log(this.abbr + ", far down");
+            this.y = svg_h - rectH;
+            this.inscope = false;
           }
         
         if (updatex){

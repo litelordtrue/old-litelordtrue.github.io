@@ -31,6 +31,10 @@ div#main_timeline{
   opacity: .9;
 }
 
+.mmpgroup.outofbounds rect{
+  stroke: red;
+}
+
 .mmpgroup foreignObject{
   user-select: none;
 }
