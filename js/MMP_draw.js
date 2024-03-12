@@ -34,7 +34,7 @@ function drawChart(current_data){
     // fixing y and x for mmp_groups and their subsequent events
     for (i = 0; i < groups_array.length; i++){
       let mmpgroup = groups_array[i];
-      mmpgroup.updatePos(rectWidth, true, i);
+      mmpgroup.updatePos(rectWidth, rectHeight, true, i);
       mmpgroup.events.forEach(element => element.updatePos());
     };
   
@@ -204,8 +204,23 @@ function drawChart(current_data){
     });
 
     // TO DO FIX THIS? what is happening
-    let zoomRange = document.getElementById('zoomRange');
-    zoomRange.on
+    /* let zoomRange = document.getElementById('zoomRange');
+    zoomRange.on; */
+
+    // setting up brush functionality
+    const brush = d3.brushY();
+
+    function handleBrush({selection}){
+      if (selection){
+        new_min = tScale.invert(selection[0]);
+        new_max = tScale.invert(selection[1]);
+        handleDomainChange(new_min, new_max);
+        d3.select(this).call(brush.move, null);
+      }
+    }
+
+    brush.on("end", handleBrush);
+    const gb = d3.select('#main_g').append('g').attr("id", "gb").attr("class", "brush").call(brush);
 
     // create an svg element to cancel trace that only appears when trace is active
     var cancel_trace = main_g.append("g").attr("id", "cancel_trace");
@@ -236,12 +251,13 @@ function handleZoom(e) {
 }
 
 let zoom = d3.zoom()
-.on('zoom', handleZoom)
-.scaleExtent([1,1]) // disables zoom
-//.translateExtent([[0,0], [w,h]]); // keeps panning within bounds
+  .on('zoom', handleZoom)
+  .scaleExtent([1,1]) // disables zoom
+  //.translateExtent([[0,0], [w,h]]); // keeps panning within bounds
 
-d3.select('svg').call(zoom);
 
+// commented out, i dont want users to pan themselves actuallys
+// d3.select('svg').call(zoom);
 
 var todays_date = new Date();
 var todays_year = todays_date.getFullYear();
@@ -261,14 +277,15 @@ function handlePageInit(map_id){
     let year_min = date_min.getFullYear();
 
     // setting up the domain input textbox
-    let domainInput = document.getElementById('domainInput');
+    
+    //let domainInput = document.getElementById('domainInput');
     let defDomainValue = year_min + "," + todays_year;
     var initDomainValue;
     if (domain_param){initDomainValue = domain_param}
     else {initDomainValue = defDomainValue};
 
-    domainInput.value = initDomainValue;
-    domainInput.placeholder = initDomainValue;
+    //domainInput.value = initDomainValue;
+    //domainInput.placeholder = initDomainValue;
 
     initDomainArray = initDomainValue.split(',');
     for (i=0; i<2; i++){initDomainArray[i] = yearToDate(initDomainArray[i])}; // TO DO REPLACE WITH FOREACH
@@ -280,14 +297,13 @@ function handlePageInit(map_id){
 
     function handleDomainReset(){
         handleDomainChange(date_min, todays_date);
-        domainInput.value = defDomainValue;
-        domainInput.placeholder = defDomainValue;
     }
 
     document.getElementById('domainReset').onclick = handleDomainReset;
 
     drawChart(processed_data);
     handleCheckbox('attack');
+    handleCheckbox('brush');
     
     /* if there was a click in url, we need to have it clicked
     if (click_param){
@@ -333,5 +349,5 @@ function updateChart(){
     d3.select(".axis").transition().duration(500).call(tAxis);
 
     //zoom.translateExtent([[0,0], [w,h]]); // keeps panning within bounds
-    d3.select('svg').call(zoom);
+    //d3.select('svg').call(zoom);
 }

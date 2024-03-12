@@ -17,8 +17,10 @@
         <meta charset="utf-8">
         <title>Testing Stuff</title>
         <script src="https://d3js.org/d3.v7.min.js"></script>
-        <script src="class_definitions.js"></script>
-        <script src="MMP_JS.js"></script>
+        <script src="/js/class_definitions.js"></script>
+        <script src="/js/MMP_JS.js"></script>
+        <script src="/js/MMP_read.js"></script>
+        <script src= "/js/MMP_draw.js"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" media="all" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
@@ -34,7 +36,30 @@
             <svg id="main_g"></svg>
         </div>
         <script type="text/javascript">
+            function handleBrush({selection}){
+                // this updates every move of the brush, not useful rn
+            };
 
+            function handleBrushEnd({selection}){
+                if (selection){
+                    svg.append("rect")
+                        .attr('class', "negative")
+                        .attr("x", 0).attr("y", selection[0])
+                        .attr("width", 1100).attr("height", selection[1] - selection[0])
+                        .attr("fill", "black");
+                }
+                else{
+                    svg.selectAll("rect.negative").remove();
+                }
+            };
+
+            var svg = d3.select('#main_g');
+
+            const brush = d3.brushY()
+                .on("brush", handleBrush)
+                .on("end", handleBrushEnd);
+
+            const gb = svg.append("g").call(brush);
         </script>
     </body>
 </html>

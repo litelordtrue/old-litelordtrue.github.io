@@ -15,14 +15,14 @@ class mmp_group {
         this.links = {relationships: [], groups: new Set()};
     }
 
-    updatePos(rectW, updatex, i = undefined){
+    updatePos(rectW, rectH, updatex, i = undefined){
         var current_min = tScale.domain()[0]; // finding current minimum year
         var current_max = tScale.domain()[1]; // finding current maximum year
         if(this.startdate >= current_min && this.startdate <= current_max) { // inside tScale domain
             this.y = tScale(this.startdate);
           }
           else if (this.startdate < current_min) { // if it happened earlier, put it on top. TODO: make it note somewhere that it is further up, so that it can look different
-            this.y = Math.floor(rectH/2);
+            this.y = Math.floor(rectH);
           }
           else if (this.startdate > current_max){
             console.log(this.abbr + ", far down");

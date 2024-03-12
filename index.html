@@ -112,11 +112,15 @@
                                             id="resolutionText"> 1:1 Scale </span>
                                         <button onclick="handleResetInput()">Reset Pan</button>
 
-                                        <input id="domainInput">
-                                        <button onclick="handleDomainInput()">Change Domain</button>
                                         <button id="domainReset">Reset Domain</button>
                                         <br>
                                         <button id="cancelTrace" onclick="handleCancelTrace()">Cancel Trace</button>
+
+                                        <div class="form-check form-switch">
+                                            <input class="brushCheckbox form-check-input" type="checkbox"
+                                                id="brushCheckbox" onclick = "handleCheckbox('brush')">
+                                            <label for="brushCheckbox" class="form-check-label"> Enable/Disable Brush</label>
+                                        </div>
 
                                         <div class="legend">
                                             <p> Groups Legend </p>

@@ -108,8 +108,8 @@ function handleResolutionChange(ratio){
 
 function handleDomainChange(min, max){ // this works but sort of messes up things. stuff to iron out
   tScale.domain([min, max]);
-  params_obj.set('domain', [min.getFullYear(), max.getFullYear()]); // set domain in search params as years
-  handleURLManip();
+  //params_obj.set('domain', [min.getFullYear(), max.getFullYear()]); // set domain in search params as years
+  //handleURLManip();
   updateChart();
 }
 //
