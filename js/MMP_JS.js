@@ -16,6 +16,14 @@ function handleCheckbox(classname) {
   }
 }
 
+function handleRelationshipCheckboxes(classname){
+  let entityList = d3.select("#main_g").selectAll("." + classname);
+  let checkbox = d3.select("#legend_main_g").selectAll("." + classname);
+  let checked = !(checkbox.classed("off"));
+  entityList.classed("hide", checked);
+  checkbox.classed("off", checked);
+}
+
 function handleGroupCheckboxes(){
   let activeCheckbox = document.getElementById('activeCheckbox');
   let inactiveCheckbox = document.getElementById('inactiveCheckbox');

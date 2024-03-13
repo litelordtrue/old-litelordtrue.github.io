@@ -62,6 +62,13 @@ div#main_timeline{
   stroke-width: 2px;
 }
 
+.relationship text{
+  stroke: none;
+  fill: black;
+  stroke-dasharray: 0,0;
+  font: 14px sans-serif;
+}
+
 .relationship.Split{
   stroke: black;
   fill: grey;
@@ -71,6 +78,10 @@ div#main_timeline{
   stroke: blue;
   fill: cyan;
   stroke-dasharray: 15,5;
+}
+
+.relationship.off{
+  stroke: red;
 }
 
 .relationship.Rival{

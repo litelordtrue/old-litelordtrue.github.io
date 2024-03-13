@@ -60,6 +60,30 @@
                 .on("end", handleBrushEnd);
 
             const gb = svg.append("g").call(brush);
+
+            let relationship_types = Array.from(new Set(["Ally", "Rival", "Split"]));
+            let ex_relationships = [];
+
+            for (i = 0; i < relationship_types.length; i++){
+                let new_rel = {
+                    relationship_type: relationship_types[i],
+                    x1: 0,
+                    x2: 100,
+                    y: 50*i
+                }
+
+                ex_relationships.push(new_rel);
+            };
+            
+            let legend = svg.append("g").attr("id", "legend").attr("transform", "translate(50,50)");
+
+
+            let relationships = legend.selectAll("relationship").data(ex_relationships).enter()
+                .append("g").attr("class", function(d){return "relationship " + d.relationship_type})
+                .attr("transform", function(d){return "translate(" + d.x1 + "," + d.y + ")"})
+                .append("path").attr("d", "M 0 0 H 50");
+
+
         </script>
     </body>
 </html>

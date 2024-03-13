@@ -25,7 +25,7 @@ function handleMapJSONRead(input_data){
 function handleMapOrderJSONRead(input_data){
   let order_str = input_data.nodes[0].node.profiles_order;
   order_array = order_str.split(", ").map(x => Number(x));
-  console.log(order_array);
+  //console.log(order_array);
   order_array = order_array.filter(id => processed_data.mmp_groups[id] != NaN);
   for (i=0; i < order_array.length; i++){
     let id = order_array[i];

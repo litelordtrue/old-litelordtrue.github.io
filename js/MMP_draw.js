@@ -302,6 +302,7 @@ function handlePageInit(map_id){
     document.getElementById('domainReset').onclick = handleDomainReset;
 
     drawChart(processed_data);
+    drawLegend();
     handleCheckbox('attack');
     handleCheckbox('brush');
     
@@ -351,4 +352,73 @@ function updateChart(){
 
     //zoom.translateExtent([[0,0], [w,h]]); // keeps panning within bounds
     //d3.select('svg').call(zoom);
+}
+
+// this function handles the drawing of the legend in the sidebar
+function drawLegend(){
+  let boundingRect = document.getElementById('menu_wrapper').getBoundingClientRect();
+  let svg = d3.select('#legend_svg');
+  //svg.attr("width",boundingRect.width);
+  let main_g = svg.append("g").attr("id", "legend_main_g");
+  //.attr("height", 300);
+  
+  // find which relationships are on this map, in order to not bloat legend with useless information
+  let relationship_types = new Set();
+  processed_data.relationships.forEach(x => relationship_types.add(x.relationship_type));
+  relationship_types = Array.from(relationship_types);
+
+  let ex_relationships = [];
+  for (i = 0; i < relationship_types.length; i++){
+      let new_rel = {
+          relationship_type: relationship_types[i],
+          x1: 10,
+          x2: 110,
+          y: 50*(i+1)
+      }
+
+      ex_relationships.push(new_rel);
+  };
+
+  // set up relationships
+  let relationships = main_g.selectAll("relationship").data(ex_relationships).enter()
+    .append("g").attr("class", function(d){return "relationship " + d.relationship_type})
+    .attr("transform", function(d){return "translate(" + d.x1 + "," + d.y + ")"});
+
+    // relationship lines
+    relationships.data(ex_relationships)
+      .append("path")
+      .attr("d", "M 0 0 H 100");
+  
+  
+    // relationship endpoint circles
+    // first circle
+    relationships.data(ex_relationships)
+      .append("circle")
+      .attr("cx", 0)
+      .attr("cy", 0)
+      .attr("r", 2.5)
+    // second circle
+    relationships.data(ex_relationships)
+      .append("circle")
+      .attr("cx", 100)
+      .attr("cy", 0)
+      .attr("r", 2.5);
+
+    // labels
+    relationships.data(ex_relationships)
+      .append("text")
+      .attr("transform", "translate(50,-10)")
+      .text(function(d){return d.relationship_type});
+
+    // relationship clickables
+    relationships.data(ex_relationships)
+      .append("circle")
+      .attr("class", "clicker")
+      .attr("cx", 50)
+      .attr("r", 10)
+      .attr("cy", 0)
+      .on("click", function(d, i){
+        handleRelationshipCheckboxes(i.relationship_type);
+      });
+
 }
