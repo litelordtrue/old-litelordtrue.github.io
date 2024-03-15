@@ -17,11 +17,19 @@ function handleCheckbox(classname) {
 }
 
 function handleRelationshipCheckboxes(classname){
-  let entityList = d3.select("#main_g").selectAll("." + classname);
-  let checkbox = d3.select("#legend_main_g").selectAll("." + classname);
-  let checked = !(checkbox.classed("off"));
+  let entityList, checkbox, checked;
+  if (classname.length == 0){
+    entityList = d3.select("#main_g").selectAll(".relationship");
+    checkbox = document.getElementById("relationshipCheckbox");
+    checked = !(checkbox.checked);
+  }
+  else{
+    entityList = d3.select("#main_g").selectAll(".relationship." + classname);
+    checkbox = d3.select("#legend_main_g").selectAll(".relationship." + classname);
+    checked = !(checkbox.classed("off"));
+    checkbox.classed("off", checked);
+  }
   entityList.classed("hide", checked);
-  checkbox.classed("off", checked);
 }
 
 function handleGroupCheckboxes(){
@@ -49,6 +57,30 @@ function DateToNice(date){
 }
 //
 
+// specific tool to split up relationships in years, just helpful
+function updateRelationshipClumps(relationships){
+  let years = new Set();
+  relationships.forEach(x => years.add(x.date.getFullYear()));
+  bucketed_data = Object.fromEntries(Array.from(years).sort().map(x => [x, []]));
+
+  for (i = 0; i < relationships.length; i++){
+    let datum = relationships[i];
+    let date_string = `${datum.date.getFullYear()}`;
+    bucketed_data[date_string].push(datum);
+  }
+
+  for (i in bucketed_data){
+    let bucket = bucketed_data[i];
+    let n = bucket.length;
+    for (j = 0; j < n; j++){
+      let relationship = bucket[j];
+      relationship.clump = j/n;
+    }
+  }
+
+  return bucketed_data;
+}
+//
 
 // tools to handle timeline resolution 
 resolutionDict = 

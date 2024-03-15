@@ -134,6 +134,7 @@ function drawChart(current_data){
     } 
   
     // fixing y and x position for relationships
+    updateRelationshipClumps(current_data.relationships);
     current_data.relationships.forEach(element => element.updatePos());
 
     // adding marker to create split lines in split relationships
@@ -186,7 +187,7 @@ function drawChart(current_data){
     // TODO: surely linewidth and clickerwidth do not need to be individually calculated for all of these.... should these be stored in the relationship object instead?
     .attr("cx", function(d){
       let linewidth = d.x2 - d.x1;
-      return .5*linewidth;
+      return (.5 + .1*d.clump)*linewidth;
     })
     .attr("r", function(d){
       /*let linewidth = Math.abs(d.x2 - d.x1);

@@ -116,6 +116,7 @@ class mmp_relationship {
         this.x1 = 0;
         this.x2 = 0;
         this.y = 0;
+        this.clump = 0;
     }
 
     // updateAdjoiningGroups updates the links object under mmpgroups to create arrays representing which groups are connected and by which relationships
@@ -136,7 +137,8 @@ class mmp_relationship {
     }
 
     updatePos(){
-        this.y = tScale(this.date);
+        let one_year_height = tScale(new Date(2015, 0)) - tScale(new Date(2014, 0));
+        this.y = tScale(this.date) + (this.clump * one_year_height);
         try{
             this.x1 = processed_data.mmp_groups[this.group1].x;
             this.x2 = processed_data.mmp_groups[this.group2].x;
