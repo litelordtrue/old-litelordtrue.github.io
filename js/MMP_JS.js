@@ -278,6 +278,8 @@ function TraceGroup(id){
   d3.select('#main_g').remove();
   let traced_data = processed_data.mmp_groups[id].buildTraceDataset();
   drawChart(traced_data);
+  handleCheckbox('attack');
+  handleCheckbox('brush');
 }
 
 function handleCancelTrace(){
