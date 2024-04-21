@@ -285,6 +285,8 @@ function TraceGroup(id){
 function handleCancelTrace(){
   d3.select('#main_g').remove();
   drawChart(processed_data);
+  handleCheckbox('attack');
+  handleCheckbox('brush');
 }
 
 function updateSliders(current_data){

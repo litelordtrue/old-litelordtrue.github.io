@@ -170,9 +170,10 @@ function drawChart(current_data){
     // first circle
     relationships.data(current_data.relationships)
     .append("circle")
+    .attr("class", "clicker")
     .attr("cx", 0)
     .attr("cy", 0)
-    .attr("r", 2.5)
+    .attr("r", 10)
     .attr("data-bs-toggle", "modal") 
     .attr("data-bs-target", "#infoModal")
     .on("click", function(d, i){
@@ -181,9 +182,10 @@ function drawChart(current_data){
     // second circle
     relationships.data(current_data.relationships)
     .append("circle")
+    .attr("class", "clicker")
     .attr("cx", function(d){return d.x2 - d.x1})
     .attr("cy", 0)
-    .attr("r", 2.5)
+    .attr("r", 10)
     .attr("data-bs-toggle", "modal") 
     .attr("data-bs-target", "#infoModal")
     .on("click", function(d, i){
