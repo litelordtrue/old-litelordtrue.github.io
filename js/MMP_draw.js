@@ -173,14 +173,25 @@ function drawChart(current_data){
     .attr("cx", 0)
     .attr("cy", 0)
     .attr("r", 2.5)
+    .attr("data-bs-toggle", "modal") 
+    .attr("data-bs-target", "#infoModal")
+    .on("click", function(d, i){
+      handleClick("relationship", i)
+    });
     // second circle
     relationships.data(current_data.relationships)
     .append("circle")
     .attr("cx", function(d){return d.x2 - d.x1})
     .attr("cy", 0)
-    .attr("r", 2.5);
+    .attr("r", 2.5)
+    .attr("data-bs-toggle", "modal") 
+    .attr("data-bs-target", "#infoModal")
+    .on("click", function(d, i){
+      handleClick("relationship", i)
+    });
 
     // relationship clickables
+    /*
     relationships.data(current_data.relationships)
     .append("circle")
     .attr("class", "clicker")
@@ -190,11 +201,6 @@ function drawChart(current_data){
       return (.5 + .1*d.clump)*linewidth;
     })
     .attr("r", function(d){
-      /*let linewidth = Math.abs(d.x2 - d.x1);
-      let clickerwidth =  .5 * Math.sqrt(linewidth);
-
-      return clickerwidth;*/
-
       return 10;
     })
     .attr("cy", 0)
@@ -203,7 +209,7 @@ function drawChart(current_data){
     .on("click", function(d, i){
       handleClick("relationship", i)
     });
-
+    */
     // TO DO FIX THIS? what is happening
     /* let zoomRange = document.getElementById('zoomRange');
     zoomRange.on; */
