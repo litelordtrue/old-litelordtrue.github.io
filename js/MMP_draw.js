@@ -14,10 +14,11 @@ function drawChart(current_data){
     var toplayer = main_g.append('g').attr("id", "toplayer");
     var tAxis = d3.axisLeft(tScale).ticks(Math.ceil(h/svg_h)*12); //so there is ~12 ticks in the svg at any point
 
-    main_g.append("g")
-    .attr("class", "axis")
-    .attr("transform", "translate(" + padding + ",0)") // something needs to be done about this, some words are getting cut off
-    .call(tAxis);
+    var timeline_axis = main_g.append("g")
+      .attr("id", "timeline_axis")
+      .attr("class", "axis")
+      .attr("transform", "translate(" + padding + ",0)") // something needs to be done about this, some words are getting cut off
+      .call(tAxis);
   
     //zoom.translateExtent([[0,0], [w,h]]); // making sure you can only translate within bounds
   
@@ -217,7 +218,8 @@ function drawChart(current_data){
     zoomRange.on; */
 
     // setting up brush functionality
-    const brush = d3.brushY();
+    console.log(timeline_axis);
+    const brush = d3.brushY().extent([[0,0], [100,700]]);
 
     function handleBrush({selection}){
       if (selection){
