@@ -33,7 +33,7 @@
     </head>
     <body>
         <div id="main_timeline">
-            <svg id="main_g"></svg>
+            <svg id="main_g" height="1100" width="1200"></svg>
         </div>
         <script type="text/javascript">
             function handleBrush({selection}){
@@ -55,11 +55,11 @@
 
             var svg = d3.select('#main_g');
 
-            const brush = d3.brushY()
+            /*const brush = d3.brushY()
                 .on("brush", handleBrush)
                 .on("end", handleBrushEnd);
 
-            const gb = svg.append("g").call(brush);
+            const gb = svg.append("g").call(brush); */
 
             let relationship_types = Array.from(new Set(["Ally", "Rival", "Split"]));
             let ex_relationships = [];
@@ -78,12 +78,22 @@
             let legend = svg.append("g").attr("id", "legend").attr("transform", "translate(50,50)");
 
 
-            let relationships = legend.selectAll("relationship").data(ex_relationships).enter()
+            /*let relationships = legend.selectAll("relationship").data(ex_relationships).enter()
                 .append("g").attr("class", function(d){return "relationship " + d.relationship_type})
                 .attr("transform", function(d){return "translate(" + d.x1 + "," + d.y + ")"})
-                .append("path").attr("d", "M 0 0 H 50");
+                .append("path").attr("d", "M 0 0 H 50");*/
 
 
+            let testScale = d3.scaleLinear().range([50, 1050]);
+            let tAxis = d3.axisLeft().scale(testScale).tickSize(-1000);
+
+            var timeline_axis = d3.select('#main_g').append("g")
+                .attr("id", "timeline_axis")
+                .attr("class", "axis")
+                .attr("transform", "translate(" + padding + ",0)") // something needs to be done about this, some words are getting cut off
+                .call(tAxis);
+
+            
         </script>
     </body>
 </html>

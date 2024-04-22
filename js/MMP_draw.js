@@ -13,12 +13,6 @@ function drawChart(current_data){
     var middlelayer = main_g.append('g').attr("id", "middlelayer");
     var toplayer = main_g.append('g').attr("id", "toplayer");
     var tAxis = d3.axisLeft(tScale).ticks(Math.ceil(h/svg_h)*12); //so there is ~12 ticks in the svg at any point
-
-    var timeline_axis = main_g.append("g")
-      .attr("id", "timeline_axis")
-      .attr("class", "axis")
-      .attr("transform", "translate(" + padding + ",0)") // something needs to be done about this, some words are getting cut off
-      .call(tAxis);
   
     //zoom.translateExtent([[0,0], [w,h]]); // making sure you can only translate within bounds
   
@@ -31,6 +25,13 @@ function drawChart(current_data){
     let num_of_groups = groups_array.length;
     var w = ((num_of_groups + 1) * rectWidth) + padding;
     svg.attr("width", w);
+
+    tAxis.tickSizeInner(-w); //extending lines outward, surely will be removed in two weeks
+    var timeline_axis = main_g.append("g")
+      .attr("id", "timeline_axis")
+      .attr("class", "axis")
+      .attr("transform", "translate(" + padding + ",0)") // something needs to be done about this, some words are getting cut off
+      .call(tAxis);
 
     // fixing y and x for mmp_groups and their subsequent events
     for (i = 0; i < groups_array.length; i++){
@@ -218,7 +219,6 @@ function drawChart(current_data){
     zoomRange.on; */
 
     // setting up brush functionality
-    console.log(timeline_axis);
     const brush = d3.brushY().extent([[0,0], [100,700]]);
 
     function handleBrush({selection}){
