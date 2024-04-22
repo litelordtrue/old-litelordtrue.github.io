@@ -26,7 +26,7 @@ function drawChart(current_data){
     var w = ((num_of_groups + 1) * rectWidth) + padding;
     svg.attr("width", w);
 
-    tAxis.tickSizeInner(-w); //extending lines outward, surely will be removed in two weeks
+    //tAxis.tickSizeInner(-w); //extending lines outward, surely will be removed in two weeks
     var timeline_axis = main_g.append("g")
       .attr("id", "timeline_axis")
       .attr("class", "axis")
@@ -359,6 +359,7 @@ function updateChart(){
 
     // in order to properly transition an axis g object, the d3 axisLeft() must be recreated, since it pulls the construction from this directly. 
     var tAxis = d3.axisLeft().scale(tScale).ticks(Math.ceil(h/svg_h)*12);
+    //tAxis.tickSizeInner(-w); //extending lines outward, surely will be removed in two weeks
     d3.select(".axis").transition().duration(500).call(tAxis);
 
     //zoom.translateExtent([[0,0], [w,h]]); // keeps panning within bounds
