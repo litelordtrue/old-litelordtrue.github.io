@@ -111,13 +111,13 @@ resolutionDict =
     slider: 4
   }]
 
-function handleSliderInput(){
+/* function handleSliderInput(){
   let slider = document.getElementById("zoomRange");
   let span = document.getElementById("resolutionText");
   let resolution = resolutionDict[slider.value];
   span.innerText = resolution.text;
   handleResolutionChange(resolution.height);
-}
+} */
 
 function handleResetInput(){
   ResetPan();
@@ -287,10 +287,6 @@ function handleCancelTrace(){
   drawChart(processed_data);
   handleCheckbox('attack');
   handleCheckbox('brush');
-}
-
-function updateSliders(current_data){
-  return 0;
 }
 
 
