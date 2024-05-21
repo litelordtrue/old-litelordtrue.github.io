@@ -38,6 +38,8 @@ function handleGroupCheckboxes(){
   d3.select('#main_g').remove();
   let new_drawn_dataset = buildDrawnDataset(activeCheckbox.checked, inactiveCheckbox.checked);
   drawChart(new_drawn_dataset);
+  handleCheckbox('attack');
+  handleCheckbox('brush');
 }
 //
 
@@ -282,8 +284,16 @@ function TraceGroup(id){
   handleCheckbox('brush');
 }
 
+function handleDomainReset(){
+  var date_min = d3.min(Object.values(processed_data.mmp_groups), function(d){
+    return d.startdate;
+})
+  handleDomainChange(date_min, new Date());
+}
+
 function handleCancelTrace(){
   d3.select('#main_g').remove();
+  handleDomainReset();
   drawChart(processed_data);
   handleCheckbox('attack');
   handleCheckbox('brush');
