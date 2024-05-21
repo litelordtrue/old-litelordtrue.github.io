@@ -81,17 +81,6 @@ function updateRelationshipClumps(relationships){
 
 // tools to handle timeline resolution 
 // deleted a bunch of this stuff. 
-
-function handleDomainInput(){
-  let input_box = document.getElementById("domainInput");
-  let input = input_box.value;
-  let year_array = input.split(",");
-  let new_min = yearToDate(year_array[0]);
-  let new_max = yearToDate(year_array[1]);
-
-  handleDomainChange(new_min, new_max);
-  input_box.placeholder = input; // sets "grey" text in background
-}
 //
 
 function handleResolutionChange(ratio){
