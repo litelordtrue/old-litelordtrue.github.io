@@ -43,17 +43,6 @@ function handleGroupCheckboxes(){
 }
 //
 
-// outputting dates nicely
-function yearToDate(year){
-  return parseTime(year + "-01-01");
-}
-
-// surely there is a list of months somewhere and I don't need to create it.
-
-// DELETED DateToNice. Obsolete code. 
-
-//
-
 // specific tool to split up relationships in years, just helpful
 function updateRelationshipClumps(relationships){
   let years = new Set();
@@ -83,17 +72,6 @@ function updateRelationshipClumps(relationships){
 // deleted a bunch of this stuff. 
 //
 
-function handleResolutionChange(ratio){
-  h = ratio * default_height;
-  tScale.range([padding, h-padding]);
-
-  d3.select("#svg").attr("height", h);
-
-  params_obj.set('ratio', ratio); // set ratio in search params
-  handleURLManip();
-  updateChart();
-}
-
 function handleDomainChange(min, max){ // this works but sort of messes up things. stuff to iron out
   tScale.domain([min, max]);
   //params_obj.set('domain', [min.getFullYear(), max.getFullYear()]); // set domain in search params as years
@@ -101,13 +79,6 @@ function handleDomainChange(min, max){ // this works but sort of messes up thing
   updateChart();
 }
 //
-
-// functions to save parameters from URL (based on user search) in url_obj
-
-function handleURLManip(){
-  url_obj.search = params_obj; // this sets the search in the url object to what we modified in our parameter object
-  history.replaceState(null, '', url_obj.pathname + url_obj.search); // this just changes the url without actually loading it
-}
 
 
 // functions for mmp_groups

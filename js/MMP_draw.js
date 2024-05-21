@@ -291,15 +291,14 @@ function handlePageInit(map_id){
     
     //let domainInput = document.getElementById('domainInput');
     let defDomainValue = year_min + "," + todays_year;
-    var initDomainValue;
-    if (domain_param){initDomainValue = domain_param}
-    else {initDomainValue = defDomainValue};
+    var initDomainValue = defDomainValue;
 
     //domainInput.value = initDomainValue;
     //domainInput.placeholder = initDomainValue;
 
+    // outputting dates nicely
     initDomainArray = initDomainValue.split(',');
-    for (i=0; i<2; i++){initDomainArray[i] = yearToDate(initDomainArray[i])}; // TO DO REPLACE WITH FOREACH
+    for (i=0; i<2; i++){initDomainArray[i] = parseTime(`${initDomainArray[i]}-01-01`)}; // TO DO REPLACE WITH FOREACH
 
     // initiate time scale
     tScale = d3.scaleTime().domain(initDomainArray).range([padding, h-padding]);
