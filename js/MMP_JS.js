@@ -49,14 +49,9 @@ function yearToDate(year){
 }
 
 // surely there is a list of months somewhere and I don't need to create it.
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-function DateToNice(date){
-  let year = date.getFullYear();
-  let month = months[date.getMonth()];
-  let day = date.getDate();
-  return (month + " " + day + ", " + year);
-}
+// DELETED DateToNice. Obsolete code. 
+
 //
 
 // specific tool to split up relationships in years, just helpful
@@ -240,7 +235,7 @@ function handleClick(type, clicked_data){
   const modal_description = document.getElementById('modal_description');
 
   name_span.innerText = name;
-  modal_date.innerText = DateToNice(date);
+  modal_date.innerText = date.toLocaleDateString("US", {day: "numeric", month: "long", year: "numeric"});
 
   modal_description.innerText = description;
 
