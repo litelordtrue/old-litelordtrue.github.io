@@ -80,45 +80,7 @@ function updateRelationshipClumps(relationships){
 //
 
 // tools to handle timeline resolution 
-resolutionDict = 
-  [{
-    text: "1:5 Scale",
-    height: .2,
-    slider: 0
-  },
-  {
-    text: "1:2 Scale",
-    height: .5,
-    slider: 1
-  },
-  {
-    text: "1:1 Scale",
-    height: 1,
-    slider: 2
-    
-  },
-  {
-    text: "2:1 Scale",
-    height: 2,
-    slider: 3
-  },
-  {
-    text: "4:1 Scale",
-    height: 4,
-    slider: 4
-  }]
-
-/* function handleSliderInput(){
-  let slider = document.getElementById("zoomRange");
-  let span = document.getElementById("resolutionText");
-  let resolution = resolutionDict[slider.value];
-  span.innerText = resolution.text;
-  handleResolutionChange(resolution.height);
-} */
-
-function handleResetInput(){
-  ResetPan();
-}
+// deleted a bunch of this stuff. 
 
 function handleDomainInput(){
   let input_box = document.getElementById("domainInput");
@@ -293,26 +255,6 @@ function handleCancelTrace(){
   handleCheckbox('attack');
   handleCheckbox('brush');
 }
-
-
-const url_obj = new URL(document.URL); // makes a url object
-const params_obj = new URLSearchParams(url_obj.search);
-
-var ratio_param = params_obj.get('ratio'); // split into individual variables
-if (ratio_param){
-    ratio_param = parseFloat(ratio_param);
-    let slider = document.getElementById("zoomRange");
-    let span = document.getElementById("resolutionText");
-    let resolution = resolutionDict.find(element => element.height === ratio_param); // TO DO. FIX. this may be the most inefficient piece of code EVER written. Fix resolutionDict to actually be a dictionary, and USE IT ACCORDINGLY FFS
-    slider.value = resolution.slider;
-    span.innerText = resolution.text;
-}
-else{ratio_param = 1};
-var domain_param = params_obj.get('domain'); // ''
-// if (domain_param){domain_param = domain_param.split(',')};
-// var click_param = params_obj.get('click'); // ''
-// moving the div over to replicate real webpage, still not great because its absolute positioning :
-var width_ratio = 1;
 
 // the below functions are used to build a dataset from processed_data. 
 // this dataset contains only the approved criterion: groups (active or all), events (on or off), relationships (checklist on ally, split, rival)

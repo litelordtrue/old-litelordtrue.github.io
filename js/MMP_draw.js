@@ -250,7 +250,7 @@ var working_div = document.getElementById("main_timeline");
 //var w = Object.keys(processed_data.mmp_groups).length * rectWidth; // pull the available space of the div
 var svg_h = 750;
 const default_height = svg_h;
-var h = ratio_param * default_height; // this no longer sets the height of the svg, but rather the height of the elements within it!
+var h = default_height; // this no longer sets the height of the svg, but rather the height of the elements within it!
 var padding = 50;
 var radius = 15;
 
